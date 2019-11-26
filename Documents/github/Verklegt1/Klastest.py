@@ -7,7 +7,7 @@ class Klastest:
 
     def hildurprint(self):
         for i in range(5):
-            print(str(i)+": allir eru betri en palina")
+            print(str(i)+": allir eru betri en palina nema hildur")
 
     def hello(self,x):
         for _ in range(x):
