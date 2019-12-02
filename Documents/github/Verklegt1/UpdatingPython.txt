@@ -1,0 +1,15 @@
+
+
+#Commands for updating python.
+
+#installing homebrew:
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+#installing python using homebrew:
+  brew install python
+
+#confirming if installed:
+  brew info python
+
+# to run python 3
+  python3 filename.py
