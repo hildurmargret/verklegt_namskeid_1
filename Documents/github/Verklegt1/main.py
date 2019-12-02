@@ -3,6 +3,7 @@ from pagePrints import*
 from Staff import*
 from Voyage import*
 from Destination import*
+from Airplane import*
 
 sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=40, cols=100))
 
@@ -47,3 +48,8 @@ if inp==3:
     dest=Destination()
     print_.window8()
     dest.addInfo()
+
+if inp==4:
+    airp=Airplane()
+    print_.window9()
+    airp.addInfo()

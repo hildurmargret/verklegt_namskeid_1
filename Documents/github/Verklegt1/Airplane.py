@@ -1,4 +1,4 @@
-class Airplane.py:
+class Airplane:
     def __init__(self):
         self.Name=""
         self.airplaneModel=""
