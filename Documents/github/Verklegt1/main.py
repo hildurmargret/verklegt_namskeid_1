@@ -60,13 +60,13 @@ elif inp=='g':  #Get information
     inp=int(input("number: "))
     if inp==1:
         print_.window11()
-        del input
+        del inp
         inp=int(input("number: "))
         if inp==4:
             print_.window12()
-        elif inp==5
+        elif inp==5:
             print_.window12()
-        elif inp==6
+        elif inp==6:
             print_.window12()
             print_.window13()
     elif inp==2:
