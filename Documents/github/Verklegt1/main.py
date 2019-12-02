@@ -50,9 +50,9 @@ if inp=="c":
         dest.addInfo()
 
     elif inp==4:
-        airp=Airplane()
+        new_airplane=Airplane()
         print_.window9()
-        airp.addInfo()  #insert new airplane
+        new_airplane.addInfo()  #insert new airplane
 
 elif inp=='g':  #Get information
     print_.window10() #Staff,airplanes,voyage,destinations
