@@ -12,3 +12,4 @@ class Airplane:
         self.seats=int(input("Number of passenger seats: "))
 #Komment
 #komment
+#hello
