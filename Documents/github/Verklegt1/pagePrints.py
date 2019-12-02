@@ -87,7 +87,7 @@ class pagePrints:
         self.prentButton(36,12,"  Get information  ")
         self.prentButton(36,12,"       Update      ")
         self.prentSpace(10,(self.cols)/2)
-        self.prentWord(7,"Please choose ['C' create, 'G' get, 'U' update]")
+        self.prentWord(7,"Please choose ['c' create, 'g' get, 'u' update]")
         self.prentSpace(1,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
