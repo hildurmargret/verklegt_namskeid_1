@@ -217,3 +217,7 @@ class pagePrints:
         self.prentWord(15,"Type in the information")
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
+
+if __name__ == "__main__":
+    print=pagePrints()
+    print.window9()
