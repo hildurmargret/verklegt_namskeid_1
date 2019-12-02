@@ -11,11 +11,21 @@ class Staff:
       self.rank=""
 
     def addInfo(self):
-        self.name=raw_input("Name: ")
-        self.SSN=raw_input("SSN: ")
-        self.address=raw_input("Address: ")
-        self.phoneNumber=raw_input("Phone number: ")
-        self.mobileNumber=raw_input("Mobile number: ")
-        self.enailAddress=raw_input("Email address: ")
-        self.airplaneLicense=raw_input("Airplane license: ")
-        self.rank=raw_input("Rank: ")
+        self.name=input("Name: ")
+        self.SSN=input("SSN: ")
+        self.address=input("Address: ")
+        self.phoneNumber=input("Phone number: ")
+        self.mobileNumber=input("Mobile number: ")
+        self.enailAddress=input("Email address: ")
+        self.rank=input("Rank: ")
+
+class Pilot(Staff):
+    def __init__(self):
+        super().__init__()
+        self.rank=""
+    def addInfo(self):
+        super().addInfo()
+        self.airplaneLicense=input("Airplane license: ")
+
+#class FlightAttendant(Staff):
+    pass
