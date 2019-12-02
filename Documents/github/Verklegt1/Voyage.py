@@ -8,8 +8,8 @@ class Voyage:
         self.flightDuration=0
 
     def addInfo(self):
-        self.title=input("Name: ")
+        self.title=input("Voyage title: ")
         self.airplaneName=input("Airplane Name: ")
         self.numberOfPilots=input("Number of pilots needed: ")
         self.numberOfCabin=input("Number of cabin crew needed: ")
-        self.flightDuration=input("Flighr duration: ")
+        self.flightDuration=input("Flight duration: ")
