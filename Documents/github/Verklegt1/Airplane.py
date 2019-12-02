@@ -11,3 +11,4 @@ class Airplane:
         self.manufacturer=input("Airplane manufacturer: ")
         self.seats=int(input("Number of passenger seats: "))
 #Komment
+#komment
