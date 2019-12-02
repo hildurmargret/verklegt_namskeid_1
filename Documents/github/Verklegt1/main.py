@@ -52,7 +52,7 @@ if inp=="c":
     elif inp==4:
         airp=Airplane()
         print_.window9()
-        airp.addInfo()
+        airp.addInfo()  #insert new airplane
 
 elif inp=='g':  #Get information
     print_.window10() #Staff,airplanes,voyage,destinations
