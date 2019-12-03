@@ -12,7 +12,6 @@ class Staff:
       self.cancel=0
 
     def addInfo(self):
-        add=1
         self.name=input("Name: ")
         if self.name=="CANCEL":
             self.cancel=1
