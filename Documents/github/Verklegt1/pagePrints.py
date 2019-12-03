@@ -254,20 +254,20 @@ class pagePrints:
         self.prentLina((self.cols)/2)
 
     def window12(self):
-            self.prentLina((self.cols)/2)
-            self.prentSpace(18,(self.cols)/2)
-            self.prentWord(15,"Type SSN of the employee")
-            self.prentSpace(1,(self.cols)/2)
-            self.prentSpace(17,(self.cols)/2)
-            self.prentLina((self.cols)/2)
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Type SSN of the employee")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
 
     def window13(self):
-            self.prentLina((self.cols)/2)
-            self.prentSpace(18,(self.cols)/2)
-            self.prentWord(15,"Save work schedule")
-            self.prentSpace(1,(self.cols)/2)
-            self.prentSpace(17,(self.cols)/2)
-            self.prentLina((self.cols)/2)
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Save work schedule")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
 
     def window14(self):
         self.prentLina((self.cols)/2)
