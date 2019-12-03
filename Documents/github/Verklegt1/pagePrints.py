@@ -316,12 +316,20 @@ class pagePrints:
     def window18(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
-        self.prentWord(15,"Type in date(dd mm yyyy)")
+        self.prentWord(15,"Type in name of the voyage")
         self.prentSpace(1,(self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window19(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Type a week(1-52)")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window20(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
         self.prentWord(15,"1: List all destinations in alphabetical order")
@@ -333,7 +341,7 @@ class pagePrints:
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
-    def window20(self):
+    def window21(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
         self.prentWord(15,"1: Information about employees")
@@ -346,7 +354,7 @@ class pagePrints:
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
-    def window21(self):
+    def window22(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
         self.prentWord(15,"1: Contact name")
@@ -358,7 +366,7 @@ class pagePrints:
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
-    def window22(self):
+    def window23(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(12,(self.cols)/2)
         self.prentWord(15,"Update pilot:")
@@ -377,7 +385,26 @@ class pagePrints:
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
-    def window23(self):
+    def window24(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(11,(self.cols)/2)
+        self.prentWord(15,"Update Cabin crew")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Name")
+        self.prentWord(15,"SSN")
+        self.prentWord(15,"Address")
+        self.prentWord(15,"Phone number")
+        self.prentWord(15,"Mobile number")
+        self.prentWord(15,"Email address")
+        self.prentWord(15,"Rank")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(11,(self.cols)/2)
+        self.prentWord(15,"Type in the information")
+        self.prentSpace(3,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window25(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
         self.prentWord(15,"Type in name of the voyage")
@@ -386,7 +413,7 @@ class pagePrints:
         self.prentLina((self.cols)/2)
 
 
-    def window24(self):
+    def window26(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
         self.prentWord(15,"Type SSN of the employee")
