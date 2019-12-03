@@ -1,7 +1,7 @@
 class Destination:
 
     def __init__(self):
-        self.__country="hi"
+        self.country="hi"
         self.distance=0
         self.airport=""
         self.contactName=""
@@ -17,4 +17,4 @@ class Destination:
 
 if __name__ == '__main__':
     des=Destination()
-    print(des.__country)
+    print(des.country)
