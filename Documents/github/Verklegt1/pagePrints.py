@@ -297,6 +297,30 @@ class pagePrints:
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
+    def window16(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Type in name of the voyage")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window17(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Type in date(dd mm yyyy)")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window18(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"Type in date(dd mm yyyy)")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
     def window19(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
@@ -306,5 +330,50 @@ class pagePrints:
         self.prentWord(15,"0: Back")
         self.prentSpace(14,(self.cols)/2)
         self.prentWord(15,"Please choose [1 or 2] ")
+        self.prentSpace(3,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window20(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(15,(self.cols)/2)
+        self.prentWord(15,"1: Information about employees")
+        self.prentWord(15,"2: Information about contact of the destination")
+        self.prentWord(15,"3: Appointing employees to voyages")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"0: Back")
+        self.prentSpace(13,(self.cols)/2)
+        self.prentWord(15,"Please choose [1,2 or 3] ")
+        self.prentSpace(3,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window21(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(15,(self.cols)/2)
+        self.prentWord(15,"1: Contact name")
+        self.prentWord(15,"2: Contact number")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"0: Back")
+        self.prentSpace(14,(self.cols)/2)
+        self.prentWord(15,"Please choose [1 or 2] ")
+        self.prentSpace(3,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window22(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(12,(self.cols)/2)
+        self.prentWord(15,"Update pilot:")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Name")
+        self.prentWord(15,"SSN")
+        self.prentWord(15,"Address")
+        self.prentWord(15,"Phone number")
+        self.prentWord(15,"Mobile number")
+        self.prentWord(15,"Email address")
+        self.prentWord(15,"Rank")
+        self.prentWord(15,"Airplane license")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(10,(self.cols)/2)
+#        self.prentWord(15,"Type in the information")
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
