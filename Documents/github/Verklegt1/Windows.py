@@ -19,6 +19,8 @@ class Windows():
         elif inp==6:
             print_.window12()
             print_.window13()
+        elif inp==0:
+            self.getInformation(print_)
 
 
     def airplaneInfo(self,print_):
@@ -42,6 +44,8 @@ class Windows():
             self.voyageInfo(print_)
         elif inp==4:
             self.destinationsInfo(print_)
+        elif inp==0:
+            self.mainMenu()
 
 
 
@@ -73,6 +77,8 @@ class Windows():
             self.copyExistingVoyage(print_)
         elif inp==2:
             self.createNewVoyage(print_)
+        elif inp==0:
+            self.create(print_)
 
 
     def flightAttendant(self,print_):
@@ -85,6 +91,7 @@ class Windows():
         print_.window3() #Adding new pilot; info
         new_pilot.addInfo()
 
+
     def createStaff(self,print_):
         print_.window2()
         inp=int(input("number: "))
@@ -92,6 +99,8 @@ class Windows():
             self.pilot(print_)
         elif inp==2:
             self.flightAttendant(print_)
+        elif inp==0:
+            self.create(print_)
 
 
     def create(self,print_):
@@ -105,6 +114,9 @@ class Windows():
             self.createDestinations(print_)
         elif inp==4:
             self.createAirplanes(print_)
+        elif inp==0:
+            self.mainMenu()
+
 
     def mainMenu(self):
         print_=pagePrints(100,40)
