@@ -1,7 +1,7 @@
 class Destination:
 
     def __init__(self):
-        self.country=""
+        self.__country="hi"
         self.distance=0
         self.airport=""
         self.contactName=""
@@ -13,3 +13,8 @@ class Destination:
         self.airport=input("Airport: ")
         self.contactName=input("Contact name: ")
         self.contactNumber=input("Contact number: ")
+
+
+if __name__ == '__main__':
+    des=Destination()
+    print(des.__country)
