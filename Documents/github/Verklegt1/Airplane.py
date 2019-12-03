@@ -9,7 +9,7 @@ class Airplane:
         self.Name=input("Airplane Name: ")
         self.airplaneModel=input("Airplane model: ")
         self.manufacturer=input("Airplane manufacturer: ")
-        self.seats=int(input("Number of passenger seats: "))
+        self.seats=input("Number of passenger seats: ")
 #Komment
 #komment
 #hello
