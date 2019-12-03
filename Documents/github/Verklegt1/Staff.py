@@ -7,8 +7,8 @@ class Staff:
       self.phoneNumber=0
       self.mobileNumber=0
       self.emailAddress=""
-      self.airplaneLicense=""
       self.rank=""
+      self.airplaneLicence=""
 
     def addInfo(self):
         self.name=input("Name: ")
@@ -20,12 +20,6 @@ class Staff:
         self.rank=input("Rank: ")
 
 class Pilot(Staff):
-    def __init__(self):
-        super().__init__()
-        self.rank=""
     def addInfo(self):
         super().addInfo()
-        self.airplaneLicense=input("Airplane license: ")
-
-#class FlightAttendant(Staff):
-    pass
+        self.airplaneLicence=input("Airplane licence: ")
