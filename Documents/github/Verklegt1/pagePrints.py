@@ -129,7 +129,7 @@ class pagePrints:
         self.prentWord(15,"Mobile number")
         self.prentWord(15,"Email address")
         self.prentWord(15,"Rank")
-        self.prentWord(15,"Airplane license")
+        self.prentWord(15,"Airplane licence")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(10,(self.cols)/2)

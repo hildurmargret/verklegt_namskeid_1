@@ -91,7 +91,7 @@ class Windows():
         if inp==1:
             self.pilot(print_)
         elif inp==2:
-            self.lightAttendant(print_)
+            self.flightAttendant(print_)
 
 
     def create(self,print_):
