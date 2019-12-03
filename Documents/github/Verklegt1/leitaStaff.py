@@ -2,7 +2,6 @@
 def leitaStaff(inpt, file):
 
     import csv
-    emp=''
 
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -10,16 +9,16 @@ def leitaStaff(inpt, file):
             if inpt.isdigit():
                 if inpt in row['ssn']:
                     if row['licence']!='N/A':
-                    #emp=row
                         print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
+                        return row['ssn']
                     else:
-                        emp=row
-                        print(row[ssn], row['name'], row['role'], row['rank'])
+                        print(row['ssn'], row['name'], row['role'], row['rank'])
+                        return row['ssn']
             else:
                 if inpt in row['name']:
                     if row['licence']!='N/A':
-                    #emp=row
                         print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
+                        return row['ssn']
                     else:
-                        #emp=row
                         print(row['ssn'], row['name'], row['role'], row['rank'])
+                        return row['ssn']

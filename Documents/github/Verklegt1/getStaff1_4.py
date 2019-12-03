@@ -25,6 +25,6 @@ with open(file,'r') as csv_file:
                 print(row['ssn'], row['name'], row['role'], row['rank'])
         elif inp==4:
             #inpt=input('Please enter the name or SSN of employee')
-            emp=leitaStaff(inpt,file)
-            print(emp)
+            ssn=leitaStaff(inpt,file)
+            #print(ssn)
             break
