@@ -6,6 +6,7 @@ from Airplane import*
 from getStaff1_4 import*
 from Open_file import*
 from printList import*
+from getAircraft import*
 
 
 class Windows():
@@ -56,6 +57,9 @@ class Windows():
 
     def getAirplaneInfo(self,print_):
         print_.window14()
+        inp=int(input("number: "))
+        if inp==1:
+            list_all_aircraft()
 
     def getVoyageInfo(self,print_):
         print_.window15()
