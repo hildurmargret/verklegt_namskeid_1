@@ -9,13 +9,13 @@ def leitaStaff(inpt, file, ssn, rank):
             if inpt.isdigit():
                 if inpt in row['ssn']:
                     if row['licence']!='N/A':
-                        print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
+                        #print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
                         ssn=row['ssn']
                         rank=row['rank']
 
                         return ssn, rank
                     else:
-                        print(row['ssn'], row['name'], row['role'], row['rank'])
+                        #print(row['ssn'], row['name'], row['role'], row['rank'])
                         ssn=row['ssn']
                         rank=row['rank']
 
@@ -23,13 +23,13 @@ def leitaStaff(inpt, file, ssn, rank):
             else:
                 if inpt in row['name']:
                     if row['licence']!='N/A':
-                        print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
+                        #print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
                         ssn=row['ssn']
                         rank=row['rank']
 
                         return ssn, rank
                     else:
-                        print(row['ssn'], row['name'], row['role'], row['rank'])
+                        #print(row['ssn'], row['name'], row['role'], row['rank'])
                         ssn=row['ssn']
                         rank=row['rank']
 
