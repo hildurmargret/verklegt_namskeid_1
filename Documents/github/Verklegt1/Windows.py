@@ -7,6 +7,24 @@ from Airplane import*
 
 class Windows():
 
+    def updateStaff(self,print_):
+        print_.window12()
+
+    def employeesToVoyage(self,print_):
+        print_.window25()
+
+    def updateInformation(self,print_):
+        print_.window21()
+        inp=int(input("number: "))
+        if inp==1:
+            self.updateStaff(print_)
+        elif inp==2:
+            print_.window22()
+        elif inp==3:
+            self.employeesToVoyage(print_)
+        elif inp==0:
+            self.mainMenu()
+
 
 
     def staffInfo(self,print_):
@@ -29,9 +47,11 @@ class Windows():
     def voyageInfo(self,print_):
         print_.window15()
 
-    def voyageInfo(self,print_):
+    def voyageInfoWeek(self,print_):
         print_.window19()
 
+    def destinationsInfo(self,print_):
+        print_.window20()
 
     def getInformation(self,print_):
         print_.window10() #Staff,airplanes,voyage,destinations
