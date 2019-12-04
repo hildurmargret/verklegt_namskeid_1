@@ -4,16 +4,16 @@ def staffInfo(inp):
     import csv
     from leitaStaff import leitaStaff
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     skra='Crew.csv'
 
     #inp=2
-    inpt='3003962187'
+    inpt='son'
 
     file=path+skra
 
-    ssn='yellow'
-    rank=''
+    ssn=['ssn']
+    rank=['rank']
     lines = []
 
     with open(file,'r') as csv_file:
@@ -39,12 +39,10 @@ def staffInfo(inp):
             elif inp==4:
                 #inpt=input('Please enter the name or SSN of employee')
                 ssn,rank=leitaStaff(inpt,file,ssn,rank)
-                #print(row['ssn'])
-                if row['ssn']==ssn:
-                    lina=row['ssn']+','+row['name']+','+row['role']+','+row['rank']+','+row['licence']
-                    arr = lina.split(',')
-                    lines.append(arr)
-                    break
-                #break
-    #print(lines)
+                for i in range(len(ssn)):
+                    if row['ssn']==ssn[i]:
+                        lina=row['ssn']+','+row['name']+','+row['role']+','+row['rank']+','+row['licence']
+                        arr = lina.split(',')
+                        lines.append(arr)
+                        break
     return lines

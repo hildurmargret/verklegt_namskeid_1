@@ -10,7 +10,7 @@ skra2='Crew.csv'
 file2=path+skra2
 
 inp=5
-inpt='man'
+inpt='son'
 ssn=''
 rank=''
 
@@ -18,6 +18,10 @@ with open(file2,'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
         ssn,rank=leitaStaff(inpt,file2,ssn,rank)
+        if row['ssn']==ssn:
+            lina=row['ssn']+','+row['name']+','+row['role']+','+row['rank']+','+row['licence']
+            print(lina)
+
 
 with open(file1,'r') as csvFile:
     reader=csv.DictReader(csvFile)
