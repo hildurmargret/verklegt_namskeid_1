@@ -3,12 +3,16 @@ from Staff import*
 from Voyage import*
 from Destination import*
 from Airplane import*
+from getStaff1_4 import*
+from Open_file import*
+from printList import*
 
 
 class Windows():
 
     def updateStaff(self,print_):
-        print_.window12()
+        pass
+
 
     def employeesToVoyage(self,print_):
         print_.window25()
@@ -27,43 +31,52 @@ class Windows():
 
 
 
-    def staffInfo(self,print_):
+    def getStaffInfo(self,print_):
         print_.window11()
         inp=int(input("number: "))
+        if inp==0:
+            self.getInformation(print_)
         if inp==4:
             print_.window12()
-        elif inp==5:
-            print_.window12()
-        elif inp==6:
-            print_.window12()
-            print_.window13()
-        elif inp==0:
-            self.getInformation(print_)
+            linur=staffInfo(inp)
+
+            for i in range(len(linur)):
+                for j in range(len(linur[0])-1):
+                    print(toPrint[i][j] + ','),
+                print(linur[i][j+1])
+        else:
+            linur=staffInfo(inp)
+            for i in range(len(linur)):
+                for j in range(len(linur[0])-1):
+                    print(linur[i][j] + ','),
+                print(linur[i][j+1])
 
 
-    def airplaneInfo(self,print_):
+
+
+    def getAirplaneInfo(self,print_):
         print_.window14()
 
-    def voyageInfo(self,print_):
+    def getVoyageInfo(self,print_):
         print_.window15()
 
-    def voyageInfoWeek(self,print_):
+    def getVoyageInfoWeek(self,print_):
         print_.window19()
 
-    def destinationsInfo(self,print_):
+    def getDestinationsInfo(self,print_):
         print_.window20()
 
     def getInformation(self,print_):
         print_.window10() #Staff,airplanes,voyage,destinations
         inp=int(input("number: "))
         if inp==1:
-            self.staffInfo(print_)
+            self.getStaffInfo(print_)
         elif inp==2:
-            self.airplaneInfo(print_)
+            self.getAirplaneInfo(print_)
         elif inp==3:
-            self.voyageInfo(print_)
+            self.getVoyageInfo(print_)
         elif inp==4:
-            self.destinationsInfo(print_)
+            self.getDestinationsInfo(print_)
         elif inp==0:
             self.mainMenu()
 
