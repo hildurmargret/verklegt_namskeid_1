@@ -1,5 +1,5 @@
 
-def leitaStaff(inpt, file):
+def leitaStaff(inpt, file, ssn, rank):
 
     import csv
 
@@ -10,15 +10,27 @@ def leitaStaff(inpt, file):
                 if inpt in row['ssn']:
                     if row['licence']!='N/A':
                         print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
-                        return row['ssn']
+                        ssn=row['ssn']
+                        rank=row['rank']
+
+                        return ssn, rank
                     else:
                         print(row['ssn'], row['name'], row['role'], row['rank'])
-                        return row['ssn']
+                        ssn=row['ssn']
+                        rank=row['rank']
+
+                        return ssn, rank
             else:
                 if inpt in row['name']:
                     if row['licence']!='N/A':
                         print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'])
-                        return row['ssn']
+                        ssn=row['ssn']
+                        rank=row['rank']
+
+                        return ssn, rank
                     else:
                         print(row['ssn'], row['name'], row['role'], row['rank'])
-                        return row['ssn']
+                        ssn=row['ssn']
+                        rank=row['rank']
+
+                        return ssn, rank
