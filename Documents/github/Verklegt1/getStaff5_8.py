@@ -11,11 +11,12 @@ file1=path+skra1
 skra2='Crew.csv'
 file2=path+skra2
 
-inpt='Ho'
+inpt='son'
 ssn=[]
 rank=[]
 dest=[]
 linur=[]
+fjoldiAfStad=[]
 
 with open(file2,'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -46,5 +47,9 @@ for i in range(len(linur)):
             elif rank[i]=='Copilot':
                 if ssn[i] in row['copilot'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
+        fjoldiAfStad.append(len(dest))
+
+print(fjoldiAfStad)
 print dest
-    #return dest
+
+#return dest
