@@ -1,5 +1,5 @@
 from Date import*
-def printWorkSchedule(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDept,upcDeptTime,upcArvlTime,pastFlNo,employees):
+def printWS(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDept,upcDeptTime,upcArvlTime,pastFlNo,employees):
 
     for k in range(len(employees)):
         print employees[k]
@@ -23,7 +23,7 @@ def printWorkSchedule(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDep
         print('-----------------------------------------------------------------------------------------------------')
         print
 
-        #input('Choose y to save')
+        #PALINA input('Choose y to save')
     inpt = 1
 
     return inpt

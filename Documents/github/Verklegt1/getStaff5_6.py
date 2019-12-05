@@ -15,7 +15,7 @@ file2=path+skra2
 file3=path+'UpcomingFlights.csv'
 
 inpt='son'
-number = 5
+number = 6
 ssn=[]
 rank=[]
 pastDest=[]
@@ -114,6 +114,6 @@ if number == 5:
         counter=fjoldiAfStad[j]
         print
 elif number == 6:
-    save = printWorkSchedule(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
+    save = printWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
     if save == 1:
         saveWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)

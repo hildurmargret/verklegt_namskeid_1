@@ -9,4 +9,4 @@ def printList(userInput):
             print(toPrint[i][j] + ','),
         print(toPrint[i][j+1])
 
-printList(4)
+printList(3)

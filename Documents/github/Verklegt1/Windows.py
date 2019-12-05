@@ -134,7 +134,7 @@ class Windows():
 
 
     def flightAttendant(self,print_):
-        new_staff=Staff()
+        new_staff=Cabin()
         print_.window4() #Pilot,flight attendant; info
         new_staff.addInfo()
 
