@@ -36,8 +36,10 @@ with open(file2,'r') as csv_file:
         ssn,rank=leitaStaff(inpt,file2,ssn,rank)
         for i in range(len(ssn)):
             if row['ssn']==ssn[i]:
-                lina=row['ssn']+', '+row['name']+', '+row['role']+', '+row['rank']+', '+row['licence']
-                employees.append(lina)
+                if row['role'] == 'Cabincrew':
+                    employees.append(row['ssn'] + ', ' +row['name']+', '+row['role']+', '+row['rank'] + ', ' + row['address'] + ', ' + row['phonenumber'])
+                else:
+                    employees.append(row['ssn'] + ', ' +row['name']+', '+row['role']+', '+row['rank'] + ', ' + row['licence'] + ', ' + row['address'] + ', ' + row['phonenumber'])
                 break
 
 """#Upcoming flights
@@ -100,21 +102,8 @@ for i in range(len(employees)):
                 pastDest.append(row['arrivingAt'])
                 pastDept.append(row['departingFrom'])
 
-            """if rank[i]=='Flight Attendant':
-                if ssn[i] in row['fa1'] and row['arrivingAt']!='KEF':
-                    pastDest.append(row['arrivingAt'])
-                if ssn[i] in row['fa2'] and row['arrivingAt']!='KEF':
-                    pastDest.append(row['arrivingAt'])
-            elif rank[i]=='Flight Service Manager':
-                if ssn[i] in row['fsm'] and row['arrivingAt']!='KEF':
-                    pastDest.append(row['arrivingAt'])
-            elif rank[i]=='Captain':
-                if ssn[i] in row['captain'] and row['arrivingAt']!='KEF':
-                    pastDest.append(row['arrivingAt'])
-            elif rank[i]=='Copilot':
-                if ssn[i] in row['copilot'] and row['arrivingAt']!='KEF':
-                    pastDest.append(row['arrivingAt'])"""
         fjoldiAfStad.append(len(pastDest))
+
 if number == 5:
     counter = 0
     for j in range(len(fjoldiAfStad)):
