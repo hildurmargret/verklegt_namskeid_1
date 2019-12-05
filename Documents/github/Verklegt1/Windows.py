@@ -7,6 +7,7 @@ from getStaff1_4 import*
 from Open_file import*
 from printList import*
 from getAircraft import*
+from listDestinationAlphabetic import*
 
 
 class Windows():
@@ -68,7 +69,13 @@ class Windows():
         print_.window19()
 
     def getDestinationsInfo(self,print_):
-        print_.window20()
+        print_.window20()   #most popular destination and alphabetic
+        inp = int(input("number: "))
+        if inp==1:
+            listAllDestinationsAlph()
+        if inp==0:
+            self.mainMenu() #SKOÐA!!
+
 
     def getInformation(self,print_):
         print_.window10() #Staff,airplanes,voyage,destinations
