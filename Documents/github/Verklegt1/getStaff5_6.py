@@ -4,6 +4,7 @@ import csv
 from leitaStaff import leitaStaff
 from printWorkSchedule import*
 from saveWorkSchedule import*
+from Date import*
 
 path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 skra1='PastFlights.csv'
@@ -14,7 +15,7 @@ file2=path+skra2
 file3=path+'UpcomingFlights.csv'
 
 inpt='son'
-number = 6
+number = 5
 ssn=[]
 rank=[]
 pastDest=[]
@@ -109,7 +110,7 @@ if number == 5:
         print employees[j]
         for i in range(fjoldiAfStad[j]-counter):
             if pastDest[i+counter]!='KEF':
-                print(pastDest[i+counter])
+                print(str(getDay(pastDeptTime[j])) + '/' + str(getMonth(pastDeptTime[j])) + '/' + str(getYear(pastDeptTime[j])) + ': '+ pastDest[i+counter])
         counter=fjoldiAfStad[j]
         print
 elif number == 6:
