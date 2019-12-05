@@ -11,10 +11,11 @@ file1=path+skra1
 skra2='Crew.csv'
 file2=path+skra2
 
-inpt='Virginia'
+inpt='Ho'
 ssn=[]
 rank=[]
 dest=[]
+linur=[]
 
 with open(file2,'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -23,32 +24,27 @@ with open(file2,'r') as csv_file:
         for i in range(len(ssn)):
             if row['ssn']==ssn[i]:
                 lina=row['ssn']+','+row['name']+','+row['role']+','+row['rank']+','+row['licence']
+                linur.append(lina)
                 print(lina)
                 break
 
-with open(file1,'r') as csvFile:
-    reader=csv.DictReader(csvFile)
-    for i in range(len(rank)):
+for i in range(len(linur)):
+    with open(file1,'r') as csvFile:
+        reader=csv.DictReader(csvFile)
         for row in reader:
             if rank[i]=='Flight Attendant':
-                if ssn[i] in row['fa1']:
+                if ssn[i] in row['fa1'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
-                    break
-                if ssn[i] in row['fa2']:
+                if ssn[i] in row['fa2'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
-                    break
             elif rank[i]=='Flight Service Manager':
-                if ssn[i] in row['fsm']:
+                if ssn[i] in row['fsm'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
-                    break
             elif rank[i]=='Captain':
-                if ssn[i] in row['captain']:
+                if ssn[i] in row['captain'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
-                    break
             elif rank[i]=='Copilot':
-                if ssn[i] in row['copilot']:
+                if ssn[i] in row['copilot'] and row['arrivingAt']!='KEF':
                     dest.append(row['arrivingAt'])
-                    break
 print dest
     #return dest
-    #Ef maður leitar bara fullt nafn og fær bara einn upp þá virkar :D
