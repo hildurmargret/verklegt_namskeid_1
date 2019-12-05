@@ -4,7 +4,7 @@
 import csv
 from leitaStaff import leitaStaff
 
-path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 skra1='PastFlights.csv'
 file1=path+skra1
 
@@ -24,9 +24,9 @@ with open(file2,'r') as csv_file:
         ssn,rank=leitaStaff(inpt,file2,ssn,rank)
         for i in range(len(ssn)):
             if row['ssn']==ssn[i]:
-                lina=row['ssn']+','+row['name']+','+row['role']+','+row['rank']+','+row['licence']
+                lina=row['ssn']+', '+row['name']+', '+row['role']+', '+row['rank']+', '+row['licence']
                 linur.append(lina)
-                print(lina)
+                #print(lina)
                 break
 
 for i in range(len(linur)):
@@ -49,7 +49,11 @@ for i in range(len(linur)):
                     dest.append(row['arrivingAt'])
         fjoldiAfStad.append(len(dest))
 
-print(fjoldiAfStad)
-print dest
-
-#return dest
+#Prentun, þarf að setja annars staðar
+counter = 0
+for j in range(len(fjoldiAfStad)):
+    print linur[j]
+    for i in range(fjoldiAfStad[j]-counter):
+        print(dest[i+counter])
+    counter=fjoldiAfStad[j]
+    print
