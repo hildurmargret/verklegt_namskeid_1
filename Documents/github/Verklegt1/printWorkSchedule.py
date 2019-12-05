@@ -3,7 +3,7 @@ def printWorkSchedule(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDep
 
     for k in range(len(employees)):
         print employees[k]
-
+        print
         print('PAST FLIGHTS')
         for j in range(len(pastFlNo)):
             print('Flight number: ' + pastFlNo[j] + ', From ' + pastDept[j] + ' to ' + pastDest[j] + ','),
