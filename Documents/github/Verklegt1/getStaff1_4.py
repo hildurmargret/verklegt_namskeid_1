@@ -7,7 +7,6 @@ def staffInfo(inp):
     path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     skra='Crew.csv'
 
-    #inp=2
     inpt='son'
 
     file=path+skra
