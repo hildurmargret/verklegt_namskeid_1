@@ -24,6 +24,6 @@ def printWorkSchedule(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDep
         print
 
         #input('Choose y to save')
-        inpt = 1
+    inpt = 1
 
-        return inpt
+    return inpt

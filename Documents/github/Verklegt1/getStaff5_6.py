@@ -3,6 +3,7 @@
 import csv
 from leitaStaff import leitaStaff
 from printWorkSchedule import*
+from saveWorkSchedule import*
 
 path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 skra1='PastFlights.csv'
@@ -112,4 +113,6 @@ if number == 5:
         counter=fjoldiAfStad[j]
         print
 elif number == 6:
-    printWorkSchedule(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
+    save = printWorkSchedule(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
+    if save == 1:
+        saveWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
