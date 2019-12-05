@@ -9,6 +9,8 @@ from printList import*
 from getAircraft import*
 from getPilotsByAirplanes import*
 from getPilotByLicence import*
+from listDestinationsAlphabetic import*
+from listDestinationPopulation import*
 
 
 class Windows():
@@ -75,6 +77,13 @@ class Windows():
 
     def getDestinationsInfo(self,print_):
         print_.window20()
+        inp=int(input("number: "))
+        if inp==1:
+            listAllDestinationsAlph()
+        elif inp==2:
+            MostPopularDestination()
+        elif inp ==0:
+            self.mainMenu() #LAGA!!
 
     def getInformation(self,print_):
         print_.window10() #Staff,airplanes,voyage,destinations
