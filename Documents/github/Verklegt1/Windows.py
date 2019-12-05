@@ -8,6 +8,7 @@ from Open_file import*
 from printList import*
 from getAircraft import*
 from getPilotsByAirplanes import*
+from getPilotByLicence import*
 
 
 class Windows():
@@ -62,6 +63,8 @@ class Windows():
         if inp==1:
             list_all_aircraft()
         elif inp==2:
+            pilotsByLicence()
+        elif inp==3:
             pilotsByAirplanes()
 
     def getVoyageInfo(self,print_):

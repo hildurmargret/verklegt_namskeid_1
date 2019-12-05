@@ -25,11 +25,12 @@ def pilotsByAirplanes():
                     dict[key].append(ssn)
 
 
-    print (dict)
 
-    for key in dict:
-        print(key)
-        end=(len(dict[key]))
-        for i in range(0,end,2):
-            print(dict[key][i] + " " + dict[key][i+1])
-        print("")
+#    for key in dict:
+#        print(key)
+#        end=(len(dict[key]))
+#        for i in range(0,end,2):
+#            print(dict[key][i] + " " + dict[key][i+1])
+#        print("")
+
+    return dict
