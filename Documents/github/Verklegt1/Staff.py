@@ -13,6 +13,7 @@ class Staff:
 
     def addInfo(self):
         self.name=input("Name: ")
+
         if self.name=="CANCEL":
             self.cancel=1
             return 0
@@ -46,3 +47,13 @@ class Pilot(Staff):
         super().addInfo()
         if self.cancel!=1:
             self.airplaneLicense=input("Airplane licence: ")
+        path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/Crew.csv"
+        f=open(path, "a")
+        f.write(self.SSN+","+self.name+","+self.rank+","+self.airplaneLicence+","+self.phoneNumber)
+
+class Cabin(Staff):
+    def addInfo(self):
+        super().addInfo()
+        path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/Crew.csv"
+        f=open(path, "a")
+        f.write(self.SSN+","+self.name+","+self.rank+","+self.phoneNumber)
