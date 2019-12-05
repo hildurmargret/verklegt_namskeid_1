@@ -1,4 +1,6 @@
 
+# defstaffInfo2(inp):
+
 import csv
 from leitaStaff import leitaStaff
 
@@ -9,10 +11,10 @@ file1=path+skra1
 skra2='Crew.csv'
 file2=path+skra2
 
-inp=5
-inpt='son'
+inpt='Virginia'
 ssn=[]
 rank=[]
+dest=[]
 
 with open(file2,'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -26,19 +28,27 @@ with open(file2,'r') as csv_file:
 
 with open(file1,'r') as csvFile:
     reader=csv.DictReader(csvFile)
-    for i in range(len(ssn)):
+    for i in range(len(rank)):
         for row in reader:
             if rank[i]=='Flight Attendant':
                 if ssn[i] in row['fa1']:
-                    print(row['arrivingAt'])
+                    dest.append(row['arrivingAt'])
+                    break
                 if ssn[i] in row['fa2']:
-                    print(row['arrivingAt'])
+                    dest.append(row['arrivingAt'])
+                    break
             elif rank[i]=='Flight Service Manager':
                 if ssn[i] in row['fsm']:
-                    print(row['arrivingAt'])
+                    dest.append(row['arrivingAt'])
+                    break
             elif rank[i]=='Captain':
                 if ssn[i] in row['captain']:
-                    print(row['arrivingAt'])
+                    dest.append(row['arrivingAt'])
+                    break
             elif rank[i]=='Copilot':
                 if ssn[i] in row['copilot']:
-                    print(row['arrivingAt'])
+                    dest.append(row['arrivingAt'])
+                    break
+print dest
+    #return dest
+    #Ef maður leitar bara fullt nafn og fær bara einn upp þá virkar :D

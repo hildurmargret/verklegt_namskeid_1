@@ -12,8 +12,8 @@ def staffInfo(inp):
 
     file=path+skra
 
-    ssn=['ssn']
-    rank=['rank']
+    ssn=[]
+    rank=[]
     lines = []
 
     with open(file,'r') as csv_file:
