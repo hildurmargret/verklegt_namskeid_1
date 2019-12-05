@@ -1,14 +1,16 @@
 import csv
 
 def list_all_aircraft():
-    from leitaStaff import leitaStaff
 
-    path='/Users/SaraLind/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+
+    path='/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     skra1='Aircraft.csv'
     skra2='AircraftType.csv'
+    skra3='Crew.csv'
 
     file1 = path + skra1
     file2 = path + skra2
+    file3 = path + skra3
 
     line1 = []
     line2 = []

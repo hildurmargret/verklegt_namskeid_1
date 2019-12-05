@@ -4,7 +4,7 @@ def staffInfo(inp):
     import csv
     from leitaStaff import leitaStaff
 
-    path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    path='/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     skra='Crew.csv'
 
     #inp=2
