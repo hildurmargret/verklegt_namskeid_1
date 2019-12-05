@@ -8,11 +8,13 @@ def pilotsByAirplanes():
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            dict[row['licence']]=[]
+            if row['role']=='Pilot':
+                dict[row['licence']]=[]
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             name=row['name']
+            ssn=row['ssn']
         #    print(name)
             licence=row['licence']
         #    print(licence)
@@ -20,8 +22,14 @@ def pilotsByAirplanes():
             for key in dict:
                 if key==licence:
                     dict[key].append(name)
+                    dict[key].append(ssn)
 
+
+    print (dict)
 
     for key in dict:
-        for value in key:
-            print(key+": "+dict[key][value])
+        print(key)
+        end=(len(dict[key]))
+        for i in range(0,end,2):
+            print(dict[key][i] + " " + dict[key][i+1])
+        print("")
