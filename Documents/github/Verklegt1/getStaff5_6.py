@@ -14,8 +14,8 @@ skra2='Crew.csv'
 file2=path+skra2
 file3=path+'UpcomingFlights.csv'
 
-inpt='Ho'
-number = 6
+inpt='son'
+number = 5
 ssn=[]
 rank=[]
 pastDest=[]

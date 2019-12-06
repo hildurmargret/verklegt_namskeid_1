@@ -1,13 +1,13 @@
-def leitaVoyage():
+import csv
+from Date import*
 
-    import csv
-    from Date import*
+def leitaVoyage():
 
     path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     file1 = path + 'UpcomingFlights.csv'
     file2 = path + 'PastFlights.csv'
 
-    inpt = 'NA8733' #flugnumer
+    inpt = 'NA8734' #flugnumer
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
@@ -16,8 +16,6 @@ def leitaVoyage():
 
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
-
-
 
         for row in csv_reader:
             deptTime = str(getDay(row['departure'])) + '/' + str(getMonth(row['departure'])) + '/' + str(getYear(row['departure'])) + ' at ' + str(getHour(row['departure'])) + ':' + str(getMinute(row['departure']))
