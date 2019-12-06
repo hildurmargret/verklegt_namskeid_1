@@ -40,7 +40,7 @@ def leitaVoyage():
     return voyage
 
 bla = leitaVoyage()
-print(bla[0][0])
-print(bla[0][1])
-print(bla[1][0])
-print(bla[1][1])
+
+for i in range(2):
+    for j in range(2):
+        print(bla[i][j])
