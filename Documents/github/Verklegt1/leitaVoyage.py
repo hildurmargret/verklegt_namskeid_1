@@ -1,10 +1,11 @@
 import csv
 from Date import*
+from OpenFile import*
 
 def leitaVoyage():
 
     path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
-    file1 = path + 'UpcomingFlights copy.csv'
+    #file1 = path + 'UpcomingFlights copy.csv'
     file2 = path + 'PastFlights.csv'
 
     inpt = 'NA013' #flugnumer
@@ -13,9 +14,9 @@ def leitaVoyage():
     voyage = []
     #voyRet = ['VOYAGE RETURN:']
     #voyDep = ['VOYAGE DEPARTURE:']
+    file1=OpenFile('UpcomingFlights copy.csv')
 
-
-    with open(file1,'r') as csv_file:
+    with file1 as csv_file:
         csv_reader = csv.DictReader(csv_file)
 
         for row in csv_reader:
@@ -33,7 +34,7 @@ def leitaVoyage():
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                
+
             elif no%2 != 0 and row['flightNumber'] == ('NA' + dest + str(no-1)):
                 voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
 
