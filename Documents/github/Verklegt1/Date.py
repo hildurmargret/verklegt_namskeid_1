@@ -34,7 +34,7 @@ def getSecond(date):
 
 def getWeekNumber(year, month, date):
     WeekNumber = datetime.date(year, month, date).strftime("%V")
-    print(WeekNumber)
+    return WeekNumber
 
 
 def getDateRangeFromWeek(week_number, year_int):
@@ -49,7 +49,8 @@ def getDateRangeFromWeek(week_number, year_int):
 def time_now():
     now=datetime.datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    print("Current time = ", current_time )
+    return current_time
+    #print("Current time = ", current_time )
 
 
 getDateRangeFromWeek(23, 2019)
