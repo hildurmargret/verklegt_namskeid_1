@@ -4,10 +4,10 @@ from Date import*
 def leitaVoyage():
 
     path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
-    file1 = path + 'UpcomingFlights.csv'
+    file1 = path + 'UpcomingFlights_copy.csv'
     file2 = path + 'PastFlights.csv'
 
-    inpt = 'NA8734' #flugnumer
+    inpt = 'NA0100' #flugnumer
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
@@ -42,4 +42,4 @@ bla = leitaVoyage()
 print bla[0][0]
 print bla[0][1]
 print bla[1][0]
-#print bla[1][1]
+print bla[1][1]
