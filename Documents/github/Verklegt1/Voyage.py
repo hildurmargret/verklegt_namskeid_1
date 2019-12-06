@@ -10,6 +10,15 @@ class Voyage:
 
     def addInfo(self):
         self.title=input("Voyage title: ")
+
+        if self.numberOfPilots < 2:
+            print("Sorry! There must be at least 2 pilots in every voyage. Try again")
+            self.numberOfPilots = input("Number of Pilots: ")
+
+        if self.numberOfCabin < 1:
+            print("Sorry! There must be at least 1 cabin in every voyage. Try again")
+            self.numberOfCabin = input("Number of cabin: ")
+
         if self.title=="CANCEL":
             self.cancel=1
             return 0
