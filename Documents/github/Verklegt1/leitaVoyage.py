@@ -24,10 +24,9 @@ def leitaVoyage():
 
             if no%2 == 0 and row['flightNumber'] == inpt:
                 voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                print('yelo')
+
             elif no%2 == 0 and (row['flightNumber'] == ('NA' + dest + str(no+1))):
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                print('halo')
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
@@ -41,7 +40,7 @@ def leitaVoyage():
     return voyage
 
 bla = leitaVoyage()
-print bla[0][0]
-print bla[0][1]
-print bla[1][0]
-print bla[1][1]
+print(bla[0][0])
+print(bla[0][1])
+print(bla[1][0])
+print(bla[1][1])
