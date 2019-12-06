@@ -11,14 +11,17 @@ def leitaVoyage():
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
-    voyRet = ['VOYAGE RETURN:']
-    voyDep = ['VOYAGE DEPARTURE:']
+    #voyRet = ['VOYAGE RETURN:']
+    #voyDep = ['VOYAGE DEPARTURE:']
 
 
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
 
         for row in csv_reader:
+            voyDep = ['VOYAGE RETURN:']
+            voyRet = ['VOYAGE DEPARTURE:']
+
             deptTime = str(getDay(row['departure'])) + '/' + str(getMonth(row['departure'])) + '/' + str(getYear(row['departure'])) + ' at ' + str(getHour(row['departure'])) + ':' + str(getMinute(row['departure']))
             arvlTime = str(getDay(row['arrival'])) + '/' + str(getMonth(row['arrival'])) + '/' + str(getYear(row['arrival'])) + ' at ' + str(getHour(row['arrival'])) + ':' + str(getMinute(row['arrival']))
 
@@ -30,12 +33,15 @@ def leitaVoyage():
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-
+                
             elif no%2 != 0 and row['flightNumber'] == ('NA' + dest + str(no-1)):
                 voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
 
-            voyage.append(voyDep)
-            voyage.append(voyRet)
+            if len(voyDep) != 1:
+                voyage.append(voyDep)
+            elif len(voyRet) != 1:
+                voyage.append(voyRet)
+
 
     return voyage
 
