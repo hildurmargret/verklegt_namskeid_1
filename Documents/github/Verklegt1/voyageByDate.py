@@ -52,36 +52,17 @@ def voyageByDate():
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
-                    #voyDep.append('VOYAGE DEPARTURE:')
                     voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
                     voyage.append(voyDep)
 
                 elif no%2 != 0:
-                    #voyRet.append('VOYAGE RETURN:')
                     voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
                     voyage.append(voyRet)
-                    #print(voyRet)
-
-                #elif no%2 != 0:
-                #    voyRet.append('VOYAGE RETURN:')
-                #    voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                #    print('eslolo')
-
-                #elif no%2 != 0:
-                #    voyDep.append('VOYAGE DEPARTURE:')
-                #    voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                #    print('helhohoo')
-
-            #if len(voyDep) != 1:
-                #voyage.append(voyDep)
-            #elif len(voyRet) != 1:
-                #voyage.append(voyRet)
             tel=tel+1
 
     return voyDep, voyRet
 
 dep, ret = voyageByDate()
-
 
 for i in range(len(dep)):
     print('VOYAGE DEPARTURE')
