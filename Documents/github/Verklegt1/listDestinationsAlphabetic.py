@@ -1,7 +1,5 @@
 from OpenFile import*
 
-import csv
-
 def listAllDestinationsAlph():
 
     #file = path + skra
