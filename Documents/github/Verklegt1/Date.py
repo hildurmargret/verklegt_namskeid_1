@@ -52,6 +52,12 @@ def time_now():
     return current_time
     #print("Current time = ", current_time )
 
+def date_now():
+    today = datetime.datetime.today()
+    d1 = today.strftime("%Y-%m-%d""T""%H:%M:%S")
+    return d1
+
+
 
 #getDateRangeFromWeek(23, 2019)
 

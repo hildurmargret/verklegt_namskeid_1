@@ -11,8 +11,13 @@ def voyageByDate():
 
     path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 
-    file1=path+'PastFlights.csv'
-    file2=path+'UpcomingFlights copy.csv'
+    today=date_now()
+
+    if today>daterange[1]:
+        file=path+'PastFlights.csv'
+    else:
+        file=path+'UpcomingFlights copy.csv'
+    print file
 
     voyRet = []
     voyDep = []
@@ -28,7 +33,7 @@ def voyageByDate():
     arrHour = []
     tel=0
 
-    with open(file2,'r') as csv_file:
+    with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             depDay.append(str(getDay(row['departure'])))

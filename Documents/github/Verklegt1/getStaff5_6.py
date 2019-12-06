@@ -6,7 +6,7 @@ from printWorkSchedule import*
 from saveWorkSchedule import*
 from Date import*
 
-path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 skra1='PastFlights.csv'
 file1=path+skra1
 
