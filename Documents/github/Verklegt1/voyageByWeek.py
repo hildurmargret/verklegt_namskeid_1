@@ -6,9 +6,10 @@ def voyageByWeek():
 
     path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 
-    inpt=44 #49
+    inpt=50
     inpt_year=2019
     daterange = getDateRangeFromWeek(inpt, inpt_year)
+    #print daterange
 
     firstDay = str(getDay(daterange[1]))
     firstMonth = str(getMonth(daterange[1]))
@@ -38,7 +39,7 @@ def voyageByWeek():
         file=path+'PastFlights.csv'
     else:
         file=path+'UpcomingFlights copy.csv'
-    print file
+    #print file
 
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -56,6 +57,7 @@ def voyageByWeek():
 
             flugnr=row['flightNumber']
             no=int(flugnr[4:len(flugnr)])
+            #print no
 
             if firstDay <= depDay[tel] and firstMonth <= depMonth[tel] and firstYear <= depYear[tel] and lastDay >= depDay[tel] and lastMonth >= depMonth[tel] and lastYear >= depYear[tel]:
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
