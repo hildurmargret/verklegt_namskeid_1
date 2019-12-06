@@ -2,17 +2,34 @@
 import csv
 from Date import*
 
-def voyageByDate():
-
-    inptDate = '20/12/2019'
-    inptDay = str(inptDate[0:2])
-    inptMonth = str(inptDate[3:5])
-    inptYear = str(inptDate[6:10])
+def voyageByWeek():
 
     path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
 
     file1=path+'PastFlights.csv'
     file2=path+'UpcomingFlights copy.csv'
+
+    inpt=33
+    #firstDate, lastDate = getWeek(inpt)
+
+    firstDate='20/12/2019'
+    lastDate='24/12/2019'
+
+    #firstDay = str(getDay(firstDate)
+    #firstMonth = str(getMonth(firstDate)
+    #firstYear = str(getYear(firstDate)
+
+    #lastDay = str(getDay(lastDate)
+    #lastMonth = str(getMonth(lastDate)
+    #lastYear = str(getYear(lastDate)
+
+    firstDay = str(firstDate[0:2]) #LAGA
+    firstMonth = str(firstDate[3:5]) #LAGA
+    firstYear = str(firstDate[6:10]) #LAGA
+
+    lastDay = str(lastDate[0:2]) #LAGA
+    lastMonth = str(lastDate[3:5]) #LAGA
+    lastYear = str(lastDate[6:10]) #LAGA
 
     voyRet = []
     voyDep = []
@@ -45,22 +62,20 @@ def voyageByDate():
             flugnr=row['flightNumber']
             no=int(flugnr[4:len(flugnr)])
 
-            if inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
+            if firstDay <= depDay[tel] and firstMonth <= depMonth[tel] and firstYear <= depYear[tel] and lastDay >= depDay[tel] and lastMonth >= depMonth[tel] and lastYear >= depYear[tel]:
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
                     voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                    #voyage.append(voyDep)
 
                 elif no%2 != 0:
                     voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                    #voyage.append(voyRet)
             tel=tel+1
 
     return voyDep, voyRet
 
-dep, ret = voyageByDate()
+dep, ret = voyageByWeek()
 
 for i in range(len(dep)):
     print('VOYAGE DEPARTURE')
@@ -68,5 +83,3 @@ for i in range(len(dep)):
     print('VOYAGE RETURN')
     print ret[i]
     print
-
-#VANTAR HINN FILE
