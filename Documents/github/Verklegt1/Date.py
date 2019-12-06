@@ -43,7 +43,7 @@ def getDateRangeFromWeek(week_number, year_int):
     for day in range(7):
         week_date = datetime.datetime.strptime(year+"-W{}".format(week_number)+ '-{}'.format(day), "%Y-W%W-%w").isoformat()
         weekdates.append(week_date)
-    print(weekdates)
+    return weekdates
 
 
 def time_now():
