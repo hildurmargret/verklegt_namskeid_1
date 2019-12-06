@@ -13,11 +13,10 @@ def voyageByDate():
 
     today=date_now()
 
-    if today>daterange[1]:
+    if today>inptDate:
         file=path+'PastFlights.csv'
     else:
         file=path+'UpcomingFlights copy.csv'
-    print file
 
     voyRet = []
     voyDep = []

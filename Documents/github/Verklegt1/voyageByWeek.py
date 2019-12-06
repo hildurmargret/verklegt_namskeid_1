@@ -33,7 +33,7 @@ def voyageByWeek():
     arrHour = []
     tel=0
 
-    today=date_now()
+    today=now()
 
     if today>daterange[1]:
         file=path+'PastFlights.csv'
