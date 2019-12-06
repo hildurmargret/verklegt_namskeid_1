@@ -69,5 +69,3 @@ def MostPopularDestination():
     mostPopular = Destination_array[count]
     print("Most popular destination is: ", mostPopular)
     return mostPopular
-
-MostPopularDestination()
