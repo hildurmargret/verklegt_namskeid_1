@@ -1,6 +1,7 @@
 import datetime
 import dateutil.parser
-from time import strftime,gmtime
+import time
+#from time import strftime,gmtime
 #import string
 
 def getDate(year,month,day,hour,minute):
@@ -31,23 +32,26 @@ def getSecond(date):
     parsedDate = dateutil.parser.parse(date)
     return parsedDate.second
 
+def getWeekNumber(year, month, date):
+    WeekNumber = datetime.date(year, month, date).strftime("%V")
+    print(WeekNumber)
+
+
+def getDateRangeFromWeek(week_number, year_int):
+    weekdates = []
+    year = str(year_int)
+    for day in range(7):
+        week_date = datetime.datetime.strptime(year+"-W{}".format(week_number)+ '-{}'.format(day), "%Y-W%W-%w").isoformat()
+        weekdates.append(week_date)
+    print(weekdates)
+
 
 def time_now():
     now=datetime.datetime.now()
     current_time = now.strftime("%H:%M:%S")
     print("Current time = ", current_time )
 
-date=getDate(2020,11,23,11,43)
-year=getYear(date)
-month=getMonth(date)
-day=getDay(date)
-hour=getHour(date)
-minute=getMinute(date)
-second=getSecond(date)
 
-#print(year)
-#print(month)
-#print(day)
-#print(hour)
-#print(minute)
-#print(second)
+getDateRangeFromWeek(23, 2019)
+
+#getDateRangeFromWeek(2019,44)
