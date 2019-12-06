@@ -9,27 +9,29 @@ def voyageByWeek():
     file1=path+'PastFlights.csv'
     file2=path+'UpcomingFlights copy.csv'
 
-    inpt=33
-    #firstDate, lastDate = getWeek(inpt)
+    inpt=50
+    inpt_year=2019
+    daterange = getDateRangeFromWeek(inpt, inpt_year)
+    print daterange
 
-    firstDate='20/12/2019'
-    lastDate='24/12/2019'
+    #firstDate='20/12/2019'
+    #lastDate='24/12/2019'
 
-    #firstDay = str(getDay(firstDate)
-    #firstMonth = str(getMonth(firstDate)
-    #firstYear = str(getYear(firstDate)
+    firstDay = str(getDay(daterange[1]))
+    firstMonth = str(getMonth(daterange[1]))
+    firstYear = str(getYear(daterange[1]))
 
-    #lastDay = str(getDay(lastDate)
-    #lastMonth = str(getMonth(lastDate)
-    #lastYear = str(getYear(lastDate)
+    lastDay = str(getDay(daterange[0]))
+    lastMonth = str(getMonth(daterange[0]))
+    lastYear = str(getYear(daterange[0]))
 
-    firstDay = str(firstDate[0:2]) #LAGA
-    firstMonth = str(firstDate[3:5]) #LAGA
-    firstYear = str(firstDate[6:10]) #LAGA
+    #firstDay = str(firstDate[0:2])
+    #firstMonth = str(firstDate[3:5])
+    #firstYear = str(firstDate[6:10])
 
-    lastDay = str(lastDate[0:2]) #LAGA
-    lastMonth = str(lastDate[3:5]) #LAGA
-    lastYear = str(lastDate[6:10]) #LAGA
+    #lastDay = str(lastDate[0:2])
+    #lastMonth = str(lastDate[3:5])
+    #lastYear = str(lastDate[6:10])
 
     voyRet = []
     voyDep = []
@@ -76,6 +78,7 @@ def voyageByWeek():
     return voyDep, voyRet
 
 dep, ret = voyageByWeek()
+dep.sort()
 
 for i in range(len(dep)):
     print('VOYAGE DEPARTURE')
