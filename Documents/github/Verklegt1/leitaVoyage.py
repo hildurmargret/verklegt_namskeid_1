@@ -4,16 +4,15 @@ from OpenFile import*
 
 def leitaVoyage():
 
-    path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    #path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     #file1 = path + 'UpcomingFlights copy.csv'
-    file2 = path + 'PastFlights.csv'
+    #file2 = path + 'PastFlights.csv'
 
     inpt = 'NA013' #flugnumer
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
-    #voyRet = ['VOYAGE RETURN:']
-    #voyDep = ['VOYAGE DEPARTURE:']
+
     file1=OpenFile('UpcomingFlights copy.csv')
 
     with file1 as csv_file:
@@ -43,11 +42,10 @@ def leitaVoyage():
             elif len(voyRet) != 1:
                 voyage.append(voyRet)
 
-
     return voyage
 
 bla = leitaVoyage()
 
-for i in range(2):
-    for j in range(2):
+for i in range(len(bla)):
+    for j in range(len(bla)):
         print(bla[i][j])
