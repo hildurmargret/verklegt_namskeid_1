@@ -4,15 +4,16 @@ from Date import*
 def leitaVoyage():
 
     path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
-    file1 = path + 'UpcomingFlights_copy.csv'
+    file1 = path + 'UpcomingFlights copy.csv'
     file2 = path + 'PastFlights.csv'
 
-    inpt = 'NA0100' #flugnumer
+    inpt = 'NA013' #flugnumer
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
     voyRet = ['VOYAGE RETURN:']
     voyDep = ['VOYAGE DEPARTURE:']
+
 
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -23,9 +24,10 @@ def leitaVoyage():
 
             if no%2 == 0 and row['flightNumber'] == inpt:
                 voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-
-            elif no%2 == 0 and row['flightNumber'] == ('NA' + dest + str(no+1)):
+                print('yelo')
+            elif no%2 == 0 and (row['flightNumber'] == ('NA' + dest + str(no+1))):
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                print('halo')
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
