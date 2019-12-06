@@ -78,7 +78,6 @@ def voyageByWeek():
     return voyDep, voyRet
 
 dep, ret = voyageByWeek()
-dep.sort()
 
 for i in range(len(dep)):
     print('VOYAGE DEPARTURE')
