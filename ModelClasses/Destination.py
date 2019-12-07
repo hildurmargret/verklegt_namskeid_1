@@ -8,6 +8,14 @@ class Destination:
         self.contactNumber=0
         self.cancel=0
 
+    def __init__(self, country, distance, airport, contactName, contactNumber):
+        self.country=country
+        self.distance=distance
+        self.airport=airport
+        self.contactName=contactName
+        self.contactNumber=contactNumber
+        self.cancel=0
+
     def addInfo(self):
         self.country=input("Country: ")
         if self.country=="CANCEL":

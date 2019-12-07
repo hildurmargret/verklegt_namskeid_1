@@ -8,6 +8,14 @@ class Voyage:
         self.flightDuration=0
         self.cancel=0
 
+    def __init__(self, title, airplaneName, numberOfPilots, numberOfCabin, flightDuration):
+        self.title=title
+        self.airplaneName=airplanceName
+        self.numberOfPilots=numberOfPilots
+        self.numberOfCabin=numberOfCabin
+        self.flightDuration=flightDuration
+        self.cancel=0
+
     def addInfo(self):
         self.title=input("Voyage title: ")
 

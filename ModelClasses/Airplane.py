@@ -6,6 +6,13 @@ class Airplane:
         self.seats=0
         self.cancel=0
 
+    def __init__(self, name, model, manufacturer, seats):
+        self.Name = name
+        self.airplaneModel = model
+        self.manufacturer = manufacturer
+        self.seats = seats
+        self.cancel=0
+
     def addInfo(self):
         self.Name=input("Airplane Name: ")
         if self.Name=="CANCEL":
