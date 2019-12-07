@@ -1,8 +1,12 @@
-from pagePrints import*
-from Staff import*
+from UILayer.pagePrints import*
+from LogicLayer.LL_API import*
+from ModelClasses.Staff import*
+from UILayer.addInp import*
+"""from Staff import*
 from Voyage import*
 from Destination import*
-from Airplane import*
+from Airplane import* """
+"""
 from getStaff1_4 import*
 from OpenFile import*
 from printList import*
@@ -10,7 +14,8 @@ from getAircraft import*
 from getPilotsByAirplanes import*
 from getPilotByLicence import*
 from listDestinationsAlphabetic import*
-from listDestinationPopulation import*
+from listDestinationPopulation import*"""
+
 
 
 class Windows():
@@ -132,34 +137,33 @@ class Windows():
         elif inp==0:
             self.create(print_)
 
-
-    def flightAttendant(self,print_):
-        new_staff=Cabin()
-        print_.window4() #Pilot,flight attendant; info
-        new_staff.addInfo()
-
-    def pilot(self,print_):
-        new_pilot=Pilot()
-        print_.window3() #Adding new pilot; info
-        new_pilot.addInfo()
+    def createNewPilot(self,print_):
+        print_.window3()
+        add=Inp()
+        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addInp()
+        airplaneLicense=input("Airplane License: ")
+        #add.addInp()
+        pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
 
 
-    def createStaff(self,print_):
+
+    def createNewStaff(self,print_):
         print_.window2()
         inp=int(input("number: "))
         if inp==1:
-            self.pilot(print_)
+            self.createNewPilot(print_)
         elif inp==2:
-            self.flightAttendant(print_)
+            cabinCrew=createCabin()
         elif inp==0:
             self.create(print_)
+
 
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane
         inp=int(input("number: "))
         if inp==1:  #Staff valinn
-            self.createStaff(print_)
+            self.createNewStaff(print_)
         elif inp==2:
             self.createVoyages(print_)
         elif inp==3:

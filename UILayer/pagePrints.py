@@ -1,4 +1,4 @@
-import sys
+
 
 class pagePrints:
     def __init__(self,cols,rows):
