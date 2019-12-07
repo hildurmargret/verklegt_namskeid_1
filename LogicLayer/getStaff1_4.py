@@ -3,8 +3,9 @@ def staffInfo(inp):
 
     import csv
     from leitaStaff import leitaStaff
+    from Users.hildur.Documents.github.verklegt_namskeid_1.ModelClasses.Staff import *
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
     skra='Crew.csv'
 
     inpt='son'
@@ -13,19 +14,27 @@ def staffInfo(inp):
 
     ssn=[]
     rank=[]
-    employees = {'ssn':[], 'name':[], 'role':[], 'rank':[], 'licence':[], 'address':[], 'phonenumber':[]}
+    #employees = {'ssn':[], 'name':[], 'role':[], 'rank':[], 'licence':[], 'address':[], 'phonenumber':[]}
+    employees = []
 
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             if inp==1:
-                employees['ssn'].append(row['ssn'])
-                employees['name'].append(row['name'])
-                employees['role'].append(row['role'])
-                employees['rank'].append(row['rank'])
-                employees['licence'].append(row['licence'])
-                employees['address'].append(row['address'])
-                employees['phonenumber'].append(row['phonenumber'])
+                #employees['ssn'].append(row['ssn'])
+                #employees['name'].append(row['name'])
+                #employees['role'].append(row['role'])
+                #employees['rank'].append(row['rank'])
+                #employees['licence'].append(row['licence'])
+                #employees['address'].append(row['address'])
+                #employees['phonenumber'].append(row['phonenumber'])
+
+                if row['licence'] == 'N/A':
+                    empl = createCabin(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+                    employees.append(empl)
+                else:
+                    empl = createPilot(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    employees.append(empl)
 
             elif inp==2:
                 if row['role']=='Pilot':
@@ -63,7 +72,10 @@ def staffInfo(inp):
                         break
     return employees
 
-empl = staffInfo(4)
+empl = staffInfo(1)
+
+for i in range(len(empl)):
+    print empl[i].name
 
 #end=len(empl['name'])
 
