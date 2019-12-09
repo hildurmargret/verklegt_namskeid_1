@@ -2,10 +2,12 @@ from UILayer.pagePrints import*
 from LogicLayer.LL_API import*
 from ModelClasses.Staff import*
 from UILayer.addInp import*
+from ModelClasses.Voyage import*
 from LogicLayer.getStaff1_4 import*
 from LogicLayer.getStaff5_6 import*
 from LogicLayer.getStaff7_8 import*
 from LogicLayer.leitaVoyage import*
+from UILayer.printVoyageList import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -94,10 +96,8 @@ class Windows():
             print_.window16()
             input_string = input('Flight number: ')
             linur = leitaVoyage(input_string)
+            printVoyageList(linur)
 
-            for i in range(len(linur)):
-                for j in range(len(linur)):
-                    print(linur[i][j])
         elif inp==2:
             print('bla')
 
@@ -144,9 +144,11 @@ class Windows():
 
 
     def createNewVoyage(self,print_):
-        new_voyage=Voyage()
-        print_.window7() #Voyage; info
-        new_voyage.addInfo()
+        print_.window7()
+        add=Inp()
+        [flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots]=add.addVoyageInp()
+        voyage=createVoyage(flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots)
+        LL.LLsaveVoyage(voyage)
 
 
     def createVoyages(self,print_):
