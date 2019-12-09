@@ -1,4 +1,5 @@
-from OpenFile import*
+#from DataLayer.OpenFile import*
+import csv
 
 def listAllDestinationsAlph():
 
@@ -6,8 +7,11 @@ def listAllDestinationsAlph():
     Destination_array = []
     fjoldiAfStad=[]
 
-    FileOpen = OpenFile("Destinations.csv")
-    with FileOpen as csv_file:
+    path='/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/'
+    skra = "Destinations.csv"
+    file = path+skra
+    #FileOpen = OpenFile("Destinations.csv")
+    with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             Destination = row['destination']
@@ -17,3 +21,5 @@ def listAllDestinationsAlph():
 
     for i in range(len(Destination_array)):
         print(Destination_array[i])
+
+listAllDestinationsAlph()

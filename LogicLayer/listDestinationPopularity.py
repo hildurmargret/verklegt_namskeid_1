@@ -1,4 +1,5 @@
-from OpenFile import*
+import csv
+#from DataLayer.OpenFile import*
 
 def MostPopularDestination():
 
@@ -7,9 +8,13 @@ def MostPopularDestination():
     pastFlights_array2 = []
     PopularDest=[]
 
+    path='/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/'
+
     ########### open file 1 ###########
-    file1 = OpenFile('Destinations.csv')
-    with file1 as csv_file:
+    skra1 = 'Destinations.csv'
+    file1 = path+skra1
+    #file1 = OpenFile(skra1)
+    with open(file1,'r') as csv_file:
         csv_reader1 = csv.DictReader(csv_file)
         for row in csv_reader1:
             if row['id'] != "KEF":
@@ -19,8 +24,9 @@ def MostPopularDestination():
 
 
     ########### open file 2 ###########
-    file2 = OpenFile('pastFlights.csv')
-    with file2 as csv_file:
+    skra2 = 'pastFlights.csv'
+    file2 = path+skra2
+    with open(file2,'r') as csv_file:
         csv_reader2 = csv.DictReader(csv_file)
         for row in csv_reader2:
             if row['departingFrom'] == 'KEF':
@@ -29,8 +35,9 @@ def MostPopularDestination():
 
 
     ########### open file 3 ###########
-    file3 = OpenFile('UpcomingFlights.csv')
-    with file3 as csv_file:
+    skra3 = 'pastFlights.csv'
+    file3 = path + skra3
+    with open(file3, 'r') as csv_file:
         csv_reader3 = csv.DictReader(csv_file)
         for row in csv_reader3:
             if row['departingFrom'] == 'KEF':
