@@ -1,4 +1,4 @@
-class Destination:
+class CreateDestination:
 
     def __init__(self, country, distance, airport, contactName, contactNumber):
         self.country=country
