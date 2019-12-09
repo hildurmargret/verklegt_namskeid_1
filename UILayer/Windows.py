@@ -17,7 +17,7 @@ from getPilotsByAirplanes import*
 from getPilotByLicence import*
 """
 from LogicLayer.listDestinationsAlphabetic import*
-from LogicLayer.listDestinationPopulation import*
+from LogicLayer.listDestinationPopularity import*
 
 
 
