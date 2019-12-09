@@ -82,7 +82,7 @@ class Windows():
             print_.window12()
             input_string = input('Name or SSN: ')
             if input_string == 'CANCEL':
-                self.getStaffInfo()
+                self.getStaffInfo(print_)
             else:
                 linur=staffInfo(inp, input_string)
                 for i in range(len(linur)):
@@ -91,7 +91,7 @@ class Windows():
             print_.window12()
             input_string = input('Name or SSN: ')
             if input_string == 'CANCEL':
-                self.getStaffInfo()
+                self.getStaffInfo(print_)
             else:
                 numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
                 printDestList(numOfDest, pastFlights, employees)
