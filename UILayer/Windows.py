@@ -177,9 +177,8 @@ class Windows():
         print_.window8()
         add = Inp()
         [country,distance,airport,contactName,contactNumber]=add.addDestinationInp()
-        Dest=createPilot(country,distance,airport,contactName,contactNumber)
+        Dest=CreateDestination(country,distance,airport,contactName,contactNumber)
         saveDestinationInFile(Dest)
-
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane
