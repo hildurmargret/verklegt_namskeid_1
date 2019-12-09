@@ -66,7 +66,7 @@ class Windows():
             input_string = input('Date: ')
             linur = emplWorking(input_string)
 
-            print('Employees working ' + inptDate + ':')
+            #print('Employees working ' + inptDate + ':')
             for i in range(len(linur)):
                 print(linur[i].name)
 

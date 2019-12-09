@@ -9,18 +9,20 @@ def emplWorking(inptDate):
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
 
+    standardDate = inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
+
     path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
 
     file2=path+'Crew.csv'
 
-    today=date_now()
+    today=now()
 
-    if today>inptDate:
+    if today>standardDate:
         file1=path+'PastFlights.csv'
     else:
         file1=path+'UpcomingFlights copy.csv'
 
-    print(today)
+    #print(today)
 
     emplSSN = []
     employees = []
