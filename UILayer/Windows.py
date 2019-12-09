@@ -4,6 +4,7 @@ from ModelClasses.Staff import*
 from UILayer.addInp import*
 from LogicLayer.getStaff1_4 import*
 from LogicLayer.getStaff5_6 import*
+from LogicLayer.getStaff7_8 import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -59,6 +60,14 @@ class Windows():
             print_.window12()
             input_string = input('Name or SSN: ')
             linur=staffInfo2(inp, input_string)
+        elif inp==8:
+            print_.window17()
+            input_string = input('Date: ')
+            linur = emplWorking(input_string)
+
+            print('Employees working ' + inptDate + ':')
+            for i in range(len(linur)):
+                print(linur[i].name)
 
         else:
             linur=staffInfo(inp)
@@ -109,15 +118,12 @@ class Windows():
 
 
     def createAirplanes(self,print_):
-        new_airplane=Airplane()
         print_.window9()
-        new_airplane.addInfo()  #insert new airplane
+        add=Inp()
+        [name, model, manufacturer, seats]=add.addAirplaneInp()
+        airplane=createAirplane(name,model,manufacturer,seats)
+        saveAircraft(airplane)
 
-
-    def createDestinations(self,print_):
-        new_dest=Destination()
-        print_.window8()
-        new_dest.addInfo()
 
     def copyExistingVoyage(self,print_):
         print_.window6()
@@ -146,14 +152,14 @@ class Windows():
         airplaneLicense=input("Airplane License: ")
         #add.addInp()
         pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
-        savePilot(pilot)
+        LLsavePilot(pilot)
 
     def createNewCabin(self,print_):
         print_.window4()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
         cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
-        saveCabin(cabin)
+        LLsaveCabin(cabin)
 
     def createNewStaff(self,print_):
         print_.window2()
@@ -164,6 +170,14 @@ class Windows():
             self.createNewCabin(print_)
         elif inp==0:
             self.create(print_)
+
+
+    def createDestinations(self, print_):
+        print_.window8()
+        add = Inp()
+        [country,distance,airport,contactName,contactNumber]=add.addDestinationInp()
+        Dest=createPilot(country,distance,airport,contactName,contactNumber)
+        saveDestinationInFile(Dest)
 
 
     def create(self,print_):
