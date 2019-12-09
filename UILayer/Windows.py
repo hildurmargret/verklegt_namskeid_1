@@ -11,6 +11,10 @@ from UILayer.printVoyageList import*
 from LogicLayer.voyageByDate import*
 from UILayer.printVoyagebyDates import*
 from LogicLayer.voyageByWeek import*
+from UILayer.printWorkSchedule import*
+from UILayer.printDestList import*
+from DataLayer.saveWorkSchedule import*
+
 
 """from Staff import*
 from Voyage import*
@@ -64,10 +68,22 @@ class Windows():
             linur=staffInfo(inp, input_string)
             for i in range(len(linur)):
                 print(linur[i].name)
-        elif inp==5 or inp==6:
+        elif inp==5:
             print_.window12()
             input_string = input('Name or SSN: ')
-            linur=staffInfo2(inp, input_string)
+            numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
+            printDestList(numOfDest, pastFlights, employees)
+
+        elif inp==6:
+            print_.window12()
+            input_string = input('Name or SSN: ')
+            numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
+            print_.window13()
+            input_save = input('Save? ')
+            if input_save:
+                saveWS(pastFlights, employees)
+            printWS(pastFlights, employees)
+            
         elif inp==8:
             print_.window17()
             input_string = input('Date: ')

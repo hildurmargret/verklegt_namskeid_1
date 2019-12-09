@@ -4,6 +4,7 @@ from UILayer.printWorkSchedule import*
 from DataLayer.saveWorkSchedule import*
 from LogicLayer.Date import*
 from ModelClasses.Staff import *
+from ModelClasses.Voyage import *
 
 def staffInfo2(number, input_string):
 
@@ -28,6 +29,8 @@ def staffInfo2(number, input_string):
     pastFlNo=[]
     employees=[]
     numOfDest=[]
+    pastFlights=[]
+    upcFlights=[]
 
     with open(file2,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -78,44 +81,47 @@ def staffInfo2(number, input_string):
         with open(file1,'r') as csvFile:
             reader=csv.DictReader(csvFile)
             for row in reader:
+                deptTime = str(getDay(row['departure'])) + '/' + str(getMonth(row['departure'])) + '/' + str(getYear(row['departure'])) + ' at ' + str(getHour(row['departure'])) + ':' + str(getMinute(row['departure']))
+                arvlTime = str(getDay(row['arrival'])) + '/' + str(getMonth(row['arrival'])) + '/' + str(getYear(row['arrival'])) + ' at ' + str(getHour(row['arrival'])) + ':' + str(getMinute(row['arrival']))
+
                 if rank[i]=='Flight Attendant' and ssn[i] in (row['fa1'] or row['fa2']):
-                    pastDeptTime.append(row['departure'])
-                    pastArvlTime.append(row['arrival'])
-                    pastFlNo.append(row['flightNumber'])
-                    pastDest.append(row['arrivingAt'])
-                    pastDept.append(row['departingFrom'])
+                    flight=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    pastFlights.append(flight)
+
+                    # pastDeptTime.append(row['departure'])
+                    # pastArvlTime.append(row['arrival'])
+                    # pastFlNo.append(row['flightNumber'])
+                    # pastDest.append(row['arrivingAt'])
+                    # pastDept.append(row['departingFrom'])
                 elif rank[i]=='Flight Service Manager' and ssn[i] in row['fsm']:
-                    pastDeptTime.append(row['departure'])
-                    pastArvlTime.append(row['arrival'])
-                    pastFlNo.append(row['flightNumber'])
-                    pastDest.append(row['arrivingAt'])
-                    pastDept.append(row['departingFrom'])
+                    flight=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    pastFlights.append(flight)
+
+                    # pastDeptTime.append(row['departure'])
+                    # pastArvlTime.append(row['arrival'])
+                    # pastFlNo.append(row['flightNumber'])
+                    # pastDest.append(row['arrivingAt'])
+                    # pastDept.append(row['departingFrom'])
                 elif rank[i]=='Captain' and ssn[i] in row['captain']:
-                    pastDeptTime.append(row['departure'])
-                    pastArvlTime.append(row['arrival'])
-                    pastFlNo.append(row['flightNumber'])
-                    pastDest.append(row['arrivingAt'])
-                    pastDept.append(row['departingFrom'])
+                    flight=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    pastFlights.append(flight)
+
+                    # pastDeptTime.append(row['departure'])
+                    # pastArvlTime.append(row['arrival'])
+                    # pastFlNo.append(row['flightNumber'])
+                    # pastDest.append(row['arrivingAt'])
+                    # pastDept.append(row['departingFrom'])
                 elif rank[i]=='Copilot' and ssn[i] in row['copilot']:
-                    pastDeptTime.append(row['departure'])
-                    pastArvlTime.append(row['arrival'])
-                    pastFlNo.append(row['flightNumber'])
-                    pastDest.append(row['arrivingAt'])
-                    pastDept.append(row['departingFrom'])
+                    flight=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    pastFlights.append(flight)
 
-            numOfDest.append(len(pastDest))
+                    # pastDeptTime.append(row['departure'])
+                    # pastArvlTime.append(row['arrival'])
+                    # pastFlNo.append(row['flightNumber'])
+                    # pastDest.append(row['arrivingAt'])
+                    # pastDept.append(row['departingFrom'])
 
-    if number == 5:
-        counter = 0
-        for j in range(len(numOfDest)):
-            print(employees[j].name)
-            for i in range(numOfDest[j]-counter):
-                if pastDest[i+counter]!='KEF':
-                    print(str(getDay(pastDeptTime[j])) + '/' + str(getMonth(pastDeptTime[j])) + '/' + str(getYear(pastDeptTime[j])) + ': '+ pastDest[i+counter])
-            counter=numOfDest[j]
-            print
-    elif number == 6:
-        save = printWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
-        if save == 1:
-            saveWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
-    return
+            #numOfDest.append(len(pastDest))
+            numOfDest.append(len(pastFlights))
+
+    return numOfDest, pastFlights, upcFlights, employees
