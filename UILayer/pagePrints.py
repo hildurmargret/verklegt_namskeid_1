@@ -258,7 +258,7 @@ class pagePrints:
     def window12(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
-        self.prentWord(15,"Type SSN of the employee")
+        self.prentWord(15,"Search for employee by name or SSN")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
@@ -339,8 +339,8 @@ class pagePrints:
     def window20(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
-        self.prentWord(15,"1: Destinations in alphabetical order")
-        self.prentWord(15,"2: Destinations by popularity")
+        self.prentWord(15,"1: All destinations in alphabetical order")
+        self.prentWord(15,"2: Most popular destination")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"0: Back")
         self.prentSpace(14,(self.cols)/2)
@@ -419,4 +419,14 @@ class pagePrints:
         self.prentWord(15,"Type in an airplane type")
         self.prentSpace(1,(self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window26(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
+        self.prentWord(15,"1: Weekly work schedule")
+        self.prentWord(15,"2: Complete work schedule")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"0: Back")
+        self.prentSpace(15,(self.cols)/2)
         self.prentLina((self.cols)/2)
