@@ -15,8 +15,9 @@ from printList import*
 from getAircraft import*
 from getPilotsByAirplanes import*
 from getPilotByLicence import*
-from listDestinationsAlphabetic import*
-from listDestinationPopulation import*"""
+"""
+from LogicLayer.listDestinationsAlphabetic import*
+from LogicLayer.listDestinationPopulation import*
 
 
 
