@@ -2,6 +2,7 @@ from UILayer.pagePrints import*
 from LogicLayer.LL_API import*
 from ModelClasses.Staff import*
 from UILayer.addInp import*
+from LogicLayer.getStaff1_4 import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -51,17 +52,13 @@ class Windows():
             linur=staffInfo(inp)
 
             for i in range(len(linur)):
-                for j in range(len(linur[0])-1):
-                    print(toPrint[i][j] + ','),
-                print(linur[i][j+1])
+                print(linur[i].name)
+        
         else:
             linur=staffInfo(inp)
+
             for i in range(len(linur)):
-                for j in range(len(linur[0])-1):
-                    print(linur[i][j] + ','),
-                print(linur[i][j+1])
-
-
+                print(linur[i].name)
 
 
     def getAirplaneInfo(self,print_):

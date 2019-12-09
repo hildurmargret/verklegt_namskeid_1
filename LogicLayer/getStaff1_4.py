@@ -1,9 +1,8 @@
+import csv
+from LogicLayer.leitaStaff import *
+from ModelClasses.Staff import *
 
 def staffInfo(inp):
-
-    import csv
-    from leitaStaff import leitaStaff
-    from Users.hildur.Documents.github.verklegt_namskeid_1.ModelClasses.Staff import *
 
     path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
     skra='Crew.csv'
@@ -30,19 +29,19 @@ def staffInfo(inp):
                 #employees['phonenumber'].append(row['phonenumber'])
 
                 if row['licence'] == 'N/A':
-                    empl = createCabin(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+                    empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
                     employees.append(empl)
                 else:
-                    empl = createPilot(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                     employees.append(empl)
 
             elif inp==2:
                 if row['role']=='Pilot':
-                    empl = createPilot(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                     employees.append(empl)
 
             elif inp==3:
-                 empl = createCabin(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+                 empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
                  employees.append(empl)
 
             elif inp==4:
@@ -59,10 +58,10 @@ def staffInfo(inp):
                         break
     return employees
 
-empl = staffInfo(1)
+#empl = staffInfo(1)
 
-for i in range(len(empl)):
-    print empl[i].name
+#for i in range(len(empl)):
+    #print(empl[i].name)
 
 #end=len(empl['name'])
 
