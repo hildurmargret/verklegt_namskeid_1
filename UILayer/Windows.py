@@ -11,9 +11,14 @@ from UILayer.printVoyageList import*
 from LogicLayer.voyageByDate import*
 from UILayer.printVoyagebyDates import*
 from LogicLayer.voyageByWeek import*
+from LogicLayer.getAircraft import*
+from UILayer.UI_Manager import*
 from UILayer.printWorkSchedule import*
 from UILayer.printDestList import*
 from DataLayer.saveWorkSchedule import*
+from LogicLayer.allPilotsByLicence import*
+from LogicLayer.searchPilotByLicence import*
+from UILayer.printPilots import*
 
 
 """from Staff import*
@@ -24,13 +29,13 @@ from Airplane import* """
 from getStaff1_4 import*
 from OpenFile import*
 from printList import*
-from getAircraft import*
 from getPilotsByAirplanes import*
 from getPilotByLicence import*
 """
 from LogicLayer.listDestinationsAlphabetic import*
 from LogicLayer.listDestinationPopularity import*
-LL=LL_API()
+
+UI=UI_Manager()
 
 
 class Windows():
@@ -83,7 +88,7 @@ class Windows():
             if input_save:
                 saveWS(pastFlights, employees)
             printWS(pastFlights, employees)
-            
+
         elif inp==8:
             print_.window17()
             input_string = input('Date: ')
@@ -103,11 +108,16 @@ class Windows():
         print_.window14()
         inp=int(input("number: "))
         if inp==1:
-            list_all_aircraft()
+            UI.UIgettingAirplanes()
         elif inp==2:
-            pilotsByLicence()
+            pilots = allPilotsByLicence()
+            print(pilots)
+            printPilotList(pilots)
         elif inp==3:
-            pilotsByAirplanes()
+            inpt = input('Licence: ')
+            pilots = searchPilotsByLicence(inpt)
+            printPilotList(pilots)
+
 
     def getVoyageInfo(self,print_):
         print_.window15()
@@ -160,13 +170,12 @@ class Windows():
             self.mainMenu()
 
 
-
     def createAirplanes(self,print_):
         print_.window9()
         add=Inp()
         [planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan]=add.addAirplaneInp()
         airplane=createAirplane(planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan)
-        LL.LLsaveAircraft(airplane)
+        UI.UIsaveAircraft(airplane)
 
 
     def copyExistingVoyage(self,print_):
@@ -178,7 +187,7 @@ class Windows():
         add=Inp()
         [flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots]=add.addVoyageInp()
         voyage=createVoyage(flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots)
-        LL.LLsaveVoyage(voyage)
+        UI.UIsaveVoyage(voyage)
 
 
     def createVoyages(self,print_):
@@ -195,17 +204,17 @@ class Windows():
         print_.window3()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-        airplaneLicense=input("Airplane License: ")
-        #add.addInp()
+        airplaneLicense=input("Airplane Licence: ")
+        ##add.addInp()
         pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
-        LL.LLsavePilot(pilot)
+        UI.UIsavePilot(pilot)
 
     def createNewCabin(self,print_):
         print_.window4()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
         cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
-        LL.LLsaveCabin(cabin)
+        UI.UIsaveCabin(cabin)
 
     def createNewStaff(self,print_):
         print_.window2()
@@ -223,7 +232,7 @@ class Windows():
         add = Inp()
         [country,distance,airport,contactName,contactNumber]=add.addDestinationInp()
         Dest=CreateDestination(country,distance,airport,contactName,contactNumber)
-        saveDestinationInFile(Dest)
+        UI.saveDestinationInFile(Dest)
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane
