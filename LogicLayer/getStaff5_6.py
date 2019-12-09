@@ -27,7 +27,7 @@ def staffInfo2(number, input_string):
     upcArvlTime=[]
     pastFlNo=[]
     employees=[]
-    fjoldiAfStad=[]
+    numOfDest=[]
 
     with open(file2,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -103,16 +103,16 @@ def staffInfo2(number, input_string):
                     pastDest.append(row['arrivingAt'])
                     pastDept.append(row['departingFrom'])
 
-            fjoldiAfStad.append(len(pastDest))
+            numOfDest.append(len(pastDest))
 
     if number == 5:
         counter = 0
-        for j in range(len(fjoldiAfStad)):
+        for j in range(len(numOfDest)):
             print(employees[j].name)
-            for i in range(fjoldiAfStad[j]-counter):
+            for i in range(numOfDest[j]-counter):
                 if pastDest[i+counter]!='KEF':
                     print(str(getDay(pastDeptTime[j])) + '/' + str(getMonth(pastDeptTime[j])) + '/' + str(getYear(pastDeptTime[j])) + ': '+ pastDest[i+counter])
-            counter=fjoldiAfStad[j]
+            counter=numOfDest[j]
             print
     elif number == 6:
         save = printWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)

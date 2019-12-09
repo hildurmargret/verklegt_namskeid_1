@@ -309,7 +309,7 @@ class pagePrints:
     def window17(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
-        self.prentWord(15,"Type in date(dd mm yyyy)")
+        self.prentWord(15,"Type in date(dd/mm/yyyy)")
         self.prentSpace(1,(self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
