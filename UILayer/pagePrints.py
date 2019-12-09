@@ -181,8 +181,8 @@ class pagePrints:
     def window7(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(14,(self.cols)/2)
-        self.prentWord(15,"Voyage title")
-        self.prentWord(15,"Airplane name")
+        self.prentWord(15,"Flight number")
+        self.prentWord(15,"Destination")
         self.prentWord(15,"Number of pilots needed")
         self.prentWord(15,"Number of cabin crew needed")
         self.prentWord(15,"Flight duration")
