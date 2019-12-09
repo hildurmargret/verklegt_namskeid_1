@@ -8,6 +8,7 @@ from LogicLayer.getStaff5_6 import*
 from LogicLayer.getStaff7_8 import*
 from LogicLayer.leitaVoyage import*
 from UILayer.printVoyageList import*
+from LogicLayer.voyageByDate import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -99,7 +100,17 @@ class Windows():
             printVoyageList(linur)
 
         elif inp==2:
-            print('bla')
+            print_.window17()
+            input_string = input('Date: ')
+            dep, ret = voyageByDate(input_string)
+
+            for i in range(len(dep)):
+                print('VOYAGE DEPARTURE')
+                print(dep[i].flightNumber + ', ' + dep[i].departingFrom + ' to ' + dep[i].arrivingAt + ', ' + ' Departure: ' + dep[i].departure + ', Arrival: ' + dep[i].arrival)
+                print('VOYAGE RETURN')
+                print(ret[i].flightNumber + ', ' + ret[i].departingFrom + ' to ' + ret[i].arrivingAt + ', ' + ' Departure: ' + ret[i].departure + ', Arrival: ' + ret[i].arrival)
+                print('\n')
+
 
 
     def getVoyageInfoWeek(self,print_):
@@ -134,8 +145,8 @@ class Windows():
     def createAirplanes(self,print_):
         print_.window9()
         add=Inp()
-        [name, model, manufacturer, seats]=add.addAirplaneInp()
-        airplane=createAirplane(name,model,manufacturer,seats)
+        [planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan]=add.addAirplaneInp()
+        airplane=createAirplane(planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan)
         LL.LLsaveAircraft(airplane)
 
 

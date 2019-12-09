@@ -1,10 +1,10 @@
 
 import csv
-from Date import*
+from LogicLayer.Date import*
 
 def voyageByWeek():
 
-    path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/csvFiles'
+    path='/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
 
     inpt=50
     inpt_year=2019
@@ -78,9 +78,9 @@ def voyageByWeek():
 
 dep, ret = voyageByWeek()
 
-for i in range(len(dep)):
-    print('VOYAGE DEPARTURE')
-    print dep[i]
-    print('VOYAGE RETURN')
-    print ret[i]
-    print
+# for i in range(len(dep)):
+#     print('VOYAGE DEPARTURE')
+#     print(dep[i])
+#     print('VOYAGE RETURN')
+#     print(ret[i])
+#     print
