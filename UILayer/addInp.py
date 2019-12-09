@@ -35,23 +35,51 @@ class Inp():
 
 
     def addAirplaneInp(self):
-        self.name=input("Airplane Name: ")
-        if self.name=="CANCEL":
+        self.planeTypeId=input("Plane type ID: ")
+        if self.planeTypeId=="CANCEL":
+            self.cancel=1
+            return 0
+        self.manufacturer=input("Airplane manufacturer: ")
+        if self.manufacturer=="CANCEL":
             self.cancel=1
             return 0
         self.airplaneModel=input("Airplane model: ")
         if self.airplaneModel=="CANCEL":
             self.cancel=1
             return 0
-        self.manufacturer=input("Airplane manufacturer: ")
-        if self.name=="CANCEL":
+        self.capacity=input("Number of passenger seats: ")
+        if self.capacity=="CANCEL":
             self.cancel=1
             return 0
-        self.seats=input("Number of passenger seats: ")
-        if self.seats=="CANCEL":
+        self.emptyWeight=input("Airplane manufacturer: ")
+        if self.emptyWeight=="CANCEL":
             self.cancel=1
             return 0
-        return self.name,self.airplaneModel,self.manufacturer,self.seats
+        self.maxTakeoffWeight=input("Airplane model: ")
+        if self.maxTakeoffWeight=="CANCEL":
+            self.cancel=1
+            return 0
+        self.unitThrust=input("Number of passenger seats: ")
+        if self.unitThrust=="CANCEL":
+            self.cancel=1
+            return 0
+        self.serviceCeiling=input("Airplane manufacturer: ")
+        if self.serviceCeiling=="CANCEL":
+            self.cancel=1
+            return 0
+        self.length=input("Airplane model: ")
+        if self.length=="CANCEL":
+            self.cancel=1
+            return 0
+        self.height=input("Number of passenger seats: ")
+        if self.height=="CANCEL":
+            self.cancel=1
+            return 0
+        self.wingspan=input("Number of passenger seats: ")
+        if self.wingspan=="CANCEL":
+            self.cancel=1
+            return 0
+        return self.planeTypeId,self.manufacturer,self.airplaneModel,self.capacity,self.emptyWeight,self.maxTakeoffWeight,self.unitThrust,self.serviceCeiling,self.length,self.height,self.wingspan
 
     def addDestinationInp(self):
             self.country=input("Country: ")
