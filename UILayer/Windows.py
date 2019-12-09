@@ -3,6 +3,7 @@ from LogicLayer.LL_API import*
 from ModelClasses.Staff import*
 from UILayer.addInp import*
 from LogicLayer.getStaff1_4 import*
+from LogicLayer.getStaff5_6 import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -53,7 +54,7 @@ class Windows():
 
             for i in range(len(linur)):
                 print(linur[i].name)
-        
+
         else:
             linur=staffInfo(inp)
 
@@ -141,8 +142,14 @@ class Windows():
         airplaneLicense=input("Airplane License: ")
         #add.addInp()
         pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
+        saveStaff(pilot)
 
-
+    def createNewCabin(self,print_):
+        print_.window4()
+        add=Inp()
+        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addInp()
+        cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
+        saveStaff(cabin)
 
     def createNewStaff(self,print_):
         print_.window2()
@@ -150,10 +157,9 @@ class Windows():
         if inp==1:
             self.createNewPilot(print_)
         elif inp==2:
-            cabinCrew=createCabin()
+            self.createNewCabin(print_)
         elif inp==0:
             self.create(print_)
-
 
 
     def create(self,print_):

@@ -1,10 +1,10 @@
 from ModelClasses.Staff import*
-def savePilotInFile(SSN,name,rank,licence,number):
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/Crew.csv"
+def savePilotInFile(newStaff):
+    path="/Users/palinakroyer/github/verklegt_namskeid_1/DataLayer/UPDATEDSTUDENTDATA/CrewCopy.csv"
     f=open(path, "a")
-    f.write(SSN+","+name+","+rank+","+number)
+    f.write(newStaff.SSN+","+newStaff.name+","+newStaff.rank+","+newStaff.number)
 
-def saveCabinInFile(SSN,name,rank,number):
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/Crew.csv"
+def saveCabinInFile(newStaff):
+    path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/DataLayer/UPDATEDSTUDENTDATA/CrewCopy.csv"
     f=open(path, "a")
-    f.write(SSN+","+name+","+rank+","+number)
+    f.write(newStaff.SSN+","+newStaff.name+","+newStaff.rank+","+newStaff.number)
