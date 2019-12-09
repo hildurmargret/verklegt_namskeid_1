@@ -50,10 +50,10 @@ def staffInfo(inp):
                 for i in range(len(ssn)):
                     if row['ssn']==ssn[i]:
                         if row['licence'] == 'N/A':
-                            empl = createCabin(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+                            empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
                             employees.append(empl)
                         else:
-                            empl = createPilot(self,row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                            empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                             employees.append(empl)
                         break
     return employees
