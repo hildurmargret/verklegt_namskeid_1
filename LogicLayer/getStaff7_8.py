@@ -7,7 +7,7 @@ inptDay = str(inptDate[0:2])
 inptMonth = str(inptDate[3:5])
 inptYear = str(inptDate[6:10])
 
-path='/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
 
 file1=path+'PastFlights.csv'
 file2=path+'UpcomingFlights.csv'

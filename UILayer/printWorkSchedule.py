@@ -1,8 +1,8 @@
-from Date import*
+from LogicLayer.Date import*
 def printWS(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDept,upcDeptTime,upcArvlTime,pastFlNo,employees):
 
     for k in range(len(employees)):
-        print employees[k]
+        print(employees[k].name)
         print
         print('PAST FLIGHTS')
         for j in range(len(pastFlNo)):
