@@ -1,13 +1,14 @@
 
 import csv
 from LogicLayer.Date import*
+from ModelClasses.Voyage import*
 
-def voyageByWeek():
+def voyageByWeek(inpt, inpt_year):
 
     path='/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
 
-    inpt=50
-    inpt_year=2019
+    #inpt=50
+    #inpt_year=2019
     daterange = getDateRangeFromWeek(inpt, inpt_year)
     #print daterange
 
@@ -64,19 +65,19 @@ def voyageByWeek():
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
-                    voyD=createVoyage(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                    voyD=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
                     voyDep.append(voyD)
                     #voyDep=append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
 
                 elif no%2 != 0:
-                    voyR=createVoyage(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                    voyRet=appent(voyR)
+                    voyR=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    voyRet.append(voyR)
                     #voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
             tel=tel+1
 
     return voyDep, voyRet
 
-dep, ret = voyageByWeek()
+#dep, ret = voyageByWeek()
 
 # for i in range(len(dep)):
 #     print('VOYAGE DEPARTURE')

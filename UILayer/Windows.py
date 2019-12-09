@@ -9,6 +9,9 @@ from LogicLayer.getStaff7_8 import*
 from LogicLayer.leitaVoyage import*
 from UILayer.printVoyageList import*
 from LogicLayer.voyageByDate import*
+from UILayer.printVoyagebyDates import*
+from LogicLayer.voyageByWeek import*
+
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -103,14 +106,14 @@ class Windows():
             print_.window17()
             input_string = input('Date: ')
             dep, ret = voyageByDate(input_string)
+            printVoyagebyDates(dep,ret)
 
-            for i in range(len(dep)):
-                print('VOYAGE DEPARTURE')
-                print(dep[i].flightNumber + ', ' + dep[i].departingFrom + ' to ' + dep[i].arrivingAt + ', ' + ' Departure: ' + dep[i].departure + ', Arrival: ' + dep[i].arrival)
-                print('VOYAGE RETURN')
-                print(ret[i].flightNumber + ', ' + ret[i].departingFrom + ' to ' + ret[i].arrivingAt + ', ' + ' Departure: ' + ret[i].departure + ', Arrival: ' + ret[i].arrival)
-                print('\n')
-
+        elif inp==3:
+            print_.window19()
+            input_week = input('Week number: ')
+            input_year = input('Year: ')
+            dep, ret = voyageByWeek(input_week, input_year)
+            printVoyagebyDates(dep,ret)
 
 
     def getVoyageInfoWeek(self,print_):
