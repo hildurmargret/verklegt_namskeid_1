@@ -12,4 +12,5 @@ class createAirplane:
         self.length = length
         self.height = height
         self.wingspan = wingspan
+        self.planeInsignia = ""
         self.cancel=0

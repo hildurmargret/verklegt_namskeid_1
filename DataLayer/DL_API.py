@@ -3,7 +3,10 @@ from DataLayer.saveAircraftInFile import*
 from DataLayer.saveNewDestination import*
 from DataLayer.saveVoyage import*
 
-class DL_API():
+class DL_API:
+
+    def __init__(self):
+        pass
 
     def DLsaveCabin(self,newStaff):
         saveCabinInFile(newStaff)
