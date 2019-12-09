@@ -19,6 +19,7 @@ from DataLayer.saveWorkSchedule import*
 from LogicLayer.allPilotsByLicence import*
 from LogicLayer.searchPilotByLicence import*
 from UILayer.printPilots import*
+from LogicLayer.weeklyWorkSchedule import*
 
 
 """from Staff import*
@@ -39,8 +40,21 @@ UI=UI_Manager()
 
 class Windows():
 
+    def updatePilot(self,print_):
+        print_.window23()
+        UI.UIupdatePilot()
+
+    def updateCabin(self,print_):
+        print_.window24()
+        UI.UIupdateCabin()
+
     def updateStaff(self,print_):
-        pass
+        print_.window2()
+        inp=int(input('Number: '))
+        if inp==1:
+            self.updatePilot(print_)
+        elif inp==2:
+            self.updateCabin(print_)
 
     def employeesToVoyage(self,print_):
         print_.window25()
@@ -67,33 +81,62 @@ class Windows():
         if inp==4:
             print_.window12()
             input_string = input('Name or SSN: ')
-            linur=staffInfo(inp, input_string)
-            for i in range(len(linur)):
-                print(linur[i].name)
+            if input_string == 'CANCEL':
+                self.getStaffInfo()
+            else:
+                linur=staffInfo(inp, input_string)
+                for i in range(len(linur)):
+                    print(linur[i].name)
         elif inp==5:
             print_.window12()
             input_string = input('Name or SSN: ')
-            numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
-            printDestList(numOfDest, pastFlights, employees)
+            if input_string == 'CANCEL':
+                self.getStaffInfo()
+            else:
+                numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
+                printDestList(numOfDest, pastFlights, employees)
 
         elif inp==6:
             print_.window12()
             input_string = input('Name or SSN: ')
-            numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
+            print_.window26()
+            WC = input('Weekly or complete? ')
+            if WC == str(1):
+                print_.window19()
+                week = input('Week: ')
+                year = input('Year: ')
+                flights, employees = weeklyWS(week, year, input_string)
+
+            elif WC == str(2):
+                numOfDest, pastFlights, upcFlights, employees = staffInfo2(input_string)
+
             print_.window13()
             input_save = input('Save? ')
-            if input_save:
-                saveWS(pastFlights, employees)
-            printWS(pastFlights, employees)
+
+            if WC == str(2):
+                if input_save == str(1):
+                    saveCompleteWS(pastFlights, employees)
+                printCompleteWS(pastFlights, employees)
+            elif WC==str(1):
+                if input_save == str(1):
+                    saveWeeklyWS(flights, employees,week,year)
+                printWeeklyWS(flights,employees,week,year)
+
+        elif inp==7:
+            print_.window17()
+            input_string = input('Date: ')
+            emp, noemp = emplWorking(input_string)
+
+            for i in range(len(noemp)):
+                print(noemp[i].name)
 
         elif inp==8:
             print_.window17()
             input_string = input('Date: ')
-            linur = emplWorking(input_string)
+            emp,noemp = emplWorking(input_string)
 
-            #print('Employees working ' + inptDate + ':')
-            for i in range(len(linur)):
-                print(linur[i].name)
+            for i in range(len(emp)):
+                print(emp[i].name)
 
         else:
             linur=staffInfo(inp)
@@ -103,7 +146,7 @@ class Windows():
 
     def getAirplaneInfo(self,print_):
         print_.window14()
-        inp=int(input("number: "))
+        inp=int(input("Number: "))
         if inp==1:
             UI.UIgettingAirplanes()
         elif inp==2:
@@ -142,7 +185,8 @@ class Windows():
             input_year = input('Year: ')
             dep, ret = voyageByWeek(input_week, input_year)
             printVoyagebyDates(dep,ret)
-
+        elif inp==0:
+            self.getInformation(print_)
 
     def getVoyageInfoWeek(self,print_):
         print_.window19()
