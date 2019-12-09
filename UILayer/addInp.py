@@ -1,7 +1,7 @@
 from ModelClasses.Staff import*
 class Inp():
 
-    def addInp(self):
+    def addStaffInp(self):
         self.name=input("Name: ")
         if self.name=="CANCEL":
             self.cancel=1

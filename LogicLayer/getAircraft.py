@@ -3,7 +3,7 @@ import csv
 def list_all_aircraft():
 
 
-    path='/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    path="/Users/palinakroyer/github/verklegt_namskeid_1/"
     skra1='Aircraft.csv'
     skra2='AircraftType.csv'
     skra3='Crew.csv'

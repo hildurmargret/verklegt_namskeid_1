@@ -50,17 +50,20 @@ class Windows():
             self.getInformation(print_)
         if inp==4:
             print_.window12()
-            linur=staffInfo(inp)
-
+            input_string = input('Name or SSN: ')
+            linur=staffInfo(inp, input_string)
             for i in range(len(linur)):
                 print(linur[i].name)
+        elif inp==5 or inp==6:
+            print_.window12()
+            input_string = input('Name or SSN: ')
+            linur=staffInfo2(inp, input_string)
 
         else:
             linur=staffInfo(inp)
 
             for i in range(len(linur)):
                 print(linur[i].name)
-
 
     def getAirplaneInfo(self,print_):
         print_.window14()
@@ -138,18 +141,18 @@ class Windows():
     def createNewPilot(self,print_):
         print_.window3()
         add=Inp()
-        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addInp()
+        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
         airplaneLicense=input("Airplane License: ")
         #add.addInp()
         pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
-        saveStaff(pilot)
+        savePilot(pilot)
 
     def createNewCabin(self,print_):
         print_.window4()
         add=Inp()
-        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addInp()
+        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
         cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
-        saveStaff(cabin)
+        saveCabin(cabin)
 
     def createNewStaff(self,print_):
         print_.window2()

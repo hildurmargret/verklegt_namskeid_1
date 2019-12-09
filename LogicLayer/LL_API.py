@@ -7,5 +7,7 @@
 from UILayer.Windows import*
 from DataLayer.saveStaffInFile import*
 
-def saveStaff(newStaff):
+def saveCabin(newStaff):
     saveCabinInFile(newStaff)
+def savePilot(newStaff):
+    savePilotInFile(newStaff)

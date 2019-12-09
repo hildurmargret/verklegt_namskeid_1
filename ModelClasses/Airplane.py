@@ -1,10 +1,4 @@
 class Airplane:
-    def __init__(self):
-        self.Name=""
-        self.airplaneModel=""
-        self.manufacturer=""
-        self.seats=0
-        self.cancel=0
 
     def __init__(self, name, model, manufacturer, seats):
         self.Name = name
