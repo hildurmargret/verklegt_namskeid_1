@@ -1,10 +1,11 @@
 import csv
-from leitaStaff import *
-#from UILayer.printWorkSchedule import*
-#from DataLayer.saveWorkSchedule import*
-from Date import*
+from LogicLayer.leitaStaff import *
+from UILayer.printWorkSchedule import*
+from DataLayer.saveWorkSchedule import*
+from LogicLayer.Date import*
+from ModelClasses.Staff import *
 
-def staffInfo2(inpt,number):
+def staffInfo2(number, input_string):
 
     path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
     skra1='PastFlights.csv'
@@ -14,8 +15,6 @@ def staffInfo2(inpt,number):
     file2=path+skra2
     file3=path+'UpcomingFlights.csv'
 
-    inpt='son'
-    number = 5
     ssn=[]
     rank=[]
     pastDest=[]
@@ -33,7 +32,7 @@ def staffInfo2(inpt,number):
     with open(file2,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            ssn,rank=leitaStaff(inpt,file2,ssn,rank)
+            ssn,rank=leitaStaff(input_string,file2,ssn,rank)
             for i in range(len(ssn)):
                 if row['ssn']==ssn[i]:
                     if row['role'] == 'Cabincrew':
@@ -120,5 +119,3 @@ def staffInfo2(inpt,number):
         if save == 1:
             saveWS(pastDest, pastDept, pastDeptTime, pastArvlTime, upcDest, upcDept, upcDeptTime, upcArvlTime, pastFlNo,employees)
     return
-
-staffInfo2('bla',5)

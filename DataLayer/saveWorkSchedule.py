@@ -1,10 +1,14 @@
-from Date import*
+from LogicLayer.Date import*
 def saveWS(pastDest,pastDept,pastDeptTime,pastArvlTime,upcDest,upcDept,upcDeptTime,upcArvlTime,pastFlNo,employees):
     path = '/Users/hildur/Desktop/'
     file = open(path+'WorkSchedule.txt','w')
 
     for k in range(len(employees)):
-        file.write(employees[k] + '\n')
+        if employees[k].role == 'Cabincrew':
+            file.write(employees[k].name + ', ' + employees[k].SSN + ', ' + employees[k].address + ', ' + employees[k].phoneNumber + ', ' + employees[k].role + ', ' + employees[k].rank + '\n')
+        else:
+            file.write(employees[k].name + ', ' + employees[k].SSN + ', ' + employees[k].address + ', ' + employees[k].phoneNumber + ', ' + employees[k].role + ', ' + employees[k].rank + ', ' + employees[k].licence + '\n')
+
         file.write('\n')
         file.write('PAST FLIGHTS \n')
         for j in range(len(pastFlNo)):
