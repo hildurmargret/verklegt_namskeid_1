@@ -6,8 +6,11 @@
 
 from UILayer.Windows import*
 from DataLayer.saveStaffInFile import*
+from DataLayer.saveAircraftInFile import*
 
-def saveCabin(newStaff):
-    saveCabinInFile(newStaff)
-def savePilot(newStaff):
-    savePilotInFile(newStaff)
+def LLsaveCabin(newStaff):
+    DLsaveCabin(newStaff)
+def LLsavePilot(newStaff):
+    DLsavePilot(newStaff)
+def saveAircraft(newAircraft):
+    saveAircraftInFile(newAircraft)
