@@ -301,7 +301,7 @@ class pagePrints:
     def window16(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
-        self.prentWord(15,"Type in name of the voyage")
+        self.prentWord(15,"Type in a flight number")
         self.prentSpace(1,(self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)

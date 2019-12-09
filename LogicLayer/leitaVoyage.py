@@ -1,19 +1,22 @@
 import csv
-from Date import*
-from OpenFile import*
+from LogicLayer.Date import*
+from DataLayer.OpenFile import*
 
-def leitaVoyage():
+def leitaVoyage(inpt):
 
     #path = '/Users/hildur/Documents/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
     #file1 = path + 'UpcomingFlights copy.csv'
     #file2 = path + 'PastFlights.csv'
 
-    inpt = 'NA013' #flugnumer
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyage = []
+    found_bool = 0
 
-    file1=OpenFile('UpcomingFlights copy.csv')
+    if not found_bool:
+        file1=OpenFile('UpcomingFlights copy.csv')
+    else:
+        file1=OpenFile('PastFlights.csv')
 
     with file1 as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -27,6 +30,7 @@ def leitaVoyage():
 
             if no%2 == 0 and row['flightNumber'] == inpt:
                 voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+
 
             elif no%2 == 0 and (row['flightNumber'] == ('NA' + dest + str(no+1))):
                 voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
@@ -43,9 +47,3 @@ def leitaVoyage():
                 voyage.append(voyRet)
 
     return voyage
-
-bla = leitaVoyage()
-
-for i in range(len(bla)):
-    for j in range(len(bla)):
-        print(bla[i][j])

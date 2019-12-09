@@ -5,6 +5,7 @@ from UILayer.addInp import*
 from LogicLayer.getStaff1_4 import*
 from LogicLayer.getStaff5_6 import*
 from LogicLayer.getStaff7_8 import*
+from LogicLayer.leitaVoyage import*
 """from Staff import*
 from Voyage import*
 from Destination import*
@@ -88,6 +89,18 @@ class Windows():
 
     def getVoyageInfo(self,print_):
         print_.window15()
+        inp=int(input("number: "))
+        if inp==1:
+            print_.window16()
+            input_string = input('Flight number: ')
+            linur = leitaVoyage(input_string)
+
+            for i in range(len(linur)):
+                for j in range(len(linur)):
+                    print(linur[i][j])
+        elif inp==2:
+            print('bla')
+
 
     def getVoyageInfoWeek(self,print_):
         print_.window19()
