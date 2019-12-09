@@ -1,6 +1,7 @@
 import csv
 from LogicLayer.Date import*
 from DataLayer.OpenFile import*
+from ModelClasses.Voyage import*
 
 def leitaVoyage(inpt):
 
@@ -22,28 +23,35 @@ def leitaVoyage(inpt):
         csv_reader = csv.DictReader(csv_file)
 
         for row in csv_reader:
-            voyDep = ['VOYAGE RETURN:']
-            voyRet = ['VOYAGE DEPARTURE:']
+            # voyDep = ['VOYAGE RETURN:']
+            # voyRet = ['VOYAGE DEPARTURE:']
 
             deptTime = str(getDay(row['departure'])) + '/' + str(getMonth(row['departure'])) + '/' + str(getYear(row['departure'])) + ' at ' + str(getHour(row['departure'])) + ':' + str(getMinute(row['departure']))
             arvlTime = str(getDay(row['arrival'])) + '/' + str(getMonth(row['arrival'])) + '/' + str(getYear(row['arrival'])) + ' at ' + str(getHour(row['arrival'])) + ':' + str(getMinute(row['arrival']))
 
             if no%2 == 0 and row['flightNumber'] == inpt:
-                voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-
+                voy = Voyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                #voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voyage.append(voy)
 
             elif no%2 == 0 and (row['flightNumber'] == ('NA' + dest + str(no+1))):
-                voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voy = Voyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                #voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voyage.append(voy)
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
-                voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voy = Voyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                #voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voyage.append(voy)
 
             elif no%2 != 0 and row['flightNumber'] == ('NA' + dest + str(no-1)):
-                voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voy = Voyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                #voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                voyage.append(voy)
 
-            if len(voyDep) != 1:
-                voyage.append(voyDep)
-            elif len(voyRet) != 1:
-                voyage.append(voyRet)
+            # if len(voyDep) != 1:
+            #     voyage.append(voyDep)
+            # elif len(voyRet) != 1:
+            #     voyage.append(voyRet)
 
     return voyage
