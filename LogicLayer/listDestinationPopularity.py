@@ -1,5 +1,5 @@
 import csv
-#from DataLayer.OpenFile import*
+from DataLayer.OpenFile import*
 
 def MostPopularDestination():
 
@@ -12,9 +12,8 @@ def MostPopularDestination():
 
     ########### open file 1 ###########
     skra1 = 'Destinations.csv'
-    file1 = path+skra1
-    #file1 = OpenFile(skra1)
-    with open(file1,'r') as csv_file:
+    file1 = OpenFile(skra1)
+    with file1 as csv_file:
         csv_reader1 = csv.DictReader(csv_file)
         for row in csv_reader1:
             if row['id'] != "KEF":
@@ -25,8 +24,8 @@ def MostPopularDestination():
 
     ########### open file 2 ###########
     skra2 = 'pastFlights.csv'
-    file2 = path+skra2
-    with open(file2,'r') as csv_file:
+    file2 = OpenFile(skra2)
+    with file2 as csv_file:
         csv_reader2 = csv.DictReader(csv_file)
         for row in csv_reader2:
             if row['departingFrom'] == 'KEF':
@@ -36,8 +35,8 @@ def MostPopularDestination():
 
     ########### open file 3 ###########
     skra3 = 'pastFlights.csv'
-    file3 = path + skra3
-    with open(file3, 'r') as csv_file:
+    file3 = OpenFile(skra3)
+    with file3 as csv_file:
         csv_reader3 = csv.DictReader(csv_file)
         for row in csv_reader3:
             if row['departingFrom'] == 'KEF':
