@@ -23,10 +23,11 @@ def emplWorking(inptDate):
         file1=path+'UpcomingFlights copy.csv'
 
     #print(today)
-
+    updemplSSN=[]
     emplSSN = []
     employees = []
     noemployees=[]
+    emplDest=[]
 
     #Past flights
     with open(file1,'r') as csv_file:
@@ -42,16 +43,19 @@ def emplWorking(inptDate):
                 emplSSN.append(row['fsm'])
                 emplSSN.append(row['fa1'])
                 emplSSN.append(row['fa2'])
+                emplDest.append(row['arrivingAt'])
 
-    for j in range(len(emplSSN)):
-        if j%2 != 0:
-            del emplSSN[-1]
+    for i in emplSSN:
+        if i not in updemplSSN:
+            updemplSSN.append(i)
+
+
 
     with open(file2, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            for i in range(len(emplSSN)):
-                if row['ssn'] == emplSSN[i]:
+            for i in range(len(updemplSSN)):
+                if row['ssn'] == updemplSSN[i]:
                     if row['licence'] == 'N/A':
                         empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
                         employees.append(empl)
@@ -62,7 +66,7 @@ def emplWorking(inptDate):
     with open(file2, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            if row['ssn'] not in emplSSN:
+            if row['ssn'] not in updemplSSN:
                 if row['licence'] == 'N/A':
                     emp = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
                     noemployees.append(emp)
