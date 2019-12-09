@@ -2,7 +2,7 @@ from ModelClasses.Staff import*
 def savePilotInFile(newStaff):
     path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
     f=open(path, "a")
-    f.write(newStaff.SSN+","+newStaff.name+","+newStaff.role+","+newStaff.rank+","+newStaff.licence+","newStaff.address+","+newStaff.phoneNumber+"\n")
+    f.write(newStaff.SSN+","+newStaff.name+","+newStaff.role+","+newStaff.rank+","+newStaff.licence+","+newStaff.address+","+newStaff.phoneNumber+"\n")
 
 def saveCabinInFile(newStaff):
     path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
