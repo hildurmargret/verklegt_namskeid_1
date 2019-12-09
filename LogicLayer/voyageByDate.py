@@ -1,6 +1,7 @@
 
 import csv
-from Date import*
+from LogicLayer.Date import*
+from ModelClasses.Voyage import *
 
 def voyageByDate():
 
@@ -9,11 +10,13 @@ def voyageByDate():
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
 
-    path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/'
+    stdDate=inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
-    today=date_now()
+    path='/Users/valdisbaerings/Documents/verklegt_namskeid_1/csvFiles'
 
-    if today>inptDate:
+    today=now()
+
+    if today>stdDate:
         file=path+'PastFlights.csv'
     else:
         file=path+'UpcomingFlights copy.csv'
@@ -47,6 +50,7 @@ def voyageByDate():
             arrHour.append(str(getHour(row['arrival'])))
 
             flugnr=row['flightNumber']
+
             no=int(flugnr[4:len(flugnr)])
 
             if inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
@@ -54,12 +58,12 @@ def voyageByDate():
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
-                    voyDep.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                    #voyage.append(voyDep)
+                    voyD=createVoyage(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                    voyDep.append(voyD)
 
                 elif no%2 != 0:
-                    voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
-                    #voyage.append(voyRet)
+                    voyR=createVoyage(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+                    voyRet.append(voyR)
             tel=tel+1
 
     return voyDep, voyRet
@@ -72,5 +76,3 @@ for i in range(len(dep)):
     print('VOYAGE RETURN')
     print ret[i]
     print
-
-#VANTAR HINN FILE
