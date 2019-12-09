@@ -11,7 +11,7 @@ def emplWorking(inptDate):
 
     standardDate = inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
+    path='/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
 
     file2=path+'Crew.csv'
 
@@ -26,6 +26,7 @@ def emplWorking(inptDate):
 
     emplSSN = []
     employees = []
+    noemployees=[]
 
     #Past flights
     with open(file1,'r') as csv_file:
@@ -42,7 +43,6 @@ def emplWorking(inptDate):
                 emplSSN.append(row['fa1'])
                 emplSSN.append(row['fa2'])
 
-
     for j in range(len(emplSSN)):
         if j%2 != 0:
             del emplSSN[-1]
@@ -58,6 +58,16 @@ def emplWorking(inptDate):
                     else:
                         empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                         employees.append(empl)
-    #print('Employees working ' + inptDate + ':')
 
-    return employees
+    with open(file2, 'r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            if row['ssn'] not in emplSSN:
+                if row['licence'] == 'N/A':
+                    emp = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+                    noemployees.append(emp)
+                else:
+                    emp = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    noemployees.append(emp)
+
+    return employees, noemployees
