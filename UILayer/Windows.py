@@ -107,11 +107,16 @@ class Windows():
         if inp==1:
             UI.UIgettingAirplanes()
         elif inp==2:
-            pilots = allPilotsByLicence()
-            print(pilots)
-            printPilotList(pilots)
+            pilots, types = allPilotsByLicence()
+
+            for i in range(len(pilots)):
+                print(types[i])
+                printPilotList(pilots[i])
+                print('\n', end = '')
+
         elif inp==3:
-            inpt = input('Licence: ')
+            print_.window25()
+            inpt = input('Airplane type: ')
             pilots = searchPilotsByLicence(inpt)
             printPilotList(pilots)
 

@@ -413,11 +413,10 @@ class pagePrints:
         self.prentSpace(2,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
-    #TAKA UT?
     def window25(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
-        self.prentWord(15,"Type in name of the voyage")
+        self.prentWord(15,"Type in an airplane type")
         self.prentSpace(1,(self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
