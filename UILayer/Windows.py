@@ -19,10 +19,11 @@ from getPilotByLicence import*
 """
 from LogicLayer.listDestinationsAlphabetic import*
 from LogicLayer.listDestinationPopularity import*
-
+LL=LL_API()
 
 
 class Windows():
+
 
     def updateStaff(self,print_):
         pass
@@ -122,7 +123,7 @@ class Windows():
         add=Inp()
         [name, model, manufacturer, seats]=add.addAirplaneInp()
         airplane=createAirplane(name,model,manufacturer,seats)
-        saveAircraft(airplane)
+        LL.LLsaveAircraft(airplane)
 
 
     def copyExistingVoyage(self,print_):
@@ -152,14 +153,14 @@ class Windows():
         airplaneLicense=input("Airplane License: ")
         #add.addInp()
         pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
-        LLsavePilot(pilot)
+        LL.LLsavePilot(pilot)
 
     def createNewCabin(self,print_):
         print_.window4()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
         cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
-        LLsaveCabin(cabin)
+        LL.LLsaveCabin(cabin)
 
     def createNewStaff(self,print_):
         print_.window2()

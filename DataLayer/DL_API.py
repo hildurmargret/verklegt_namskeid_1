@@ -1,8 +1,12 @@
+from DataLayer.saveStaffInFile import*
+from DataLayer.saveAircraftInFile import*
+from DataLayer.saveNewDestination import*
+
 class DL_API():
 
-    def DLsaveCabin(newStaff):
+    def DLsaveCabin(self,newStaff):
         saveCabinInFile(newStaff)
-    def DLsavePilot(newStaff):
+    def DLsavePilot(self,newStaff):
         savePilotInFile(newStaff)
-    def saveAircraft(newAircraft):
+    def DLsaveAircraft(self,newAircraft):
         saveAircraftInFile(newAircraft)

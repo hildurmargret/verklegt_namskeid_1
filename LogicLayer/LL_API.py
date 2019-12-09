@@ -7,10 +7,13 @@
 from UILayer.Windows import*
 from DataLayer.saveStaffInFile import*
 from DataLayer.saveAircraftInFile import*
+from DataLayer.DL_API import*
+DL=DL_API()
+
 class LL_API():
-    def LLsaveCabin(newStaff):
-        DLsaveCabin(newStaff)
-    def LLsavePilot(newStaff):
-        DLsavePilot(newStaff)
-    def saveAircraft(newAircraft):
-        saveAircraftInFile(newAircraft)
+    def LLsaveCabin(self,newStaff):
+        DL.DLsaveCabin(newStaff)
+    def LLsavePilot(self,newStaff):
+        DL.DLsavePilot(newStaff)
+    def LLsaveAircraft(self,newAircraft):
+        DL.DLsaveAircraft(newAircraft)
