@@ -37,13 +37,10 @@ from LogicLayer.listDestinationPopularity import*
 
 UI=UI_Manager()
 
-
 class Windows():
-
 
     def updateStaff(self,print_):
         pass
-
 
     def employeesToVoyage(self,print_):
         print_.window25()

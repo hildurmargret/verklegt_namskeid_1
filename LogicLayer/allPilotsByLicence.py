@@ -22,6 +22,8 @@ def allPilotsByLicence():
             retTypes.append(i)
 
     for k in range(len(retTypes)):
+        print(retTypes[k])
         pilotByLicence = searchPilotsByLicence(retTypes[k])
+        print(pilotBy)
 
     return pilots
