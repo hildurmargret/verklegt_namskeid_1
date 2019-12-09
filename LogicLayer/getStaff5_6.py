@@ -6,7 +6,7 @@ from Date import*
 
 def staffInfo2(inpt,number):
 
-    path='/Users/hildur/Documents/verklegt_namskeid_1/csvFiles/'
+    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
     skra1='PastFlights.csv'
     file1=path+skra1
 
