@@ -1,7 +1,10 @@
 from UILayer.pagePrints import*
 from LogicLayer.LL_API import*
 from ModelClasses.Staff import*
-from UILayer.addInp import*
+from UILayer.addInp1 import*
+from UILayer.addInp2 import*
+from UILayer.addInp3 import*
+from UILayer.addInp4 import*
 from ModelClasses.Voyage import*
 from LogicLayer.getStaff1_4 import*
 from LogicLayer.getStaff5_6 import*
@@ -54,6 +57,7 @@ class Windows():
             self.updateStaff(print_)
         elif inp==2:
             print_.window22()
+            UI.UIupdateDestination()
         elif inp==3:
             self.employeesToVoyage(print_)
         elif inp==0:
@@ -241,20 +245,19 @@ class Windows():
         elif inp==0:
             self.create(print_)
 
-    def createNewPilot(self,print_):
+    def createNewStaff(self,print_):
         print_.window3()
-        add=Inp()
-        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-        licence=input("Licence: ")
-        pilot=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,licence)
-        UI.UIsavePilot(pilot)
+        employee = createStaff()
+        add=Inp1()
+        empl=add.addStaffInp1(employee)
+        UI.UIsaveStaff(empl)
 
-    def createNewCabin(self,print_):
-        print_.window4()
-        add=Inp()
-        [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-        cabin=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,"N/A")
-        UI.UIsaveCabin(cabin)
+    # def createNewCabin(self,print_):
+    #     print_.window4()
+    #     add=Inp()
+    #     [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
+    #     cabin=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,"N/A")
+    #     UI.UIsaveCabin(cabin)
 
 
     def createNewStaff(self,print_):
