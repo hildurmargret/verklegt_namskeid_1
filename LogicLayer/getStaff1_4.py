@@ -4,7 +4,7 @@ from ModelClasses.Staff import *
 
 def staffInfo(input_num, input_string):
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
+    path='/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/'
     skra='Crew.csv'
 
     file=path+skra
@@ -39,6 +39,6 @@ def staffInfo(input_num, input_string):
                     if row['ssn']==ssn[i]:
                         empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                         employees.append(empl)
-                        
+
                         break
     return employees
