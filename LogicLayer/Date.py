@@ -62,8 +62,6 @@ def date_now():
     d=today.strftime("%d/%m/%Y")
     return d
 
-
-
 #getDateRangeFromWeek(23, 2019)
 
 #getDateRangeFromWeek(2019,44)

@@ -1,5 +1,6 @@
 from ModelClasses.Staff import*
 from ModelClasses.Airplane import*
+from LogicLayer.Date import*
 class Inp():
 
     def addStaffInp(self):
@@ -123,16 +124,37 @@ class Inp():
         if self.arrivingAt=="CANCEL":
             self.cancel=1
             return 0
-        self.departureDate=input("Departure date: ")
-        if self.departureDate=="CANCEL":
+        #self.departureDate=input("Departure date: ")
+        date=input("Departure date: ")
+        if date=="CANCEL":
             self.cancel=1
             return 0
-        self.departureTime=input("Departure time: ")
-        if self.departureTime=="CANCEL":
+        month=input("Departure month: ")
+        if month=="CANCEL":
             self.cancel=1
             return 0
+        year=input("Departure year: ")
+        if year=="CANCEL":
+            self.cancel=1
+            return 0
+        hour=input("Departure hour: ")
+        if hour=="CANCEL":
+            self.cancel=1
+            return 0
+        minute=input("Departure minute: ")
+        if minute=="CANCEL":
+            self.cancel=1
+            return 0
+        date=int(date)
+        month=int(month)
+        year=int(year)
+        hour=int(hour)
+        minute=int(minute)
+        self.departure = getDate(year,month,date,hour,minute)
 
-        self.arrival=int(self.departureTime) +2
+        print(self.departure)
+
+        self.arrival=getDate(year,month,date,hour,minute)
 
         self.aircraftId=input("Aircraft ID: ")
         if self.aircraftId=="CANCEL":
@@ -147,4 +169,4 @@ class Inp():
             self.airport=1
             return 0
 
-        return self.flightNumber,self.departingFrom,self.arrivingAt,self.departureDate,self.departureTime,self.arrival,self.numberOfCabin,self.numberOfPilots,self.aircraftId
+        return self.flightNumber,self.departingFrom,self.arrivingAt,self.departure,self.arrival,self.numberOfCabin,self.numberOfPilots,self.aircraftId
