@@ -4,6 +4,7 @@ from ModelClasses.Staff import*
 
 def emplWorking(inptDate):
 
+    #inptDate = '10/11/2019'
     inptDay = str(inptDate[0:2])
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
