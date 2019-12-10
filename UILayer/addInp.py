@@ -146,10 +146,6 @@ class Inp():
             if self.contactNumber=="CANCEL":
                 self.cancel=1
                 return 0
-            self.contactNumber=input("Contact phone number: ")
-            if self.contactNumber=="CANCEL":
-                self.cancel=1
-                return 0
             return self.country, self.distance, self.airport, self.contactName, self.contactNumber
 
 
