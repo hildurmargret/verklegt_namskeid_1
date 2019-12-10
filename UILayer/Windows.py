@@ -172,10 +172,11 @@ class Windows():
         print_.window15()
         inp=int(input("number: "))
         if inp==1:
+            voyage = []
             print_.window16()
             input_string = input('Flight number: ')
-            linur = leitaVoyage(input_string)
-            printVoyageList(linur)
+            voyage.append(leitaVoyage(input_string))
+            printVoyageList(voyage)
 
         elif inp==2:
             print_.window17()
@@ -187,8 +188,9 @@ class Windows():
             print_.window19()
             input_week = input('Week number: ')
             input_year = input('Year: ')
-            dep, ret = voyageByWeek(input_week, input_year)
-            printVoyagebyDates(dep,ret)
+            voyages = voyageByWeek(input_week, input_year)
+            printVoyageList(voyages)
+            #printVoyagebyDates(dep,ret)
         elif inp==0:
             self.getInformation(print_)
 
