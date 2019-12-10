@@ -218,8 +218,10 @@ class Windows():
     def createAirplanes(self,print_):
         print_.window9()
         add=Inp()
-        [planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan]=add.addAirplaneInp()
-        airplane=createAirplane(planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan)
+        add=Inp4()
+        airplane=createAirplane()
+        airplane=add.addAirplaneInp(airplane)
+
         UI.UIsaveAircraft(airplane)
 
 
