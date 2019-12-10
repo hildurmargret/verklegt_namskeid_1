@@ -1,5 +1,7 @@
 from LogicLayer.LL_API import*
 from UILayer.printAirplanes import*
+from UILayer.updateStaff_Input import*
+from UILayer.chooseEmplFromList import*
 
 LL=LL_API()
 
@@ -8,16 +10,16 @@ class UI_Manager:
     def __init__(self):
         pass
 
-    def UIsaveCabin(self,newStaff):
-        LL.LLsaveCabin(newStaff)
+    def UIsaveCabin(self,newCabin):
+        LL.LLsaveCabin(newCabin)
 
-    def UIsavePilot(self,newStaff):
-        LL.LLsavePilot(newStaff)
+    def UIsavePilot(self,newPilot):
+        LL.LLsavePilot(newPilot)
 
     def UIsaveVoyage(self,newVoyage):
         LL.LLsaveVoyage(newVoyage)
 
-    def UIsaveAircraft(self):
+    def UIsaveAircraft(self,newAircraft):
         LL.LLsaveAircraft(newAircraft)
 
     def UIsaveDestinationInFile(self):
@@ -26,3 +28,20 @@ class UI_Manager:
     def UIgettingAirplanes(self):
         getAircraft = LL.LLgetAircraft()
         printAircraft(getAircraft)
+
+    def UIupdatePilot(self):
+        update=updateStaffInput()
+        input_string=input("SSN: ")
+        employees=LL.LLupdateStaff(input_string)
+        emplFromList(employee)
+        employee=update.addPilotInp(employee)
+        LL.LLupdatingPilot(employee)
+
+
+    def UIupdateCabin(self):
+        update=updateStaffInput()
+        input_string=input("SSN: ")
+        employees=LL.LLupdateStaff(input_string)
+        emplFromList(employee)
+        employee=update.addCabinInp(employee)
+        LL.LLupdatingCabin(employee)
