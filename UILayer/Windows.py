@@ -245,17 +245,17 @@ class Windows():
         print_.window3()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-        airplaneLicense=input("Airplane Licence: ")
-        ##add.addInp()
-        pilot=createPilot(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,airplaneLicense)
+        licence=input("Licence: ")
+        pilot=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,licence)
         UI.UIsavePilot(pilot)
 
     def createNewCabin(self,print_):
         print_.window4()
         add=Inp()
         [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-        cabin=createCabin(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank)
+        cabin=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,"N/A")
         UI.UIsaveCabin(cabin)
+
 
     def createNewStaff(self,print_):
         print_.window2()
@@ -273,7 +273,7 @@ class Windows():
         add = Inp()
         [country,distance,airport,contactName,contactNumber]=add.addDestinationInp()
         Dest=CreateDestination(country,distance,airport,contactName,contactNumber)
-        UI.saveDestinationInFile(Dest)
+        UI.UIsaveDestinationInFile(Dest)
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane
