@@ -80,7 +80,7 @@ class Windows():
             if input_string == 'CANCEL':
                 self.getStaffInfo(print_)
             else:
-                numOfDest, pastFlights, upcFlights, employees = staffInfo2(inp, input_string)
+                numOfDest, pastFlights, upcFlights, employees = staffInfo2(input_string)
                 printDestList(numOfDest, pastFlights, employees)
 
         elif inp==6:

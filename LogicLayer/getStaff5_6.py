@@ -29,12 +29,9 @@ def staffInfo2(input_string):
             ssn,rank=leitaStaff(input_string,file2,ssn,rank)
             for i in range(len(ssn)):
                 if row['ssn']==ssn[i]:
-                    if row['role'] == 'Cabincrew':
-                        empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
-                        employees.append(empl)
-                    else:
-                        empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                        employees.append(empl)
+                    empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    employees.append(empl)
+                    
                     break
 
     """#Upcoming flights
