@@ -1,5 +1,5 @@
 from LogicLayer.Date import*
-def saveCompleteWS(pastFlights, employees):
+def saveCompleteWS(pastFlights, upcFlights, employees):
     path = '/Users/hildur/Desktop/'
     file = open(path+'WorkSchedule.txt','w')
 
@@ -11,19 +11,22 @@ def saveCompleteWS(pastFlights, employees):
 
         file.write('\n')
         file.write('PAST FLIGHTS \n')
-        for j in range(len(pastFlights)):
-            file.write('Flight number: ' + pastFlights[j].flightNumber + ', From ' + pastFlights[j].departingFrom + ' to ' + pastFlights[j].arrivingAt + ', ')
-            file.write('Departure: ' + pastFlights[j].departure + ', Arrival: ' + pastFlights[j].arrival + '\n')
+        if len(pastFlights)==0:
+            file.write('No past flights')
+        else:
+            for j in range(len(pastFlights)):
+                file.write('Flight number: ' + pastFlights[j].flightNumber + ', From ' + pastFlights[j].departingFrom + ' to ' + pastFlights[j].arrivingAt + ', ')
+                file.write('Departure: ' + pastFlights[j].departure + ', Arrival: ' + pastFlights[j].arrival + '\n')
         file.write('\n')
 
         file.write('UPCOMING FLIGHTS \n')
-        for j in range(len(pastFlights)):
-            file.write('Flight number: ' + pastFlights[j].flightNumber + ', From ' + pastFlights[j].departingFrom + ' to ' + pastFlights[j].arrivingAt + ', ')
-            file.write('Departure: ' + pastFlights[j].departure + ', Arrival: ' + pastFlights[j].arrival + '\n')
-        file.write('\n')
-        #     print('Flight number: ' + upcFlights[j].flightNumber + ', From ' + upcFlights[j].departingFrom + ' to ' + upcFlights[j].arrivingAt + ', ', end = '')
-        #     print('Departure: ' + upcFlights[j].departure + ', Arrival: ' + upcFlights[j].arrival)
-        # print('\n')
+        if len(upcFlights)==0:
+            file.write('No upcoming flights')
+        else:
+            for j in range(len(upcFlights)):
+                file.write('Flight number: ' + upcFlights[j].flightNumber + ', From ' + upcFlights[j].departingFrom + ' to ' + upcFlights[j].arrivingAt + ', ')
+                file.write('Departure: ' + upcFlights[j].departure + ', Arrival: ' + upcFlights[j].arrival + '\n')
+                
         file.write('\n')
         file.write('-----------------------------------------------------------------------------------------------------')
         file.write('\n')
@@ -45,9 +48,12 @@ def saveWeeklyWS(flights, employees, week, year):
 
         file.write('\n')
         file.write('Week: ' + week + ', Year: ' + year + '\n')
-        for j in range(len(flights)):
-            file.write('Flight number: ' + flights[j].flightNumber + ', From ' + flights[j].departingFrom + ' to ' + flights[j].arrivingAt + ', ')
-            file.write('Departure: ' + flights[j].departure + ', Arrival: ' + flights[j].arrival + '\n')
+        if len(flights)==0:
+            file.write('No flights for this time period')
+        else:
+            for j in range(len(flights)):
+                file.write('Flight number: ' + flights[j].flightNumber + ', From ' + flights[j].departingFrom + ' to ' + flights[j].arrivingAt + ', ')
+                file.write('Departure: ' + flights[j].departure + ', Arrival: ' + flights[j].arrival + '\n')
         file.write('\n')
         file.write('-----------------------------------------------------------------------------------------------------')
         file.write('\n')

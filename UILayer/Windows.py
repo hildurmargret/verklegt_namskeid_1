@@ -107,7 +107,7 @@ class Windows():
 
             if WC == str(2):
                 if input_save == str(1):
-                    saveCompleteWS(pastFlights, empl)
+                    saveCompleteWS(pastFlights, upcFlights, empl)
                 printCompleteWS(pastFlights, upcFlights, empl)
             elif WC==str(1):
                 if input_save == str(1):
