@@ -19,6 +19,6 @@ def saveUpdatedDest(dest):
 
     for i in range(len(Desti)):
         if Desti[i].destination==dest.destination:
-            writer.writerow((desti.id, dest.destination, dest.country, dest.distance, dest.airport, dest.contactName, dest.contactNumber))
+            writer.writerow((dest.id, dest.destination, dest.country, dest.distance, dest.airport, dest.contactName, dest.contactNumber))
         else:
             writer.writerow((Desti[i].id, Desti[i].destination, Desti[i].country, Desti[i].distance, Desti[i].airport, Desti[i].contactName, Desti[i].contactNumber))

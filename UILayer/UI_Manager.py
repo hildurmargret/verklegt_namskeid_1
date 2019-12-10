@@ -50,9 +50,9 @@ class UI_Manager:
 
     def UIupdateDestination(self):
         update=updateDestInput()
-        input_string = input("Contact name: ")
+        input_string = input("Destination ")
         dest=LL.LLupdatingDestination(input_string)
-        desti=cabinFromList(dest)
+        desti=DestinationFromList(dest)
         desti=update.addDestinationInp(desti)
         LL.LLupdatingDestination(desti)
 
