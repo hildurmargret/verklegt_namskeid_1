@@ -8,20 +8,20 @@ class UI_Manager:
     def __init__(self):
         pass
 
-    def UIsaveCabin(self):
-        LLsaveCabin(newStaff)
+    def UIsaveCabin(self,newStaff):
+        LL.LLsaveCabin(newStaff)
 
-    def UIsavePilot(self):
-        LLsavePilot(newStaff)
+    def UIsavePilot(self,newStaff):
+        LL.LLsavePilot(newStaff)
 
-    def UIsaveVoyage(self):
-        LLsaveVoyage(newVoyage)
+    def UIsaveVoyage(self,newVoyage):
+        LL.LLsaveVoyage(newVoyage)
 
     def UIsaveAircraft(self):
-        LLsaveAircraft(newAircraft)
+        LL.LLsaveAircraft(newAircraft)
 
     def UIsaveDestinationInFile(self):
-        LLsaveDestination(NewDest)
+        LL.LLsaveDestination(NewDest)
 
     def UIgettingAirplanes(self):
         getAircraft = LL.LLgetAircraft()
