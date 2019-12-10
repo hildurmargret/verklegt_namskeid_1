@@ -6,7 +6,7 @@ from UILayer.addInp2 import*
 from UILayer.addInp3 import*
 from UILayer.addInp4 import*
 from ModelClasses.Voyage import*
-from LogicLayer.getStaff1_4 import*
+from LogicLayer.getStaff1_4nytt import*
 from LogicLayer.getStaff5_6 import*
 from LogicLayer.getStaff7_8 import*
 from LogicLayer.leitaVoyage import*
