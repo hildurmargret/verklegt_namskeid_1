@@ -33,15 +33,15 @@ class UI_Manager:
         update=updateStaffInput()
         input_string=input("SSN: ")
         employees=LL.LLupdateStaff(input_string)
-        employee=emplFromList(employee)
-        employee=update.addPilotInp(employee)
-        LL.LLupdatingPilot(employee)
+        employee=pilotsFromList(employees)
+        employee=update.addStaffInp(employee)
+        LL.LLupdatingStaff(employee)
 
 
     def UIupdateCabin(self):
         update=updateStaffInput()
         input_string=input("SSN: ")
         employees=LL.LLupdateStaff(input_string)
-        employee=emplFromList(employee)
-        employee=update.addCabinInp(employee)
-        LL.LLupdatingCabin(employee)
+        employee=cabinFromList(employees)
+        employee=update.addStaffInp(employee)
+        LL.LLupdatingStaff(employee)

@@ -39,8 +39,5 @@ class LL_API:
         return employees
 
         return employees
-    def LLupdatingPilot(self,employee):
-        DL.DLupdatePilot(employee)
-
-    def LLupdatingCabin(self,employee):
-        DL.DLupdateCabin(employee)
+    def LLupdatingStaff(self,employee):
+        DL.DLupdateStaff(employee)
