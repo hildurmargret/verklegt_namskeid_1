@@ -1,9 +1,9 @@
 from ModelClasses.Staff import*
 from ModelClasses.Airplane import*
 from LogicLayer.Date import*
-class Inp1():
+class Inp():
 
-    def addStaffInp1(self):
+    def addStaffInp(self):
         validName_bool = 0
         while not validName_bool:
             self.name=input("Name: ")
