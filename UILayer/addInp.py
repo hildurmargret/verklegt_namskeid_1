@@ -111,14 +111,6 @@ class Inp():
 
     def addVoyageInp(self):
 
-        # if self.numberOfPilots < 2:
-        #     print("Sorry! There must be at least 2 pilots in every voyage. Try again")
-        #     self.numberOfPilots = input("Number of Pilots: ")
-        #
-        # if self.numberOfCabin < 1:
-        #     print("Sorry! There must be at least 1 cabin in every voyage. Try again")
-        #     self.numberOfCabin = input("Number of cabin: ")
-
         self.flightNumber=input("Flight number: ")
         if self.flightNumber=="CANCEL":
             self.cancel=1
@@ -131,25 +123,28 @@ class Inp():
         if self.arrivingAt=="CANCEL":
             self.cancel=1
             return 0
-        self.departure=input("Departure: ")
-        if self.departure=="CANCEL":
+        self.departureDate=input("Departure date: ")
+        if self.departureDate=="CANCEL":
             self.cancel=1
             return 0
-        self.arrival=input("Arrival: ")
-        if self.arrival=="CANCEL":
-            self.country=1
+        self.departureTime=input("Departure time: ")
+        if self.departureTime=="CANCEL":
+            self.cancel=1
             return 0
-        self.aircraftId=input("Airport: ")
+
+        self.arrival=int(self.departureTime) +2
+
+        self.aircraftId=input("Aircraft ID: ")
         if self.aircraftId=="CANCEL":
             self.aircraftId=1
             return 0
-        self.numberOfCabin=input("Distance: ")
+        self.numberOfCabin=input("Number of cabin: ")
         if self.numberOfCabin=="CANCEL":
             self.distance=1
             return 0
-        self.numberOfPilots=input("Airport: ")
+        self.numberOfPilots=input("Number of pilots: ")
         if self.numberOfPilots=="CANCEL":
             self.airport=1
             return 0
 
-        return self.flightNumber,self.departingFrom,self.arrivingAt,self.departure,self.arrival,self.numberOfCabin,self.numberOfPilots,self.aircraftId
+        return self.flightNumber,self.departingFrom,self.arrivingAt,self.departureDate,self.departureTime,self.arrival,self.numberOfCabin,self.numberOfPilots,self.aircraftId

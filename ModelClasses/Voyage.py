@@ -1,11 +1,12 @@
 class createVoyage:
 
 
-    def __init__(self, flightNumber, departingFrom, arrivingAt, departure, arrival,aircraftId,numberOfCabin=0,numberOfPilots=0):
+    def __init__(self, flightNumber, departingFrom, arrivingAt, departuredate, departureTime, arrival,aircraftId,numberOfCabin=0,numberOfPilots=0):
         self.flightNumber=flightNumber
         self.departingFrom=departingFrom
         self.arrivingAt=arrivingAt
-        self.departure=departure
+        self.departureDate=departuredate
+        self.departureTime=departureTime
         self.arrival=arrival
         self.aircraftId=aircraftId
         self.numberOfCabin=numberOfCabin

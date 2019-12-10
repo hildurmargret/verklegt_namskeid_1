@@ -180,18 +180,23 @@ class pagePrints:
 
     def window7(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(14,(self.cols)/2)
+        self.prentSpace(12,(self.cols)/2)
         self.prentWord(15,"Flight number")
-        self.prentWord(15,"Destination")
-        self.prentWord(15,"Number of pilots needed")
-        self.prentWord(15,"Number of cabin crew needed")
-        self.prentWord(15,"Flight duration")
+        self.prentWord(15,"Departing from")
+        self.prentWord(15,"Arriving at")
+        self.prentWord(15,"Departure date (dd/mm/yyyy)")
+        self.prentWord(15,"Departure time (hour/minutes)")
+        self.prentWord(15,"Aircraft Id")
+        self.prentWord(15,"Number of cabin")
+        self.prentWord(15,"Number of pilots")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(12,(self.cols)/2)
         self.prentWord(15,"Type in the information")
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
+
+
 
     def window8(self):
         self.prentLina((self.cols)/2)

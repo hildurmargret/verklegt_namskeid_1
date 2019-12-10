@@ -231,8 +231,8 @@ class Windows():
     def createNewVoyage(self,print_):
         print_.window7()
         add=Inp()
-        [flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots]=add.addVoyageInp()
-        voyage=createVoyage(flightNumber,departingFrom,arrivingAt,departure,arrival,aircraftId,numberOfCabin,numberOfPilots)
+        [flightNumber, departingFrom, arrivingAt, departuredate, departureTime,arrival, numberOfCabin, numberOfPilots, aircraftId]=add.addVoyageInp()
+        voyage=createVoyage(flightNumber, departingFrom, arrivingAt, departuredate, departureTime, arrival, numberOfCabin, numberOfPilots, aircraftId)
         UI.UIsaveVoyage(voyage)
 
 
