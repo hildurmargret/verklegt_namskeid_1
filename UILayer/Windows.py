@@ -117,7 +117,7 @@ class Windows():
         elif inp==7:
             print_.window17()
             input_string = input('Date: ')
-            emp, noemp = emplWorking(input_string)
+            emp, noemp, dest = emplWorking(input_string)
 
             for i in range(len(noemp)):
                 print(noemp[i].name)
@@ -125,10 +125,12 @@ class Windows():
         elif inp==8:
             print_.window17()
             input_string = input('Date: ')
-            emp,noemp = emplWorking(input_string)
+            emp, noemp, dest = emplWorking(input_string)
 
-            for i in range(len(emp)):
-                print(emp[i].name)
+            print(dest)
+
+            #for i in range(len(emp)):
+            #    print(emp[i].name)
 
         else:
             linur=staffInfo(inp,'')
