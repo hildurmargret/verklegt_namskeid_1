@@ -41,3 +41,6 @@ class LL_API:
         return employees
     def LLupdatingStaff(self,employee):
         DL.DLupdateStaff(employee)
+
+    def LLupdatingDestination(self,destintion):
+        DL.DLupdateDestination(destination)

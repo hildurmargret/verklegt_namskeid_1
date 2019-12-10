@@ -45,3 +45,11 @@ class UI_Manager:
         employee=cabinFromList(employees)
         employee=update.addStaffInp(employee)
         LL.LLupdatingStaff(employee)
+
+    def UIupdateDestination(self):
+        update=updateDestInput()
+        input_string = input("Contact name: ")
+        dest=LL.LLupdateStaff(input_string)
+        desti=cabinFromList(dest)
+        desti=update.addDestinationInp(desti)
+        LL.LLupdatingDestination(desti)
