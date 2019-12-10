@@ -4,6 +4,7 @@ from UILayer.updateStaff_Input import*
 from UILayer.chooseEmplFromList import*
 from UILayer.updateDestination_input import*
 from UILayer.addInp1 import*
+from UILayer.chooseDestinationFromList import*
 
 LL=LL_API()
 
@@ -50,11 +51,11 @@ class UI_Manager:
 
     def UIupdateDestination(self):
         update=updateDestInput()
-        input_string = input("Destination ")
-        dest=LL.LLupdatingDestination(input_string)
-        desti=DestinationFromList(dest)
-        desti=update.addDestinationInp(desti)
-        LL.LLupdatingDestination(desti)
+        dest=LL.LLupdateDestination()
+        dest=DestinationFromList(dest)
+        dest=update.addDestInp(dest)
+        print(dest)
+        LL.LLupdatingDestination(dest)
 
     def UIupdateAircraft(self):
         update=Inp4()

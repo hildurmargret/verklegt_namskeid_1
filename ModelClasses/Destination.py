@@ -1,6 +1,6 @@
 class CreateDestination:
 
-    def __init__(self, id, destination, country, distance, airport, contactName, contactNumber):
+    def __init__(self, id="", destination="", country="", distance="", airport="", contactName="", contactNumber=""):
         self.id=id
         self.destination=destination
         self.country=country
