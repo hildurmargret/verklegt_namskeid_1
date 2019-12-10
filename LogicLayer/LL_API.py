@@ -48,3 +48,10 @@ class LL_API:
         DL.DLupdatedDestination(destination)
     def LLupdateAircraft(self,aircraft):
         DL.DLupdateAircraft(aircraft)
+
+    def LLgettingEmployees(self,input_string):
+        employees=staffInfo(4,input_string)
+        return employees
+
+    def LLemployeesToVoyage(self,voyage,employee):
+        DL.DLemployeesToVoyage(voyage,employee)

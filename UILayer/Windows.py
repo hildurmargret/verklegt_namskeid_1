@@ -49,7 +49,12 @@ class Windows():
             self.updateCabin(print_)
 
     def employeesToVoyage(self,print_):
+        UI.UIemployeesToVoyage()
         print_.window25()
+        add=Inp3()
+        voyage=createVoyage()
+        voyage=add.addVoyageInp(voyage)
+
 
     def updateInformation(self,print_):
         print_.window21()

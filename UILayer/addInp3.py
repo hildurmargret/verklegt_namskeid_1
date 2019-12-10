@@ -4,7 +4,7 @@ from LogicLayer.Date import*
 class Inp3():
 
 
-    def addVoyageInp(self):
+    def addVoyageInp(self,voyage):
 
         self.flightNumber=input("Flight number: ")
         if self.flightNumber=="CANCEL":
@@ -66,4 +66,4 @@ class Inp3():
             self.airport=1
             return 0
 
-        return self.flightNumber,self.departingFrom,self.arrivingAt,self.departure,self.arrival,self.numberOfCabin,self.numberOfPilots,self.aircraftId
+        return self
