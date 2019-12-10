@@ -9,6 +9,7 @@ from DataLayer.saveStaffInFile import*
 from DataLayer.saveAircraftInFile import*
 from DataLayer.DL_API import*
 from LogicLayer.getAircraft import*
+from LogicLayer.getStaff1_4 import*
 #from UILayer.UI_Manager import*
 
 DL=DL_API()
@@ -31,6 +32,15 @@ class LL_API:
         DL.DLsaveVoyage(newVoyage)
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
-        print("HIIII")
         return getAircraft
         #UI.gettingAirplanes(getAircraft)
+    def LLupdateStaff(self,input_string):
+        employees=staffInfo(4, input_string)
+        return employees
+
+        return employees
+    def LLupdatingPilot(self,employee):
+        DL.DLupdatePilot(employee)
+
+    def LLupdatingCabin(self,employee):
+        DL.DLupdateCabin(employee)
