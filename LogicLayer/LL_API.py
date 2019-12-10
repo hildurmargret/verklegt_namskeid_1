@@ -10,7 +10,7 @@ from DataLayer.saveAircraftInFile import*
 from DataLayer.DL_API import*
 from DataLayer.saveUpdatedDestination import*
 from LogicLayer.getAircraft import*
-from LogicLayer.getStaff1_4 import*
+from LogicLayer.getStaff1_4nytt import*
 from LogicLayer.listDestinationsAlphabetic import*
 #from UILayer.UI_Manager import*
 

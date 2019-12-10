@@ -4,7 +4,9 @@ from UILayer.updateStaff_Input import*
 from UILayer.chooseEmplFromList import*
 from UILayer.updateDestination_input import*
 from UILayer.addInp1 import*
+from UILayer.addInp3 import*
 from UILayer.chooseDestinationFromList import*
+from LogicLayer.leitaVoyage import*
 
 LL=LL_API()
 

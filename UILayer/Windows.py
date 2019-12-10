@@ -52,8 +52,8 @@ class Windows():
         UI.UIemployeesToVoyage()
         print_.window25()
         add=Inp3()
-        voyage=createVoyage()
-        voyage=add.addVoyageInp(voyage)
+        voyage=createFlightRoute()
+        #voyage=add.addVoyageInp(voyage)
 
 
     def updateInformation(self,print_):
