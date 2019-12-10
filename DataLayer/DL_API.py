@@ -2,8 +2,7 @@ from DataLayer.saveStaffInFile import*
 from DataLayer.saveAircraftInFile import*
 from DataLayer.saveNewDestination import*
 from DataLayer.saveVoyage import*
-from DataLayer.saveUpdatedPilot import*
-from DataLayer.saveUpdatedCabin import*
+from DataLayer.saveUpdatedStaff import*
 
 class DL_API:
 
