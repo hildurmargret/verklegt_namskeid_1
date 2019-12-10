@@ -80,6 +80,6 @@ def emplWorking(inptDate):
     for j in range(len(allStaff)):
         for i in range(len(emplDest)):
             if allStaff[j].SSN == str(emplDest[i][3:len(emplDest[i])]):
-                emplLOKA.append(allStaff[j].name + ', ' + allStaff[j].role + ' - ' + str(emplDest[j][0:3]))
+                emplLOKA.append(allStaff[j].name + ', ' + allStaff[j].role + ' - ' + str(emplDest[i][0:3]))
 
     return employees, noemployees, emplLOKA
