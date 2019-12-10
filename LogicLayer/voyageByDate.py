@@ -12,7 +12,7 @@ def voyageByDate(inptDate):
 
     stdDate=inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
-    path='/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
+    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
 
     today=now()
 

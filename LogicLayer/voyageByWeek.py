@@ -5,12 +5,9 @@ from ModelClasses.Voyage import*
 
 def voyageByWeek(inpt, inpt_year):
 
-    path='/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
+    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
 
-    #inpt=50
-    #inpt_year=2019
     daterange = getDateRangeFromWeek(inpt, inpt_year)
-    #print daterange
 
     firstDay = str(getDay(daterange[1]))
     firstMonth = str(getMonth(daterange[1]))
@@ -40,7 +37,6 @@ def voyageByWeek(inpt, inpt_year):
         file=path+'PastFlights.csv'
     else:
         file=path+'UpcomingFlights copy.csv'
-    #print file
 
     with open(file,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -58,7 +54,6 @@ def voyageByWeek(inpt, inpt_year):
 
             flugnr=row['flightNumber']
             no=int(flugnr[4:len(flugnr)])
-            #print no
 
             if firstDay <= depDay[tel] and firstMonth <= depMonth[tel] and firstYear <= depYear[tel] and lastDay >= depDay[tel] and lastMonth >= depMonth[tel] and lastYear >= depYear[tel]:
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
@@ -67,21 +62,12 @@ def voyageByWeek(inpt, inpt_year):
                 if no%2 == 0:
                     voyD=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
                     voyDep.append(voyD)
-                    #voyDep=append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+
 
                 elif no%2 != 0:
                     voyR=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
                     voyRet.append(voyR)
-                    #voyRet.append(row['flightNumber'] + ', ' + row['departingFrom'] + ', ' + row['arrivingAt'] + ', Departure: ' + deptTime + ', Arrival: ' + arvlTime)
+
             tel=tel+1
 
     return voyDep, voyRet
-
-#dep, ret = voyageByWeek()
-
-# for i in range(len(dep)):
-#     print('VOYAGE DEPARTURE')
-#     print(dep[i])
-#     print('VOYAGE RETURN')
-#     print(ret[i])
-#     print
