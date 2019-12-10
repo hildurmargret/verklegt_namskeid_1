@@ -100,7 +100,7 @@ def emplWorking(inptDate):
         for row in csv_reader:
             for i in range(len(emplDest)):
                 if row['ssn'] == str(emplDest[i][3:len(emplDest[i])]):
-                    emplLOKA.append(row['name'] + ' - ' + str(emplDest[i][0:3]))
+                    emplLOKA.append(row['name'] + ', ' + row['role'] + ' - ' + str(emplDest[i][0:3]))
 
 
     #for i in range(len(employees)):
