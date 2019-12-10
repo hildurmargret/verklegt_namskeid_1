@@ -2,6 +2,7 @@ import csv
 from LogicLayer.Date import*
 from DataLayer.OpenFile import*
 from ModelClasses.Voyage import*
+from ModelClasses.flightRoute import*
 
 def leitaVoyage(inpt):
 
@@ -11,7 +12,7 @@ def leitaVoyage(inpt):
 
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
-    voyage = []
+    voyage = createVoyage()
     found_bool = 0
 
     if not found_bool:
@@ -28,19 +29,23 @@ def leitaVoyage(inpt):
             arvlTime = str(getDay(row['arrival'])) + '/' + str(getMonth(row['arrival'])) + '/' + str(getYear(row['arrival'])) + ' at ' + str(getHour(row['arrival'])) + ':' + str(getMinute(row['arrival']))
 
             if no%2 == 0 and row['flightNumber'] == inpt:
-                voy = createVoyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
-                voyage.append(voy)
+                flight = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                voyage.departureFlight = flight
+                #voyage.append(voy)
 
             elif no%2 == 0 and (row['flightNumber'] == ('NA' + dest + str(no+1))):
-                voy = createVoyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
-                voyage.append(voy)
+                flight = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                voyage.returnFlight = flight
+                #voyage.append(voy)
 
             elif no%2 != 0 and row['flightNumber'] == inpt:
-                voy = createVoyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
-                voyage.append(voy)
+                flight = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                voyage.returnFlight = flight
+                #voyage.append(voy)
 
             elif no%2 != 0 and row['flightNumber'] == ('NA' + dest + str(no-1)):
-                voy = createVoyage(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
-                voyage.append(voy)
+                flight = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],deptTime,arvlTime,0,0)
+                voyage.departureFlight = flight
+                #voyage.append(voy)
 
     return voyage
