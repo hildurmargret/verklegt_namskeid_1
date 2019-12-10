@@ -1,4 +1,4 @@
-def emplFromList(employee):
+def emplFromList(employees):
     for i in range(len(employees)):
         print(i+1,end="")
         print(" " + employees[i].name)
