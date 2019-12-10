@@ -10,10 +10,10 @@ class DL_API:
     def __init__(self):
         pass
 
-    def DLsaveCabin(self,newStaff):
-        saveCabinInFile(newStaff)
-    def DLsavePilot(self,newStaff):
-        savePilotInFile(newStaff)
+    def DLsaveStaff(self, newStaff):
+        saveStaffInFile(newStaff)
+    #def DLsavePilot(self, newStaff):
+    #    savePilotInFile(newStaff)
     def DLsaveAircraft(self,newAircraft):
         saveAircraftInFile(newAircraft)
     def DLsaveDestination(self,newDest):
@@ -23,4 +23,6 @@ class DL_API:
     def DLupdateStaff(self,employee):
         saveUpdatedStaff(employee)
     def DLupdatedDestination(self, destination):
-        saveUpdatedDestination(destination)
+        saveUpdatedDest(destination)
+    def DLupdateAircraft(self,aircraft):
+        saveUpdatedAircraft(aircraft)
