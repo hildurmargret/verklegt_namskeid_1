@@ -21,6 +21,6 @@ class DL_API:
     def DLsaveVoyage(self,newVoyage):
         saveVoyageInFile(newVoyage)
     def DLupdatePilot(self,employee):
-        saveUpdatedPilot(employee)
+        saveUpdatedStaff(employee)
     def DLupdateCabin(self,employee):
-        saveUpdatedCabin(employee)
+        saveUpdatedStaff(employee)
