@@ -131,10 +131,8 @@ class Windows():
             input_string = input('Date: ')
             emp, noemp, dest = emplWorking(input_string)
 
-            print(dest)
-
-            #for i in range(len(emp)):
-            #    print(emp[i].name)
+            for i in range(len(dest)):
+                print(dest[i])
 
         else:
             linur=staffInfo(inp,'')

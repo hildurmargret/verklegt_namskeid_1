@@ -59,19 +59,19 @@ def emplWorking(inptDate):
             for i in range(len(updemplSSN)):
                 if row['ssn'] == updemplSSN[i]:
                     #print(row['ssn'])
-                    if row['licence'] == 'N/A':
-                        empl = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
-                        employees.append(empl)
-                    else:
-                        empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                        employees.append(empl)
+                    #if row['licence'] == 'N/A':
+                    empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'], row['licence'])
+                    employees.append(empl)
+                    #else:
+                    #    empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                    #    employees.append(empl)
             if row['ssn'] not in updemplSSN:
-                if row['licence'] == 'N/A':
-                    emp = createCabin(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
-                    noemployees.append(emp)
-                else:
-                    emp = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                    noemployees.append(emp)
+                #if row['licence'] == 'N/A':
+                emp = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'], row['licence'])
+                noemployees.append(emp)
+                #else:
+                #    emp = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                #    noemployees.append(emp)
 
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -93,17 +93,19 @@ def emplWorking(inptDate):
                         emplDest.append(row['arrivingAt'] + employees[i].SSN)
 
 
+    #print(str(emplDest[0][3:len(emplDest)]))
+
     with open(file2, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             for i in range(len(emplDest)):
-                if row['ssn'] == str(emplDest[i][3:len(emplDest)]):
-                    emplLOKA.append(row['name'] + ' ' + str(emplDest[i][0:3]))
-                    #print('hello')
+                if row['ssn'] == str(emplDest[i][3:len(emplDest[i])]):
+                    emplLOKA.append(row['name'] + ' - ' + str(emplDest[i][0:3]))
 
 
-    #print(updemplSSN)
-    #print(len(emplDest))
+    #for i in range(len(employees)):
+    #    print(employees[i].name)
+    #print(emplDest)
     #print(len(employees))
     #print(emplLOKA)
 
@@ -112,7 +114,6 @@ def emplWorking(inptDate):
 
     #for i in range(len(noemployees)):
     #    print(noemployees[i].name)
-
 
     return employees, noemployees, emplLOKA
 
