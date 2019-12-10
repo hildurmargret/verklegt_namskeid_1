@@ -3,11 +3,11 @@ from ModelClasses.Staff import*
 def saveUpdatedStaff(employee):
 
     staff=[]
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
+    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
-            empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'])
+            empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'], row['licence'])
             staff.append(empl)
     File1.close()
 

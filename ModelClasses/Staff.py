@@ -1,7 +1,18 @@
 from DataLayer.saveStaffInFile import*
 class createStaff:
 
-    def __init__(self,name,ssn,address,phoneNumber,emailAddress,rank,role,licence=0):
+    def __init__(self):
+      self.name=''
+      self.SSN=0
+      self.address=''
+      self.phoneNumber=0
+      self.emailAddress=''
+      self.rank=''
+      self.role=''
+      self.licence=''
+      self.cancel=0
+
+    def __init__(self,name,ssn,address,phoneNumber,emailAddress,rank,role,licence):
       self.name=name
       self.SSN=ssn
       self.address=address
