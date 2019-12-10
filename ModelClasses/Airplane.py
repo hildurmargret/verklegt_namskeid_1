@@ -1,6 +1,6 @@
 class createAirplane:
 
-    def __init__(self,planeTypeId,manufacturer,airplaneModel,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan):
+    def __init__(self,planeTypeId=0,manufacturer=0,airplaneModel=0,capacity=0,emptyWeight=0,maxTakeoffWeight=0,unitThrust=0,serviceCeiling=0,length=0,height=0,wingspan=0):
         self.planeTypeId = planeTypeId
         self.manufacturer = manufacturer
         self.airplaneModel = airplaneModel
