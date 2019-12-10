@@ -26,8 +26,8 @@ class LL_API:
         DL.DLsavePilot(newStaff)
     def LLsaveAircraft(self,newAircraft):
         DL.DLsaveAircraft(newAircraft)
-    def LLsaveDestination(self,newDestination):
-        DL. DLsaveDestination(NewDest)
+    def LLsaveDestination(self,newDest):
+        DL. DLsaveDestination(newDest)
     def LLsaveVoyage(self,newVoyage):
         DL.DLsaveVoyage(newVoyage)
     def LLgetAircraft(self):

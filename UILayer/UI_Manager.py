@@ -22,7 +22,7 @@ class UI_Manager:
     def UIsaveAircraft(self,newAircraft):
         LL.LLsaveAircraft(newAircraft)
 
-    def UIsaveDestinationInFile(self):
+    def UIsaveDestinationInFile(self, NewDest):
         LL.LLsaveDestination(NewDest)
 
     def UIgettingAirplanes(self):

@@ -16,7 +16,7 @@ class DL_API:
         savePilotInFile(newStaff)
     def DLsaveAircraft(self,newAircraft):
         saveAircraftInFile(newAircraft)
-    def DLsaveDestination(self,NewDest):
+    def DLsaveDestination(self,newDest):
         saveDestinationInFile(newDest)
     def DLsaveVoyage(self,newVoyage):
         saveVoyageInFile(newVoyage)
