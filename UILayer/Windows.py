@@ -26,6 +26,7 @@ from LogicLayer.weeklyWorkSchedule import*
 from LogicLayer.listDestinationsAlphabetic import*
 from LogicLayer.listDestinationPopularity import*
 from UILayer.chooseEmplFromList import*
+from DataLayer.getAllPlaneTypes import*
 
 UI=UI_Manager()
 
@@ -33,11 +34,11 @@ class Windows():
 
     def updatePilot(self,print_):
         print_.window23()
-        UI.UIupdatePilot()
+        UI.UIupdateStaff()
 
     def updateCabin(self,print_):
         print_.window24()
-        UI.UIupdateCabin()
+        UI.UIupdateStaff()
 
     def updateStaff(self,print_):
         print_.window2()
@@ -147,7 +148,8 @@ class Windows():
         if inp==1:
             UI.UIgettingAirplanes()
         elif inp==2:
-            pilots, types = allPilotsByLicence()
+            pilots = allPilotsByLicence()
+            types = getAllTypes()
 
             for i in range(len(pilots)):
                 print(types[i])
@@ -248,6 +250,7 @@ class Windows():
     def createNewStaff(self,print_):
         print_.window3()
         employee = createStaff()
+        print('helo')
         add=Inp1()
         empl=add.addStaffInp1(employee)
         UI.UIsaveStaff(empl)
@@ -260,13 +263,13 @@ class Windows():
     #     UI.UIsaveCabin(cabin)
 
 
-    def createNewStaff(self,print_):
+    def createNewStaffmember(self,print_):
         print_.window2()
         inp=int(input("number: "))
         if inp==1:
-            self.createNewPilot(print_)
+            self.createNewStaff(print_)
         elif inp==2:
-            self.createNewCabin(print_)
+            self.createNewStaff(print_)
         elif inp==0:
             self.create(print_)
 
@@ -282,7 +285,7 @@ class Windows():
         print_.window1() #Staff,voyage,destination,airplane
         inp=int(input("number: "))
         if inp==1:  #Staff valinn
-            self.createNewStaff(print_)
+            self.createNewStaffmember(print_)
         elif inp==2:
             self.createVoyages(print_)
         elif inp==3:

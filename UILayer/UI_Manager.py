@@ -31,7 +31,7 @@ class UI_Manager:
         getAircraft = LL.LLgetAircraft()
         printAircraft(getAircraft)
 
-    def UIupdatePilot(self):
+    def UIupdateStaff(self):
         update=Inp1()
         input_string=input("SSN: ")
         employees=LL.LLupdateStaff(input_string)
@@ -40,13 +40,13 @@ class UI_Manager:
         LL.LLupdatingStaff(employee)
 
 
-    def UIupdateCabin(self):
-        update=updateStaffInput()
-        input_string=input("SSN: ")
-        employees=LL.LLupdateStaff(input_string)
-        employee=cabinFromList(employees)
-        employee=update.addStaffInp(employee)
-        LL.LLupdatingStaff(employee)
+    # def UIupdateCabin(self):
+    #     update=updateStaffInput()
+    #     input_string=input("SSN: ")
+    #     employees=LL.LLupdateStaff(input_string)
+    #     employee=cabinFromList(employees)
+    #     employee=update.addStaffInp(employee)
+    #     LL.LLupdatingStaff(employee)
 
     def UIupdateDestination(self):
         update=updateDestInput()

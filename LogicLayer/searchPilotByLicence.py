@@ -12,7 +12,7 @@ def searchPilotsByLicence(airplaneType):
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             if row['role']=='Pilot' and row['licence']==airplaneType:
-                emp = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
+                emp = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
                 pilots.append(emp)
 
     return pilots

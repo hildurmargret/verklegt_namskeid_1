@@ -1,5 +1,5 @@
 ssn,name,role,rank,licence,address,phonenumber
-3009907461,William Carillo,,,N/A,bakkastadir,
+3009907461,William Carillo,Pilot,Captain,NAFokkerF100,Fellsmúli 1,8998801
 2910858778,Virginia Ho,Pilot,Captain,NABAE146,Fellsmúli 2,8998802
 2706838569,Gerard Nelson,Pilot,Captain,NAFokkerF100,Fellsmúli 3,8998803
 2209955782,Allen Ley,Pilot,Captain,NABAE146,Fellsmúli 4,8998804
@@ -34,3 +34,6 @@ ssn,name,role,rank,licence,address,phonenumber
 1110732819,Arthur Karr,Cabincrew,Flight Attendant,N/A,Fellsmúli 33,8998833
 2602806942,Teresa Thruman,Cabincrew,Flight Attendant,N/A,Fellsmúli 34,8998834
 1107951952,Elizabeth Mcfadden,Cabincrew,Flight Attendant,N/A,Fellsmúli 35,8998835
+2403962469,Thorgeir Thorgeirsson,Pilot,Captain,NAFokkerF100,Lautasmari 26,8957744
+1710962789,Hildur Gunnarsdottir,Cabincrew,Flight Attendant,N/A,Buland 1,8633389
+1234567890,Thorgeir Kristjan,Pilot,Captain,NAFokkerF28,Lautasmari 26,1234567
