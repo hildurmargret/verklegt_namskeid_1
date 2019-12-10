@@ -152,7 +152,10 @@ class Inp():
         minute=int(minute)
         self.departure = getDate(year,month,date,hour,minute)
 
-        print(self.departure)
+        hour=hour+2
+        if hour >= 24:
+            hour=hour-24
+            date=date+1
 
         self.arrival=getDate(year,month,date,hour,minute)
 
