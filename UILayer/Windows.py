@@ -20,19 +20,6 @@ from LogicLayer.allPilotsByLicence import*
 from LogicLayer.searchPilotByLicence import*
 from UILayer.printPilots import*
 from LogicLayer.weeklyWorkSchedule import*
-
-
-"""from Staff import*
-from Voyage import*
-from Destination import*
-from Airplane import* """
-"""
-from getStaff1_4 import*
-from OpenFile import*
-from printList import*
-from getPilotsByAirplanes import*
-from getPilotByLicence import*
-"""
 from LogicLayer.listDestinationsAlphabetic import*
 from LogicLayer.listDestinationPopularity import*
 
@@ -75,7 +62,7 @@ class Windows():
 
     def getStaffInfo(self,print_):
         print_.window11()
-        inp=int(input("number: "))
+        inp=int(input("Number: "))
         if inp==0:
             self.getInformation(print_)
         if inp==4:
@@ -139,10 +126,11 @@ class Windows():
                 print(emp[i].name)
 
         else:
-            linur=staffInfo(inp)
+            linur=staffInfo(inp,'')
 
             for i in range(len(linur)):
                 print(linur[i].name)
+
 
     def getAirplaneInfo(self,print_):
         print_.window14()
