@@ -4,7 +4,6 @@ from ModelClasses.Staff import*
 
 def emplWorking(inptDate):
 
-    #inptDate = '10/11/2019'
     inptDay = str(inptDate[0:2])
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
@@ -22,7 +21,6 @@ def emplWorking(inptDate):
     else:
         file1=path+'UpcomingFlights copy.csv'
 
-    #print(today)
     updemplSSN=[]
     working=[]
     emplSSN = []
@@ -31,7 +29,6 @@ def emplWorking(inptDate):
     emplDest=[]
     emplLOKA=[]
 
-    #Past flights
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
@@ -40,14 +37,11 @@ def emplWorking(inptDate):
             year = str(getYear(row['departure']))
 
             if inptDay == day and inptMonth == month and inptYear == year:
-                #empl=empAndDest(row['captain'], row['arrivingAt'])
-                #working.append(empl)
-                emplSSN.append(row['captain']) #+ row['arrivingAt'])
-                emplSSN.append(row['copilot']) #+ row['arrivingAt'])
-                emplSSN.append(row['fsm']) #+ row['arrivingAt'])
-                emplSSN.append(row['fa1']) #+ row['arrivingAt'])
-                emplSSN.append(row['fa2']) #+ row['arrivingAt'])
-                #emplDest.append(row['arrivingAt'])
+                emplSSN.append(row['captain'])
+                emplSSN.append(row['copilot'])
+                emplSSN.append(row['fsm'])
+                emplSSN.append(row['fa1'])
+                emplSSN.append(row['fa2'])
 
     for i in emplSSN:
         if i not in updemplSSN:
@@ -58,20 +52,12 @@ def emplWorking(inptDate):
         for row in csv_reader:
             for i in range(len(updemplSSN)):
                 if row['ssn'] == updemplSSN[i]:
-                    #print(row['ssn'])
-                    #if row['licence'] == 'N/A':
                     empl = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'], row['licence'])
                     employees.append(empl)
-                    #else:
-                    #    empl = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                    #    employees.append(empl)
+
             if row['ssn'] not in updemplSSN:
-                #if row['licence'] == 'N/A':
                 emp = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'], row['licence'])
                 noemployees.append(emp)
-                #else:
-                #    emp = createPilot(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                #    noemployees.append(emp)
 
     with open(file1,'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -88,12 +74,8 @@ def emplWorking(inptDate):
                         emplDest.append(row['arrivingAt'] + employees[i].SSN)
                     elif employees[i].rank == 'Flight Service Manager' and row['fsm'] == employees[i].SSN and row['arrivingAt'] != 'KEF':
                         emplDest.append(row['arrivingAt'] + employees[i].SSN)
-                        #print(employees[i].name)
                     elif employees[i].rank == 'Flight Attendant' and (row['fa1'] == employees[i].SSN or row['fa2'] == employees[i].SSN) and row['arrivingAt'] != 'KEF':
                         emplDest.append(row['arrivingAt'] + employees[i].SSN)
-
-
-    #print(str(emplDest[0][3:len(emplDest)]))
 
     with open(file2, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -102,23 +84,4 @@ def emplWorking(inptDate):
                 if row['ssn'] == str(emplDest[i][3:len(emplDest[i])]):
                     emplLOKA.append(row['name'] + ', ' + row['role'] + ' - ' + str(emplDest[i][0:3]))
 
-
-    #for i in range(len(employees)):
-    #    print(employees[i].name)
-    #print(emplDest)
-    #print(len(employees))
-    #print(emplLOKA)
-
-    #for i in range(len(employees)):
-    #    print(employees[i].name)
-
-    #for i in range(len(noemployees)):
-    #    print(noemployees[i].name)
-
     return employees, noemployees, emplLOKA
-
-# class empAndDest():
-#
-#     def __init__(self, employee, destination):
-#         self.employee=employee
-#         self.destination=destination
