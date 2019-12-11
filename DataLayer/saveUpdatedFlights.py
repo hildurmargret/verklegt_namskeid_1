@@ -2,7 +2,7 @@ import csv
 def updateFlights(flights):
 
     staff=[]
-    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+    path="/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
 
     f=open(path, 'w')
 
