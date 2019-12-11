@@ -256,10 +256,31 @@ class Windows():
 
     def createNewVoyage(self,print_):
         print_.window7()
-        add=Inp()
-        [flightNumber, departingFrom, arrivingAt, departure, arrival, numberOfCabin, numberOfPilots, aircraftId]=add.addVoyageInp()
-        voyage=createVoyage(flightNumber, departingFrom, arrivingAt, departure, arrival, numberOfCabin, numberOfPilots, aircraftId)
+        add=Inp3()
+        departureFlight=createFlightRoute()
+        departureFlight=add.addRouteInp(departureFlight)
+        returnFlight=createFlightRoute()
+        returnFlight.flightNumber=departureFlight.flightNumber
+        returnFlight.departingFrom = departureFlight.arrivingAt
+        returnFlight.arrivingAt = departureFlight.departingFrom
+        returnFlight.departure = add_hour(departureFlight.arrival,1)
+        depFlArr=int(getHour(departureFlight.arrival))
+        # depFlDep=int(getHour(departureFlight.departure))
+        # flyingTime=depFlArr-depFlDep
+        returnFlight.arrival = add_hour(returnFlight.departure,2)
+        voyage=createVoyage(departureFlight,returnFlight)
         UI.UIsaveVoyage(voyage)
+
+
+     def copyExistingVoyage(self,print_):
+        print_.window6()
+        input_string=input("Flight number: ")
+        print_.window27()
+        inp=input(int("Number: "))
+        iter=input(int("Number of iterations"))
+        voyage=LL.LLgettingVoyage(input_string)
+
+        UI.UIcopyExistingVoyage(voyage,inp,iter)
 
 
     def createVoyages(self,print_):

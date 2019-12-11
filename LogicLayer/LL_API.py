@@ -37,9 +37,16 @@ class LL_API:
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
-    def LLcopyExistingVoyage(self,input_string,inp,iter):
-        voyage=leitaVoyage(input_string)
-        self.LLsaveVoyage(voyage)
+    def LLcopyExistingVoyage(self,voyage,inp,iter):
+        if inp==1:
+            self.LLsaveVoyage(voyage)
+
+        elif inp==2:
+            for i in range(iter):
+                pass
+
+
+
 
     def LLgettingVoyage(self,input_string):
         voyage=leitaVoyage(input_string)
