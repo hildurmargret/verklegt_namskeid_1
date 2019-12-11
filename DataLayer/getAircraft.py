@@ -1,26 +1,31 @@
 import csv
 from ModelClasses.Airplane import*
+from DataLayer.OpenFile import *
 
 def list_all_aircraft():
 
-    path="/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/"
+    #path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/"
     skra1='AircraftType.csv'
     skra2='Aircraft.csv'
-    skra3='Crew.csv'
+    #skra3='Crew.csv'
 
-    file1 = path + skra1
-    file2 = path + skra2
+    # file1 = path + skra1
+    # file2 = path + skra2
+
+
+    file2=OpenFile(skra2)
 
     line1 = []
     line2 = []
 
 
-    with open(file2,'r') as csv_file:
+    with file2 as csv_file:
         csv_reader2 = csv.DictReader(csv_file)
         for row1 in csv_reader2:
             insignia= row1["planeInsignia"]
             planeType = row1["planeTypeId"]
-            with open(file1,'r') as csv_file:
+            file1=OpenFile(skra1)
+            with file1 as csv_file:
                 csv_reader1 = csv.DictReader(csv_file)
                 for row in csv_reader1:
                     if row['planeTypeId']==planeType:

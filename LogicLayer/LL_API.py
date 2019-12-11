@@ -9,7 +9,7 @@ from DataLayer.saveStaffInFile import*
 from DataLayer.saveAircraftInFile import*
 from DataLayer.DL_API import*
 from DataLayer.saveUpdatedDestination import*
-from LogicLayer.getAircraft import*
+from DataLayer.getAircraft import*
 from LogicLayer.getStaff1_4nytt import*
 from DataLayer.getDestinations import*
 from LogicLayer.leitaVoyage import*

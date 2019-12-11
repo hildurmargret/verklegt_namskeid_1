@@ -14,7 +14,7 @@ from UILayer.printVoyageList import*
 from LogicLayer.voyageByDate import*
 from UILayer.printVoyagebyDates import*
 from LogicLayer.voyageByWeek import*
-from LogicLayer.getAircraft import*
+from DataLayer.getAircraft import*
 from UILayer.UI_Manager import*
 from UILayer.printWorkSchedule import*
 from UILayer.printDestList import*

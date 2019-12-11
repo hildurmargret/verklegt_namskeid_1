@@ -62,6 +62,20 @@ def date_now():
     d=today.strftime("%d/%m/%Y")
     return d
 
+def add_day(date):
+    newdate=datetime.datetime.strptime(date, "%Y-%m-%d""T""%H:%M:%S")
+    moddate=newdate+datetime.timedelta(days=1)
+    d=datetime.datetime.strftime(moddate, "%Y-%m-%d""T""%H:%M:%S")
+    return d
+
+def add_hour(date, numOfHour):
+    newdate=datetime.datetime.strptime(date, "%Y-%m-%d""T""%H:%M:%S")
+    moddate=newdate+datetime.timedelta(hours=numOfHour)
+    d=datetime.datetime.strftime(moddate, "%Y-%m-%d""T""%H:%M:%S")
+    return d
+
+
+
 #getDateRangeFromWeek(23, 2019)
 
 #getDateRangeFromWeek(2019,44)
