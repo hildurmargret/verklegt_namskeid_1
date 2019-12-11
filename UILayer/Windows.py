@@ -223,7 +223,7 @@ class Windows():
             print("Most popular destination is: ", mostpop)
 
         elif inp ==0:
-            self.mainMenu() #LAGA!!
+            self.getInformation(print_)
 
     def getInformation(self,print_):
         print_.window10() #Staff,airplanes,voyage,destinations
