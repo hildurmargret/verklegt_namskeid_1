@@ -23,7 +23,7 @@ from LogicLayer.allPilotsByLicence import*
 from LogicLayer.searchPilotByLicence import*
 from UILayer.printPilots import*
 from LogicLayer.weeklyWorkSchedule import*
-from LogicLayer.listDestinationsAlphabetic import*
+from LogicLayer.getDestinations import*
 from LogicLayer.listDestinationPopularity import*
 from UILayer.chooseEmplFromList import*
 from DataLayer.getAllPlaneTypes import*
