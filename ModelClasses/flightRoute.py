@@ -9,9 +9,9 @@ class createFlightRoute:
         self.aircraftId=aircraftId
 #        self.numberOfCabin=numberOfCabin
 #        self.numberOfPilots=numberOfPilots
-        self.captain=""
-        self.copilot=""
-        self.fsm=""
-        self.fa1=""
-        self.fa2=""
+        self.captain=captain
+        self.copilot=copilot
+        self.fsm=fsm
+        self.fa1=fa1
+        self.fa2=fa2
         self.cancel=0
