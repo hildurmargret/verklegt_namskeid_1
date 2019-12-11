@@ -60,6 +60,9 @@ class LL_API:
     def LLupdateAircraft(self,aircraft):
         DL.DLupdateAircraft(aircraft)
 
+    def LLupdateVoyage(self,voyage):
+        DL.DLupdateVoyage(voyage)
+
     def LLgettingEmployees(self,input_string):
         employees=staffInfo(4,input_string)
         return employees

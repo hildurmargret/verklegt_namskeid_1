@@ -362,14 +362,15 @@ class pagePrints:
 
     def window21(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(15,(self.cols)/2)
+        self.prentSpace(14,(self.cols)/2)
         self.prentWord(15,"1: Employees")
         self.prentWord(15,"2: Destination informations")
         self.prentWord(15,"3: Appoint employees to voyages")
+        self.prentWord(15,"4: Voyage")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"0: Back")
         self.prentSpace(13,(self.cols)/2)
-        self.prentWord(15,"Please choose [1,2 or 3] ")
+        self.prentWord(15,"Please choose [1,2,3 or 4] ")
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 

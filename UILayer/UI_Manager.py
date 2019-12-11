@@ -73,7 +73,8 @@ class UI_Manager:
     def UIupdateVoyage(self):
         update=Inp3()
         input_string = input('Departing flight number: ')
-        voyage=leitaVoyage(input_string)
+        voyage=self.UIgettingVoyage(input_string)
+        voyage=update.addVoyageInp(voyage)
         LL.LLupdateVoyage(voyage)
 
     def UIemployeesToVoyage(self):

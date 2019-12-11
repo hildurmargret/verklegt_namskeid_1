@@ -27,10 +27,17 @@ from DataLayer.getDestinations import*
 from LogicLayer.listDestinationPopularity import*
 from UILayer.chooseEmplFromList import*
 from DataLayer.getAllPlaneTypes import*
+from DataLayer.getAllPlaneTypes import*
+from LogicLayer.fixFlightNumbers import*
+from DataLayer.saveUpdatedFlights import*
 
 UI=UI_Manager()
 
 class Windows():
+
+    def updateVoyage(self,print_):
+        print_.window7()
+        UI.UIupdateVoyage()
 
     def updatePilot(self,print_):
         print_.window23()
@@ -66,8 +73,11 @@ class Windows():
             UI.UIupdateDestination()
         elif inp==3:
             self.employeesToVoyage(print_)
+        elif inp==4:
+            self.updateVoyage(print_)
         elif inp==0:
             self.mainMenu()
+
 
 
 
