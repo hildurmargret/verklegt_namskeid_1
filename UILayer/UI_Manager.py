@@ -68,7 +68,7 @@ class UI_Manager:
 
     def UIemployeesToVoyage(self):
         update=Inp3()
-        input_string = input('Flight number: ')
+        input_string = input('Departing flight number: ')
         voyage=leitaVoyage(input_string)
         input_string=input("SSN: ")
         employees=LL.LLgettingEmployees(input_string)
