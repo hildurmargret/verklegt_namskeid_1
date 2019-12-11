@@ -1,7 +1,6 @@
 from DataLayer.OpenFile import *
 from DataLayer.read_pastFlights import *
 from ModelClasses.flightRoute import *
-from DataLayer.getAircraft import *
 from LogicLayer.Date import *
 
 def airplaneInUse(input_date, input_time):
@@ -26,17 +25,11 @@ def airplaneInUse(input_date, input_time):
     onGround=[]
 
     timabil=add_hour(stdInptDate, (-2))
-    #print(timabil)
-    #print(stdInptDate)
-
 
     for i in range(len(allFlights)):
         if inptDay == str(getDay(allFlights[i].departure)) and inptMonth == str(getMonth(allFlights[i].departure)) and inptYear == str(getYear(allFlights[i].departure)):
-            #print('ÞESSI: ' + allFlights[i].departure)
-            #print(timabil < allFlights[i].departure)
-            #print(allFlights[i].departure >= stdInptDate)
+
             if timabil < allFlights[i].departure and allFlights[i].departure <= stdInptDate:
-                #print(allFlights[i].departure)
                 air=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom,allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival, allFlights[i].aircraftId, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                 inAir.append(air)
             else:

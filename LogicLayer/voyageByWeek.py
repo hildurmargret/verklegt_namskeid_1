@@ -18,7 +18,7 @@ def voyageByWeek(inpt, inpt_year):
     # print(type(nyt))
     # lokad=add_day(ar,man,dag,klst,min)
     # print(lokad)
-    nytdag=add_day(daterange[0])
+    nytdag=add_day(daterange[0],1)
     #print(nytdag)
 
 
@@ -28,7 +28,7 @@ def voyageByWeek(inpt, inpt_year):
     today=now()
 
     if today>daterange[1]:
-        file='PastFlights.csv'
+        file='PastFlights copy.csv'
     else:
         file='UpcomingFlights copy3.csv'
 
@@ -39,8 +39,10 @@ def voyageByWeek(inpt, inpt_year):
     for i in range(len(allFlights)):
         if daterange[1] <= allFlights[i].departure and nytdag >= allFlights[i].departure:
             voyage = leitaVoyage(allFlights[i].flightNumber)
+            #voyages.extend(voyage)
             if tel%2 != 0:
-                voyages.append(voyage)
+                voyages.extend(voyage)
             tel=tel+1
-
+    #print(len(voyages))
+        #print(voyages[1].returnFlight.flightNumber)
     return voyages

@@ -45,6 +45,6 @@ def leitaVoyage(inpt):
                 voyages.append(voyage)
         file1 = 'UpcomingFlights.csv'
 
-    retVoyage = chooseVoyage(voyages)
+    #retVoyage = chooseVoyage(voyages)
 
-    return retVoyage
+    return voyages #retVoyage
