@@ -1,6 +1,6 @@
-#
+
 def printAircraft(Airplanes):
-    print("planeTypeId, manufacturer, airplaneModel, capacity, emptyWeight, maxTakeoffWeight, unitThrust, serviceCeiling, length, height, wingspan")
     for i in range(len(Airplanes)):
-        print(Airplanes[i].planeTypeId + ", " + Airplanes[i].manufacturer + ", "+ Airplanes[i].airplaneModel + ", "  + Airplanes[i].capacity + ", " + Airplanes[i].emptyWeight + ", " + Airplanes[i].maxTakeoffWeight + ", " + Airplanes[i].unitThrust + ", " + Airplanes[i].serviceCeiling + ", " + Airplanes[i].length + ", " + Airplanes[i].height + ", " + Airplanes[i].wingspan)
-#     print(Airplanes)
+        print(Airplanes[i].planeInsignia)
+        print('Plane Type ID: ' + Airplanes[i].planeTypeId + '\n' + 'Manufacturer: ' + Airplanes[i].manufacturer + '\n' + 'Airplane Model: ' + Airplanes[i].airplaneModel + '\n' + 'Capacity: ' + Airplanes[i].capacity + '\n' + 'Empty weight: ' + Airplanes[i].emptyWeight + '\n' + 'Max take off weight: ' + Airplanes[i].maxTakeoffWeight + '\n' + 'Unit thrust: ' + Airplanes[i].unitThrust + '\n' + 'Service ceiling: ' + Airplanes[i].serviceCeiling + '\n' + 'Length: ' + Airplanes[i].length + '\n' + 'Heigth: ' + Airplanes[i].height + '\n' + 'Wingspan: ' + Airplanes[i].wingspan)
+        print('')
