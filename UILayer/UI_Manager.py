@@ -24,6 +24,9 @@ class UI_Manager:
     def UIsaveVoyage(self,newVoyage):
         LL.LLsaveVoyage(newVoyage)
 
+    def UIcopyExistingVoyage(self,voyage,inp,iter):
+        LL.LLcopyExistingVoyage(voyage,inp,iter)
+
     def UIsaveAircraft(self,newAircraft):
         LL.LLsaveAircraft(newAircraft)
 

@@ -1,3 +1,5 @@
+from LogicLayer.Date import*
+from ModelClasses.flightRoute import*
 class createVoyage:
 
     #def __init__(self, flightNumber=0, departingFrom=0, arrivingAt=0,departure=0, arrival=0,aircraftId=0,numberOfCabin=0,numberOfPilots=0):
@@ -16,6 +18,7 @@ class createVoyage:
         # self.fa2=""
         # self.cancel=0
 
-    def __init__(self, departureFlight=0, returnFlight=0):
-        self.departureFlight = departureFlight
-        self.returnFlight = returnFlight
+    def __init__(self, departureFlight="",returnFlight=""):
+        
+        self.returnFlight=returnFlight
+        self.departureFlight=departureFlight

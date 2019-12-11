@@ -5,6 +5,7 @@ from DataLayer.saveVoyage import*
 from DataLayer.saveUpdatedStaff import*
 from DataLayer.saveUpdatedDestination import*
 from DataLayer.saveEmployeesToVoyage import*
+from DataLayer.saveUpdatedVoyage import*
 
 class DL_API:
 
@@ -21,11 +22,15 @@ class DL_API:
         saveDestinationInFile(newDest)
     def DLsaveVoyage(self,newVoyage):
         saveVoyageInFile(newVoyage)
+    def DLcopyExistingVoyage(voyage):
+        saveVoyage(voyage)
     def DLupdateStaff(self,employee):
         saveUpdatedStaff(employee)
     def DLupdatedDestination(self, destination):
         saveUpdatedDest(destination)
     def DLupdateAircraft(self,aircraft):
         saveUpdatedAircraft(aircraft)
+    def DLupdateVoyage(self,voyage):
+        saveUpdatedVoyage(voyage)
     def DLemployeesToVoyage(self,voyage,employee):
         employeesToVoyage(voyage,employee)
