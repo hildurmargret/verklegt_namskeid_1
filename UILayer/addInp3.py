@@ -126,5 +126,9 @@ class Inp3():
                     print(plane.planeInsignia)
             else:
                 validAirID_bool = 1
+        self.soldTickets=input("Amount of sold seats: ")
+        if self.soldTickets=="CANCEL":
+            self.cancel=1
+            return 0
 
         return self

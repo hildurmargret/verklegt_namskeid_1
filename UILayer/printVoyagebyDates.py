@@ -19,4 +19,7 @@ def printVoyagebyDates(dep,ret):
                 print('Missing a flight service manager')
         print('\n', end='')
         print('----------------------------------------------------------------------------------------------------')
+        seats=dep[i].soldTickets
+        print("There are " + str(seats)+ " seats sold")
+        print('----------------------------------------------------------------------------------------------------')
     return

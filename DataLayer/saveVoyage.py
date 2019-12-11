@@ -13,5 +13,5 @@ def saveVoyageInFile(newVoyage):
     # print(retFlight.arrivingAt)
     # print(retFlight.departure)
     # print(retFlight.arrival)
-    f.write(depFlight.flightNumber+","+depFlight.departingFrom+","+depFlight.arrivingAt+","+depFlight.departure+","+depFlight.arrival+"\n")
-    f.write(retFlight.flightNumber+","+retFlight.departingFrom+","+retFlight.arrivingAt+","+retFlight.departure+","+retFlight.arrival+"\n")
+    f.write(depFlight.flightNumber+","+depFlight.departingFrom+","+depFlight.arrivingAt+","+depFlight.departure+","+depFlight.arrival+","+depFlight.soldTickets+"\n")
+    f.write(retFlight.flightNumber+","+retFlight.departingFrom+","+retFlight.arrivingAt+","+retFlight.departure+","+retFlight.arrival+","+retFlight.soldTickets+"\n")

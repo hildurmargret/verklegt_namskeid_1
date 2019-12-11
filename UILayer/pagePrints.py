@@ -180,7 +180,7 @@ class pagePrints:
 
     def window7(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(12,(self.cols)/2)
+        self.prentSpace(11,(self.cols)/2)
         self.prentWord(15,"Flight number")
         self.prentWord(15,"Departing from")
         self.prentWord(15,"Arriving at")
@@ -188,6 +188,7 @@ class pagePrints:
         self.prentWord(15,"Number of cabin")
         self.prentWord(15,"Number of pilots")
         self.prentWord(15,"Aircraft Id")
+        self.prentWord(15,"Sold tickets")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(12,(self.cols)/2)
