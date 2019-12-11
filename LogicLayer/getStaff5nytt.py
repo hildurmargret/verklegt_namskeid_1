@@ -75,19 +75,19 @@ def staffInfo2(input_string):
             arvlTime = str(getDay(allPastFlights[j].arrival)) + '/' + str(getMonth(allPastFlights[j].arrival)) + '/' + str(getYear(allPastFlights[j].arrival)) + ' at ' + str(getHour(allPastFlights[j].arrival)) + ':' + str(getMinute(allPastFlights[j].arrival))
 
             if employees[i].rank=='Flight Attendant' and employees[i].SSN in (allPastFlights[j].fa1 or allPastFlights[j].fa2):
-                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,0,0)
+                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 pastFlights.append(flight)
 
             elif employees[i].rank=='Flight Service Manager' and employees[i].SSN in allPastFlights[j].fsm:
-                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,0,0)
+                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 pastFlights.append(flight)
 
             elif employees[i].rank=='Captain' and employees[i].SSN in allPastFlights[j].captain:
-                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,0,0)
+                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 pastFlights.append(flight)
 
             elif employees[i].rank=='Copilot' and employees[i].SSN in allPastFlights[j].copilot:
-                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,0,0)
+                flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 pastFlights.append(flight)
 
         numOfDest.append(len(pastFlights))
