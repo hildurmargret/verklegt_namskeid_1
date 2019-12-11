@@ -209,13 +209,19 @@ class Windows():
     def getVoyageInfoWeek(self,print_):
         print_.window19()
 
+
     def getDestinationsInfo(self,print_):
         print_.window20()
         inp=int(input("number: "))
         if inp==1:
-            getAllDestinations()
+            listOfDest=getDestinations()
+            for i in range(len(listOfDest)):
+                print(listOfDest[i].destination)
+
         elif inp==2:
-            MostPopularDestination()
+            mostpop=MostPopularDestination()
+            print("Most popular destination is: ", mostpop)
+
         elif inp ==0:
             self.mainMenu() #LAGA!!
 
