@@ -9,9 +9,6 @@ def fixFlNo(flights, destinations):
         if dest.id == 'KEF':
             destinations.remove(dest)
 
-    for dest in destinations:
-        print(dest.id)
-
     retFlights = []
     for flight in flights:
         new_flNo = 'NA'
