@@ -1,18 +1,19 @@
-from ModelClasses.Staff import*
+
 import csv
+from ModelClasses.Staff import*
+from DataLayer.OpenFile import *
+from DataLayer.read_crew_file import *
 def searchPilotsByLicence(airplaneType):
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
-
-    file1 = path + 'Crew.csv'
+    file1='Crew.csv'
+    file_=OpenFile(file1)
+    allStaff=read_crew_file(file_)
 
     pilots = []
 
-    with open(file1,'r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        for row in csv_reader:
-            if row['role']=='Pilot' and row['licence']==airplaneType:
-                emp = createStaff(row['name'],row['ssn'],row['address'],row['phonenumber'],'email',row['rank'],row['role'],row['licence'])
-                pilots.append(emp)
+    for i in range(len(allStaff)):
+        if allStaff[i].role == 'Pilot' and allStaff[i].licence==airplaneType:
+            emp = createStaff(allStaff[i].name, allStaff[i].SSN, allStaff[i].address, allStaff[i].phoneNumber,allStaff[i].emailAddress,allStaff[i].rank,allStaff[i].role,allStaff[i].licence)
+            pilots.append(emp)
 
     return pilots

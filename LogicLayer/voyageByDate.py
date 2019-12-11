@@ -12,14 +12,15 @@ def voyageByDate(inptDate):
 
     stdDate=inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
-    path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
-
     today=now()
 
     if today>stdDate:
-        file=path+'PastFlights.csv'
+        file='PastFlights.csv'
     else:
-        file=path+'UpcomingFlights copy.csv'
+        file='UpcomingFlights copy.csv'
+
+    file_flights=OpenFile(file)
+    allFlights=read_pastFlights(file_flights)
 
     voyRet = []
     voyDep = []
@@ -35,21 +36,20 @@ def voyageByDate(inptDate):
     arrHour = []
     tel=0
 
-    with open(file,'r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        for row in csv_reader:
-            depDay.append(str(getDay(row['departure'])))
-            depMonth.append(str(getMonth(row['departure'])))
-            depYear.append(str(getYear(row['departure'])))
-            depMinute.append(str(getMinute(row['departure'])))
-            depHour.append(str(getHour(row['departure'])))
-            arrDay.append(str(getDay(row['arrival'])))
-            arrMonth.append(str(getMonth(row['arrival'])))
-            arrYear.append(str(getYear(row['arrival'])))
-            arrMinute.append(str(getMinute(row['arrival'])))
-            arrHour.append(str(getHour(row['arrival'])))
+    for i in range(len(allFlights)):
 
-            flugnr=row['flightNumber']
+            depDay.append(str(getDay(allFlights[i].departure)))
+            depMonth.append(str(getMonth(allFlights[i].departure)))
+            depYear.append(str(getYear(allFlights[i].departure)))
+            depMinute.append(str(getMinute(allFlights[i].departure)))
+            depHour.append(str(getHour(allFlights[i].departure)))
+            arrDay.append(str(getDay(allFlights[i].departure)))
+            arrMonth.append(str(getMonth(allFlights[i].departure)))
+            arrYear.append(str(getYear(allFlights[i].departure)))
+            arrMinute.append(str(getMinute(allFlights[i].departure)))
+            arrHour.append(str(getHour(allFlights[i].departure)))
+
+            flugnr=allFlights[i].flightNumber
 
             no=int(flugnr[4:len(flugnr)])
 

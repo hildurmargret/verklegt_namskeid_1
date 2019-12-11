@@ -11,7 +11,7 @@ from DataLayer.DL_API import*
 from DataLayer.saveUpdatedDestination import*
 from LogicLayer.getAircraft import*
 from LogicLayer.getStaff1_4nytt import*
-from LogicLayer.listDestinationsAlphabetic import*
+from LogicLayer.getDestinations import*
 #from UILayer.UI_Manager import*
 
 DL=DL_API()
@@ -46,7 +46,7 @@ class LL_API:
         DL.DLupdateStaff(employee)
 
     def LLupdateDestination(self):
-        destination=listAllDestinationsAlph()
+        destination=getAllDestinations()
         return destination
 
     def LLupdatingDestination(self,destination):

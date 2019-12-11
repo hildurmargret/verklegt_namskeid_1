@@ -23,7 +23,7 @@ from LogicLayer.allPilotsByLicence import*
 from LogicLayer.searchPilotByLicence import*
 from UILayer.printPilots import*
 from LogicLayer.weeklyWorkSchedule import*
-from LogicLayer.listDestinationsAlphabetic import*
+from LogicLayer.getDestinations import*
 from LogicLayer.listDestinationPopularity import*
 from UILayer.chooseEmplFromList import*
 from DataLayer.getAllPlaneTypes import*
@@ -201,7 +201,7 @@ class Windows():
         print_.window20()
         inp=int(input("number: "))
         if inp==1:
-            listAllDestinationsAlph()
+            getAllDestinations()
         elif inp==2:
             MostPopularDestination()
         elif inp ==0:
