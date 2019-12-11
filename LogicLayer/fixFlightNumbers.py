@@ -5,13 +5,12 @@ import operator
 
 def fixFlNo(flights, destinations):
 
-    for j in range(len(destinations)):
-        if destinations[j].id == 'KEF':
-            del destinations[j]
+    for dest in destinations:
+        if dest.id == 'KEF':
+            destinations.remove(dest)
 
-
-    #print('helo' + str(len(flights)))
-    #print('belo' + str(len(destinations)))
+    for dest in destinations:
+        print(dest.id)
 
     retFlights = []
     for flight in flights:
@@ -26,30 +25,25 @@ def fixFlNo(flights, destinations):
 
         flight.flightNumber = new_flNo
 
-    for j in range(len(destinations)):
+    for dest in destinations:
         flightsToDest_i = []
         flightsFromDest_i = []
 
         for flight in flights:
-            if flight.departingFrom == destinations[j].id:
+            if flight.departingFrom == dest.id:
                 flightsFromDest_i.append(flight)
-            elif flight.arrivingAt == destinations[j].id:
+            elif flight.arrivingAt == dest.id:
                 flightsToDest_i.append(flight)
-
-        print(len(flightsFromDest_i))
-        print(len(flightsToDest_i))
 
         flightsFromDest_i.sort(key=lambda flight: flight.departure)
         flightsToDest_i.sort(key=lambda flight: flight.departure)
 
-        print('helo' + str(len(flightsFromDest_i)))
 
         counter = -1
         day = str(flightsFromDest_i[0].departure[0:10]) + '00:00:00'
 
         for k in range(len(flightsFromDest_i)):
-            print(k)
-            print(flightsFromDest_i[k].flightNumber)
+
             date = str(flightsFromDest_i[k].departure[0:10]) + '00:00:00'
             if day != date:
                 counter = 0
@@ -61,8 +55,5 @@ def fixFlNo(flights, destinations):
             retFlights.append(flightsToDest_i[k])
             retFlights.append(flightsFromDest_i[k])
             day = str(flightsFromDest_i[k].departure[0:10]) + '00:00:00'
-
-        #retFlights.sort(key=lambda flight: flight.departure)
-
 
     return retFlights
