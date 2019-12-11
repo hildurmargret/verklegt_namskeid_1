@@ -176,6 +176,8 @@ class Windows():
             inpt = input('Airplane type: ')
             pilots = searchPilotsByLicence(inpt)
             printPilotList(pilots)
+        elif inp==4:
+            UI.UIgettingAirplanesStatus()
 
 
     def getVoyageInfo(self,print_):
