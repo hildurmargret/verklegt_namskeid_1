@@ -9,11 +9,11 @@ def voyageByWeek(inpt, inpt_year):
 
 
     daterange = getDateRangeFromWeek(inpt, inpt_year)
-    ar=getYear(daterange[0])
-    man=getMonth(daterange[0])
-    dag=getDay(daterange[0])
-    klst=getHour(daterange[0])
-    min=getMinute(daterange[0])
+    # ar=getYear(daterange[0])
+    # man=getMonth(daterange[0])
+    # dag=getDay(daterange[0])
+    # klst=getHour(daterange[0])
+    # min=getMinute(daterange[0])
     # nyt=getDate(ar,man,dag,klst,min)
     # print(type(nyt))
     # lokad=add_day(ar,man,dag,klst,min)
