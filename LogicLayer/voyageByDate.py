@@ -1,11 +1,12 @@
 
 import csv
 from LogicLayer.Date import*
-from ModelClasses.Voyage import*
+from ModelClasses.flightRoute import*
+from DataLayer.read_pastFlights import *
+from DataLayer.OpenFile import *
 
 def voyageByDate(inptDate):
 
-    #inptDate = '20/12/2019'
     inptDay = str(inptDate[0:2])
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
@@ -17,7 +18,9 @@ def voyageByDate(inptDate):
     if today>stdDate:
         file='PastFlights.csv'
     else:
-        file='UpcomingFlights copy.csv'
+        file='UpcomingFlights copy3.csv'
+
+    #print(file)
 
     file_flights=OpenFile(file)
     allFlights=read_pastFlights(file_flights)
@@ -53,19 +56,19 @@ def voyageByDate(inptDate):
 
             no=int(flugnr[4:len(flugnr)])
 
+            #print(no)
+
             if inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
-                    voyD=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyDep.append(voyD)
 
                 elif no%2 != 0:
-                    voyR=createVoyage(row['flightNumber'], row['departingFrom'], row['arrivingAt'], deptTime, arvlTime,0,0)
+                    voyR=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyRet.append(voyR)
             tel=tel+1
 
     return voyDep, voyRet
-
-#dep, ret = voyageByDate()
