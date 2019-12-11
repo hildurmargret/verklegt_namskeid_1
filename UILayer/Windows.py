@@ -359,6 +359,12 @@ class Windows():
 
 
     def mainMenu(self):
+        path = 'UpcomingFlights copy3.csv'
+        file = OpenFile(path)
+        originalFlights = read_pastFlights(file)
+        destinations = getDestinations()
+        newFlights = fixFlNo(originalFlights, destinations)
+        updateFlights(newFlights)
         print_=pagePrints(100,40)
         print_.frontPage() #'c', 'g', 'u'
         inp=input()
