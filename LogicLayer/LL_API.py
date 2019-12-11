@@ -11,7 +11,8 @@ from DataLayer.DL_API import*
 from DataLayer.saveUpdatedDestination import*
 from LogicLayer.getAircraft import*
 from LogicLayer.getStaff1_4nytt import*
-from LogicLayer.getDestinations import*
+from DataLayer.getDestinations import*
+from LogicLayer.leitaVoyage import*
 #from UILayer.UI_Manager import*
 
 DL=DL_API()
@@ -36,6 +37,10 @@ class LL_API:
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
+
+    def LLgettingVoyage(self,input_string):
+        voyage=leitaVoyage(input_string)
+        return voyage
         #UI.gettingAirplanes(getAircraft)
     def LLupdateStaff(self,input_string):
         employees=staffInfo(4, input_string)

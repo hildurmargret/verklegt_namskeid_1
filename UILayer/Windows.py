@@ -23,7 +23,7 @@ from LogicLayer.allPilotsByLicence import*
 from LogicLayer.searchPilotByLicence import*
 from UILayer.printPilots import*
 from LogicLayer.weeklyWorkSchedule import*
-from LogicLayer.getDestinations import*
+from DataLayer.getDestinations import*
 from LogicLayer.listDestinationPopularity import*
 from UILayer.chooseEmplFromList import*
 from DataLayer.getAllPlaneTypes import*
@@ -175,7 +175,7 @@ class Windows():
             voyage = []
             print_.window16()
             input_string = input('Flight number: ')
-            voyage.append(leitaVoyage(input_string))
+            voyage.append(UI.UIgettingVoyage(input_string))
             printVoyageList(voyage)
 
         elif inp==2:
