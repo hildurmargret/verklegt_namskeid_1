@@ -18,8 +18,8 @@ def voyageByWeek(inpt, inpt_year):
     # print(type(nyt))
     # lokad=add_day(ar,man,dag,klst,min)
     # print(lokad)
-    nytdag=add_hour("2019-11-30T00:00:00",3)
-    print(nytdag)
+    nytdag=add_day(daterange[0])
+    #print(nytdag)
 
 
     voyages = []
@@ -37,7 +37,7 @@ def voyageByWeek(inpt, inpt_year):
     tel=0
 
     for i in range(len(allFlights)):
-        if daterange[1] <= allFlights[i].departure and daterange[0] >= allFlights[i].departure:
+        if daterange[1] <= allFlights[i].departure and nytdag >= allFlights[i].departure:
             voyage = leitaVoyage(allFlights[i].flightNumber)
             if tel%2 != 0:
                 voyages.append(voyage)
