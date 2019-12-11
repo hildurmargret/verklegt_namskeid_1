@@ -265,7 +265,7 @@ class Windows():
         departureFlight=createFlightRoute()
         departureFlight=add.addRouteInp(departureFlight)
         returnFlight=createFlightRoute()
-        returnFlight.flightNumber=departureFlight.flightNumber
+        returnFlight.flightNumber = departureFlight.flightNumber
         returnFlight.departingFrom = departureFlight.arrivingAt
         returnFlight.arrivingAt = departureFlight.departingFrom
         returnFlight.departure = add_hour(departureFlight.arrival,1)
@@ -277,7 +277,7 @@ class Windows():
         UI.UIsaveVoyage(voyage)
 
 
-     def copyExistingVoyage(self,print_):
+    def copyExistingVoyage(self,print_):
         print_.window6()
         input_string=input("Flight number: ")
         print_.window27()
