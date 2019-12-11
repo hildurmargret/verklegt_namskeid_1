@@ -2,7 +2,7 @@ from DataLayer.OpenFile import*
 from ModelClasses.Destination import*
 import csv
 
-def listAllDestinationsAlph():
+def getDestinations():
 
     Destination_array = []
     fjoldiAfStad=[]
@@ -17,6 +17,6 @@ def listAllDestinationsAlph():
             Destination_array.sort()
             Dest=CreateDestination(row["id"],row['destination'])
             listOfDest.append(Dest)
-    for i in range(len(Destination_array)):
-        print(Destination_array[i])
+    # for i in range(len(Destination_array)):
+    #     print(Destination_array[i])
     return listOfDest

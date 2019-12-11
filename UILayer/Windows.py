@@ -201,7 +201,7 @@ class Windows():
         print_.window20()
         inp=int(input("number: "))
         if inp==1:
-            listAllDestinationsAlph()
+            getAllDestinations()
         elif inp==2:
             MostPopularDestination()
         elif inp ==0:

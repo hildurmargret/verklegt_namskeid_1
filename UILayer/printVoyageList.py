@@ -1,9 +1,7 @@
 from LogicLayer.checkIfManned import*
 def printVoyageList(voyage):
-    print(type(voyage))
     for i in voyage:
         print('VOYAGE DEPARTURE:')
-        print(type(i))
         print(i.departureFlight.flightNumber + ', ' + i.departureFlight.departingFrom + ' to ' + i.departureFlight.arrivingAt + ', ' + ' Departure: ' + i.departureFlight.departure + ', Arrival: ' + i.departureFlight.arrival)
         print('VOYAGE RETURN:')
         print(i.returnFlight.flightNumber + ', ' + i.returnFlight.departingFrom + ' to ' + i.returnFlight.arrivingAt + ', ' + ' Departure: ' + i.returnFlight.departure + ', Arrival: ' + i.returnFlight.arrival)

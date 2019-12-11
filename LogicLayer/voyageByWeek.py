@@ -49,6 +49,7 @@ def voyageByWeek(inpt, inpt_year):
             if daterange[1] <= row['departure'] and daterange[0] >= row['departure']:
                 voyage = leitaVoyage(row['flightNumber'])
                 voyages.append(voyage)
+                #print(voyage.departureFlight.flightNumber)
 
     # for i in voyages:
     #     print(type(i))

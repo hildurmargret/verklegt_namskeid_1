@@ -46,7 +46,7 @@ class LL_API:
         DL.DLupdateStaff(employee)
 
     def LLupdateDestination(self):
-        destination=listAllDestinationsAlph()
+        destination=getAllDestinations()
         return destination
 
     def LLupdatingDestination(self,destination):
