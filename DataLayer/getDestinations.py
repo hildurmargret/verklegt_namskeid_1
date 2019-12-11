@@ -14,9 +14,11 @@ def getDestinations():
         for row in csv_reader:
             Destination = row['destination']
             Destination_array.append(Destination)
-            Destination_array.sort()
+            #Destination_array.sort()
             Dest=CreateDestination(row["id"],row['destination'])
             listOfDest.append(Dest)
+
+    listOfDest.sort(key=lambda dest: dest.destination)
     # for i in range(len(Destination_array)):
     #     print(Destination_array[i])
     return listOfDest
