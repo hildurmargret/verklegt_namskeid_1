@@ -37,13 +37,27 @@ class LL_API:
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
-    def LLcopyExistingVoyage(self,voyage,inp,iter):
+    def LLcopyExistingVoyage(self,voyage,inp,date):
         if inp==1:
             self.LLsaveVoyage(voyage)
-
         elif inp==2:
+            iter=int(input("Number of iterations: "))
             for i in range(iter):
-                pass
+                self.LLsaveVoyage(voyage)
+                date=add_day(date,1)
+                voyage.departureFlight.departure=date
+                voyage.departureFlight.arrival=add_hour(date,3)
+                voyage.returnFlight.departure=add_hour(date,4)
+                voyage.returnFlight.arrival=add_hour(date,6)
+        elif inp==3:
+            iter=int(input("Number of iterations: "))
+            for i in range(iter):
+                self.LLsaveVoyage(voyage)
+                date=add_day(date,7)
+                voyage.departureFlight.departure=date
+                voyage.departureFlight.arrival=add_hour(date,3)
+                voyage.returnFlight.departure=add_hour(date,4)
+                voyage.returnFlight.arrival=add_hour(date,6)
 
 
 

@@ -62,9 +62,9 @@ def date_now():
     d=today.strftime("%d/%m/%Y")
     return d
 
-def add_day(date):
+def add_day(date, numOfDays):
     newdate=datetime.datetime.strptime(date, "%Y-%m-%d""T""%H:%M:%S")
-    moddate=newdate+datetime.timedelta(days=1)
+    moddate=newdate+datetime.timedelta(days=numOfDays)
     d=datetime.datetime.strftime(moddate, "%Y-%m-%d""T""%H:%M:%S")
     return d
 

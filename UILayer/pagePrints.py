@@ -444,11 +444,16 @@ class pagePrints:
 
     def window27(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"1: Once")
         self.prentWord(15,"2: Daily")
         self.prentWord(15,"3: Weekly")
-        self.prentSpace(1,(self.cols)/2)
-        self.prentWord(15,"0: Back")
-        self.prentSpace(15,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window28(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(19,(self.cols)/2)
+        self.prentWord(15,"Type in information about departure date")
+        self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)

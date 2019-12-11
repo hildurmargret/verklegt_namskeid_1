@@ -277,15 +277,26 @@ class Windows():
         UI.UIsaveVoyage(voyage)
 
 
+
     def copyExistingVoyage(self,print_):
         print_.window6()
         input_string=input("Flight number: ")
+        voyage=UI.UIgettingVoyage(input_string)
         print_.window27()
-        inp=input(int("Number: "))
-        iter=input(int("Number of iterations"))
-        voyage=LL.LLgettingVoyage(input_string)
+        inp=int(input("Type Number: "))
+        print_.window28()
+        inpYear=int(input("Year: "))
+        inpMonth=int(input("Month: "))
+        inpDay=int(input("Day: "))
+        inpHour=int(input("Hour: "))
+        inpMinute=int(input("Minute: "))
+        date=getDate(inpYear,inpMonth,inpDay,inpHour,inpMinute)
+        voyage.departureFlight.departure=date
+        voyage.departureFlight.arrival=add_hour(date,3)
+        voyage.returnFlight.departure=add_hour(date,4)
+        voyage.returnFlight.arrival=add_hour(date,6)
+        UI.UIcopyExistingVoyage(voyage,inp,date)
 
-        UI.UIcopyExistingVoyage(voyage,inp,iter)
 
 
     def createVoyages(self,print_):
