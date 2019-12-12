@@ -232,7 +232,10 @@ class Windows():
         print_.window14()
         inp=int(input("Number: "))
         if inp==1:
-            UI.UIgettingAirplanes()
+            planes = UI.UIgettingAirplanes()
+            for plane in planes:
+                print(plane.planeInsignia + ', ' + plane.planeTypeId)
+                
         elif inp==2:
             pilots = allPilotsByLicence()
             types = getAllTypes()
