@@ -295,7 +295,7 @@ class Windows():
         print_.window7()
         add=Inp3()
         departureFlight=createFlightRoute()
-        departureFlight=add.addRouteInp(departureFlight)
+        [departureFlight,soldTick]=add.addRouteInp(departureFlight)
         if departureFlight == 0:
             self.createVoyages(print_)
         else:
@@ -306,6 +306,7 @@ class Windows():
             returnFlight.arrivingAt = departureFlight.departingFrom
             returnFlight.departure = add_hour(departureFlight.arrival,1)
             returnFlight.aircraftId=departureFlight.aircraftId
+            returnFlight.soldTickets=soldTick
             depFlArr=int(getHour(departureFlight.arrival))
             # depFlDep=int(getHour(departureFlight.departure))
             # flyingTime=depFlArr-depFlDep
