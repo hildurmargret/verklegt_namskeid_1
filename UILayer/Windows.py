@@ -316,7 +316,7 @@ class Windows():
 
 
     def copyExistingVoyage(self,print_):
-        print_.window6()
+        print_.window16()
         input_string=input("Flight number: ")
         if str(input_string) == 'CANCEL':
             self.createVoyages(print_)

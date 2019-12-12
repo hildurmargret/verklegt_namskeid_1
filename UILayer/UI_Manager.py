@@ -22,7 +22,6 @@ class UI_Manager:
     #    LL.LLsavePilot(newPilot)
 
     def UIsaveVoyage(self,newVoyage):
-        LL.LLsaveVoyage(newVoyage)
         voyageDate=newVoyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:

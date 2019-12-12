@@ -37,7 +37,6 @@ class LL_API:
     def LLsaveVoyage(self,newVoyage,file):
         [newVoyList,destinations]=DL.DLairportOccupied(newVoyage)
         newVoyList=fixFlNo(newVoyList,destinations)
-        DL.DLsaveVoyage(newVoyList)
         DL.DLsaveVoyage(newVoyList,file)
 
     def LLgetAircraft(self):

@@ -48,9 +48,4 @@ def list_all_aircraft():
 #for row1 in line1:
 #    for row2 in line2:
             #if row1["planeInsignia"]==
-
-
-
     return line2
-
-    #list_all_aircraft()
