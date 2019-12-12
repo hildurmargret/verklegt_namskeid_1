@@ -280,6 +280,7 @@ class Windows():
         if departureFlight == 0:
             self.createVoyages(print_)
         else:
+            returnFlight = createFlightRoute()
             departureFlight.departingFrom="KEF"
             returnFlight.flightNumber=departureFlight.flightNumber
             returnFlight.departingFrom = departureFlight.arrivingAt
