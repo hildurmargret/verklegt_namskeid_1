@@ -15,7 +15,9 @@ def staffInfo2(input_string):
     skra2='PastFlights copy.csv'
     skra3='UpcomingFlights copy3.csv'
 
-    allStaff=read_crew_file(skra1)
+    skra=OpenFile(skra1)
+
+    allStaff=read_crew_file(skra)
 
     ssn=[]
     rank=[]

@@ -24,15 +24,22 @@ def checkIfManned(voyage):
     fsm_bool = 0
 
     for i in range(len(allFlights)):
-        if allFlights[i].flightNumber == flNo:
+        if allFlights[i].flightNumber == flNo and allFlights[i].departure==voyage.departure:
+            #print(allFlights[i].flightNumber)
             #if 'captain' in row:
-            if allFlights[i].captain: # is not None:
+            if allFlights[i].captain:
+                #print(allFlights[i].captain) # is not None:
                 captain_bool = 1
+
         #if 'copilot' in row:
-            if allFlights[i].copilot: # is not None:
+            if allFlights[i].copilot:
+                #print(allFlights[i].copilot) # is not None:
                 copilot_bool = 1
         #if 'fsm' in row:
-            if allFlights[i].fsm: # is not None:
+            if allFlights[i].fsm:
+                #print(allFlights[i].fsm)  # is not None:
                 fsm_bool = 1
+
+    #print(captain_bool, copilot_bool, fsm_bool)
 
     return captain_bool, copilot_bool, fsm_bool

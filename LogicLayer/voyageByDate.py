@@ -22,8 +22,6 @@ def voyageByDate(inptDate):
     else:
         file='UpcomingFlights copy3.csv'
 
-    #print(file)
-
     #file_flights=OpenFile(file)
     allFlights=read_pastFlights(file)
 
@@ -75,6 +73,7 @@ def voyageByDate(inptDate):
                 elif no%2 != 0:
                     voyR=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival, allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyRet.append(voyR)
+                    #print('Return:' + voyR.departure + voyR.arrivingAt)
             tel=tel+1
 
     return voyDep, voyRet

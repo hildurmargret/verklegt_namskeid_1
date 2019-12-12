@@ -14,7 +14,8 @@ def emplWorking(inptDate):
     standardDate = inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
     file2='Crew.csv'
-    allStaff=read_crew_file(file2)
+    file=OpenFile(file2)
+    allStaff=read_crew_file(file)
 
     today=now()
 

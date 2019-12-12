@@ -11,25 +11,21 @@ def voyageStatus(dep, ret, input_date, input_time):
     inptYear = str(input_date[6:10])
 
     stdInptDate = inptYear + '-' + inptMonth + '-' + inptDay + 'T' + input_time
-    timabil=add_hour(stdInptDate, (-2))
+    print(stdInptDate)
 
     status=[]
-
-    #print(len(ret))
     #print(len(dep))
-
     for i in range(len(dep)):
-        if timabil < dep[i].departure <= stdInptDate:
+        if dep[i].departure < stdInptDate < dep[i].arrival:
             status.append('In air outbound')
-        elif timabil < ret[i].departure <= stdInptDate:
+        elif ret[i].departure < stdInptDate < ret[i].arrival:
             status.append('In air homebound')
-        elif stdInptDate < dep[i].departure:
-            status.append('On ground at home airport')
         elif stdInptDate < ret[i].departure and stdInptDate > dep[i].arrival:
             status.append('On ground at destination')
-        elif ret[i].departure > stdInptDate:
+        elif stdInptDate > ret[i].arrival and stdInptDate > ret[i].departure and stdInptDate > dep[i].arrival and stdInptDate > dep[i].departure:
             status.append('Completed')
-
+        else:
+            status.append('Awaiting departure')
 
     return status
 

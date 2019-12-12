@@ -2,7 +2,7 @@ import csv
 from ModelClasses.Destination import*
 def saveUpdatedDest(dest):
     Desti=[]
-    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/DestinationsCopy.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/DestinationsCopy.csv"
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
