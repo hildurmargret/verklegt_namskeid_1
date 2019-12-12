@@ -196,9 +196,10 @@ class Windows():
             pilots = searchPilotsByLicence(inpt)
             printPilotList(pilots)
         elif inp==4:
-            #ATH GLUGGA
-            input_date=input('Date (dd/mm/yyyy): ')
-            input_time=input('Time (hh:mm:ss): ')
+            print_.window17()
+            input_date=input('Date: ')
+            print_.window29()
+            input_time=input('Time: ')
             inAir, onGround=airplaneInUse(input_date, input_time)
             printAirplaneStatus(inAir, onGround, input_date, input_time)
 
@@ -228,9 +229,10 @@ class Windows():
             #printVoyagebyDates(dep,ret)
 
         elif inp==4:
-            #ATH GLUGGI
-            input_date=input('Date (dd/mm/yyyy): ')
-            input_time=input('Time (hh:mm:ss): ')
+            print_.window17()
+            input_date=input('Date: ')
+            print_.window29()
+            input_time=input('Time: ')
             dep, ret =voyageByDate(input_date)
             status = voyageStatus(dep, ret, input_date, input_time)
             printVoyageStatus(dep, ret, status,input_date, input_time)
