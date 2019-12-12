@@ -11,9 +11,10 @@ def airportOccupied(newVoyage):
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
-            v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],"",row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
+            v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],"","",row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
             voy.append(v)
             oldDate=v.departure
+
             if newDate==oldDate:
                 print("The airport is already occupied")
                 boolAirportOccupied=True

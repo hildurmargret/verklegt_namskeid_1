@@ -23,9 +23,27 @@ class UI_Manager:
 
     def UIsaveVoyage(self,newVoyage):
         LL.LLsaveVoyage(newVoyage)
+        voyageDate=newVoyage.departureFlight.departure
+        dateNow=now()
+        if voyageDate>dateNow:
+            file="UpcomingFlights copy.csv"
+        else:
+            file="PastFlights copy.csv"
+        LL.LLsaveVoyage(newVoyage,file)
+
 
     def UIcopyExistingVoyage(self,voyage,inp,date):
         LL.LLcopyExistingVoyage(voyage,inp,date)
+        voyage=update.addVoyageInp(voyage)
+        LL.LLupdateVoyage(voyage)
+
+    def UIaircraftToVoyage(self):
+        input_string=input("Flight number: ")
+        voyages=LL.LLleitaVoyage(input_string)
+        voyage=chooseVoyage(voyages)
+        aircraftID=input("AircraftId: ")
+        LL.LLaircraftToVoyage(voyage)
+
 
     def UIsaveAircraft(self,newAircraft):
         LL.LLsaveAircraft(newAircraft)
@@ -84,7 +102,18 @@ class UI_Manager:
         update=Inp3()
         input_string = input('Departing flight number: ')
         voyage=leitaVoyage(input_string)
+        voyages=LL.LLleitaVoyage(input_string)
+        voyage=chooseVoyage(voyages)
+        print(voyage.departureFlight.aircraftId)
+        print(voyage.returnFlight.aircraftId)
         input_string=input("SSN: ")
         employees=LL.LLgettingEmployees(input_string)
         employee=emplFromList(employees)
-        LL.LLemployeesToVoyage(voyage,employee)
+
+
+    def UIaircraftToVoyage(self):
+        input_string=input("Flight number: ")
+        voyages=LL.LLleitaVoyage(input_string)
+        voyage=chooseVoyage(voyages)
+        aircraftID=input("AircraftId: ")
+        LL.LLaircraftToVoyage(voyage)

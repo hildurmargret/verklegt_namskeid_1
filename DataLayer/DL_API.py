@@ -8,6 +8,7 @@ from DataLayer.saveUpdatedVoyage import*
 from DataLayer.airportOccupied import*
 from DataLayer.getDestinations import*
 from DataLayer.saveUpdatedFlights import*
+from DataLayer.saveAircraftToVoyage import*
 
 class DL_API:
 
@@ -26,10 +27,8 @@ class DL_API:
         newVoyList=airportOccupied(newVoyage)
         destinations = getDestinations()
         return newVoyList,destinations
-    def DLsaveVoyage(self,newVoyage):
-        updateFlights(newVoyage)
-    def DLcopyExistingVoyage(voyage):
-        saveVoyage(voyage)
+    def DLsaveVoyage(self,newVoyage,file):
+        updateFlights(newVoyage,file)
     def DLupdateStaff(self,employee):
         saveUpdatedStaff(employee)
     def DLupdatedDestination(self, destination):
@@ -38,5 +37,7 @@ class DL_API:
         saveUpdatedAircraft(aircraft)
     def DLupdateVoyage(self,voyage):
         saveUpdatedVoyage(voyage)
+    def DLaircraftToVoyage(self,voyage):
+        aircraftToVoyage(voyage)
     def DLemployeesToVoyage(self,voyage,employee):
         employeesToVoyage(voyage,employee)

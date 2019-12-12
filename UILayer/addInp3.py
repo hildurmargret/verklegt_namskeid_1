@@ -9,6 +9,11 @@ class Inp3():
         destinations = getDestinations()
         aircraft = list_all_aircraft()
         self.flightNumber = voyage.flightNumber
+        self.captain=voyage.captain
+        self.copilot=voyage.copilot
+        self.fsm=voyage.fsm
+        self.fa1=voyage.fa1
+        self.fa2=voyage.fa2
 
         validDest_bool = 0
         correctDest_bool=0

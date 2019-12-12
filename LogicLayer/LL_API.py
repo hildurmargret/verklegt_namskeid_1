@@ -34,34 +34,42 @@ class LL_API:
         DL.DLsaveAircraft(newAircraft)
     def LLsaveDestination(self,newDest):
         DL. DLsaveDestination(newDest)
-    def LLsaveVoyage(self,newVoyage):
+    def LLsaveVoyage(self,newVoyage,file):
         [newVoyList,destinations]=DL.DLairportOccupied(newVoyage)
         newVoyList=fixFlNo(newVoyList,destinations)
         DL.DLsaveVoyage(newVoyList)
-    def LLgetAircraft(self):
+        DL.DLsaveVoyage(newVoyList,file)
+
+        def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
+
     def LLcopyExistingVoyage(self,voyage,inp,date):
+        voyageDate=voyage.departureFlight.departure
+        dateNow=now()
+        if voyageDate>dateNow:
+            file="UpcomingFlights copy.csv"
+        else:
+            file="PastFlights copy.csv"
         if inp==1:
             self.LLsaveVoyage(voyage)
+            self.LLsaveVoyage(voyage,file)
         elif inp==2:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
                 self.LLsaveVoyage(voyage)
+                self.LLsaveVoyage(voyage,file)
                 date=add_day(date,1)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
-                voyage.returnFlight.departure=add_hour(date,4)
-                voyage.returnFlight.arrival=add_hour(date,6)
         elif inp==3:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
                 self.LLsaveVoyage(voyage)
+                self.LLsaveVoyage(voyage,file)
                 date=add_day(date,7)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
-                voyage.returnFlight.departure=add_hour(date,4)
-                voyage.returnFlight.arrival=add_hour(date,6)
 
 
 
@@ -75,7 +83,6 @@ class LL_API:
         employees=staffInfo(4, input_string)
         return employees
 
-        return employees
     def LLupdatingStaff(self,employee):
         DL.DLupdateStaff(employee)
 
@@ -91,6 +98,14 @@ class LL_API:
 
     def LLupdateVoyage(self,voyage):
         DL.DLupdateVoyage(voyage)
+
+    def LLleitaVoyage(self,input_string):
+        voyage=leitaVoyage(input_string)
+        return voyage
+
+    def LLaircraftToVoyage(self,voyage):
+        DL.DLaircraftToVoyage(voyage)
+
 
     def LLgettingEmployees(self,input_string):
         employees=staffInfo(4,input_string)

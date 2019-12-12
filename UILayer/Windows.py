@@ -35,10 +35,40 @@ from UILayer.printAirplaneStatus import*
 from LogicLayer.voyageStatus import*
 from UILayer.printVoyageStatus import*
 from UILayer.printSearchedVoyage import*
+from UILayer.printAirplaneStatus import*
+from LogicLayer.voyageStatus import*
+from UILayer.printVoyageStatus import*
+from UILayer.chooseVoyageFromList import*
+
 
 UI=UI_Manager()
 
 class Windows():
+
+    def aircraftToVoyage(self,print_):
+        UI.UIaircraftToVoyage()
+
+    def updateVoyage(self,print_):
+        print_.window7()
+        UI.UIupdateVoyage()
+            self.employeesToVoyage(print_)
+        elif inp==4:
+            self.updateVoyage(print_)
+        elif inp==5:
+            self.aircraftToVoyage(print_)
+        elif inp==0:
+            self.mainMenu()
+
+        if str(input_string) == 'CANCEL':
+            self.createVoyages(print_)
+        else:
+            voyage=UI.UIgettingVoyage(input_string)
+            voyages=UI.UIgettingVoyage(input_string)
+            voyage=chooseVoyage(voyages)
+            print_.window27()
+            inp=int(input("Type Number: "))
+            print_.window28()
+
 
     def updateVoyage(self,print_):
         print_.window7()

@@ -2,11 +2,12 @@ import csv
 from LogicLayer.Date import*
 from ModelClasses.flightRoute import*
 from DataLayer.OpenFile import *
+from DataLayer.OpenFile import*
 
 def employeeOccupied(employee,retRoute):
     date1=getDay(retRoute.departure)
     file='UpcomingFlights copy.csv'
-    file_=openFile(file)
+    file_=OpenFile(file)
 
     #path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy.csv"
     with file_ as File1:
