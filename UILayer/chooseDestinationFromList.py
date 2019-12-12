@@ -1,5 +1,5 @@
 def DestinationFromList(dest):
-
+    
     for i in range(len(dest)):
         print(i+1,end=" ")
         print(dest[i].id + ", " + dest[i].destination) # + ", "+ dest[i].country + ", "  + dest[i].distance + ", " + dest[i].contactName + ", " + dest[i].contactNumber)

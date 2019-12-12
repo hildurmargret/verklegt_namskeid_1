@@ -40,8 +40,6 @@ class UI_Manager:
         voyage=update.addVoyageInp(voyage)
         LL.LLupdateVoyage(voyage)
 
-
-
     def UIsaveAircraft(self,newAircraft):
         LL.LLsaveAircraft(newAircraft)
 
@@ -74,12 +72,12 @@ class UI_Manager:
     #     LL.LLupdatingStaff(employee)
 
     def UIupdateDestination(self):
-        update=updateDestInput()
+        #update=updateDestInput()
         dest=LL.LLupdateDestination()
-        dest=DestinationFromList(dest)
-        dest=update.addDestInp(dest)
-        print(dest)
-        LL.LLupdatingDestination(dest)
+        return dest
+
+    def UIsaveNewDestination(self,destination):
+        LL.LLupdatingDestination(destination)
 
     def UIupdateAircraft(self):
         update=Inp4()
