@@ -2,18 +2,7 @@ from LogicLayer.checkIfManned import*
 from LogicLayer.Date import *
 from DataLayer.getAirplaneCapacity import *
 
-def printVoyageList(voyage,daterange):
-
-    ar1=str(getYear(daterange[0]))
-    man1=str(getMonth(daterange[0]))
-    dag1=str(getDay(daterange[0]))
-
-    ar2=str(getYear(daterange[1]))
-    man2=str(getMonth(daterange[1]))
-    dag2=str(getDay(daterange[1]))
-
-    print('FLIGHTS DURING TIME PERIOD: ' + dag2 + '/' + man2 + '/' + ar2 + ' TO ' + dag1 + '/' + man1 + '/' + ar1)
-    print('')
+def printSearchedVoyage(voyage):
 
     for i in voyage:
         retDeptTime = str(getDay(i.returnFlight.departure)) + '/' + str(getMonth(i.returnFlight.departure)) + '/' + str(getYear(i.returnFlight.departure)) + ' at ' + str(getHour(i.returnFlight.departure)) + ':' + str(getMinute(i.returnFlight.departure))
@@ -44,11 +33,13 @@ def printVoyageList(voyage,daterange):
         else:
             seats=i.departureFlight.soldTickets
         print("There are " + str(seats)+ " seats sold")
+        #print(type(capa))
+        #print(type(seats))
         if not i.departureFlight.aircraftId:
             print('No airplane assigned to this flight')
         else:
             capa=airplaneCapacity(i.departureFlight.aircraftId)
-            avail=capa-seats
+            avail=capa-int(seats)
             print('There are ' + str(avail) + ' seats available')
 
         print('----------------------------------------------------------------------------------------------------')

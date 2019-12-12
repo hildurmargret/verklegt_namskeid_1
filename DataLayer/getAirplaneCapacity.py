@@ -1,7 +1,7 @@
 from DataLayer.OpenFile import*
 import csv
 
-def airplaineCapacity(planeInsigniaIn):
+def airplaneCapacity(planeInsigniaIn):
 
     insignia=[]
     planeType=[]
@@ -21,7 +21,9 @@ def airplaineCapacity(planeInsigniaIn):
         for i in range (len(insignia)):
             if insignia[i]==planeInsigniaIn:
                 TypeOut=planeType[i]
-                print(TypeOut)
+                #print(TypeOut)
+            # else:
+            #     TypeOut=0
     csvfile.close()
 
     with file2 as csvfile2:
@@ -31,7 +33,9 @@ def airplaineCapacity(planeInsigniaIn):
             capacityRow.append(row['capacity'])
         for i in range (len(planeType2)):
             if planeType2[i]==TypeOut:
-                capacityOut=capacityRow[i]
-        csvfile2.close
+                capacityOut=int(capacityRow[i])
+            # else:
+            #     capacityOut='UNKNOWN'
+        csvfile2.close()
 
     return capacityOut

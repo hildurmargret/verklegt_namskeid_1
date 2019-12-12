@@ -34,6 +34,7 @@ from LogicLayer.airplaneInUse import*
 from UILayer.printAirplaneStatus import*
 from LogicLayer.voyageStatus import*
 from UILayer.printVoyageStatus import*
+from UILayer.printSearchedVoyage import*
 
 UI=UI_Manager()
 
@@ -196,7 +197,7 @@ class Windows():
             print_.window16()
             input_string = input('Flight number: ')
             voyage.extend(UI.UIgettingVoyage(input_string))
-            printVoyageList(voyage)
+            printSearchedVoyage(voyage)
 
         elif inp==2:
             print_.window17()

@@ -1,4 +1,6 @@
 from LogicLayer.checkIfManned import*
+from DataLayer.getAirplaneCapacity import *
+
 def printVoyagebyDates(dep,ret):
     #print(len(dep))
     #print(len(ret))
@@ -25,6 +27,10 @@ def printVoyagebyDates(dep,ret):
             seats=0
         else:
             seats=dep[i].soldTickets
+
         print("There are " + str(seats)+ " seats sold")
+        capa=airplaneCapacity(dep[i].aircraftId)
+        avail=capa-int(seats)
+        print('There are ' + str(avail) + ' seats available')
         print('----------------------------------------------------------------------------------------------------')
     return
