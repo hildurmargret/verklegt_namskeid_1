@@ -18,7 +18,7 @@ def checkIfManned(voyage):
     #path = '/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
 
     if today>standardDate:
-        file='PastFlights.csv'
+        file='PastFlights copy.csv'
     else:
         file='UpcomingFlights copy3.csv'
 
