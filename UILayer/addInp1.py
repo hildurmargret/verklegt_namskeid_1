@@ -16,7 +16,6 @@ class Inp1():
                 self.name=input("Name: ")
                 if self.name=="CANCEL":
                     validName_bool=1
-                    self.cancel=1
                     return 0
                 elif self.name == '':
                     print("Please enter employee's name")
@@ -36,7 +35,6 @@ class Inp1():
                 self.SSN=input("SSN: ")
                 if self.SSN=="CANCEL":
                     validSSN_bool = 1
-                    self.cancel=1
                     return 0
                 elif self.SSN == '':
                     print("Please enter employee's SSN")
@@ -48,7 +46,6 @@ class Inp1():
 
         self.address=input("Address: ")
         if self.address=="CANCEL":
-            self.cancel=1
             return 0
         elif self.address == '' and employee.address != '':
             self.address = employee.address
@@ -62,7 +59,6 @@ class Inp1():
             self.phoneNumber=input("Phone number: ")
             if self.phoneNumber=="CANCEL":
                 validPno_bool = 1
-                self.cancel=1
                 return 0
             elif self.phoneNumber == '' and employee.phoneNumber != '':
                 validPno_bool = 1
@@ -80,7 +76,6 @@ class Inp1():
         #     self.mobileNumber=input("Mobile number: ")
         #     if self.mobileNumber=="CANCEL":
         #         validMno_bool = 1
-        #         self.cancel=1
         #         return 0
         #     elif self.mobileNumber == '':
         #         validMno_bool = 1
@@ -95,7 +90,6 @@ class Inp1():
             self.emailAddress=input("Email address: ")
             if self.emailAddress=="CANCEL":
                 validEmail_bool = 1
-                self.cancel=1
                 return 0
             elif self.emailAddress == '' and employee.emailAddress != '':
                 self.emailAddress = employee.emailAddress
@@ -112,7 +106,6 @@ class Inp1():
             self.role=input("Role: ")
             if self.role=="CANCEL":
                 validRole_bool=1
-                self.cancel=1
                 return 0
             elif self.role == '' and employee.role != '':
                 validRole_bool = 1
@@ -129,7 +122,6 @@ class Inp1():
             self.rank=input("Rank: ")
             if self.rank=="CANCEL":
                 validRank_bool = 1
-                self.cancel=1
                 return 0
             elif self.rank == '' and employee.rank != '':
                 validRank_bool = 1
@@ -155,7 +147,6 @@ class Inp1():
 
                 if self.licence=="CANCEL":
                     validLicence_bool=1
-                    self.cancel=1
                     return 0
                 elif self.licence == '' and employee.licence != '':
                     validLicence_bool=1

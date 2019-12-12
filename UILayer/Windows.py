@@ -259,12 +259,13 @@ class Windows():
 
     def createAirplanes(self,print_):
         print_.window9()
-        add=Inp()
         add=Inp4()
         airplane=createAirplane()
         airplane=add.addAirplaneInp(airplane)
-
-        UI.UIsaveAircraft(airplane)
+        if airplane == 0:
+            self.create(print_)
+        else:
+            UI.UIsaveAircraft(airplane)
 
 
     def copyExistingVoyage(self,print_):
@@ -276,38 +277,44 @@ class Windows():
         add=Inp3()
         departureFlight=createFlightRoute()
         departureFlight=add.addRouteInp(departureFlight)
-        returnFlight=createFlightRoute()
-        returnFlight.flightNumber = departureFlight.flightNumber
-        returnFlight.departingFrom = departureFlight.arrivingAt
-        returnFlight.arrivingAt = departureFlight.departingFrom
-        returnFlight.departure = add_hour(departureFlight.arrival,1)
-        depFlArr=int(getHour(departureFlight.arrival))
-        # depFlDep=int(getHour(departureFlight.departure))
-        # flyingTime=depFlArr-depFlDep
-        returnFlight.arrival = add_hour(returnFlight.departure,2)
-        voyage=createVoyage(departureFlight,returnFlight)
-        UI.UIsaveVoyage(voyage)
+        if departureFlight == 0:
+            self.createVoyages(print_)
+        else:
+            returnFlight=createFlightRoute()
+            returnFlight.flightNumber = departureFlight.flightNumber
+            returnFlight.departingFrom = departureFlight.arrivingAt
+            returnFlight.arrivingAt = departureFlight.departingFrom
+            returnFlight.departure = add_hour(departureFlight.arrival,1)
+            depFlArr=int(getHour(departureFlight.arrival))
+            # depFlDep=int(getHour(departureFlight.departure))
+            # flyingTime=depFlArr-depFlDep
+            returnFlight.arrival = add_hour(returnFlight.departure,2)
+            voyage=createVoyage(departureFlight,returnFlight)
+            UI.UIsaveVoyage(voyage)
 
 
 
     def copyExistingVoyage(self,print_):
         print_.window6()
         input_string=input("Flight number: ")
-        voyage=UI.UIgettingVoyage(input_string)
-        print_.window27()
-        inp=int(input("Type Number: "))
-        print_.window28()
-        inpYear=int(input("Year: "))
-        inpMonth=int(input("Month: "))
-        inpDay=int(input("Day: "))
-        inpHour=int(input("Hour: "))
-        inpMinute=int(input("Minute: "))
-        date=getDate(inpYear,inpMonth,inpDay,inpHour,inpMinute)
-        voyage.departureFlight.departure=date
-        voyage.departureFlight.arrival=add_hour(date,3)
-        voyage.returnFlight.departure=add_hour(date,4)
-        voyage.returnFlight.arrival=add_hour(date,6)
-        UI.UIcopyExistingVoyage(voyage,inp,date)
+        if str(input_string) == 'CANCEL':
+            self.createVoyages(print_)
+        else:
+            voyage=UI.UIgettingVoyage(input_string)
+            print_.window27()
+            inp=int(input("Type Number: "))
+            print_.window28()
+            inpYear=int(input("Year: "))
+            inpMonth=int(input("Month: "))
+            inpDay=int(input("Day: "))
+            inpHour=int(input("Hour: "))
+            inpMinute=int(input("Minute: "))
+            date=getDate(inpYear,inpMonth,inpDay,inpHour,inpMinute)
+            voyage.departureFlight.departure=date
+            voyage.departureFlight.arrival=add_hour(date,3)
+            voyage.returnFlight.departure=add_hour(date,4)
+            voyage.returnFlight.arrival=add_hour(date,6)
+            UI.UIcopyExistingVoyage(voyage,inp,date)
 
 
 
@@ -350,7 +357,7 @@ class Windows():
         if newDest == 0:
             self.create(print_)
         else:
-            UI.UIsaveDestinationInFile(Dest)
+            UI.UIsaveDestinationInFile(newDest)
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane

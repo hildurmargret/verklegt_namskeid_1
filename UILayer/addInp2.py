@@ -13,7 +13,6 @@ class Inp2():
                 self.id=input("ID: ")
                 if self.id=="CANCEL":
                     validID_bool=1
-                    self.cancel=1
                     return 0
                 elif self.id == '':
                     print('Please enter destination ID')
@@ -32,7 +31,6 @@ class Inp2():
                     self.destination=input("Destination: ")
                     if self.destination=="CANCEL":
                         validDest_bool=1
-                        self.cancel=1
                         return 0
                     elif self.destination == '':
                         print('Please enter destination')
@@ -51,7 +49,6 @@ class Inp2():
                     self.country=input("Country: ")
                     if self.country=="CANCEL":
                         validCountry_bool = 1
-                        self.cancel=1
                         return 0
                     elif self.country == '':
                         print('Please enter destination country')
@@ -70,7 +67,6 @@ class Inp2():
                     self.distance=input("Distance [km]: ")
                     if self.distance=="CANCEL":
                         validDistance_bool = 1
-                        self.cancel=1
                         return 0
                     elif self.distance == '':
                         validDistance_bool = 1
@@ -86,7 +82,6 @@ class Inp2():
                 self.contactName=input("Contact name: ")
                 if self.contactName=="CANCEL":
                     validConName_bool=1
-                    self.cancel=1
                     return 0
                 elif self.contactName == '':
                     self.contactName = destination.contactName
@@ -103,7 +98,6 @@ class Inp2():
                 self.contactNumber=input("Contact phone number: ")
                 if self.contactNumber=="CANCEL":
                     validConNum_bool=1
-                    self.cancel=1
                     return 0
                 elif self.contactNumber == '':
                     self.contactNumber = destination.contactNumber

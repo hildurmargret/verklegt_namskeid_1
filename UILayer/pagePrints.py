@@ -174,7 +174,9 @@ class pagePrints:
         self.prentLina((self.cols)/2)
         self.prentSpace(18,(self.cols)/2)
         self.prentWord(15,"Choose a number")
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(16,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
 
