@@ -38,6 +38,14 @@ class DL_API:
     def DLupdateVoyage(self,voyage):
         saveUpdatedVoyage(voyage)
     def DLaircraftToVoyage(self,voyage):
-        aircraftToVoyage(voyage)
+        flights=aircraftToVoyage(voyage)
+        voyageDate=voyage.departureFlight.departure
+        dateNow=now()
+        if voyageDate>dateNow:
+            file="UpcomingFlights copy.csv"
+        else:
+            file="PastFlights copy.csv"
+        updateFlights(flights,file)
+
     def DLemployeesToVoyage(self,voyage,employee):
         employeesToVoyage(voyage,employee)

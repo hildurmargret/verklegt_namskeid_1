@@ -36,12 +36,6 @@ class UI_Manager:
         voyage=update.addVoyageInp(voyage)
         LL.LLupdateVoyage(voyage)
 
-    def UIaircraftToVoyage(self):
-        input_string=input("Flight number: ")
-        voyages=LL.LLleitaVoyage(input_string)
-        voyage=chooseVoyage(voyages)
-        aircraftID=input("AircraftId: ")
-        LL.LLaircraftToVoyage(voyage)
 
 
     def UIsaveAircraft(self,newAircraft):
@@ -110,9 +104,19 @@ class UI_Manager:
         employee=emplFromList(employees)
 
 
+    # def UIaircraftToVoyage(self):
+    #     input_string=input("Flight number: ")
+    #     voyages=LL.LLleitaVoyage(input_string)
+    #     voyage=chooseVoyage(voyages)
+    #     aircraftID=input("AircraftId: ")
+    #     LL.LLaircraftToVoyage(voyage)
+
+
     def UIaircraftToVoyage(self):
         input_string=input("Flight number: ")
         voyages=LL.LLleitaVoyage(input_string)
         voyage=chooseVoyage(voyages)
         aircraftID=input("AircraftId: ")
+        voyage.departureFlight.aircraftId=aircraftID
+        voyage.returnFlight.aircraftId=aircraftID
         LL.LLaircraftToVoyage(voyage)
