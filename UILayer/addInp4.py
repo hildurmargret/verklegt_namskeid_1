@@ -72,7 +72,10 @@ class Inp4():
                     elif not self.manufacturer.isalpha():
                         print('Invalid input. Input must only consist of letters [a-z]')
                     else:
-                        self.manufacturer = self.manufacturer.capitalize()
+                        if len(self.manufacturer)<=3:
+                            self.manufacturer = self.manufacturer.upper()
+                        else:
+                            self.manufacturer = self.manufacturer.capitalize()
                         validMan_bool=1
 
                 validModel_bool = 0
