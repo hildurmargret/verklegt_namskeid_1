@@ -40,7 +40,7 @@ class LL_API:
         DL.DLsaveVoyage(newVoyList)
         DL.DLsaveVoyage(newVoyList,file)
 
-        def LLgetAircraft(self):
+    def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
 
