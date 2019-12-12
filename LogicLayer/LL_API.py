@@ -44,6 +44,9 @@ class LL_API:
         return getAircraft
 
     def LLcopyExistingVoyage(self,voyage,inp,date):
+        flights=DL.DLsaveVoyagesInList(voyage)
+        destinations=self.LLupdateDestination()
+        flights=fixFlNo(flights,destinations)
         voyageDate=voyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:
@@ -51,33 +54,24 @@ class LL_API:
         else:
             file="PastFlights copy.csv"
         if inp==1:
-            self.LLsaveVoyage(voyage)
             self.LLsaveVoyage(voyage,file)
         elif inp==2:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
-                self.LLsaveVoyage(voyage)
-                self.LLsaveVoyage(voyage,file)
+                self.LLsaveVoyage(flights,file)
                 date=add_day(date,1)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
         elif inp==3:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
-                self.LLsaveVoyage(voyage)
-                self.LLsaveVoyage(voyage,file)
+                self.LLsaveVoyage(flights,file)
                 date=add_day(date,7)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
 
 
 
-
-    def LLgettingVoyage(self,input_string):
-        voyage=leitaVoyage(input_string)
-        #print(voyage.departureFlight.soldTickets)
-        return voyage
-        #UI.gettingAirplanes(getAircraft)
     def LLupdateStaff(self,input_string):
         employees=staffInfo(4, input_string)
         return employees

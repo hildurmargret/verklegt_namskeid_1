@@ -37,7 +37,6 @@ class UI_Manager:
 
     def UIcopyExistingVoyage(self,voyage,inp,date):
         LL.LLcopyExistingVoyage(voyage,inp,date)
-        voyage=update.addVoyageInp(voyage)
         LL.LLupdateVoyage(voyage)
 
     def UIsaveAircraft(self,newAircraft):
@@ -51,7 +50,8 @@ class UI_Manager:
         return getAircraft
 
     def UIgettingVoyage(self,input_string):
-        voyage=LL.LLgettingVoyage(input_string)
+        voyage=LL.LLleitaVoyage(input_string)
+        voyage=chooseVoyage(voyage)
         return voyage
 
     def UIupdateStaff(self):

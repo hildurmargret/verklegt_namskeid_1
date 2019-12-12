@@ -4,12 +4,12 @@ from DataLayer.saveNewDestination import*
 from DataLayer.saveUpdatedStaff import*
 from DataLayer.saveUpdatedDestination import*
 from DataLayer.saveEmployeesToVoyage import*
-from DataLayer.saveUpdatedVoyage import*
 from DataLayer.airportOccupied import*
 from DataLayer.getDestinations import*
 from DataLayer.saveUpdatedFlights import*
 from DataLayer.saveAircraftToVoyage import*
 from DataLayer.read_pastFlights import*
+from DataLayer.saveVoyInList import*
 
 class DL_API:
 
@@ -54,4 +54,7 @@ class DL_API:
     def DLgetFlights(self):
         flights = read_pastFlights('UpcomingFlights copy.csv')
         flights.extend(read_pastFlights('PastFlights copy.csv'))
+        return flights
+    def DLsaveVoyagesInList(self,voyage):
+        flights=saveUpdatedVoyage(voyage)
         return flights
