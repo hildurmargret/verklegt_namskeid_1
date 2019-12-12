@@ -262,7 +262,7 @@ class pagePrints:
         self.prentWord(15,"4: Search for an employee")
         self.prentWord(15,"5: Employee destinations")
         self.prentWord(15,"6: Employee work schedule ")
-        self.prentWord(15,"7: Employees available now")
+        self.prentWord(15,"7: Employees available by date")
         self.prentWord(15,"8: Employees working by date")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"0: Back")

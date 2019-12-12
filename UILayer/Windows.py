@@ -129,6 +129,7 @@ class Windows():
                 self.getStaffInfo(print_)
             else:
                 employees = staffInfo(4, input_string)
+                print('Choose number from list: ')
                 employee = emplFromList(employees)
                 numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
                 printDestList(numOfDest, pastFlights, empl)
@@ -137,6 +138,7 @@ class Windows():
             print_.window12()
             input_string = input('Name or SSN: ')
             employees = staffInfo(4, input_string)
+            print('Choose number from list: ')
             employee = emplFromList(employees)
             print_.window26()
             WC = input('Weekly or complete? ')
