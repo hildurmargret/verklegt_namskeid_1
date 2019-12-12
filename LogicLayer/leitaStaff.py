@@ -4,33 +4,19 @@ def leitaStaff(inpt, allStaff, ssn, rank):
 
     updssn=[]
 
-    for i in range(len(allStaff)):
-        if inpt.isdigit():
-            if inpt in allStaff[i].SSN:
-                ssn.append(allStaff[i].SSN)
-                rank.append(allStaff[i].rank)
-        else:
+    for i in range(len(allStaff)): #fer gegnum alla starfsmenn
+        if inpt.isdigit(): #ef notandi sláði inn kennitölu
+            if inpt in allStaff[i].SSN: #ef ég finn input notanda í SSN þá:
+                ssn.append(allStaff[i].SSN) #set ég kennitöluna í ssn listann
+                rank.append(allStaff[i].rank) #set líka rank í rank lista
+        else: #geri það sama hér nema notandi hefur hér slegið inn nafn og leita því í name
             if inpt in allStaff[i].name:
-                #print(allStaff[i].name)
                 ssn.append(allStaff[i].SSN)
                 rank.append(allStaff[i].rank)
 
-    #with open(file,'r') as csv_file:
-    # with file_ as csv_file:
-    #     csv_reader = csv.DictReader(csv_file)
-    #
-    #     for row in csv_reader:
-    #         if inpt.isdigit():
-    #             if inpt in row['ssn']:
-    #                 ssn.append(row['ssn'])
-    #                 rank.append(row['rank'])
-    #
-    #         else:
-    #             if inpt in row['name']:
-    #                 ssn.append(row['ssn'])
-    #                 rank.append(row['rank'])
-    for i in ssn:
-        if i not in updssn:
-            updssn.append(i)
-    
-    return updssn, rank
+    #passa að tvítelja ekki kennitölur
+    # for i in ssn:
+    #     if i not in updssn:
+    #         updssn.append(i)
+
+    return ssn, rank

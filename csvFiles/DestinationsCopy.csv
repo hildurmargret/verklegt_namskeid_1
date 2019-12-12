@@ -1,7 +1,7 @@
 id,destination,country,distance,contactName,contactNumber
 LYR,Longyearbyean,island,54,nonni,333
-GOH,Nuuk
-KUS,Kulusuk
-FAE,Thorshavn
-LWK,Tingwall
-KEF,Keflavik
+GOH,Nuuk,,,,
+KUS,Kulusuk,,,,
+FAE,Thorshavn,,,,
+LWK,Tingwall,,,,
+KEF,Keflavik,Germany,33,Kalli,123456

@@ -15,7 +15,7 @@ def weeklyWS(week,year,input_string):
     lastMonth = str(getMonth(dateRange[0]))
     lastYear = str(getYear(dateRange[0]))
 
-    numOfDest, pastFlights, upcFlights, employees = staffInfo2(input_string)
+    numOfpastDest, numOfupcDest, pastFlights, upcFlights, employees = staffInfo2(input_string)
 
     today=now()
 

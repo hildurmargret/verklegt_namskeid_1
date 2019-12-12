@@ -163,7 +163,7 @@ class Windows():
             else:
                 linur=staffInfo(inp, input_string)
                 for i in range(len(linur)):
-                    print(linur[i].name)
+                    print(linur[i].name + ', ' + linur[i].SSN + ' - ' + linur[i].role)
         elif inp==5:
             print_.window12()
             input_string = input('Name or SSN: ')
@@ -173,8 +173,15 @@ class Windows():
                 employees = staffInfo(4, input_string)
                 print('Choose number from list: ')
                 employee = emplFromList(employees)
-                numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
-                printDestList(numOfDest, pastFlights, empl)
+                numOfpastDest, numOfupcDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+                print('EMPLOYEES PAST DESTINATIONS: ')
+                printDestList(numOfpastDest, pastFlights, empl)
+                #print(len(numOfupcDest))
+                if len(numOfupcDest) == 1:
+                    print('EMPLOYEE HAS NO UPCOMING DESTINATIONS')
+                else:
+                    print('EMPLOYEES UPCOMING DESTINATIONS: ')
+                    printDestList(numOfupcDest, upcFlights, empl)
 
         elif inp==6:
             print_.window12()
@@ -211,7 +218,7 @@ class Windows():
             emp, noemp, dest = emplWorking(input_string)
             print('AVAILABLE EMPLOYEES ' + input_string + ': ')
             for i in range(len(noemp)):
-                print(noemp[i].name)
+                print(noemp[i].name + ', ' + noemp[i].SSN + ' - ' + noemp[i].role)
 
         elif inp==8:
             print_.window17()
@@ -225,7 +232,7 @@ class Windows():
             linur=staffInfo(inp,'')
 
             for i in range(len(linur)):
-                print(linur[i].name)
+                print(linur[i].name + ', ' + linur[i].SSN)
 
 
     def getAirplaneInfo(self,print_):
@@ -233,8 +240,10 @@ class Windows():
         inp=int(input("Number: "))
         if inp==1:
             planes = UI.UIgettingAirplanes()
+            print('AIRPLANE INGSIGNIA       AIRPLANE TYPE')
+            print('----------------------------------------------------------------------------------------------------')
             for plane in planes:
-                print(plane.planeInsignia + ', ' + plane.planeTypeId)
+                print(plane.planeInsignia + '                   ' + plane.planeTypeId)
 
         elif inp==2:
             pilots = allPilotsByLicence()

@@ -17,16 +17,17 @@ def staffInfo2(input_string):
 
     skra=OpenFile(skra1)
 
-    allStaff=read_crew_file(skra)
+    allStaff=read_crew_file(skra) #listi allra starfsmanna
 
     ssn=[]
     rank=[]
     employees=[]
-    numOfDest=[]
+    numOfupcDest=[]
+    numOfpastDest=[]
     pastFlights=[]
     upcFlights=[]
 
-    for i in range(len(allStaff)):
+    for i in range(len(allStaff)): #fer í gegnum alla starfsmenn
         ssn, rank = leitaStaff(input_string, allStaff, ssn, rank)
         for j in range(len(ssn)):
             if allStaff[i].SSN == ssn[j]:
@@ -64,6 +65,32 @@ def staffInfo2(input_string):
                     upcDest.append(row['arrivingAt'])
                     upcDept.append(row['departingFrom'])"""
 
+    allUpcFlights=read_pastFlights(skra3)
+
+    #Upcoming flights
+    for i in range(len(employees)):
+        for j in range(len(allUpcFlights)):
+
+            deptTime = str(getDay(allUpcFlights[j].departure)) + '/' + str(getMonth(allUpcFlights[j].departure)) + '/' + str(getYear(allUpcFlights[j].departure)) + ' at ' + str(getHour(allUpcFlights[j].departure)) + ':' + str(getMinute(allUpcFlights[j].departure))
+            arvlTime = str(getDay(allUpcFlights[j].arrival)) + '/' + str(getMonth(allUpcFlights[j].arrival)) + '/' + str(getYear(allUpcFlights[j].arrival)) + ' at ' + str(getHour(allUpcFlights[j].arrival)) + ':' + str(getMinute(allUpcFlights[j].arrival))
+
+            if employees[i].rank=='Flight Attendant' and employees[i].SSN in (allUpcFlights[j].fa1 or allUpcFlights[j].fa2):
+                flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
+                upcFlights.append(flight)
+
+            elif employees[i].rank=='Flight Service Manager' and employees[i].SSN in allUpcFlights[j].fsm:
+                flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
+                upcFlights.append(flight)
+
+            elif employees[i].rank=='Captain' and employees[i].SSN in allUpcFlights[j].captain:
+                flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
+                upcFlights.append(flight)
+
+            elif employees[i].rank=='Copilot' and employees[i].SSN in allUpcFlights[j].copilot:
+                flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
+                upcFlights.append(flight)
+
+        numOfupcDest.append(len(upcFlights))
 
     allPastFlights=read_pastFlights(skra2)
 
@@ -90,6 +117,6 @@ def staffInfo2(input_string):
                 flight=createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt, deptTime, arvlTime,allPastFlights[j].aircraftId, allPastFlights[j].soldTickets, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 pastFlights.append(flight)
 
-        numOfDest.append(len(pastFlights))
+        numOfpastDest.append(len(pastFlights))
 
-    return numOfDest, pastFlights, upcFlights, employees
+    return numOfpastDest, numOfupcDest, pastFlights, upcFlights, employees
