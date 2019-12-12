@@ -218,7 +218,7 @@ class Windows():
             input_time=input('Time (hh:mm:ss): ')
             dep, ret =voyageByDate(input_date)
             status = voyageStatus(dep, ret, input_date, input_time)
-            printVoyageStatus(voyages, status)
+            printVoyageStatus(dep, ret, status,input_date, input_time)
 
         elif inp==0:
             self.getInformation(print_)
@@ -324,10 +324,12 @@ class Windows():
     def createNewStaff(self,print_):
         print_.window3()
         employee = createStaff()
-        print('helo')
         add=Inp1()
         empl=add.addStaffInp1(employee)
-        UI.UIsaveStaff(empl)
+        if empl == 0:
+            self.create(print_)
+        else:
+            UI.UIsaveStaff(empl)
 
     # def createNewCabin(self,print_):
     #     print_.window4()
@@ -338,22 +340,17 @@ class Windows():
 
 
     def createNewStaffmember(self,print_):
-        print_.window2()
-        inp=int(input("number: "))
-        if inp==1:
-            self.createNewStaff(print_)
-        elif inp==2:
-            self.createNewStaff(print_)
-        elif inp==0:
-            self.create(print_)
-
+        self.createNewStaff(print_)
 
     def createDestinations(self, print_):
         print_.window8()
-        add = Inp()
-        [country,distance,airport,contactName,contactNumber]=add.addDestinationInp()
-        Dest=CreateDestination(country,distance,airport,contactName,contactNumber)
-        UI.UIsaveDestinationInFile(Dest)
+        add = Inp2()
+        dest = CreateDestination()
+        newDest=add.addDestinationInp(dest)
+        if newDest == 0:
+            self.create(print_)
+        else:
+            UI.UIsaveDestinationInFile(Dest)
 
     def create(self,print_):
         print_.window1() #Staff,voyage,destination,airplane

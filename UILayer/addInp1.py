@@ -14,17 +14,16 @@ class Inp1():
                 print('Name: ' + employee.name)
             else:
                 self.name=input("Name: ")
-
                 if self.name=="CANCEL":
                     validName_bool=1
                     self.cancel=1
                     return 0
                 elif self.name == '':
-                    validName_bool = 1
-                    self.name = employee.name
+                    print("Please enter employee's name")
                 elif not all(x.isalpha() or x.isspace() for x in self.name):
                     print('Invalid input. Name must consist of letters only [a-z]')
                 else:
+                    self.name = self.name.title()
                     validName_bool=1
 
         validSSN_bool = 0
@@ -39,6 +38,8 @@ class Inp1():
                     validSSN_bool = 1
                     self.cancel=1
                     return 0
+                elif self.SSN == '':
+                    print("Please enter employee's SSN")
                 elif not self.SSN.isdigit() or (len(self.SSN) != 10):
                     print('Invalid input. SSN must consist of 10 integers [0-9]')
                 else:
@@ -49,6 +50,12 @@ class Inp1():
         if self.address=="CANCEL":
             self.cancel=1
             return 0
+        elif self.address == '' and employee.address != '':
+            self.address = employee.address
+        elif self.address == '' and employee.address == '':
+            print("Please enter employee's address")
+        else:
+            self.address = self.address.capitalize()
 
         validPno_bool = 0
         while not validPno_bool:
@@ -57,9 +64,11 @@ class Inp1():
                 validPno_bool = 1
                 self.cancel=1
                 return 0
-            elif self.phoneNumber == '':
+            elif self.phoneNumber == '' and employee.phoneNumber != '':
                 validPno_bool = 1
                 self.phoneNumber = employee.phoneNumber
+            elif self.phoneNumber == '' and employee.phoneNumber == '':
+                print("Please enter employee's phone number")
             elif not self.phoneNumber.isdigit() or (len(self.phoneNumber) != 7):
                 print('Invalid input. Phone number must consist of 7 integers [0-9]')
             else:
@@ -88,9 +97,11 @@ class Inp1():
                 validEmail_bool = 1
                 self.cancel=1
                 return 0
-            elif self.emailAddress == '':
+            elif self.emailAddress == '' and employee.emailAddress != '':
                 self.emailAddress = employee.emailAddress
                 validEmail_bool = 1
+            elif self.emailAddress == '' and employee.emailAddress == '':
+                print("Please enter employee's email address")
             elif not '@' in self.emailAddress:
                 print("Invalid input, email address must contain '@' sign")
             else:
@@ -103,9 +114,11 @@ class Inp1():
                 validRole_bool=1
                 self.cancel=1
                 return 0
-            elif self.role == '':
+            elif self.role == '' and employee.role != '':
                 validRole_bool = 1
                 self.role = employee.role
+            elif self.role == '' and employee.role == '':
+                print("Please enter employee's role")
             elif self.role != 'Pilot' and self.role != 'Cabincrew':
                 print("Invalid input. Role must be either 'Pilot' or 'Cabincrew'")
             else:
@@ -118,9 +131,11 @@ class Inp1():
                 validRank_bool = 1
                 self.cancel=1
                 return 0
-            elif self.rank == '':
+            elif self.rank == '' and employee.rank != '':
                 validRank_bool = 1
                 self.rank = employee.rank
+            elif self.rank == '' and employee.rank == '':
+                print("Please enter employee's rank")
             elif self.role == 'Pilot' and (self.rank != 'Captain' and self.rank != 'Copilot'):
                 print("Invalid input. Pilot role must be either 'Captain' or 'Copilot'")
             elif self.role == 'Cabincrew' and (self.rank != 'Flight Attendant' and self.rank != 'Flight Service Manager'):
@@ -142,9 +157,11 @@ class Inp1():
                     validLicence_bool=1
                     self.cancel=1
                     return 0
-                elif self.licence == '':
+                elif self.licence == '' and employee.licence != '':
                     validLicence_bool=1
                     self.licence = employee.licence
+                elif self.licence == '' and employee.licence == '':
+                    print("Please enter employee's airplane licence")
                 elif not correctType_bool:
                     print('Invalid input. Licence must be one of the types below:')
                     for i in range(len(types)):

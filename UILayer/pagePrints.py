@@ -120,7 +120,7 @@ class pagePrints:
     def window3(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(11,(self.cols)/2)
-        self.prentWord(15,"Adding new pilot")
+        self.prentWord(15,"Adding new employee")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Name")
         self.prentWord(15,"SSN")
