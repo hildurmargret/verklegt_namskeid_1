@@ -131,7 +131,7 @@ class Inp3():
 
         validSold_bool=0
         while not validSold_bool:
-            self.soldTickets=input("Amount of sold seats: ")
+            self.soldTickets=input("Amount of sold seats outbound: ")
             if self.soldTickets=="CANCEL":
                 validSold_bool=1
                 return 0
@@ -145,4 +145,20 @@ class Inp3():
             else:
                 validSold_bool=1
 
-        return self
+        validSold2_bool=0
+        while not validSold2_bool:
+            outTick=input("Amount of sold seats homebound: ")
+            if outTick=="CANCEL":
+                validSold2_bool=1
+                return 0
+            elif int(outTick) > int(capacity):
+                print('Invalid input. Amount of sold seats exceeds plane capacity')
+                print('Airplane capacity: ' + capacity)
+            elif int(outTick) < 0 or outTick=='':
+                print('Please enter an amount in the range 0-' + capacity)
+            elif not outTick.isdigit():
+                print('Invalid input. Amount must consist of integers only [0-9]')
+            else:
+                validSold2_bool=1
+
+        return self,outTick
