@@ -20,9 +20,9 @@ def emplWorking(inptDate):
     today=now()
 
     if today>standardDate:
-        file1='PastFlights.csv'
+        file1='PastFlights copy.csv'
     else:
-        file1='UpcomingFlights copy.csv'
+        file1='UpcomingFlights copy3.csv'
 
     file_flights=OpenFile(file1)
     allPastFlights=read_pastFlights(file_flights)
