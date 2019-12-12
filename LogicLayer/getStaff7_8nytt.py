@@ -14,8 +14,7 @@ def emplWorking(inptDate):
     standardDate = inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
     file2='Crew.csv'
-    file_crew=OpenFile(file2)
-    allStaff=read_crew_file(file_crew)
+    allStaff=read_crew_file(file2)
 
     today=now()
 
@@ -24,8 +23,7 @@ def emplWorking(inptDate):
     else:
         file1='UpcomingFlights copy3.csv'
 
-    file_flights=OpenFile(file1)
-    allPastFlights=read_pastFlights(file_flights)
+    allPastFlights=read_pastFlights(file1)
 
     updemplSSN=[]
     working=[]

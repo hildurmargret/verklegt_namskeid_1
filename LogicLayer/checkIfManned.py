@@ -17,8 +17,7 @@ def checkIfManned(voyage):
     else:
         file='UpcomingFlights copy3.csv'
 
-    file_flights=OpenFile(file)
-    allFlights=read_pastFlights(file_flights)
+    allFlights=read_pastFlights(file)
 
     captain_bool = 0
     copilot_bool = 0

@@ -47,7 +47,40 @@ UI=UI_Manager()
 class Windows():
 
     def aircraftToVoyage(self,print_):
-        UI.UIaircraftToVoyage()
+        flightNumber = checkFlightNumberInp()
+        if flightNumber == 0:
+            self.updateInformation(print_)
+        else:
+            voyages=LL.LLleitaVoyage(flightNumber)
+            voyage=chooseVoyage(voyages)
+            aircraft = UI.UIgettingAirplanes()
+
+            IDExists_bool=0
+            validID_bool=0
+            while not validID_bool:
+                aircraftID=input("AircraftId: ")
+
+                if aircraftID == 'CANCEL':
+                    self.updateInformation(print_)
+                    validID_bool=1
+                else:
+
+                    for plane in aircraft:
+                        if plane.planeInsignia == aircraftID:
+                            IDExists_bool=1
+
+                    if not IDExists_bool:
+                        print('Invalid input. AircraftId must be one of the following:')
+                        for plane in aircraft:
+                            print(plane.planeInsignia)
+                    else:
+                        validID_bool=1
+
+            voyage.departureFlight.aircraftId=aircraftID
+            voyage.returnFlight.aircraftId=aircraftID
+
+            UI.UIaircraftToVoyage(voyage)
+
 
 
 
@@ -409,18 +442,16 @@ class Windows():
 
 
     def mainMenu(self):
-        path = 'PastFlights copy.csv'
-        file = OpenFile(path)
+        file = 'PastFlights copy.csv'
         originalFlights = read_pastFlights(file)
         destinations = getDestinations()
         newFlights = fixFlNo(originalFlights, destinations)
-        updateFlights(newFlights, path)
-        path = 'UpcomingFlights copy3.csv'
-        file = OpenFile(path)
+        updateFlights(newFlights, file)
+        file = 'UpcomingFlights copy3.csv'
         originalFlights = read_pastFlights(file)
         destinations = getDestinations()
         newFlights = fixFlNo(originalFlights, destinations)
-        updateFlights(newFlights, path)
+        updateFlights(newFlights, file)
 
         print_=pagePrints(100,40)
         print_.frontPage() #'c', 'g', 'u'

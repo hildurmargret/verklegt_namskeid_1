@@ -15,8 +15,7 @@ def staffInfo2(input_string):
     skra2='PastFlights copy.csv'
     skra3='UpcomingFlights copy3.csv'
 
-    file1=OpenFile(skra1)
-    allStaff=read_crew_file(file1)
+    allStaff=read_crew_file(skra1)
 
     ssn=[]
     rank=[]
@@ -63,9 +62,8 @@ def staffInfo2(input_string):
                     upcDest.append(row['arrivingAt'])
                     upcDept.append(row['departingFrom'])"""
 
-    file2=OpenFile(skra2) #pastFlights
 
-    allPastFlights=read_pastFlights(file2)
+    allPastFlights=read_pastFlights(skra2)
 
     #Past flights
     for i in range(len(employees)):
