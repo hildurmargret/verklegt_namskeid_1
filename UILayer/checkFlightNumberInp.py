@@ -5,8 +5,6 @@ def checkFlightNumberInp():
     flights = UI.UIgetFlights()
     singleFlights = []
 
-    print(type(flights))
-
     seen = set()
     singleFlights = [x for x in flights if x.flightNumber not in seen and not seen.add(x.flightNumber)]
 
