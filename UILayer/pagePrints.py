@@ -216,9 +216,12 @@ class pagePrints:
 
     def window9(self):
         self.prentLina(self.cols/2)
-        self.prentSpace(9,(self.cols)/2)
+        self.prentSpace(8,(self.cols)/2)
+        self.prentWord(15,"Plane insignia")
         self.prentWord(15,"Plane type ID")
-        self.prentWord(15,"Airplane manufacturer")
+        self.prentWord(15,"")
+        self.prentWord(15,"If airplane is not in the system:")
+        self.prentWord(15,"Manufacturer")
         self.prentWord(15,"Airplane model")
         self.prentWord(15,"Capacity")
         self.prentWord(15,"Empty weight")
@@ -230,7 +233,7 @@ class pagePrints:
         self.prentWord(15,"Wingspan")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
-        self.prentSpace(11,(self.cols)/2)
+        self.prentSpace(9,(self.cols)/2)
         self.prentWord(15,"Type in the information")
         self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
