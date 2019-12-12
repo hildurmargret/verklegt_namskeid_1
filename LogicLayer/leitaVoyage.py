@@ -28,9 +28,9 @@ def leitaVoyage(inpt):
             if no%2 == 0 and allPastFlights[j].flightNumber == inpt:
                 voyage = createVoyage()
 
-                depFlight = createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt,allPastFlights[j].departure,allPastFlights[j].arrival,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
+                depFlight = createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt,allPastFlights[j].departure,allPastFlights[j].arrival,allPastFlights[j].aircraftId, allPastFlights[j].soldTickets, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 voyage.departureFlight = depFlight
-                retFlight = createFlightRoute(allPastFlights[j+1].flightNumber, allPastFlights[j+1].departingFrom, allPastFlights[j+1].arrivingAt,allPastFlights[j+1].departure,allPastFlights[j+1].arrival,allPastFlights[j+1].aircraftId, allPastFlights[j+1].captain, allPastFlights[j+1].copilot, allPastFlights[j+1].fsm, allPastFlights[j+1].fa1, allPastFlights[j+1].fa2)
+                retFlight = createFlightRoute(allPastFlights[j+1].flightNumber, allPastFlights[j+1].departingFrom, allPastFlights[j+1].arrivingAt,allPastFlights[j+1].departure,allPastFlights[j+1].arrival,allPastFlights[j+1].aircraftId, allPastFlights[j+1].soldTickets,allPastFlights[j+1].captain, allPastFlights[j+1].copilot, allPastFlights[j+1].fsm, allPastFlights[j+1].fa1, allPastFlights[j+1].fa2)
                 voyage.returnFlight = retFlight
                 voyages.append(voyage)
 
