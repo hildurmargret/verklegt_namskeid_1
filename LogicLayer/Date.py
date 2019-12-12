@@ -14,19 +14,31 @@ def getYear(date):
 
 def getMonth(date):
     parsedDate = dateutil.parser.parse(date)
-    return parsedDate.month
+    if parsedDate.month < 10:
+        return (str(0)+str(parsedDate.month))
+    else:
+        return parsedDate.month
 
 def getDay(date):
     parsedDate = dateutil.parser.parse(date)
-    return parsedDate.day
+    if parsedDate.day < 10:
+        return (str(0)+str(parsedDate.day))
+    else:
+        return parsedDate.day
 
 def getHour(date):
     parsedDate = dateutil.parser.parse(date)
-    return parsedDate.hour
+    if parsedDate.hour < 10:
+        return (str(0)+str(parsedDate.hour))
+    else:
+        return parsedDate.hour
 
 def getMinute(date):
     parsedDate = dateutil.parser.parse(date)
-    return parsedDate.minute
+    if parsedDate.minute < 10:
+        return (str(0)+str(parsedDate.minute))
+    else:
+        return parsedDate.minute
 
 def getSecond(date):
     parsedDate = dateutil.parser.parse(date)
