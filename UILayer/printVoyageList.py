@@ -1,6 +1,17 @@
 from LogicLayer.checkIfManned import*
 from LogicLayer.Date import *
-def printVoyageList(voyage):
+def printVoyageList(voyage,daterange):
+
+    ar1=str(getYear(daterange[0]))
+    man1=str(getMonth(daterange[0]))
+    dag1=str(getDay(daterange[0]))
+
+    ar2=str(getYear(daterange[1]))
+    man2=str(getMonth(daterange[1]))
+    dag2=str(getDay(daterange[1]))
+
+    print('FLIGHTS DURING TIME PERIOD: ' + dag2 + '/' + man2 + '/' + ar2 + ' TO ' + dag1 + '/' + man1 + '/' + ar1)
+    print('')
 
     for i in voyage:
         retDeptTime = str(getDay(i.returnFlight.departure)) + '/' + str(getMonth(i.returnFlight.departure)) + '/' + str(getYear(i.returnFlight.departure)) + ' at ' + str(getHour(i.returnFlight.departure)) + ':' + str(getMinute(i.returnFlight.departure))
@@ -26,7 +37,10 @@ def printVoyageList(voyage):
                 print('Missing a flight service manager')
         print('\n',end='')
         print('----------------------------------------------------------------------------------------------------')
-        seats=dep[i].soldTickets
+        if i.departureFlight.soldTickets == '':
+            seats=0
+        else:
+            seats=i.departureFlight.soldTickets
         print("There are " + str(seats)+ " seats sold")
         print('----------------------------------------------------------------------------------------------------')
 
