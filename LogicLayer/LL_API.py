@@ -68,7 +68,7 @@ class LL_API:
 
     def LLgettingVoyage(self,input_string):
         voyage=leitaVoyage(input_string)
-        print(voyage.departureFlight.soldTickets)
+        #print(voyage.departureFlight.soldTickets)
         return voyage
         #UI.gettingAirplanes(getAircraft)
     def LLupdateStaff(self,input_string):

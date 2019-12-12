@@ -208,8 +208,8 @@ class Windows():
             print_.window19()
             input_week = input('Week number: ')
             input_year = input('Year: ')
-            voyages = voyageByWeek(input_week, input_year)
-            printVoyageList(voyages)
+            voyages, daterange = voyageByWeek(input_week, input_year)
+            printVoyageList(voyages, daterange)
             #printVoyagebyDates(dep,ret)
 
         elif inp==4:
