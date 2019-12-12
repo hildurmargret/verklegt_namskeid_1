@@ -365,7 +365,7 @@ class pagePrints:
         self.prentLina((self.cols)/2)
         self.prentSpace(13,(self.cols)/2)
         self.prentWord(15,"1: Employees")
-        self.prentWord(15,"2: Destination informations")
+        self.prentWord(15,"2: Destination information")
         self.prentWord(15,"3: Appoint employees to voyages")
         self.prentWord(15,"4: Voyage")
         self.prentWord(15,"5: Apointing aircraft to voyages")
