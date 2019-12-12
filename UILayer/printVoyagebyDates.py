@@ -5,6 +5,7 @@ def printVoyagebyDates(dep,ret):
     #print(len(dep))
     #print(len(ret))
     for i in range(len(dep)):
+        print('\n')
         print('VOYAGE DEPARTURE')
         print(dep[i].flightNumber + ', ' + dep[i].departingFrom + ' to ' + dep[i].arrivingAt + ', ' + ' Departure: ' + dep[i].departure + ', Arrival: ' + dep[i].arrival)
         print('VOYAGE RETURN')
