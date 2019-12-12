@@ -167,7 +167,7 @@ class Windows():
             print_.window17()
             input_string = input('Date: ')
             emp, noemp, dest = emplWorking(input_string)
-
+            print('AVAILABLE EMPLOYEES ' + input_string + ': ')
             for i in range(len(noemp)):
                 print(noemp[i].name)
 
@@ -175,7 +175,7 @@ class Windows():
             print_.window17()
             input_string = input('Date: ')
             emp, noemp, dest = emplWorking(input_string)
-
+            print('EMPLOYEES WORKING ' + input_string + ': ')
             for i in range(len(dest)):
                 print(dest[i])
 
