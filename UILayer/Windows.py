@@ -32,6 +32,8 @@ from LogicLayer.fixFlightNumbers import*
 from DataLayer.saveUpdatedFlights import*
 from LogicLayer.airplaneInUse import*
 from UILayer.printAirplaneStatus import*
+from LogicLayer.voyageStatus import*
+from UILayer.printVoyageStatus import*
 
 UI=UI_Manager()
 
@@ -179,6 +181,7 @@ class Windows():
             pilots = searchPilotsByLicence(inpt)
             printPilotList(pilots)
         elif inp==4:
+            #ATH GLUGGA
             input_date=input('Date (dd/mm/yyyy): ')
             input_time=input('Time (hh:mm:ss): ')
             inAir, onGround=airplaneInUse(input_date, input_time)
@@ -192,7 +195,7 @@ class Windows():
             voyage = []
             print_.window16()
             input_string = input('Flight number: ')
-            voyage.append(UI.UIgettingVoyage(input_string))
+            voyage.extend(UI.UIgettingVoyage(input_string))
             printVoyageList(voyage)
 
         elif inp==2:
@@ -208,6 +211,15 @@ class Windows():
             voyages = voyageByWeek(input_week, input_year)
             printVoyageList(voyages)
             #printVoyagebyDates(dep,ret)
+
+        elif inp==4:
+            #ATH GLUGGI
+            input_date=input('Date (dd/mm/yyyy): ')
+            input_time=input('Time (hh:mm:ss): ')
+            dep, ret =voyageByDate(input_date)
+            status = voyageStatus(dep, ret, input_date, input_time)
+            printVoyageStatus(voyages, status)
+
         elif inp==0:
             self.getInformation(print_)
 
@@ -359,12 +371,19 @@ class Windows():
 
 
     def mainMenu(self):
+        path = 'PastFlights copy.csv'
+        file = OpenFile(path)
+        originalFlights = read_pastFlights(file)
+        destinations = getDestinations()
+        newFlights = fixFlNo(originalFlights, destinations)
+        updateFlights(newFlights, path)
         path = 'UpcomingFlights copy3.csv'
         file = OpenFile(path)
         originalFlights = read_pastFlights(file)
         destinations = getDestinations()
         newFlights = fixFlNo(originalFlights, destinations)
-        updateFlights(newFlights)
+        updateFlights(newFlights, path)
+
         print_=pagePrints(100,40)
         print_.frontPage() #'c', 'g', 'u'
         inp=input()

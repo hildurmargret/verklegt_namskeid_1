@@ -1,8 +1,8 @@
 import csv
-def updateFlights(flights):
+def updateFlights(flights, file):
 
     staff=[]
-    path="/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/" + file
 
     f=open(path, 'w')
 

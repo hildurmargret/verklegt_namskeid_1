@@ -14,7 +14,7 @@ def airplaneInUse(input_date, input_time):
     today=now()
 
     if today>stdInptDate:
-        file='PastFlights.csv'
+        file='PastFlights copy.csv'
     else:
         file='UpcomingFlights copy3.csv'
 

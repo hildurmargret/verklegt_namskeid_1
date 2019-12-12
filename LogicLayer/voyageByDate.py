@@ -13,10 +13,12 @@ def voyageByDate(inptDate):
 
     stdDate=inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
+    #print(stdDate)
+
     today=now()
 
     if today>stdDate:
-        file='PastFlights.csv'
+        file='PastFlights copy.csv'
     else:
         file='UpcomingFlights copy3.csv'
 
@@ -39,6 +41,8 @@ def voyageByDate(inptDate):
     arrHour = []
     tel=0
 
+    #print(len(allFlights))
+
     for i in range(len(allFlights)):
 
             depDay.append(str(getDay(allFlights[i].departure)))
@@ -57,17 +61,19 @@ def voyageByDate(inptDate):
             no=int(flugnr[4:len(flugnr)])
 
             #print(no)
-
-            if inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
+            #print(allFlights[i].departure)
+            if stdDate[0:10] == allFlights[i].departure[0:10]: #inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
+                #print('hello')
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
                 if no%2 == 0:
-                    voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
+                    #voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
+                    voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyDep.append(voyD)
 
                 elif no%2 != 0:
-                    voyR=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
+                    voyR=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival, allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyRet.append(voyR)
             tel=tel+1
 

@@ -18,7 +18,7 @@ def leitaVoyage(inpt):
     #else:
     file1='PastFlights copy.csv'
     while not done_bool:
-        if file1 == 'UpcomingFlights.csv':
+        if file1 == 'UpcomingFlights copy3.csv':
             done_bool=1
         file_flights=OpenFile(file1)
         allPastFlights=read_pastFlights(file_flights)
@@ -43,7 +43,7 @@ def leitaVoyage(inpt):
                 retFlight = createFlightRoute(allPastFlights[j].flightNumber, allPastFlights[j].departingFrom, allPastFlights[j].arrivingAt,allPastFlights[j].departure,allPastFlights[j].arrival,allPastFlights[j].aircraftId, allPastFlights[j].captain, allPastFlights[j].copilot, allPastFlights[j].fsm, allPastFlights[j].fa1, allPastFlights[j].fa2)
                 voyage.returnFlight = retFlight
                 voyages.append(voyage)
-        file1 = 'UpcomingFlights.csv'
+        file1 = 'UpcomingFlights copy3.csv'
 
     #retVoyage = chooseVoyage(voyages)
 

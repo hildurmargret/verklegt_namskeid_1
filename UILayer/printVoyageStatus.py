@@ -1,6 +1,6 @@
-from LogicLayer.checkIfManned import*
-from LogicLayer.Date import *
-def printVoyageList(voyage):
+from LogicLayer.Date import*
+
+def printVoyageStatus(voyage, status):
 
     for i in voyage:
         retDeptTime = str(getDay(i.returnFlight.departure)) + '/' + str(getMonth(i.returnFlight.departure)) + '/' + str(getYear(i.returnFlight.departure)) + ' at ' + str(getHour(i.returnFlight.departure)) + ':' + str(getMinute(i.returnFlight.departure))
@@ -12,19 +12,9 @@ def printVoyageList(voyage):
         print(i.departureFlight.flightNumber + ', ' + i.departureFlight.departingFrom + ' to ' + i.departureFlight.arrivingAt + ', ' + ' Departure: ' + depDeptTime + ', Arrival: ' + depArvlTime)
         print('VOYAGE RETURN:')
         print(i.returnFlight.flightNumber + ', ' + i.returnFlight.departingFrom + ' to ' + i.returnFlight.arrivingAt + ', ' + ' Departure: ' + retDeptTime + ', Arrival: ' + retArvlTime)
-
-        cap, cop, fsm = checkIfManned(i.departureFlight)
-        if cap and cop and fsm:
-            print('Voyage is fully manned')
-        else:
-            print('Voyage is not fully manned')
-            if not cap:
-                print('Missing a captain')
-            if not cop:
-                print('Missing a copilot')
-            if not fsm:
-                print('Missing a flight service manager')
-        print('\n',end='')
+        print('')
         print('----------------------------------------------------------------------------------------------------')
-        print('\n',end='')
-    return
+        print('')
+
+    for i in range(len(status)):
+        print(status[i])

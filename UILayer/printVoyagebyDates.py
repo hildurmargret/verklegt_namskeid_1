@@ -1,5 +1,7 @@
 from LogicLayer.checkIfManned import*
 def printVoyagebyDates(dep,ret):
+    print(len(dep))
+    print(len(ret))
     for i in range(len(dep)):
         print('VOYAGE DEPARTURE')
         print(dep[i].flightNumber + ', ' + dep[i].departingFrom + ' to ' + dep[i].arrivingAt + ', ' + ' Departure: ' + dep[i].departure + ', Arrival: ' + dep[i].arrival)
