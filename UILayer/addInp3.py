@@ -8,8 +8,7 @@ class Inp3():
     def addRouteInp(self,voyage):
         destinations = getDestinations()
         aircraft = list_all_aircraft()
-
-        departRoute = voyage
+        self.flightNumber = voyage.flightNumber
 
         validDest_bool = 0
         correctDest_bool=0

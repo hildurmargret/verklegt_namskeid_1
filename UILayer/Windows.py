@@ -280,11 +280,12 @@ class Windows():
         if departureFlight == 0:
             self.createVoyages(print_)
         else:
-            returnFlight=createFlightRoute()
-            returnFlight.flightNumber = departureFlight.flightNumber
+            departureFlight.departingFrom="KEF"
+            returnFlight.flightNumber=departureFlight.flightNumber
             returnFlight.departingFrom = departureFlight.arrivingAt
             returnFlight.arrivingAt = departureFlight.departingFrom
             returnFlight.departure = add_hour(departureFlight.arrival,1)
+            returnFlight.aircraftId=departureFlight.aircraftId
             depFlArr=int(getHour(departureFlight.arrival))
             # depFlDep=int(getHour(departureFlight.departure))
             # flyingTime=depFlArr-depFlDep
