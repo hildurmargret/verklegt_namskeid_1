@@ -40,6 +40,7 @@ from LogicLayer.voyageStatus import*
 from UILayer.printVoyageStatus import*
 from UILayer.chooseVoyageFromList import*
 from LogicLayer.mostPOPinfo import*
+from UILayer.checkFlightNumberInp import*
 
 
 UI=UI_Manager()
