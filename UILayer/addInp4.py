@@ -99,8 +99,7 @@ class Inp4():
 
                 if typeID.upper() != self.planeTypeId.upper():
                     print('Plane type ID does not match manufacturer and airplane model.')
-                    print('Hint:')
-                    print('Acceptable plane type ID for your input: ' + 'NA'+self.manufacturer+self.airplaneModel)
+                    print('Hint: Acceptable plane type ID for your input: ' + 'NA'+self.manufacturer+self.airplaneModel)
                     print('Please try again')
                 else:
                     typeIDMatch_bool = 1
