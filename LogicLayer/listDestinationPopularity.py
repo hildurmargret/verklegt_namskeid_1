@@ -35,9 +35,9 @@ def MostPopularDestination():
 
     ########### open file 2 ###########
     skra2 = 'PastFlights copy.csv'
-    file2 = OpenFile(skra2)
+    #file2 = OpenFile(skra2)
 
-    allPastFlights=read_pastFlights(file2)
+    allPastFlights=read_pastFlights(skra2)
 
     for i in range(len(allPastFlights)):
         if allPastFlights[i].departingFrom == 'KEF':
@@ -54,9 +54,9 @@ def MostPopularDestination():
 
     ########### open file 3 ###########
     skra3 = 'UpcomingFlights copy3.csv'
-    file3 = OpenFile(skra3)
+    #file3 = OpenFile(skra3)
 
-    allUPcFlights=read_pastFlights(file3)
+    allUPcFlights=read_pastFlights(skra3)
 
     for i in range(len(allUPcFlights)):
         if allUPcFlights[i].departingFrom == 'KEF':

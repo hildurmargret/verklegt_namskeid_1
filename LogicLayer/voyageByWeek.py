@@ -35,8 +35,8 @@ def voyageByWeek(inpt, inpt_year):
     else:
         file='UpcomingFlights copy3.csv'
 
-    file_flights=OpenFile(file)
-    allFlights=read_pastFlights(file_flights)
+    #file_flights=OpenFile(file)
+    allFlights=read_pastFlights(file)
     tel=0
     flug=[]
     dep=[]

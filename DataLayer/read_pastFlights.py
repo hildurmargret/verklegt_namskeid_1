@@ -1,9 +1,12 @@
 import csv
+from DataLayer.OpenFile import*
 from ModelClasses.flightRoute import *
 
-def read_pastFlights(file_name):
+def read_pastFlights(file):
 
     pastFlights=[]
+
+    file_name=OpenFile(file)
 
     with file_name as csvfile:
         reader = csv.DictReader(csvfile)

@@ -105,6 +105,9 @@ class LL_API:
     def LLaircraftToVoyage(self,voyage):
         DL.DLaircraftToVoyage(voyage)
 
+    def LLgetFlights(self):
+        flights = DL.DLgetFlights()
+        return flights
 
     def LLgettingEmployees(self,input_string):
         employees=staffInfo(4,input_string)

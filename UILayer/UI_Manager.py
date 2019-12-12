@@ -21,6 +21,10 @@ class UI_Manager:
     #def UIsavePilot(self,newPilot):
     #    LL.LLsavePilot(newPilot)
 
+    def UIgetFlights(self):
+        flights = LL.LLgetFlights()
+        return flights
+
     def UIsaveVoyage(self,newVoyage):
         voyageDate=newVoyage.departureFlight.departure
         dateNow=now()
@@ -112,11 +116,5 @@ class UI_Manager:
     #     LL.LLaircraftToVoyage(voyage)
 
 
-    def UIaircraftToVoyage(self):
-        input_string=input("Flight number: ")
-        voyages=LL.LLleitaVoyage(input_string)
-        voyage=chooseVoyage(voyages)
-        aircraftID=input("AircraftId: ")
-        voyage.departureFlight.aircraftId=aircraftID
-        voyage.returnFlight.aircraftId=aircraftID
+    def UIaircraftToVoyage(self,voyage):
         LL.LLaircraftToVoyage(voyage)

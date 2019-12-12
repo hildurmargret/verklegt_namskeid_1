@@ -24,8 +24,8 @@ def voyageByDate(inptDate):
 
     #print(file)
 
-    file_flights=OpenFile(file)
-    allFlights=read_pastFlights(file_flights)
+    #file_flights=OpenFile(file)
+    allFlights=read_pastFlights(file)
 
     voyRet = []
     voyDep = []

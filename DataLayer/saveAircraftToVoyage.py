@@ -16,10 +16,11 @@ def aircraftToVoyage(voyage):
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
             v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],row['aircraftID'],row['soldTickets'],row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
-            voy.append(v)
-            if v.flightNumber==departRoute.flightNumber:
-                voy.append(v)
-            elif v.flightNumber==departRoute.flightNumber:
+            if v.flightNumber==departRoute.flightNumber and v.departure == departRoute.departure:
+                voy.append(departRoute)
+            elif v.flightNumber == retRoute.flightNumber and v.departure == retRoute.departure:
+                voy.append(retRoute)
+            else:
                 voy.append(v)
     File1.close()
     return voy
