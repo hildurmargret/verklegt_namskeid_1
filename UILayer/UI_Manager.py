@@ -95,17 +95,10 @@ class UI_Manager:
         voyage=update.addVoyageInp(voyage)
         LL.LLupdateVoyage(voyage)
 
-    def UIemployeesToVoyage(self):
-        update=Inp3()
-        input_string = input('Departing flight number: ')
-        voyage=leitaVoyage(input_string)
-        voyages=LL.LLleitaVoyage(input_string)
-        voyage=chooseVoyage(voyages)
-        print(voyage.departureFlight.aircraftId)
-        print(voyage.returnFlight.aircraftId)
-        input_string=input("SSN: ")
-        employees=LL.LLgettingEmployees(input_string)
-        employee=emplFromList(employees)
+    def UIemployeesToVoyage(self,voyage,employee):
+    #    print(voyage.departureFlight.aircraftId)
+    #    print(voyage.returnFlight.aircraftId)
+        LL.LLemployeesToVoyage(voyage,employee)
 
 
     # def UIaircraftToVoyage(self):

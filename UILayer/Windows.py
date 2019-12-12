@@ -107,11 +107,19 @@ class Windows():
             self.updateCabin(print_)
 
     def employeesToVoyage(self,print_):
-        UI.UIemployeesToVoyage()
         print_.window25()
+        input_string = input('Departing flight number: ')
+        voyage=leitaVoyage(input_string)
+        voyages=LL.LLleitaVoyage(input_string)
+        voyage=chooseVoyage(voyages)
+        print(voyage)
+        input_string=input("SSN: ")
+        employees=LL.LLgettingEmployees(input_string)
+        employee=emplFromList(employees)
         add=Inp3()
-        voyage=createFlightRoute()
-        #voyage=add.addVoyageInp(voyage)
+        print_.window28()
+    #    voyage=add.addRouteInp(voyage)
+        UI.UIemployeesToVoyage(voyage,employee)
 
 
     def updateInformation(self,print_):
