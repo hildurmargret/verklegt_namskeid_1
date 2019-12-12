@@ -24,20 +24,25 @@ def employeesToVoyage(voyage,Employee):
 
         if voy[i].flightNumber==departRoute.flightNumber:
             if Employee.rank=="Captain":
-                if (departRoute.captain=="")&(emplOccupied==False):
+                if (departRoute.captain=="")&(emplOccupied==False)&(departRoute.flightNumber==Employee.licence):
                     departRoute.captain=Employee.SSN
                     retRoute.captain=Employee.SSN
                 elif departRoute.captain!="":
                     print("There is already a captain")
-                    print(departRoute.captain)
                 elif emplOccupied==True:
                     print("The employee is not available")
-            elif Employee.rank=="Copilot":
-                if departRoute.copilot=="":
+                elif departRoute.flightNumber==Employee.licence:
+                    print("The captain does not have the required licence")
+            elif (Employee.rank=="Copilot"):
+                if (departRoute.copilot=="")&(emplOccupied==False)&(departRoute.flightNumber==Employee.licence):
                     departRoute.copilot=Employee.SSN
                     retRoute.copilot=Employee.SSN
-                else:
+                elif departRpute.captain!="":
                     print("There is already a copilot")
+                elif emplOccupied==True:
+                    print("The employee is not available")
+                elif departRoute.flightNumber==Employee.licence:
+                    print("The copilot does not have the required licence")
             elif Employee.rank=="Flight Attendant":
                 if departRoute.fa1=="":
                     departRoute.fa1=Employee.SSN

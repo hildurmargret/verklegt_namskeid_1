@@ -13,6 +13,8 @@ from DataLayer.getAircraft import*
 from LogicLayer.getStaff1_4nytt import*
 from DataLayer.getDestinations import*
 from LogicLayer.leitaVoyage import*
+from LogicLayer.fixFlightNumbers import*
+
 #from UILayer.UI_Manager import*
 
 DL=DL_API()
@@ -33,7 +35,9 @@ class LL_API:
     def LLsaveDestination(self,newDest):
         DL. DLsaveDestination(newDest)
     def LLsaveVoyage(self,newVoyage):
-        DL.DLsaveVoyage(newVoyage)
+        [newVoyList,destinations]=DL.DLairportOccupied(newVoyage)
+        newVoyList=fixFlNo(newVoyList,destinations)
+        DL.DLsaveVoyage(newVoyList)
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
@@ -64,6 +68,7 @@ class LL_API:
 
     def LLgettingVoyage(self,input_string):
         voyage=leitaVoyage(input_string)
+        print(voyage.departureFlight.soldTickets)
         return voyage
         #UI.gettingAirplanes(getAircraft)
     def LLupdateStaff(self,input_string):
