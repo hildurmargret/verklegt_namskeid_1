@@ -249,9 +249,35 @@ class Windows():
 
         elif inp==3:
             print_.window25()
-            inpt = input('Airplane type: ')
+            validType_bool = 0
+            exists_bool=0
+            planes = UI.UIgettingAirplanes()
+            seen = set()
+            planes2 = [x for x in planes if x.planeTypeId not in seen and not seen.add(x.planeTypeId)]
+            while not validType_bool:
+                inpt = input('Airplane type: ')
+
+                if inpt == 'CANCEL':
+                    validType_bool=1
+                    self.getInformation(print_)
+                else:
+
+                    for plane in planes2:
+                        if plane.planeTypeId == inpt:
+                            validType_bool=1
+                    if not validType_bool:
+                        print('Invalid input. Airplane type must be one of the following:')
+                        for plane in planes2:
+                            print(plane.planeTypeId)
+                    else:
+                        validType_bool=1
+
             pilots = searchPilotsByLicence(inpt)
+            print('----------------------------------------------------------------------------------------------------')
+            print(inpt)
+            print('----------------------------------------------------------------------------------------------------')
             printPilotList(pilots)
+
         elif inp==4:
             print_.window17()
             input_date=input('Date: ')
@@ -344,11 +370,6 @@ class Windows():
             self.create(print_)
         else:
             UI.UIsaveAircraft(airplane)
-
-
-    def copyExistingVoyage(self,print_):
-        print_.window6()
-
 
     def createNewVoyage(self,print_):
         print_.window7()
