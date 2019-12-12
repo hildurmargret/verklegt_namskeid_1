@@ -13,7 +13,7 @@ def MostPopularDestination():
     #path='/Users/SaraLind/github/verklegt_namskeid_1/csvFiles/'
 
     ########### open file 1 ###########
-    skra1 = 'Destinations.csv'
+    skra1 = 'DestinationsCopy.csv'
     file1 = OpenFile(skra1)
     allDest = getDestinations()
 
@@ -34,7 +34,7 @@ def MostPopularDestination():
     #
 
     ########### open file 2 ###########
-    skra2 = 'pastFlights.csv'
+    skra2 = 'PastFlights copy.csv'
     file2 = OpenFile(skra2)
 
     allPastFlights=read_pastFlights(file2)

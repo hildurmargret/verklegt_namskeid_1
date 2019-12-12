@@ -8,17 +8,15 @@ def getDestinations():
     fjoldiAfStad=[]
     listOfDest=[]
 
-    FileOpen = OpenFile("Destinations.csv")
+    FileOpen = OpenFile("DestinationsCopy.csv")
     with FileOpen as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             Destination = row['destination']
             Destination_array.append(Destination)
-            #Destination_array.sort()
-            Dest=CreateDestination(row["id"],row['destination'])
+            Dest=CreateDestination(row["id"],row['destination'], row['country'], row['distance'], row['contactName'], row['contactNumber'])
             listOfDest.append(Dest)
 
     listOfDest.sort(key=lambda dest: dest.destination)
-    # for i in range(len(Destination_array)):
-    #     print(Destination_array[i])
+
     return listOfDest

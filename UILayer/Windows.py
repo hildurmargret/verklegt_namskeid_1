@@ -39,6 +39,7 @@ from UILayer.printAirplaneStatus import*
 from LogicLayer.voyageStatus import*
 from UILayer.printVoyageStatus import*
 from UILayer.chooseVoyageFromList import*
+from LogicLayer.mostPOPinfo import*
 
 
 UI=UI_Manager()
@@ -251,7 +252,11 @@ class Windows():
 
         elif inp==2:
             mostpop=MostPopularDestination()
-            print("Most popular destination is: ", mostpop)
+            destList=getDestinations()
+            popInfo=mostPOPinfo(mostpop,destList)
+
+            print('The most popular destination is: ',popInfo.destination.upper())
+            print('Airport: ' + popInfo.id + '\n'+ 'Country: '+ popInfo.country + '\n'+ 'Distance from Iceland: '+ popInfo.distance + '\n'+ 'Destination contact: '+ popInfo.contactName + ' - tel: ' + popInfo.contactNumber)
 
         elif inp ==0:
             self.getInformation(print_)

@@ -1,5 +1,5 @@
-id,destination,country,distance,airport,contactName,contactNumber
-LYR,Longyearbyean,island,54,kefl,nonni,333
+id,destination,country,distance,contactName,contactNumber
+LYR,Longyearbyean,island,54,nonni,333
 GOH,Nuuk
 KUS,Kulusuk
 FAE,Thorshavn
