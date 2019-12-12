@@ -259,7 +259,7 @@ class Windows():
 
                 if inpt == 'CANCEL':
                     validType_bool=1
-                    self.getInformation(print_)
+                    self.getAirplaneInfo(print_)
                 else:
 
                     for plane in planes2:
@@ -281,10 +281,19 @@ class Windows():
         elif inp==4:
             print_.window17()
             input_date=input('Date: ')
-            print_.window29()
-            input_time=input('Time: ')
-            inAir, onGround=airplaneInUse(input_date, input_time)
-            printAirplaneStatus(inAir, onGround, input_date, input_time)
+            if input_date == 'CANCEL':
+                self.getAirplaneInfo(print_)
+            else:
+                print_.window29()
+                input_time=input('Time: ')
+                if input_time == 'CANCEL':
+                    self.getAirplaneInfo(print_)
+                else:
+                    inAir, onGround=airplaneInUse(input_date, input_time)
+                    printAirplaneStatus(inAir, onGround, input_date, input_time)
+
+        elif inp==0:
+            self.getInformation(print_)
 
 
     def getVoyageInfo(self,print_):
