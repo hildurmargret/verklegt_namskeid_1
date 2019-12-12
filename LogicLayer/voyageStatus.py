@@ -23,9 +23,9 @@ def voyageStatus(dep, ret, input_date, input_time):
             status.append('In air outbound')
         elif timabil < ret[i].departure <= stdInptDate:
             status.append('In air homebound')
-        elif timabil > dep[i].departure:
-            status.append('On ground at home')
-        elif timabil > ret[i].departure:
+        elif stdInptDate < dep[i].departure:
+            status.append('On ground at home airport')
+        elif stdInptDate < ret[i].departure and stdInptDate > dep[i].arrival:
             status.append('On ground at destination')
         elif ret[i].departure > stdInptDate:
             status.append('Completed')
