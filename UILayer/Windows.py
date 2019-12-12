@@ -87,7 +87,15 @@ class Windows():
             self.updateStaff(print_)
         elif inp==2:
             print_.window22()
-            UI.UIupdateDestination()
+            update=updateDestInput()
+            dest=UI.UIupdateDestination()
+            dest=DestinationFromList(dest)
+            dest=update.addDestInp(dest)
+
+            if dest == 0:
+                self.mainMenu(print_)
+            else:
+                UI.UIsaveNewDestination(dest)
         elif inp==3:
             self.employeesToVoyage(print_)
         elif inp==4:
