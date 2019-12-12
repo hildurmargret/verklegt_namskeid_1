@@ -87,7 +87,7 @@ class LL_API:
         DL.DLupdateStaff(employee)
 
     def LLupdateDestination(self):
-        destination=AllDestinations()
+        destination=getDestinations()
         return destination
 
     def LLupdatingDestination(self,destination):
