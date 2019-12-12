@@ -235,13 +235,15 @@ class Windows():
             planes = UI.UIgettingAirplanes()
             for plane in planes:
                 print(plane.planeInsignia + ', ' + plane.planeTypeId)
-                
+
         elif inp==2:
             pilots = allPilotsByLicence()
             types = getAllTypes()
 
             for i in range(len(pilots)):
+                print('----------------------------------------------------------------------------------------------------')
                 print(types[i])
+                print('----------------------------------------------------------------------------------------------------')
                 printPilotList(pilots[i])
                 print('\n', end = '')
 
