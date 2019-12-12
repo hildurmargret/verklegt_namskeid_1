@@ -1,5 +1,5 @@
 from LogicLayer.Date import*
-from LogicLayer.getStaff5_6 import*
+from LogicLayer.getStaff5nytt import*
 def weeklyWS(week,year,input_string):
 
     flights = []
