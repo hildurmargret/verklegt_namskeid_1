@@ -35,7 +35,7 @@ class UI_Manager:
 
     def UIgettingAirplanes(self):
         getAircraft = LL.LLgetAircraft()
-        printAircraft(getAircraft)
+        return getAircraft
 
     def UIgettingVoyage(self,input_string):
         voyage=LL.LLgettingVoyage(input_string)
