@@ -21,16 +21,28 @@ def printVoyagebyDates(dep,ret):
                 print('Missing a copilot')
             if not fsm:
                 print('Missing a flight service manager')
-        print('\n', end='')
         print('----------------------------------------------------------------------------------------------------')
-        if dep[i].soldTickets == '':
-            seats=0
-        else:
-            seats=dep[i].soldTickets
 
-        print("There are " + str(seats)+ " seats sold")
-        capa=airplaneCapacity(dep[i].aircraftId)
-        avail=capa-int(seats)
-        print('There are ' + str(avail) + ' seats available')
+        seats_out=dep[i].soldTickets
+        seats_home=ret[i].soldTickets
+        #print(type(capa))
+        #print(type(seats))
+        if seats_out=='':
+            seats_out=0
+        if seats_home=='':
+            seats_home=0
+        if not dep[i].aircraftId:
+            print('No airplane assigned to this voyage')
+
+        else:
+            capa=airplaneCapacity(dep[i].aircraftId)
+            avail_out=capa-int(seats_out)
+            avail_home=capa-int(seats_home)
+            print("There are " + str(seats_out)+ " seats sold outbound")
+            print('There are ' + str(avail_out) + ' seats available outbound')
+            print('')
+            print("There are " + str(seats_home)+ " seats sold homebound")
+            print('There are ' + str(avail_home) + ' seats available homebound')
+
         print('----------------------------------------------------------------------------------------------------')
     return

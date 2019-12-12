@@ -25,7 +25,7 @@ def printVoyageList(voyage,daterange):
         print(i.departureFlight.flightNumber + ', ' + i.departureFlight.departingFrom + ' to ' + i.departureFlight.arrivingAt + ', ' + ' Departure: ' + depDeptTime + ', Arrival: ' + depArvlTime)
         print('VOYAGE RETURN:')
         print(i.returnFlight.flightNumber + ', ' + i.returnFlight.departingFrom + ' to ' + i.returnFlight.arrivingAt + ', ' + ' Departure: ' + retDeptTime + ', Arrival: ' + retArvlTime)
-
+        print('')
         cap, cop, fsm = checkIfManned(i.departureFlight)
         if cap and cop and fsm:
             print('Voyage is fully manned')
@@ -37,19 +37,29 @@ def printVoyageList(voyage,daterange):
                 print('Missing a copilot')
             if not fsm:
                 print('Missing a flight service manager')
-        print('\n',end='')
+        #print('\n',end='')
         print('----------------------------------------------------------------------------------------------------')
-        if i.departureFlight.soldTickets == '':
-            seats=0
-        else:
-            seats=i.departureFlight.soldTickets
-        print("There are " + str(seats)+ " seats sold")
+
+        seats_out=i.departureFlight.soldTickets
+        seats_home=i.returnFlight.soldTickets
+
+        if seats_out=='':
+            seats_out=0
+        if seats_home=='':
+            seats_home=0
         if not i.departureFlight.aircraftId:
-            print('No airplane assigned to this flight')
+            print('No airplane assigned to this voyage')
+
         else:
             capa=airplaneCapacity(i.departureFlight.aircraftId)
-            avail=capa-seats
-            print('There are ' + str(avail) + ' seats available')
+            avail_out=capa-int(seats_out)
+            avail_home=capa-int(seats_home)
+            print("There are " + str(seats_out)+ " seats sold outbound")
+            print('There are ' + str(avail_out) + ' seats available outbound')
+            print('')
+            print("There are " + str(seats_home)+ " seats sold homebound")
+            print('There are ' + str(avail_home) + ' seats available homebound')
+
 
         print('----------------------------------------------------------------------------------------------------')
 
