@@ -103,8 +103,8 @@ class Inp2():
                     self.contactNumber = destination.contactNumber
                     print('Contact number: ' + self.contactNumber)
                     validConNum_bool=1
-                elif not self.contactNumber.isdigit() or (len(self.contactNumber) != 7):
-                    print('Invalid input. Phone number must consist of 7 integers [0-9]')
+                elif not self.contactNumber.isdigit():
+                    print('Invalid input. Phone number must consist of integers only [0-9]')
                 else:
                     validConNum_bool=1
 
