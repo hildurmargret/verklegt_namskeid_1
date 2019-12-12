@@ -93,7 +93,7 @@ class Windows():
             dest=update.addDestInp(dest)
 
             if dest == 0:
-                self.mainMenu(print_)
+                self.updateInformation(print_)
             else:
                 UI.UIsaveNewDestination(dest)
         elif inp==3:
