@@ -21,10 +21,4 @@ def leitaStaff(inpt, allStaff, ssn, rank):
     if empl_found == 0:
         return 0,0
     else:
-
-    #passa að tvítelja ekki kennitölur
-    # for i in ssn:
-    #     if i not in updssn:
-    #         updssn.append(i)
-
         return ssn, rank

@@ -1,7 +1,7 @@
 import csv
 path="/Users/palinakroyer/github/verklegt_namskeid_1/Documents/github/Verklegt1/UPDATEDSTUDENTDATA/"
 skra1="UpcomingFlights copy2.csv"
-skra2="Crew.csv"
+skra2="CrewCopy.csv"
 file1=path+skra1
 file2=path+skra2
 fDEST=open(file1, "a")

@@ -5,7 +5,7 @@ from DataLayer.OpenFile import *
 from DataLayer.read_crew_file import *
 def searchPilotsByLicence(airplaneType):
 
-    file1='Crew.csv'
+    file1='CrewCopy.csv'
     file_=OpenFile(file1)
     allStaff=read_crew_file(file_)
 

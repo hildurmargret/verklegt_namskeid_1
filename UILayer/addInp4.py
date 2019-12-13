@@ -1,12 +1,14 @@
 from ModelClasses.Staff import*
 from ModelClasses.Airplane import*
 from LogicLayer.Date import*
-from UILayer.UI_Manager import*
-class Inp4():
+from LogicLayer.LL_API import*
 
+LL=LL_API()
+
+class Inp4():
     def addAirplaneInp(self,airplane):
-        UI = UI_Manager()
-        aircraft = UI.UIgettingAirplanes()
+
+        aircraft = LL.LLgetAircraft()
 
         validInsig_bool = 0
         while not validInsig_bool:

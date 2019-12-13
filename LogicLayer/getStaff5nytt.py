@@ -35,36 +35,6 @@ def staffInfo2(input_string):
                 employees.append(empl) #by til lista af öllum starfsmönnum sem passa við inputið
                 break
 
-    """#Upcoming flights
-    for i in range(len(employees)):
-        with open(file3,'r') as csvFile:
-            reader=csv.DictReader(csvFile)
-            for row in reader:
-                if rank[i]=='Flight Attendant' and ssn[i] in (row['fa1'] or row['fa2']):
-                    upcDeptTime.append(row['departure'])
-                    upcArvlTime.append(row['arrival'])
-                    upcFlNo.append(row['flightNumber'])
-                    upcDest.append(row['arrivingAt'])
-                    upcDept.append(row['departingFrom'])
-                elif rank[i]=='Flight Service Manager' and ssn[i] in row['fsm']:
-                    upcDeptTime.append(row['departure'])
-                    upcArvlTime.append(row['arrival'])
-                    upcFlNo.append(row['flightNumber'])
-                    upcDest.append(row['arrivingAt'])
-                    upcDept.append(row['departingFrom'])
-                elif rank[i]=='Captain' and ssn[i] in row['captain']:
-                    upcDeptTime.append(row['departure'])
-                    upcArvlTime.append(row['arrival'])
-                    upcFlNo.append(row['flightNumber'])
-                    upcDest.append(row['arrivingAt'])
-                    upcDept.append(row['departingFrom'])
-                elif rank[i]=='Copilot' and ssn[i] in row['copilot']:
-                    upcDeptTime.append(row['departure'])
-                    upcArvlTime.append(row['arrival'])
-                    upcFlNo.append(row['flightNumber'])
-                    upcDest.append(row['arrivingAt'])
-                    upcDept.append(row['departingFrom'])"""
-
     allUpcFlights=read_pastFlights(skra3) #öll upcomingflights
 
     #Upcoming flights
