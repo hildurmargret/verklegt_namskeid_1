@@ -10,6 +10,7 @@ from UILayer.addInp4 import*
 from UILayer.addInp5 import*
 from UILayer.chooseDestinationFromList import*
 from LogicLayer.leitaVoyage import*
+from UILayer.checkFlightNumberInp import*
 
 LL=LL_API()
 
@@ -56,11 +57,25 @@ class UI_Manager:
 
     def UIupdateStaff(self):
         update=Inp1()
-        input_string=input("SSN: ")
-        employees=LL.LLupdateStaff(input_string)
-        employee=pilotsFromList(employees)
-        employee=update.addStaffInp1(employee)
-        LL.LLupdatingStaff(employee)
+
+        valid_input = 0
+        while not valid_input:
+            input_string=input("SSN: ")
+            if input_string == 'CANCEL':
+                return 0
+            else:
+                employees=LL.LLupdateStaff(input_string)
+                employee=emplFromList(employees)
+
+                if employee != 0:
+                    valid_input = 1
+                employee=update.addStaffInp1(employee)
+
+                if employee == 0:
+                    return 0
+                else:
+                    LL.LLupdatingStaff(employee)
+                    return 1
 
     def UIsaveUpdVoyage(self,voyage):
         LL.LLsaveUpdVoyage(voyage)
@@ -82,12 +97,17 @@ class UI_Manager:
 
     def UIupdateVoyage(self):
         update=Inp5()
-        input_string = input('Departing flight number: ')
-        voyage=self.UIgettingVoyage(input_string)
-        [voyage.departureFlight,tick]=update.addUpdRouteInp(voyage.departureFlight)
-        voyage.returnFlight.soldTickets=tick
+        #input_string = input('Departing flight number: ')
+        flightNumber = checkFlightNumberInp()
+        if flightNumber == 0:
+            return 0
+        else:
+            voyage=self.UIgettingVoyage(flightNumber)
+            [voyage.departureFlight,tick]=update.addUpdRouteInp(voyage.departureFlight)
+            voyage.returnFlight.soldTickets=tick
 
-        LL.LLupdateVoyage(voyage)
+            LL.LLupdateVoyage(voyage)
+            return 1
 
 
     def createNewVoyage(self,print_):

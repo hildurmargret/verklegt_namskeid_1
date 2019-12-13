@@ -63,28 +63,17 @@ class Windows():
                 UI.UIaircraftToVoyage(voyage)
 
 
-
-
     def updateVoyage(self,print_):
         print_.window30()
-        UI.UIupdateVoyage()
+        cont = UI.UIupdateVoyage()
 
-    def updatePilot(self,print_):
-        print_.window32()
-        UI.UIupdateStaff()
-
-    def updateCabin(self,print_):
-        print_.window31()
-        UI.UIupdateStaff()
+        if cont == 0:
+            self.updateInformation(print_)
 
     def updateStaff(self,print_):
-        print_.window2()
-        inp=int(input('Number: '))
-        if inp==1:
-            self.updatePilot(print_)
-        elif inp==2:
-            self.updateCabin(print_)
-        elif inp==0:
+        print_.window32()
+        cont = UI.UIupdateStaff()
+        if not cont:
             self.updateInformation(print_)
 
     def employeesToVoyage(self,print_):
@@ -128,9 +117,6 @@ class Windows():
             self.aircraftToVoyage(print_)
         elif inp==0:
             self.mainMenu()
-
-
-
 
     def getStaffInfo(self,print_):
         print_.window11()

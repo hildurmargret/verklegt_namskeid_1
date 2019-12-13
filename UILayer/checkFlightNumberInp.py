@@ -1,8 +1,8 @@
-from UILayer.UI_Manager import*
+from LogicLayer.LL_API import*
 def checkFlightNumberInp():
 
-    UI = UI_Manager()
-    flights = UI.UIgetFlights()
+    LL = LL_API()
+    flights = LL.LLgetFlights()
     singleFlights = []
 
     seen = set()
