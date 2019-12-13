@@ -126,7 +126,6 @@ class pagePrints:
         self.prentWord(15,"SSN")
         self.prentWord(15,"Address")
         self.prentWord(15,"Phone number")
-        self.prentWord(15,"Mobile number")
         self.prentWord(15,"Email address")
         self.prentWord(15,"Role")
         self.prentWord(15,"Rank")
@@ -135,7 +134,7 @@ class pagePrints:
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(10,(self.cols)/2)
         self.prentWord(15,"Type in the information")
-        self.prentSpace(2,(self.cols)/2)
+        self.prentSpace(3,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window4(self):
@@ -187,14 +186,13 @@ class pagePrints:
         self.prentWord(15,"Departure date")
         self.prentWord(15,"Departure timing")
         self.prentWord(15,"Aircraft ID")
-        self.prentWord(15,"Sold seats")
         self.prentWord(15,"Aircraft Id")
         self.prentWord(15,"Sold tickets")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(12,(self.cols)/2)
         self.prentWord(15,"Type in the information")
-        self.prentSpace(3,(self.cols)/2)
+        self.prentSpace(4,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
 
