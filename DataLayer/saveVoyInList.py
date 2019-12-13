@@ -3,7 +3,7 @@ import csv
 from ModelClasses.flightRoute import*
 def saveUpdatedVoyage(voyage):
     voy=[]
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
     date=getDay(retRoute.departure)
@@ -32,5 +32,5 @@ def saveUpdatedVoyage(voyage):
     #         writer.writerow((voy[i].flightNumber,voy[i].departingFrom,voy[i].arrivingAt,voy[i].departure,voy[i].arrival,voy[i].aircraftId,voy[i].soldTickets,voy[i].captain,voy[i].copilot,voy[i].fsm,voy[i].fa1,voy[i].fa2))
     # f.close()
     print("\n")
-    print(len(voy))
+    #print(len(voy))
     return voy
