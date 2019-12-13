@@ -2,6 +2,8 @@ from LogicLayer.Date import *
 
 def printAirplaneStatus(inAir, onGround, input_date, input_time):
 
+    #fall til að prenta status flugvela
+
     print('')
     print('AIRPLANES IN AIR ' + input_date + ' AT ' + input_time)
     print('----------------------------------------------------------------------------------------------------')

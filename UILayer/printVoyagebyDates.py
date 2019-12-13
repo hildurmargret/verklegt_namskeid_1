@@ -2,8 +2,9 @@ from LogicLayer.checkIfManned import*
 from DataLayer.getAirplaneCapacity import *
 
 def printVoyagebyDates(dep,ret):
-    #print(len(dep))
-    #print(len(ret))
+
+    #fall til að prenta vinnuferð sem var leitað að eftir dagsetningum
+
     for i in range(len(dep)):
         print('\n')
         print('VOYAGE DEPARTURE')

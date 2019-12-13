@@ -2,11 +2,11 @@ from LogicLayer.Date import*
 
 def printVoyageStatus(dep, ret, status, input_date, input_time):
 
+    #fall til að prenta út stodu vinnuferðar
+
     print('\n', end='')
     print('THERE ARE ' + str(len(status)) + ' ONGOING VOYAGES ' + input_date + ' AT: ' + input_time)
     print('\n', end='')
-
-    #print(len(status))
 
     for i in range(len(status)):
         print('VOYAGE ' + str(i+1) +': ' + status[i])

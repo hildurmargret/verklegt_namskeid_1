@@ -198,7 +198,7 @@ class pagePrints:
 
     def window8(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(14,(self.cols)/2)
+        self.prentSpace(13,(self.cols)/2)
         self.prentWord(15,"Destination Id")
         self.prentWord(15,"Destination town")
         self.prentWord(15,"Country")
@@ -464,8 +464,7 @@ class pagePrints:
         self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in information about departure date")
         self.prentSpace(1,(self.cols)/2)
-        self.prentWord(15,"Type 'CANCEL' to cancel")
-        self.prentSpace(17,(self.cols)/2)
+        self.prentSpace(18,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window29(self):

@@ -4,6 +4,9 @@ from UILayer.chooseEmplFromList import*
 from DataLayer.employeeOccupied import*
 import time
 def UIappointEmptoVoy(voyage):
+
+    #fall til að setja starfsmenn a vinnuferð
+
     UI = UI_Manager()
 
     insignia = voyage.departureFlight.aircraftId

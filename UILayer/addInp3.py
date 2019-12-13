@@ -5,6 +5,7 @@ from DataLayer.getDestinations import*
 from DataLayer.getAircraft import*
 class Inp3():
 
+    #fall til að setja inn nytt voyage
     def addRouteInp(self,voyage):
         destinations = getDestinations()
         aircraft = list_all_aircraft()

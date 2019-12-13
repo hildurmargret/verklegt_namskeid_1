@@ -7,6 +7,7 @@ from DataLayer.getAircraft import*
 
 class Inp5():
 
+    #fall til að updatea voyage
     def addUpdRouteInp(self,voyage):
         destinations = getDestinations()
         aircraft = list_all_aircraft()

@@ -4,6 +4,8 @@ from DataLayer.getAirplaneCapacity import *
 
 def printSearchedVoyage(voyage):
 
+    #fall til að prenta vinnufe4rð sem var leitað að
+
     for i in voyage:
         print('\n')
         retDeptTime = str(getDay(i.returnFlight.departure)) + '/' + str(getMonth(i.returnFlight.departure)) + '/' + str(getYear(i.returnFlight.departure)) + ' at ' + str(getHour(i.returnFlight.departure)) + ':' + str(getMinute(i.returnFlight.departure))
