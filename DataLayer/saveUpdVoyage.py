@@ -24,7 +24,10 @@ def saveUpdVoyage(voyage):
         else:
             newFlights.append(flight)
 
-    path = '/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/' + file
+    absPathFile = os.path.abspath(__file__)
+    fileDir = os.path.dirname(os.path.abspath(__file__))
+    parentDir = os.path.dirname(fileDir)
+    path = parentDir + "/csvFiles/" + file
 
     f=open(path, 'w')
     writer = csv.writer(f)
