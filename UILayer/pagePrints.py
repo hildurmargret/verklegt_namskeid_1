@@ -497,7 +497,7 @@ class pagePrints:
     def window32(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(17,(self.cols)/2)
-        self.prentWord(15,"Type in SSN of pilot to update")
+        self.prentWord(15,"Type in SSN of employee to update")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
