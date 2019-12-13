@@ -190,31 +190,31 @@ class Windows():
                         print_.window26()
                     else:
                         print('No employee matches this input')
-                WC = input('Weekly or complete? ')
-                if WC == str(1):
-                    print_.window19()
-                    week = input('Week: ')
-                    year = input('Year: ')
-                    flights, empl = weeklyWS(week, year, employee.SSN)
-                    print(flights)
+            WC = input('Weekly or complete? ')
+            if WC == str(1):
+                print_.window19()
+                week = input('Week: ')
+                year = input('Year: ')
+                flights, empl = weeklyWS(week, year, employee.SSN)
+                print(flights)
 
-                elif WC == str(2):
-                    numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+            elif WC == str(2):
+                numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
 
-                elif WC == str(0):
-                    self.getStaffInfo(print_)
+            elif WC == str(0):
+                self.getStaffInfo(print_)
 
-                print_.window13()
-                input_save = input('Save? ')
+            print_.window13()
+            input_save = input('Save? ')
 
-                if WC == str(2):
-                    if input_save == str(1):
-                        saveCompleteWS(pastFlights, upcFlights, empl)
-                    printCompleteWS(pastFlights, upcFlights, empl)
-                elif WC==str(1):
-                    if input_save == str(1):
-                        saveWeeklyWS(flights, empl,week,year)
-                    printWeeklyWS(flights,empl,week,year)
+            if WC == str(2):
+                if input_save == str(1):
+                    saveCompleteWS(pastFlights, upcFlights, empl)
+                printCompleteWS(pastFlights, upcFlights, empl)
+            elif WC==str(1):
+                if input_save == str(1):
+                    saveWeeklyWS(flights, empl,week,year)
+                printWeeklyWS(flights,empl,week,year)
 
         elif inp==7:
             print_.window17()
