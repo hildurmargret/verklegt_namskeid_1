@@ -3,9 +3,7 @@ from UILayer.printAirplanes import*
 from UILayer.updateStaff_Input import*
 from UILayer.chooseEmplFromList import*
 from UILayer.updateDestination_input import*
-from UILayer.addInp1 import*
-from UILayer.addInp3 import*
-from UILayer.addInp5 import*
+from UILayer.addInp import*
 from UILayer.chooseDestinationFromList import*
 from LogicLayer.leitaVoyage import*
 
@@ -53,24 +51,15 @@ class UI_Manager:
         return voyage
 
     def UIupdateStaff(self):
-        update=Inp1()
+        update=Inp()
         input_string=input("SSN: ")
         employees=LL.LLupdateStaff(input_string)
         employee=pilotsFromList(employees)
-        employee=update.addStaffInp1(employee)
+        employee=update.addStaffInp(employee)
         LL.LLupdatingStaff(employee)
 
     def UIsaveUpdVoyage(self,voyage):
         LL.LLsaveUpdVoyage(voyage)
-
-
-    # def UIupdateCabin(self):
-    #     update=updateStaffInput()
-    #     input_string=input("SSN: ")
-    #     employees=LL.LLupdateStaff(input_string)
-    #     employee=cabinFromList(employees)
-    #     employee=update.addStaffInp(employee)
-    #     LL.LLupdatingStaff(employee)
 
     def UIupdateDestination(self):
         #update=updateDestInput()
@@ -81,31 +70,25 @@ class UI_Manager:
         LL.LLupdatingDestination(destination)
 
     def UIupdateAircraft(self):
-        update=Inp4()
+        update=Inp()
         aircrafts=self.UIgettingAirplanes()
         aircraft=aircraftFromList(aircrafts)
         aircraft=update.addAirplaneInp(aircraft)
         LL.LLupdateAircraft(aircraft)
 
     def UIupdateVoyage(self):
-        update=Inp5()
+        update=Inp()
         input_string = input('Departing flight number: ')
         voyage=self.UIgettingVoyage(input_string)
-        [voyage.departureFlight,tick]=update.addRouteInp(voyage.departureFlight)
+        [voyage.departureFlight,tick]=update.addUpdRouteInp(voyage.departureFlight)
         voyage.returnFlight.soldTickets=tick
 
-
-
-        #voyage.departureFlight=update.addRouteInp(voyage)
-        #voyage=update.addVoyageInp(voyage)
-        #print(voyage)
-        #print(tick)
         LL.LLupdateVoyage(voyage)
 
 
     def createNewVoyage(self,print_):
         print_.window7()
-        add=Inp3()
+        add=Inp()
         departureFlight=createFlightRoute()
         [departureFlight,soldTick]=add.addRouteInp(departureFlight)
         if departureFlight == 0:

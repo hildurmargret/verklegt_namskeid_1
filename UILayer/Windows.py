@@ -1,10 +1,7 @@
 from UILayer.pagePrints import*
 from LogicLayer.LL_API import*
 from ModelClasses.Staff import*
-from UILayer.addInp1 import*
-from UILayer.addInp2 import*
-from UILayer.addInp3 import*
-from UILayer.addInp4 import*
+from UILayer.addInp import*
 from ModelClasses.Voyage import*
 from LogicLayer.getStaff1_4nytt import*
 from LogicLayer.getStaff5nytt import*
@@ -421,7 +418,7 @@ class Windows():
 
     def createAirplanes(self,print_):
         print_.window9()
-        add=Inp4()
+        add=Inp()
         airplane=createAirplane()
         airplane=add.addAirplaneInp(airplane)
         if airplane == 0:
@@ -431,7 +428,7 @@ class Windows():
 
     def createNewVoyage(self,print_):
         print_.window7()
-        add=Inp3()
+        add=Inp()
         departureFlight=createFlightRoute()
         [departureFlight,soldTick]=add.addRouteInp(departureFlight)
         if departureFlight == 0:
@@ -491,8 +488,8 @@ class Windows():
     def createNewStaff(self,print_):
         print_.window3()
         employee = createStaff()
-        add=Inp1()
-        empl=add.addStaffInp1(employee)
+        add=Inp()
+        empl=add.addStaffInp(employee)
         if empl == 0:
             self.create(print_)
         else:
@@ -511,7 +508,7 @@ class Windows():
 
     def createDestinations(self, print_):
         print_.window8()
-        add = Inp2()
+        add = Inp()
         dest = CreateDestination()
         newDest=add.addDestinationInp(dest)
         if newDest == 0:

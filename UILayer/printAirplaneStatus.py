@@ -4,7 +4,7 @@ def printAirplaneStatus(inAir, onGround, input_date, input_time):
 
     print('')
     print('AIRPLANES IN AIR ' + input_date + ' AT ' + input_time)
-    print('')
+    print('----------------------------------------------------------------------------------------------------')
     for i in range(len(inAir)):
         if inAir[i].arrivingAt == 'KEF':
             d=str(getDay(inAir[i].arrival))

@@ -6,7 +6,7 @@ from DataLayer.read_crew_file import *
 
 def staffInfo(input_num, input_string):
 
-    skra='Crew.csv'
+    skra='CrewCopy.csv'
 
     file_=OpenFile(skra)
     allStaff=read_crew_file(file_)
