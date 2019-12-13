@@ -4,20 +4,12 @@ from DataLayer.OpenFile import *
 
 def list_all_aircraft():
 
-    #path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/"
-    skra1='AircraftType.csv'
-    skra2='Aircraft.csv'
-    #skra3='Crew.csv'
-
-    # file1 = path + skra1
-    # file2 = path + skra2
-
+    skra1='AircraftType copy.csv'
+    skra2='AircraftCopy.csv'
 
     file2=OpenFile(skra2)
 
-    line1 = []
-    line2 = []
-
+    aircraft = []
 
     with file2 as csv_file:
         csv_reader2 = csv.DictReader(csv_file)
@@ -31,21 +23,6 @@ def list_all_aircraft():
                     if row['planeTypeId']==planeType:
                         air1 = createAirplane(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'], row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
                         air1.planeInsignia=insignia
-                        line2.append(air1)
-        #    for line in csv_reader2:
-        #        line1.append(line)
-        #    print(line1)
-        #    print(len(line1))
-    #    print(line2)
-    #         line1.append(air2)
-    #
-    # with open(file1,'r') as csv_file:
-    #     csv_reader1 = csv.DictReader(csv_file)
-    #     for row in csv_reader1:
-    #         air1 = createAirplane(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'], row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
-    #         line2.append(air1)
+                        aircraft.append(air1)
 
-#for row1 in line1:
-#    for row2 in line2:
-            #if row1["planeInsignia"]==
-    return line2
+    return aircraft

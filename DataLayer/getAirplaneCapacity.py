@@ -8,8 +8,8 @@ def airplaneCapacity(planeInsigniaIn):
     planeType2=[]
     capacityRow=[]
 
-    fileName1='Aircraft.csv'
-    fileName2='AircraftType.csv'
+    fileName1='AircraftCopy.csv'
+    fileName2='AircraftType copy.csv'
     file1=OpenFile(fileName1)
     file2=OpenFile(fileName2)
 

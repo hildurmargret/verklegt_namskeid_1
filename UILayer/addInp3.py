@@ -24,7 +24,7 @@ class Inp3():
                     correctDest_bool=1
             if self.arrivingAt=="CANCEL":
                 validDest_bool = 1
-                return 0
+                return 0,0
             elif not correctDest_bool:
                 print('Invalid input. Destination must be one of the following:')
                 for dest in destinations:
@@ -38,7 +38,7 @@ class Inp3():
             date=input("Departure day [dd]: ")
             if date=="CANCEL":
                 validDate_bool=1
-                return 0
+                return 0,0
             elif not date.isdigit() or (len(date) != 2):
                 print('Invalid input. Departure day must consist of two integers [0-9]')
             elif int(date)<1 or int(date)>31:
@@ -51,7 +51,7 @@ class Inp3():
             month=input("Departure month [mm]: ")
             if month=="CANCEL":
                 validMonth_bool=1
-                return 0
+                return 0,0
             elif not month.isdigit() or (len(month) != 2):
                 print('Invalid input. Departure month must consist of two integers [0-9]')
             elif int(month)<1 or int(month)>12:
@@ -64,7 +64,7 @@ class Inp3():
             year=input("Departure year [yyyy]: ")
             if year=="CANCEL":
                 validYear_bool=1
-                return 0
+                return 0,0
             elif not year.isdigit() or (len(year) != 4):
                 print('Invalid input. Departure year must consist of four integers [0-9]')
             elif int(year)<2000 or int(year)>2050:
@@ -77,7 +77,7 @@ class Inp3():
             hour=input("Departure hour [hh]: ")
             if hour=="CANCEL":
                 validHour_bool = 1
-                return 0
+                return 0,0
             elif not hour.isdigit() or (len(hour) != 2):
                 print('Invalid input. Departure hour must consist of two integers [0-9]')
             elif int(hour)<0 or int(hour)>23:
@@ -90,7 +90,7 @@ class Inp3():
             minute=input("Departure minute [mm]: ")
             if minute=="CANCEL":
                 validMin_bool = 1
-                return 0
+                return 0,0
             elif not minute.isdigit() or (len(minute) != 2):
                 print('Invalid input. Departure minute must consist of two integers [0-9]')
             elif int(minute)<0 or int(minute)>59:
@@ -116,7 +116,7 @@ class Inp3():
                     correctAirID_bool=1
             if self.aircraftId=="CANCEL":
                 validAirID_bool=1
-                return 0
+                return 0,0
             elif not correctAirID_bool:
                 print('Invalid input. Aircraft ID must be one of the following:')
                 for plane in aircraft:
@@ -134,7 +134,7 @@ class Inp3():
             self.soldTickets=input("Amount of sold seats outbound: ")
             if self.soldTickets=="CANCEL":
                 validSold_bool=1
-                return 0
+                return 0,0
             elif int(self.soldTickets) > int(capacity):
                 print('Invalid input. Amount of sold seats exceeds plane capacity')
                 print('Airplane capacity: ' + capacity)
@@ -150,7 +150,7 @@ class Inp3():
             outTick=input("Amount of sold seats homebound: ")
             if outTick=="CANCEL":
                 validSold2_bool=1
-                return 0
+                return 0,0
             elif int(outTick) > int(capacity):
                 print('Invalid input. Amount of sold seats exceeds plane capacity')
                 print('Airplane capacity: ' + capacity)

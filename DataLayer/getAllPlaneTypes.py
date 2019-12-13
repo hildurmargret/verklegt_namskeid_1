@@ -3,9 +3,7 @@ from DataLayer.OpenFile import *
 
 def getAllTypes():
 
-    #path='/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/'
-
-    file1='Aircraft.csv'
+    file1='AircraftCopy.csv'
 
     file_=OpenFile(file1)
 
