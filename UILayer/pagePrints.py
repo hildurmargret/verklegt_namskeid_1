@@ -182,7 +182,7 @@ class pagePrints:
 
     def window7(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(11,(self.cols)/2)
+        self.prentSpace(12,(self.cols)/2)
         self.prentWord(15,"Destination")
         self.prentWord(15,"Departure date")
         self.prentWord(15,"Departure timing")
@@ -321,34 +321,38 @@ class pagePrints:
 
     def window16(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in a flight number")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window17(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in date (dd/mm/yyyy)")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     #TAKA UT?
     def window18(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in name of the voyage")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window19(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type a week (1-52) and a year")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
@@ -382,7 +386,7 @@ class pagePrints:
     def window22(self):
         self.prentLina((self.cols)/2)
         self.prentSpace(15,(self.cols)/2)
-        self.prentWord(15,"Type in destination to update")
+        self.prentWord(15,"Choose destination to update")
         self.prentSpace(1,(self.cols)/2)
         self.prentWord(15,"0: Back")
         self.prentSpace(16,(self.cols)/2)
@@ -431,9 +435,10 @@ class pagePrints:
 
     def window25(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in an airplane type")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
@@ -458,15 +463,45 @@ class pagePrints:
 
     def window28(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(19,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in information about departure date")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)
 
     def window29(self):
         self.prentLina((self.cols)/2)
-        self.prentSpace(18,(self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
         self.prentWord(15,"Type in time (hh:mm:ss)")
         self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window30(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentWord(12,"Type in flight number of flight to update")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window31(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentWord(15,"Type in SSN of cabin crew to update")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
+        self.prentSpace(17,(self.cols)/2)
+        self.prentLina((self.cols)/2)
+
+    def window32(self):
+        self.prentLina((self.cols)/2)
+        self.prentSpace(17,(self.cols)/2)
+        self.prentWord(15,"Type in SSN of pilot to update")
+        self.prentSpace(1,(self.cols)/2)
+        self.prentWord(15,"Type 'CANCEL' to cancel")
         self.prentSpace(17,(self.cols)/2)
         self.prentLina((self.cols)/2)

@@ -71,11 +71,11 @@ class Windows():
         UI.UIupdateVoyage()
 
     def updatePilot(self,print_):
-        print_.window23()
+        print_.window32()
         UI.UIupdateStaff()
 
     def updateCabin(self,print_):
-        print_.window24()
+        print_.window31()
         UI.UIupdateStaff()
 
     def updateStaff(self,print_):
