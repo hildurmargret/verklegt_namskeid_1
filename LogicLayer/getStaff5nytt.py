@@ -11,7 +11,7 @@ from DataLayer.read_pastFlights import *
 
 def staffInfo2(input_string):
 
-    skra1='Crew.csv'
+    skra1='CrewCopy.csv'
     skra2='PastFlights copy.csv'
     skra3='UpcomingFlights copy3.csv'
 
