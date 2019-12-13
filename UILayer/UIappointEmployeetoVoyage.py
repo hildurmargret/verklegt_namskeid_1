@@ -1,6 +1,7 @@
 from LogicLayer.leitaStaff import*
 from UILayer.UI_Manager import*
 from UILayer.chooseEmplFromList import*
+from DataLayer.employeeOccupied import*
 def UIappointEmptoVoy(voyage):
     UI = UI_Manager()
 
