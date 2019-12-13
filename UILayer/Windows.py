@@ -368,13 +368,15 @@ class Windows():
             input_date=input('Date: ')
             if input_date == 'CANCEL':
                 self.getVoyageInfo(print_)
-            print_.window29()
-            input_time=input('Time: ')
-            if input_time == 'CANCEL':
-                self.getVoyageInfo(print_)
-            dep, ret =voyageByDate(input_date)
-            status = voyageStatus(dep, ret, input_date, input_time)
-            printVoyageStatus(dep, ret, status,input_date, input_time)
+            else:
+                print_.window29()
+                input_time=input('Time: ')
+                if input_time == 'CANCEL':
+                    self.getVoyageInfo(print_)
+                else:
+                    dep, ret =voyageByDate(input_date)
+                    status = voyageStatus(dep, ret, input_date, input_time)
+                    printVoyageStatus(dep, ret, status,input_date, input_time)
 
         elif inp==0:
             self.getInformation(print_)
@@ -385,11 +387,11 @@ class Windows():
 
     def getDestinationsInfo(self,print_):
         print_.window20()
-        inp=int(input("number: "))
+        inp=int(input("Number: "))
         if inp==1:
             listOfDest=getDestinations()
             for i in range(len(listOfDest)):
-                print(listOfDest[i].destination)
+                print(listOfDest[i].id + ' - ' + listOfDest[i].destination)
 
         elif inp==2:
             mostpop=MostPopularDestination()
