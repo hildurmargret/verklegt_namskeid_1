@@ -10,23 +10,10 @@ def voyageByWeek(inpt, inpt_year):
 
 
     daterange = getDateRangeFromWeek(inpt, inpt_year)
-    # ar=getYear(daterange[0])
-    # man=getMonth(daterange[0])
-    # dag=getDay(daterange[0])
-    # klst=getHour(daterange[0])
-    # min=getMinute(daterange[0])
-    # nyt=getDate(ar,man,dag,klst,min)
-    # print(type(nyt))
-    # lokad=add_day(ar,man,dag,klst,min)
-    # print(lokad)
-    nytdag=add_day(daterange[0],1)
-    #print(daterange)
-    #print(nytdag)
-    #print(nytdag)
 
+    nytdag=add_day(daterange[0],1)
 
     voyages = []
-    #retVoyages = []
 
     today=now()
 
@@ -45,10 +32,9 @@ def voyageByWeek(inpt, inpt_year):
     for i in range(len(allFlights)):
         if daterange[1] <= allFlights[i].departure < nytdag:
             dep.append(allFlights[i].departure)
-            #print(allFlights[i].departure)
-            #flug.append(allFlights[i])
+
             voyage = leitaVoyage(allFlights[i].flightNumber)
-            #voyages.extend(voyage)
+
             if tel%2 != 0:
                 voyages.extend(voyage)
             tel=tel+1

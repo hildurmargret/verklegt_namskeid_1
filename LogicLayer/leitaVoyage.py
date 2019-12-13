@@ -7,7 +7,7 @@ from DataLayer.read_pastFlights import *
 from UILayer.chooseVoyageFromList import*
 
 def leitaVoyage(inpt):
-    print(inpt)
+    #print(inpt)
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyages =[]
