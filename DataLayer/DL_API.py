@@ -27,11 +27,11 @@ class DL_API:
     def DLsaveDestination(self,newDest):
         saveDestinationInFile(newDest)
     def DLairportOccupied(self,newVoyage):
-        newVoyList=airportOccupied(newVoyage)
-        destinations = getDestinations()
+        newVoyList=airportOccupied(newVoyage) #saekir lista af vinnuferdum, vistar nyja ef flugvollur er ekki occupied
+        destinations = getDestinations() #saekir alla afangastadi
         return newVoyList,destinations
     def DLsaveVoyage(self,newVoyage,file):
-        updateFlights(newVoyage,file)
+        updateFlights(newVoyage,file) #vistar ny flug i UpcomingFlights
     def DLupdateStaff(self,employee):
         saveUpdatedStaff(employee)
     def DLupdatedDestination(self, destination):
@@ -39,15 +39,11 @@ class DL_API:
     def DLupdateAircraft(self,aircraft):
         saveUpdatedAircraft(aircraft)
     def DLupdateVoyage(self,voyage):
-        #VALDIS
-        flights=self.DLsaveVoy(voyage)
-        ###saveUpdatedVoyage(voyage)
-        #file="UpcomingFlights copy3.csv"
-        #updateFlights(voyage,file)
+        flights=self.DLsaveVoy(voyage) #saekir flug
     def DLaircraftToVoyage(self,voyage):
         flights=aircraftToVoyage(voyage)
         voyageDate=voyage.departureFlight.departure
-        dateNow=now()
+        dateNow=now() #Skodar hvada skra a ad vista i
         if voyageDate>dateNow:
             file="UpcomingFlights copy3.csv"
         else:
@@ -59,13 +55,11 @@ class DL_API:
 
     def DLgetFlights(self):
         flights = read_pastFlights('UpcomingFlights copy3.csv')
-        flights.extend(read_pastFlights('PastFlights copy.csv'))
+        flights.extend(read_pastFlights('PastFlights copy.csv')) #byr til lista med UpcomingFlights og PasFlights
         return flights
 
     def DLsaveVoyagesInList(self,voyage):
-        flights=saveUpdatedVoyage(voyage)
-        # for i in range(len(flights)):
-        #     print(flights[i].soldTickets)
+        flights=saveUpdatedVoyage(voyage) 
         return flights
 
     def DLsaveVoy(self,voyage):
