@@ -4,7 +4,7 @@ import operator
 
 
 def fixFlNo(flights, destinations):
-    print(len(destinations))
+    #print(len(destinations))
     for dest in destinations:
         if dest.id == 'KEF':
             destinations.remove(dest)

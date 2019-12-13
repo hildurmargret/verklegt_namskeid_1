@@ -1,6 +1,8 @@
 from LogicLayer.Date import*
 import csv
 from ModelClasses.flightRoute import*
+from DataLayer.read_pastFlights import*
+
 def saveUpdatedVoyage(voyage):
     voy=[]
     #print('yello')
@@ -8,28 +10,28 @@ def saveUpdatedVoyage(voyage):
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
     #print('eool')
-    print(departRoute.soldTickets)
+    #print(departRoute.soldTickets + 'yello')
     #print('yeoel')
-    print(retRoute.soldTickets)
+    #print(retRoute.soldTickets+ 'yello')
 
     #date=getDay(retRoute.departure)
-    
 
-    voy=read_pastFlights('UpcomingFlights copy3.csv')
 
-    voy.append(departRoute)
-    voy.append(retRoute)
-
-    # with open(path,'w') as File1:
-    #     csv_writer = csv.DictReader(File1)
-    #     #print(departRoute.flightNumber)
-    #     for row in csv_writer:
-    #         print(row['soldTickets'])
-    #         v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],row['aircraftID'],row['soldTickets'],row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
-    #         voy.append(v)
+    # voy=read_pastFlights('UpcomingFlights copy3.csv')
     #
-    #     voy.append(departRoute)
-    #     voy.append(retRoute)
+    # voy.append(departRoute)
+    # voy.append(retRoute)
+
+    with open(path,'r') as File1:
+        csv_reader = csv.DictReader(File1)
+        #print(departRoute.flightNumber)
+        for row in csv_reader:
+            #print(row['soldTickets'])
+            v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],row['aircraftID'],row['soldTickets'],row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
+            voy.append(v)
+
+        voy.append(departRoute)
+        voy.append(retRoute)
 
 
     # File1.close()

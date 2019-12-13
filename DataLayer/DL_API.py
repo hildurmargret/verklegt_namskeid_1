@@ -12,6 +12,7 @@ from DataLayer.read_pastFlights import*
 from DataLayer.saveVoyInList import*
 from DataLayer.saveUpdVoyage import*
 from DataLayer.saveUpVoy import*
+from DataLayer.saveUpdatedFlights import*
 
 class DL_API:
 
@@ -40,7 +41,10 @@ class DL_API:
         saveUpdatedAircraft(aircraft)
     def DLupdateVoyage(self,voyage):
         #VALDIS
-        saveUpdatedVoyage(voyage)
+        flights=self.DLsaveVoy(voyage)
+        ###saveUpdatedVoyage(voyage)
+        #file="UpcomingFlights copy3.csv"
+        #updateFlights(voyage,file)
     def DLaircraftToVoyage(self,voyage):
         flights=aircraftToVoyage(voyage)
         voyageDate=voyage.departureFlight.departure
@@ -58,9 +62,17 @@ class DL_API:
         flights = read_pastFlights('UpcomingFlights copy3.csv')
         flights.extend(read_pastFlights('PastFlights copy.csv'))
         return flights
+
     def DLsaveVoyagesInList(self,voyage):
         flights=saveUpdatedVoyage(voyage)
+        # for i in range(len(flights)):
+        #     print(flights[i].soldTickets)
         return flights
+
+    def DLsaveVoy(self,voyage):
+        flights=saveUpVoy(voyage)
+        return flights
+
 
     def DLsaveUpdVoyage(self, voyage):
         saveUpdVoyage(voyage)

@@ -1,6 +1,7 @@
 from LogicLayer.Date import*
 import csv
 from ModelClasses.flightRoute import*
+from DataLayer.read_pastFlights import*
 def saveUpVoy(voyage):
     voy=[]
     #print('yello')
