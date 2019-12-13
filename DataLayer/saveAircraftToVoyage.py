@@ -1,6 +1,6 @@
 import csv
 from ModelClasses.flightRoute import*
-
+from DataLayer.OpenFile import*
 def aircraftToVoyage(voyage):
 
     #fall sem vistar flugvél á vinnuferð í skrá

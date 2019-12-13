@@ -2,6 +2,7 @@ import csv
 import sys
 import os
 from ModelClasses.Destination import*
+from DataLayer.OpenFile import*
 def saveUpdatedDest(dest):
 
     #fall sem skrifar inn uppfærðar upplýsingar um destination i skrá

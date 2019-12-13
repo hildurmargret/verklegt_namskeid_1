@@ -1,5 +1,6 @@
 import sys
 import os
+from DataLayer.OpenFile import*
 def saveUpdatedAircraft(aircraft):
 
     #fall sem skrifar inn uppfærðar upplýsingar um flugvél í skrá
