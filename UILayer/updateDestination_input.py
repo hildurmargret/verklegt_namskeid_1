@@ -1,5 +1,7 @@
 class updateDestInput():
 
+    #Fall til að uppfæra destination
+
     def addDestInp(self,destination):
         self.destination=destination.destination
         self.country=destination.country

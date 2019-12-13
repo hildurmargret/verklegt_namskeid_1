@@ -3,6 +3,7 @@ from ModelClasses.Airplane import*
 from LogicLayer.Date import*
 class Inp2():
 
+    #fall til að setja inn nyjan destination
     def addDestinationInp(self,destination):
 
         if destination.id != '':

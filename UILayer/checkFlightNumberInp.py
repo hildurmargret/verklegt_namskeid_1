@@ -1,6 +1,8 @@
 from LogicLayer.LL_API import*
 def checkFlightNumberInp():
 
+    #Fall sem athugar hvort innslegið flightnumber sé til eða ekki
+
     LL = LL_API()
     flights = LL.LLgetFlights()
     singleFlights = []

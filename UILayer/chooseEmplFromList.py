@@ -1,4 +1,6 @@
 def emplFromList(employees):
+
+    #fall sem prentar lista af starfsmönnum til notanda til að velja úr
     if employees == 0:
         print('No employee matches this input')
         return 0

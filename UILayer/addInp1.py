@@ -3,7 +3,7 @@ from ModelClasses.Airplane import*
 from LogicLayer.Date import*
 from DataLayer.getAllPlaneTypes import*
 class Inp1():
-
+    #fall til að bæta inn starfsmanni með alls kyns skorðum og skemmtilegu
     def addStaffInp1(self, employee):
 
         validName_bool = 0
@@ -70,20 +70,6 @@ class Inp1():
             else:
                 validPno_bool = 1
 
-
-        # validMno_bool = 0
-        # while not validMno_bool:
-        #     self.mobileNumber=input("Mobile number: ")
-        #     if self.mobileNumber=="CANCEL":
-        #         validMno_bool = 1
-        #         return 0
-        #     elif self.mobileNumber == '':
-        #         validMno_bool = 1
-        #         self.mobileNumber = employee.mobileNumber
-        #     elif not self.mobileNumber.isdigit() or (len(self.mobileNumber) != 7):
-        #         print('Invalid input. Mobile number must consist of 7 integers [0-9]')
-        #     else:
-        #         validMno_bool = 1
 
         validEmail_bool = 0
         while not validEmail_bool:

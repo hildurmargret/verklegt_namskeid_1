@@ -4,6 +4,8 @@ from DataLayer.getAirplaneCapacity import *
 
 def printVoyageList(voyage,daterange):
 
+    #fall til að rprenta ut vinnuferðir sem leitað var eað eftir vikum
+
     ar1=str(getYear(daterange[0]))
     man1=str(getMonth(daterange[0]))
     dag1=str(getDay(daterange[0]))

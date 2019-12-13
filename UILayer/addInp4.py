@@ -6,6 +6,8 @@ from LogicLayer.LL_API import*
 LL=LL_API()
 
 class Inp4():
+
+    #fall til að setja inn nýja flugvél
     def addAirplaneInp(self,airplane):
 
         aircraft = LL.LLgetAircraft()

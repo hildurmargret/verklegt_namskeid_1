@@ -3,6 +3,7 @@ from LogicLayer.Date import*
 
 def assignAircraft(voyage):
 
+    #fall til setja flugvél á voyage
     UI = UI_Manager()
     aircraft = UI.UIgettingAirplanes()
     flights = UI.UIgetFlights()

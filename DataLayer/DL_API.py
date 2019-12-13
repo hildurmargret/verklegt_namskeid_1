@@ -3,7 +3,6 @@ from DataLayer.saveAircraftInFile import*
 from DataLayer.saveNewDestination import*
 from DataLayer.saveUpdatedStaff import*
 from DataLayer.saveUpdatedDestination import*
-from DataLayer.saveEmployeesToVoyage import*
 from DataLayer.airportOccupied import*
 from DataLayer.getDestinations import*
 from DataLayer.saveUpdatedFlights import*
