@@ -4,6 +4,8 @@ from DataLayer.OpenFile import *
 
 def list_all_aircraft():
 
+    #fall sem nær i allar flugvelar
+
     skra1='AircraftType copy.csv'
     skra2='AircraftCopy.csv'
 

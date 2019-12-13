@@ -4,7 +4,7 @@ from ModelClasses.Staff import *
 def read_crew_file(file_name):
 
     allStaff=[]
-
+    #fall sem byr til starfsmannaklasatilvika lista uppúr skrá
     with file_name as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:

@@ -4,6 +4,7 @@ from ModelClasses.flightRoute import *
 
 def read_pastFlights(file):
 
+    #fall sem nær í öll flug úr skrá og býr til klasatilvikalista af þeim
     pastFlights=[]
 
     file_name=OpenFile(file)

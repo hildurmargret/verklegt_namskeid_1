@@ -2,8 +2,10 @@ import csv
 from ModelClasses.Staff import*
 def saveUpdatedStaff(employee):
 
+    #fallið opnar skrá og skrifar inn uppfærðar upplýsingar
+
     staff=[]
-    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/CrewCopy.csv"
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:

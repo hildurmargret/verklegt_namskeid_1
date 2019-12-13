@@ -2,8 +2,11 @@ import csv
 from ModelClasses.flightRoute import*
 
 def aircraftToVoyage(voyage):
+
+    #fall sem vistar flugvél á vinnuferð í skrá
+    
     voy=[]
-    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
 

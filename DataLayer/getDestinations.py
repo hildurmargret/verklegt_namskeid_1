@@ -4,6 +4,8 @@ import csv
 
 def getDestinations():
 
+    #Fall sem nær í alla áfangastaði úr skrá
+
     Destination_array = []
     fjoldiAfStad=[]
     listOfDest=[]

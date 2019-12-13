@@ -1,6 +1,8 @@
 import csv
 from ModelClasses.Destination import*
 def saveUpdatedDest(dest):
+
+    #fall sem skrifar inn uppfærðar upplýsingar um destination i skrá
     Desti=[]
     path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/DestinationsCopy.csv"
     with open(path,'r') as File1:

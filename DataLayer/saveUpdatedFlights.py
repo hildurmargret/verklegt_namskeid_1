@@ -1,6 +1,8 @@
 import csv
 def updateFlights(flights, file):
 
+    #fall sem skrifar inn uppfærðar upplýsingar um flight
+
     staff=[]
     path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/" + file
 

@@ -1,6 +1,8 @@
 def saveUpdatedAircraft(aircraft):
+
+    #fall sem skrifar inn uppfærðar upplýsingar um flugvél í skrá
     air=[]
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/AircraftTypeCopy.csv"
+    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/AircraftTypeCopy.csv"
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:

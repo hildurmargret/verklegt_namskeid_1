@@ -3,6 +3,8 @@ import csv
 
 def airplaneCapacity(planeInsigniaIn):
 
+    #fall sem nær í sætisfjölda fljugvélar eftir typu hennar
+
     insignia=[]
     planeType=[]
     planeType2=[]

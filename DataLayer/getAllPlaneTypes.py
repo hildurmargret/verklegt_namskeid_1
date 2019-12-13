@@ -3,6 +3,8 @@ from DataLayer.OpenFile import *
 
 def getAllTypes():
 
+    #fall sem nær í allar flugvélatýpur
+
     file1='AircraftCopy.csv'
 
     file_=OpenFile(file1)
