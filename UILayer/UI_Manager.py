@@ -29,7 +29,7 @@ class UI_Manager:
         voyageDate=newVoyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:
-            file="UpcomingFlights copy.csv"
+            file="UpcomingFlights copy3.csv"
         else:
             file="PastFlights copy.csv"
         LL.LLsaveVoyage(newVoyage,file)
@@ -98,6 +98,9 @@ class UI_Manager:
     #    print(voyage.returnFlight.aircraftId)
         LL.LLemployeesToVoyage(voyage,employee)
 
+    def UIgetEmployees(self, input_string):
+        employees = LLgettingEmployees(input_string)
+        return employees
 
     # def UIaircraftToVoyage(self):
     #     input_string=input("Flight number: ")
