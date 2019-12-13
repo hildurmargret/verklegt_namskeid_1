@@ -4,7 +4,7 @@ import operator
 
 
 def fixFlNo(flights, destinations):
-
+    print(len(destinations))
     for dest in destinations:
         if dest.id == 'KEF':
             destinations.remove(dest)
@@ -37,7 +37,8 @@ def fixFlNo(flights, destinations):
 
 
         counter = -1
-        day = str(flightsFromDest_i[0].departure[0:10]) + '00:00:00'
+        if len(flightsFromDest_i) != 0:
+            day = str(flightsFromDest_i[0].departure[0:10]) + '00:00:00'
 
         for k in range(len(flightsFromDest_i)):
 

@@ -28,11 +28,11 @@ def staffInfo2(input_string):
     upcFlights=[]
 
     for i in range(len(allStaff)): #fer í gegnum alla starfsmenn
-        ssn, rank = leitaStaff(input_string, allStaff, ssn, rank)
-        for j in range(len(ssn)):
-            if allStaff[i].SSN == ssn[j]:
+        ssn, rank = leitaStaff(input_string, allStaff, ssn, rank) #skilar listum af kennitölum og rank starfsm sem passa við input
+        for j in range(len(ssn)): #fer i gegnum listann ssn
+            if allStaff[i].SSN == ssn[j]: #ber saman kennitölur ur báðum listum og by til kasatilvik af starfsmönnum sem passa við input
                 empl = createStaff(allStaff[i].name, allStaff[i].SSN, allStaff[i].address, allStaff[i].phoneNumber,allStaff[i].emailAddress,allStaff[i].rank,allStaff[i].role,allStaff[i].licence)
-                employees.append(empl)
+                employees.append(empl) #by til lista af öllum starfsmönnum sem passa við inputið
                 break
 
     """#Upcoming flights
@@ -65,19 +65,24 @@ def staffInfo2(input_string):
                     upcDest.append(row['arrivingAt'])
                     upcDept.append(row['departingFrom'])"""
 
-    allUpcFlights=read_pastFlights(skra3)
+    allUpcFlights=read_pastFlights(skra3) #öll upcomingflights
 
     #Upcoming flights
-    for i in range(len(employees)):
-        for j in range(len(allUpcFlights)):
+    for i in range(len(employees)): #fer í gegnum alla starfsmenn sem passa við input
+        for j in range(len(allUpcFlights)): #í gegnum öll upcoming flights
 
             deptTime = str(getDay(allUpcFlights[j].departure)) + '/' + str(getMonth(allUpcFlights[j].departure)) + '/' + str(getYear(allUpcFlights[j].departure)) + ' at ' + str(getHour(allUpcFlights[j].departure)) + ':' + str(getMinute(allUpcFlights[j].departure))
             arvlTime = str(getDay(allUpcFlights[j].arrival)) + '/' + str(getMonth(allUpcFlights[j].arrival)) + '/' + str(getYear(allUpcFlights[j].arrival)) + ' at ' + str(getHour(allUpcFlights[j].arrival)) + ':' + str(getMinute(allUpcFlights[j].arrival))
+            #fæ departure tima og arrival tima a akjosanlegu formati
 
+
+            #ef rank starfsmans er flight attendant og eg finn hann a viðeigandi stað i upcoming flights þa buum við til
+            #klasatilvik fluginu og set í upc flights.
             if employees[i].rank=='Flight Attendant' and employees[i].SSN in (allUpcFlights[j].fa1 or allUpcFlights[j].fa2):
                 flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
                 upcFlights.append(flight)
 
+            #Geri nakvæmlega sama fyrir allt mögulegt rank starfsmanna
             elif employees[i].rank=='Flight Service Manager' and employees[i].SSN in allUpcFlights[j].fsm:
                 flight=createFlightRoute(allUpcFlights[j].flightNumber, allUpcFlights[j].departingFrom, allUpcFlights[j].arrivingAt, deptTime, arvlTime,allUpcFlights[j].aircraftId, allUpcFlights[j].soldTickets, allUpcFlights[j].captain, allUpcFlights[j].copilot, allUpcFlights[j].fsm, allUpcFlights[j].fa1, allUpcFlights[j].fa2)
                 upcFlights.append(flight)
@@ -94,6 +99,8 @@ def staffInfo2(input_string):
 
     allPastFlights=read_pastFlights(skra2)
 
+
+    #Nakvæmlega sama gert fyrir past flights
     #Past flights
     for i in range(len(employees)):
         for j in range(len(allPastFlights)):
