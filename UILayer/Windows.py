@@ -161,9 +161,13 @@ class Windows():
                         print('Choose number from list: ')
                         employee = emplFromList(employees)
                         numOfpastDest, numOfupcDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
-                        print('EMPLOYEES PAST DESTINATIONS: ')
-                        printDestList(numOfpastDest, pastFlights, empl)
-                        #print(len(numOfupcDest))
+
+                        if len(numOfpastDest) == 1:
+                            print('EMPLOYEE HAS NO PAST DESTINATIONS')
+                        else:
+                            print('EMPLOYEES PAST DESTINATIONS: ')
+                            printDestList(numOfpastDest, pastFlights, empl)
+
                         if len(numOfupcDest) == 1:
                             print('EMPLOYEE HAS NO UPCOMING DESTINATIONS')
                         else:
