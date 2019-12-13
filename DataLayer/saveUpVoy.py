@@ -3,6 +3,8 @@ import csv
 from ModelClasses.flightRoute import*
 from LogicLayer.Date import*
 from DataLayer.read_pastFlights import*
+import sys
+import os
 def saveUpVoy(voyage):
     voy=[]
 
@@ -11,17 +13,23 @@ def saveUpVoy(voyage):
     #finn viðeigandi skra
     today=now()
     if today>departRoute.departure:
-        path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/PastFlights copy.csv"
+        file="PastFlights copy.csv"
     else:
-        path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+        file="UpcomingFlights copy3.csv"
+
+    path = OpenFile(file)
 
     #opna og les uppur i lista
-    with open(path,'r') as File1:
+    with path as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
             v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],row['aircraftID'],row['soldTickets'],row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
             voy.append(v)
 
+    absPathFile = os.path.abspath(__file__)
+    fileDir = os.path.dirname(os.path.abspath(__file__))
+    parentDir = os.path.dirname(fileDir)
+    path = parentDir + "/csvFiles/" + file
 
     #bæti inni skra soldTickets
     File1.close()

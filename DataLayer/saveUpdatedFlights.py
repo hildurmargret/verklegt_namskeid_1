@@ -1,10 +1,17 @@
 import csv
+import sys
+import os
 def updateFlights(flights, file):
 
     #fall sem skrifar inn uppfærðar upplýsingar um flight
 
     staff=[]
-    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/" + file
+    ##path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/" + file
+
+    absPathFile = os.path.abspath(__file__)
+    fileDir = os.path.dirname(os.path.abspath(__file__))
+    parentDir = os.path.dirname(fileDir)
+    path = parentDir + "/csvFiles/" + file
 
     f=open(path, 'w')
 

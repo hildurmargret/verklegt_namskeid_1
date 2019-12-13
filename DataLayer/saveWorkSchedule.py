@@ -1,6 +1,13 @@
 from LogicLayer.Date import*
+import sys
+import os
 def saveCompleteWS(pastFlights, upcFlights, employees):
-    path = '/Users/hildur/Desktop/'
+
+    absPathFile = os.path.abspath(__file__)
+    fileDir = os.path.dirname(os.path.abspath(__file__))
+    parentDir = os.path.dirname(fileDir)
+    path = parentDir + "/csvFiles/"
+
     file = open(path+'WorkSchedule.txt','w')
 
     for k in range(len(employees)):
@@ -26,7 +33,7 @@ def saveCompleteWS(pastFlights, upcFlights, employees):
             for j in range(len(upcFlights)):
                 file.write('Flight number: ' + upcFlights[j].flightNumber + ', From ' + upcFlights[j].departingFrom + ' to ' + upcFlights[j].arrivingAt + ', ')
                 file.write('Departure: ' + upcFlights[j].departure + ', Arrival: ' + upcFlights[j].arrival + '\n')
-                
+
         file.write('\n')
         file.write('-----------------------------------------------------------------------------------------------------')
         file.write('\n')
@@ -37,7 +44,11 @@ def saveCompleteWS(pastFlights, upcFlights, employees):
 
 def saveWeeklyWS(flights, employees, week, year):
 
-    path = '/Users/hildur/Desktop/'
+    absPathFile = os.path.abspath(__file__)
+    fileDir = os.path.dirname(os.path.abspath(__file__))
+    parentDir = os.path.dirname(fileDir)
+    path = parentDir + "/csvFiles/"
+
     file = open(path + 'WorkSchedule.txt','w')
 
     for k in range(len(employees)):

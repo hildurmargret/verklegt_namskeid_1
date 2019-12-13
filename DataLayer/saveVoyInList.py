@@ -7,13 +7,15 @@ def saveUpdatedVoyage(voyage):
 
     voy=[]
 
-    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+    ##path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     #by til voyage klasatilvik
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
 
+    file = OpenFile('UpcomingFlights copy3.csv')
+
     #tek oll voyage ut skranni og bæti við nyju
-    with open(path,'r') as File1:
+    with file as File1:
         csv_reader = csv.DictReader(File1)
 
         for row in csv_reader:

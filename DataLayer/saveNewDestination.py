@@ -1,4 +1,6 @@
 from ModelClasses.Destination import*
+import sys
+import os
 def saveDestinationInFile(newDest):
     ##path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/DestinationsCopy.csv"
 
