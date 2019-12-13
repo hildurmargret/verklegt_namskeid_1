@@ -455,9 +455,9 @@ class Windows():
             inpMinute=int(input("Minute: "))
             date=getDate(inpYear,inpMonth,inpDay,inpHour,inpMinute)
             voyage.departureFlight.departure=date
-            voyage.departureFlight.arrival=add_hour(date,3)
-            voyage.returnFlight.departure=add_hour(date,4)
-            voyage.returnFlight.arrival=add_hour(date,6)
+            voyage.departureFlight.arrival=add_hour(date,2)
+            voyage.returnFlight.departure=add_hour(date,3)
+            voyage.returnFlight.arrival=add_hour(date,5)
             UI.UIcopyExistingVoyage(voyage,inp,date)
 
 

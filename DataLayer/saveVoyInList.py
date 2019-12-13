@@ -7,7 +7,6 @@ def saveUpdatedVoyage(voyage):
 
     voy=[]
 
-    ##path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     #by til voyage klasatilvik
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
