@@ -14,6 +14,7 @@ from LogicLayer.getStaff1_4nytt import*
 from DataLayer.getDestinations import*
 from LogicLayer.leitaVoyage import*
 from LogicLayer.fixFlightNumbers import*
+from LogicLayer.Date import*
 
 #from UILayer.UI_Manager import*
 
@@ -38,15 +39,17 @@ class LL_API:
         [newVoyList,destinations]=DL.DLairportOccupied(newVoyage)
         newVoyList=fixFlNo(newVoyList,destinations)
         DL.DLsaveVoyage(newVoyList,file)
+    def LLsaveCopiedVoyage(self,voyage,file):
+        flights=DL.DLsaveVoyagesInList(voyage)
+        destinations=self.LLupdateDestination()
+        flights=fixFlNo(flights,destinations)
+        DL.DLsaveVoyage(flights,file)
 
     def LLgetAircraft(self):
         getAircraft = list_all_aircraft()
         return getAircraft
 
     def LLcopyExistingVoyage(self,voyage,inp,date):
-        flights=DL.DLsaveVoyagesInList(voyage)
-        destinations=self.LLupdateDestination()
-        flights=fixFlNo(flights,destinations)
         voyageDate=voyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:
@@ -54,21 +57,25 @@ class LL_API:
         else:
             file="PastFlights copy.csv"
         if inp==1:
-            self.LLsaveVoyage(voyage,file)
+            self.LLsaveCopiedVoyage(voyage,file)
         elif inp==2:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
-                self.LLsaveVoyage(flights,file)
+                self.LLsaveCopiedVoyage(voyage,file)
                 date=add_day(date,1)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
+                voyage.returnFlight.departure=add_hour(date,4)
+                voyage.returnFlight.arrival=add_hour(date,6)
         elif inp==3:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
-                self.LLsaveVoyage(flights,file)
+                self.LLsaveCopiedVoyage(voyage,file)
                 date=add_day(date,7)
                 voyage.departureFlight.departure=date
                 voyage.departureFlight.arrival=add_hour(date,3)
+                voyage.returnFlight.departure=add_hour(date,4)
+                voyage.returnFlight.arrival=add_hour(date,6)
 
 
 

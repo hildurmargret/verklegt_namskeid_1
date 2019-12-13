@@ -10,15 +10,15 @@ def saveUpdatedVoyage(voyage):
 
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
+        print(departRoute.flightNumber)
         for row in csv_reader:
             v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],row['aircraftID'],row['soldTickets'],row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
             voy.append(v)
-            if v.flightNumber==departRoute.flightNumber and v.departure == departRoute.departure:
-                voy.append(departRoute)
-            elif v.flightNumber == retRoute.flightNumber and v.departure == retRoute.departure:
-                voy.append(retRoute)
-            else:
-                voy.append(v)
+
+        voy.append(departRoute)
+        voy.append(retRoute)
+
+
     # File1.close()
     # f=open(path, 'w')
     # writer = csv.writer(f)
@@ -31,4 +31,6 @@ def saveUpdatedVoyage(voyage):
     #     else:
     #         writer.writerow((voy[i].flightNumber,voy[i].departingFrom,voy[i].arrivingAt,voy[i].departure,voy[i].arrival,voy[i].aircraftId,voy[i].soldTickets,voy[i].captain,voy[i].copilot,voy[i].fsm,voy[i].fa1,voy[i].fa2))
     # f.close()
+    print("\n")
+    print(len(voy))
     return voy
