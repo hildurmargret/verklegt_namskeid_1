@@ -53,7 +53,7 @@ class LL_API:
         voyageDate=voyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:
-            file="UpcomingFlights copy.csv"
+            file="UpcomingFlights copy3.csv"
         else:
             file="PastFlights copy.csv"
         if inp==1:
