@@ -77,7 +77,7 @@ class Windows():
             self.updateInformation(print_)
 
     def employeesToVoyage(self,print_):
-        print_.window25()
+        print_.window16()
         #input_string = input('Departing flight number: ')
         flightNumber = checkFlightNumberInp()
         if flightNumber==0:

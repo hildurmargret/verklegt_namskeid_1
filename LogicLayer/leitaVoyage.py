@@ -7,7 +7,8 @@ from DataLayer.read_pastFlights import *
 from UILayer.chooseVoyageFromList import*
 
 def leitaVoyage(inpt):
-    #print(inpt)
+    #fall sem fer i gegnum baðar skrár af flugum og finnur hvaða flug passa við innslegið flugnumer
+    #skilar klasatilviki voyage með bæði flug ut og tilbaka
     dest = inpt[2:4]
     no = int(inpt[4:len(inpt)])
     voyages =[]
@@ -44,6 +45,4 @@ def leitaVoyage(inpt):
                 voyages.append(voyage)
         file1 = 'UpcomingFlights copy3.csv'
 
-    #retVoyage = chooseVoyage(voyages)
-
-    return voyages #retVoyage
+    return voyages

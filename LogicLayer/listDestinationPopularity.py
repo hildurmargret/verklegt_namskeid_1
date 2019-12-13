@@ -17,6 +17,7 @@ def MostPopularDestination():
     file1 = OpenFile(skra1)
     allDest = getDestinations()
 
+    #by til lista af öllum destination sem eru ekki KEF
     for i in range(len(allDest)):
         if allDest[i].id != 'KEF':
             Destination=allDest[i].id
@@ -24,54 +25,31 @@ def MostPopularDestination():
     length=len(dest_arr)
 
 
-    # with file1 as csv_file:
-    #     csv_reader1 = csv.DictReader(csv_file)
-    #     for row in csv_reader1:
-    #         if row['id'] != "KEF":
-    #             Destination = row['id']
-    #             Destination_array.append(Destination)
-    # length = len(Destination_array)
-    #
-
     ########### open file 2 ###########
     skra2 = 'PastFlights copy.csv'
     #file2 = OpenFile(skra2)
 
     allPastFlights=read_pastFlights(skra2)
-
+    #by til lista af öllum destination ur pastflights
     for i in range(len(allPastFlights)):
         if allPastFlights[i].departingFrom == 'KEF':
             pastFlights = allPastFlights[i].arrivingAt
             pastFlights_array.append(pastFlights)
 
-    # with file2 as csv_file:
-    #     csv_reader2 = csv.DictReader(csv_file)
-    #     for row in csv_reader2:
-    #         if row['departingFrom'] == 'KEF':
-    #             pastFlights1 = row['arrivingAt']
-    #             pastFlights_array1.append(pastFlights1)
-
 
     ########### open file 3 ###########
     skra3 = 'UpcomingFlights copy3.csv'
-    #file3 = OpenFile(skra3)
 
     allUPcFlights=read_pastFlights(skra3)
-
+    #by til lista af öllum destination ur upcomingflights
     for i in range(len(allUPcFlights)):
         if allUPcFlights[i].departingFrom == 'KEF':
             upcFlights = allUPcFlights[i].arrivingAt
             upcFlights_array.append(upcFlights)
 
-    # with file3 as csv_file:
-    #     csv_reader3 = csv.DictReader(csv_file)
-    #     for row in csv_reader3:
-    #         if row['departingFrom'] == 'KEF':
-    #             pastFlights2 = row['arrivingAt']
-    #             pastFlights_array2.append(pastFlights2)
-
 
     ########### Find the most popular destination ###########
+    #set saman listana
     PopularDest =pastFlights_array + upcFlights_array
 
     counter = []
@@ -82,7 +60,7 @@ def MostPopularDestination():
     for i in range(length):
         counter.append(0)
 
-
+    #fer gegnum allt til að finna hvaða afangastaður kemur oftast fyrir
     for i in range(length-1):
         for j in range(len(PopularDest)):
             if dest_arr[i] == PopularDest[j]:

@@ -7,14 +7,14 @@ from DataLayer.OpenFile import *
 
 def voyageByDate(inptDate):
 
+    #innslegin dagsetning fengin a staðlað format
     inptDay = str(inptDate[0:2])
     inptMonth = str(inptDate[3:5])
     inptYear = str(inptDate[6:10])
 
     stdDate=inptYear + '-'+ inptMonth + '-' + inptDay + 'T' + '00:00:00'
 
-    #print(stdDate)
-
+    #tekka hvaða skra eg vil fara inni
     today=now()
 
     if today>stdDate:
@@ -22,7 +22,6 @@ def voyageByDate(inptDate):
     else:
         file='UpcomingFlights copy3.csv'
 
-    #file_flights=OpenFile(file)
     allFlights=read_pastFlights(file)
 
     voyRet = []
@@ -39,10 +38,9 @@ def voyageByDate(inptDate):
     arrHour = []
     tel=0
 
-    #print(len(allFlights))
-
     for i in range(len(allFlights)):
 
+            #til að geta fengið tima og dagsetningar a þægilegu formati
             depDay.append(str(getDay(allFlights[i].departure)))
             depMonth.append(str(getMonth(allFlights[i].departure)))
             depYear.append(str(getYear(allFlights[i].departure)))
@@ -58,22 +56,23 @@ def voyageByDate(inptDate):
 
             no=int(flugnr[4:len(flugnr)])
 
-            #print(no)
-            #print(allFlights[i].departure)
-            if stdDate[0:10] == allFlights[i].departure[0:10]: #inptDay == depDay[tel] and inptMonth == depMonth[tel] and inptYear == depYear[tel]:
-                #print('hello')
+            #finn flug sem eru a innslegnum degi
+            if stdDate[0:10] == allFlights[i].departure[0:10]:
+
+                #dags og timas
                 deptTime = depDay[tel] + '/' + depMonth[tel] + '/' + depYear[tel] + ' at ' + depHour[tel] + ':' + depMinute[tel]
                 arvlTime = arrDay[tel] + '/' + arrMonth[tel] + '/' + arrYear[tel] + ' at ' + arrHour[tel] + ':' + arrMinute[tel]
 
+                #tekka her hvort er utleið eða heimleið og by til viðeigandi klasatilvik
                 if no%2 == 0:
-                    #voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, deptTime, arvlTime,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyD=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival,allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyDep.append(voyD)
 
                 elif no%2 != 0:
                     voyR=createFlightRoute(allFlights[i].flightNumber, allFlights[i].departingFrom, allFlights[i].arrivingAt, allFlights[i].departure, allFlights[i].arrival, allFlights[i].aircraftId,allFlights[i].soldTickets, allFlights[i].captain, allFlights[i].copilot, allFlights[i].fsm, allFlights[i].fa1, allFlights[i].fa2)
                     voyRet.append(voyR)
-                    #print('Return:' + voyR.departure + voyR.arrivingAt)
+
             tel=tel+1
 
+    #skila ut bæði utleiðum og heimleiðum sem passa við innslegna dagsetningu
     return voyDep, voyRet
