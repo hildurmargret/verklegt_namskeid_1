@@ -1,8 +1,8 @@
 
 
-def leitaStaff(inpt, allStaff, ssn, rank):
-
-    updssn=[]
+def leitaStaff(inpt, allStaff):
+    ssn=[]
+    rank=[]
 
     empl_found = 0
 
@@ -17,7 +17,7 @@ def leitaStaff(inpt, allStaff, ssn, rank):
                 ssn.append(allStaff[i].SSN)
                 rank.append(allStaff[i].rank)
                 empl_found=1
-
+    #skila 0 ef eg fann ekkert
     if empl_found == 0:
         return 0,0
     else:

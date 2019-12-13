@@ -19,8 +19,6 @@ def staffInfo2(input_string):
 
     allStaff=read_crew_file(skra) #listi allra starfsmanna
 
-    ssn=[]
-    rank=[]
     employees=[]
     numOfupcDest=[]
     numOfpastDest=[]
@@ -28,7 +26,7 @@ def staffInfo2(input_string):
     upcFlights=[]
 
     for i in range(len(allStaff)): #fer í gegnum alla starfsmenn
-        ssn, rank = leitaStaff(input_string, allStaff, ssn, rank) #skilar listum af kennitölum og rank starfsm sem passa við input
+        ssn, rank = leitaStaff(input_string, allStaff) #skilar listum af kennitölum og rank starfsm sem passa við input
         for j in range(len(ssn)): #fer i gegnum listann ssn
             if allStaff[i].SSN == ssn[j]: #ber saman kennitölur ur báðum listum og by til kasatilvik af starfsmönnum sem passa við input
                 empl = createStaff(allStaff[i].name, allStaff[i].SSN, allStaff[i].address, allStaff[i].phoneNumber,allStaff[i].emailAddress,allStaff[i].rank,allStaff[i].role,allStaff[i].licence)
