@@ -96,18 +96,10 @@ class Windows():
         voyages=LL.LLleitaVoyage(flightNumber)
         voyage=chooseVoyage(voyages)
         voyage = UIappointEmptoVoy(voyage)
-        UI.UIsaveUpdVoyage(voyage)
-
-
-
-    #     input_string=input("SSN: ")
-    #     employees=LL.LLgettingEmployees(input_string)
-    #     employee=emplFromList(employees)
-    #     add=Inp3()
-    #     print_.window28()
-    # #    voyage=add.addRouteInp(voyage)
-    #     UI.UIemployeesToVoyage(voyage,employee)
-
+        if voyage == 0:
+            self.updateInformation(print_)
+        else:
+            UI.UIsaveUpdVoyage(voyage)
 
     def updateInformation(self,print_):
         print_.window21()
@@ -144,39 +136,58 @@ class Windows():
             self.getInformation(print_)
         if inp==4:
             print_.window12()
-            input_string = input('Name or SSN: ')
-            if input_string == 'CANCEL':
-                self.getStaffInfo(print_)
-            else:
-                linur=staffInfo(inp, input_string)
-                for i in range(len(linur)):
-                    print(linur[i].name + ', ' + linur[i].SSN + ' - ' + linur[i].role)
+            valid_name = 0
+            while not valid_name:
+                input_string = input('Name or SSN: ')
+                if input_string == 'CANCEL':
+                    self.getStaffInfo(print_)
+                else:
+                    linur=staffInfo(inp, input_string)
+                    if linur != 0:
+                        for i in range(len(linur)):
+                            print(linur[i].name + ', ' + linur[i].SSN + ' - ' + linur[i].role)
+                            valid_name=1
+                    else:
+                        print('No employee matches this input')
         elif inp==5:
             print_.window12()
-            input_string = input('Name or SSN: ')
-            if input_string == 'CANCEL':
-                self.getStaffInfo(print_)
-            else:
-                employees = staffInfo(4, input_string)
-                print('Choose number from list: ')
-                employee = emplFromList(employees)
-                numOfpastDest, numOfupcDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
-                print('EMPLOYEES PAST DESTINATIONS: ')
-                printDestList(numOfpastDest, pastFlights, empl)
-                #print(len(numOfupcDest))
-                if len(numOfupcDest) == 1:
-                    print('EMPLOYEE HAS NO UPCOMING DESTINATIONS')
+            valid_input = 0
+            while not valid_input:
+                input_string = input('Name or SSN: ')
+                if input_string == 'CANCEL':
+                    self.getStaffInfo(print_)
                 else:
-                    print('EMPLOYEES UPCOMING DESTINATIONS: ')
-                    printDestList(numOfupcDest, upcFlights, empl)
+                    employees = staffInfo(4, input_string)
+                    if employees != 0:
+                        valid_input = 1
+                        print('Choose number from list: ')
+                        employee = emplFromList(employees)
+                        numOfpastDest, numOfupcDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+                        print('EMPLOYEES PAST DESTINATIONS: ')
+                        printDestList(numOfpastDest, pastFlights, empl)
+                        #print(len(numOfupcDest))
+                        if len(numOfupcDest) == 1:
+                            print('EMPLOYEE HAS NO UPCOMING DESTINATIONS')
+                        else:
+                            print('EMPLOYEES UPCOMING DESTINATIONS: ')
+                            printDestList(numOfupcDest, upcFlights, empl)
+                    else:
+                        print('No employee matches this input')
+
 
         elif inp==6:
             print_.window12()
-            input_string = input('Name or SSN: ')
-            employees = staffInfo(4, input_string)
-            print('Choose number from list: ')
-            employee = emplFromList(employees)
-            print_.window26()
+            valid_input = 0
+            while not valid_input:
+                input_string = input('Name or SSN: ')
+                employees = staffInfo(4, input_string)
+                if employees != 0:
+                    valid_input=1
+                    print('Choose number from list: ')
+                    employee = emplFromList(employees)
+                    print_.window26()
+                else:
+                    print('No employee matches this input')
             WC = input('Weekly or complete? ')
             if WC == str(1):
                 print_.window19()
@@ -187,6 +198,10 @@ class Windows():
 
             elif WC == str(2):
                 numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+
+            elif WC == str(0):
+                self.getStaffInfo(print_)
+
             print_.window13()
             input_save = input('Save? ')
 

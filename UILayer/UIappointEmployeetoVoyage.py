@@ -7,14 +7,11 @@ def UIappointEmptoVoy(voyage):
 
     insignia = voyage.departureFlight.aircraftId
     airplanes = UI.UIgettingAirplanes()
-    print(insignia)
     planeid = ''
 
     for plane in airplanes:
         if plane.planeInsignia == insignia:
             planeid = plane.planeTypeId
-
-    print(planeid)
 
 
     if voyage.departureFlight.captain != '':
@@ -35,18 +32,19 @@ def UIappointEmptoVoy(voyage):
                 employees = UI.UIgetEmployees(captain)
                 employee=emplFromList(employees)
 
-                if employee.rank != 'Captain':
-                    print(employee.name + ' is not a captain. Please choose an employee with the appropriate rank')
-                elif employee.licence != planeid and planeid != '':
-                    print(employee.name + ' does not have the required licence.')
-                    print('Licence needed: '+planeid)
-                else:
-                    if employeeOccupied(employee,voyage):
-                        print(employee.name + ' is not available for this flight. Please choose another employee')
+                if employee != 0:
+                    if employee.rank != 'Captain':
+                        print(employee.name + ' is not a captain. Please choose an employee with the appropriate rank')
+                    elif employee.licence != planeid and planeid != '':
+                        print(employee.name + ' does not have the required licence.')
+                        print('Licence needed: '+planeid)
                     else:
-                        valid_captain=1
-                        voyage.departureFlight.captain = employee.SSN
-                        voyage.returnFlight.captain = employee.SSN
+                        if employeeOccupied(employee,voyage):
+                            print(employee.name + ' is not available for this flight. Please choose another employee')
+                        else:
+                            valid_captain=1
+                            voyage.departureFlight.captain = employee.SSN
+                            voyage.returnFlight.captain = employee.SSN
 
 
     if voyage.departureFlight.copilot != '':
@@ -67,18 +65,19 @@ def UIappointEmptoVoy(voyage):
                 employees = UI.UIgetEmployees(copilot)
                 employee=emplFromList(employees)
 
-            if employee.rank != 'Copilot':
-                print(employee.name + ' is not a copilot. Please choose an employee with the appropriate rank')
-            elif employee.licence != planeid and planeid != '':
-                print(employee.name + ' does not have the required licence.')
-                print('Licence needed: '+planeid)
-            else:
-                if employeeOccupied(employee,voyage):
-                    print(employee.name + ' is not available for this flight. Please choose another employee')
+            if employee != 0:
+                if employee.rank != 'Copilot':
+                    print(employee.name + ' is not a copilot. Please choose an employee with the appropriate rank')
+                elif employee.licence != planeid and planeid != '':
+                    print(employee.name + ' does not have the required licence.')
+                    print('Licence needed: '+planeid)
                 else:
-                    valid_copilot=1
-                    voyage.departureFlight.copilot = employee.SSN
-                    voyage.returnFlight.copilot = employee.SSN
+                    if employeeOccupied(employee,voyage):
+                        print(employee.name + ' is not available for this flight. Please choose another employee')
+                    else:
+                        valid_copilot=1
+                        voyage.departureFlight.copilot = employee.SSN
+                        voyage.returnFlight.copilot = employee.SSN
 
 
     if voyage.departureFlight.fsm != '':
@@ -99,15 +98,16 @@ def UIappointEmptoVoy(voyage):
                 employees = UI.UIgetEmployees(fsm)
                 employee=emplFromList(employees)
 
-            if employee.rank != 'Flight Service Manager':
-                print(employee.name + ' is not a flight service manager. Please choose an employee with the appropriate rank')
-            else:
-                if employeeOccupied(employee,voyage):
-                    print(employee.name + ' is not available for this flight. Please choose another employee')
+            if employee != 0:
+                if employee.rank != 'Flight Service Manager':
+                    print(employee.name + ' is not a flight service manager. Please choose an employee with the appropriate rank')
                 else:
-                    valid_fsm=1
-                    voyage.departureFlight.fsm = employee.SSN
-                    voyage.returnFlight.fsm = employee.SSN
+                    if employeeOccupied(employee,voyage):
+                        print(employee.name + ' is not available for this flight. Please choose another employee')
+                    else:
+                        valid_fsm=1
+                        voyage.departureFlight.fsm = employee.SSN
+                        voyage.returnFlight.fsm = employee.SSN
 
 
     add = 0
@@ -132,15 +132,17 @@ def UIappointEmptoVoy(voyage):
                 employees = UI.UIgetEmployees(fa1)
                 employee=emplFromList(employees)
 
-            if employee.rank != 'Flight Attendant':
-                print(employee.name + ' is not a flight attendant. Please choose an employee with the appropriate rank')
-            else:
-                if employeeOccupied(employee,voyage):
-                    print(employee.name + ' is not available for this flight. Please choose another employee')
+            if employee != 0:
+
+                if employee.rank != 'Flight Attendant':
+                    print(employee.name + ' is not a flight attendant. Please choose an employee with the appropriate rank')
                 else:
-                    valid_fa1=1
-                    voyage.departureFlight.fa1 = employee.SSN
-                    voyage.returnFlight.fa1 = employee.SSN
+                    if employeeOccupied(employee,voyage):
+                        print(employee.name + ' is not available for this flight. Please choose another employee')
+                    else:
+                        valid_fa1=1
+                        voyage.departureFlight.fa1 = employee.SSN
+                        voyage.returnFlight.fa1 = employee.SSN
 
     if addTwo or (add and voyage.departureFlight.fa2 == ''):
         valid_fa2 = 0
@@ -153,15 +155,15 @@ def UIappointEmptoVoy(voyage):
             else:
                 employees = UI.UIgetEmployees(fa2)
                 employee=emplFromList(employees)
-
-            if employee.rank != 'Flight Attendant':
-                print(employee.name + ' is not a flight attendant. Please choose an employee with the appropriate rank')
-            else:
-                if employeeOccupied(employee,voyage):
-                    print(employee.name + ' is not available for this flight. Please choose another employee')
+            if employee != 0:
+                if employee.rank != 'Flight Attendant':
+                    print(employee.name + ' is not a flight attendant. Please choose an employee with the appropriate rank')
                 else:
-                    valid_fa2=1
-                    voyage.departureFlight.fa2 = employee.SSN
-                    voyage.returnFlight.fa2 = employee.SSN
+                    if employeeOccupied(employee,voyage):
+                        print(employee.name + ' is not available for this flight. Please choose another employee')
+                    else:
+                        valid_fa2=1
+                        voyage.departureFlight.fa2 = employee.SSN
+                        voyage.returnFlight.fa2 = employee.SSN
 
     return voyage

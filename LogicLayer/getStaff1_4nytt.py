@@ -32,10 +32,14 @@ def staffInfo(input_num, input_string):
 
         elif input_num==4:
             ssn, rank = leitaStaff(input_string, allStaff, ssn, rank)
-            for j in range(len(ssn)):
-                if allStaff[i].SSN == ssn[j]:
-                    empl = createStaff(allStaff[i].name, allStaff[i].SSN, allStaff[i].address, allStaff[i].phoneNumber,allStaff[i].emailAddress,allStaff[i].rank,allStaff[i].role,allStaff[i].licence)
-                    employees.append(empl)
-                    break
+
+            if ssn==0 and rank == 0:
+                return 0
+            else:
+                for j in range(len(ssn)):
+                    if allStaff[i].SSN == ssn[j]:
+                        empl = createStaff(allStaff[i].name, allStaff[i].SSN, allStaff[i].address, allStaff[i].phoneNumber,allStaff[i].emailAddress,allStaff[i].rank,allStaff[i].role,allStaff[i].licence)
+                        employees.append(empl)
+                        break
 
     return employees

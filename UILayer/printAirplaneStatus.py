@@ -11,7 +11,10 @@ def printAirplaneStatus(inAir, onGround, input_date, input_time):
             m=str(getMonth(inAir[i].arrival))
             y=str(getYear(inAir[i].arrival))
             time=str(inAir[i].arrival[11:len(inAir[i].arrival)])
-            print('Airplane: ' + inAir[i].aircraftId + ', Destination: ' + inAir[i].arrivingAt + ', Flight number: ' + inAir[i].flightNumber + '\n' + 'Next availability: ' + d + '/' + m + '/' + y + ' at ' + time)
+            if inAir[i].aircraftId == '':
+                print('Airplane: No assigned airplane, Destination: ' + inAir[i].arrivingAt + ', Flight number: ' + inAir[i].flightNumber + '\n' + 'Next availability: ' + d + '/' + m + '/' + y + ' at ' + time)
+            else:
+                print('Airplane: ' + inAir[i].aircraftId + ', Destination: ' + inAir[i].arrivingAt + ', Flight number: ' + inAir[i].flightNumber + '\n' + 'Next availability: ' + d + '/' + m + '/' + y + ' at ' + time)
             print('')
         else:
             d=str(getDay(inAir[i].arrival))
