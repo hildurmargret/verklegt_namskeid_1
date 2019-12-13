@@ -1,8 +1,7 @@
 import datetime
 import dateutil.parser
 import time
-#from time import strftime,gmtime
-#import string
+#föll til að taka dagsetsingar og timasetningar a akjosanlegu formati
 
 def getDate(year,month,day,hour,minute):
     date=datetime.datetime(year,month,day,hour,minute,0).isoformat()
@@ -62,7 +61,6 @@ def time_now():
     now=datetime.datetime.now()
     current_time = now.strftime("%H:%M:%S")
     return current_time
-    #print("Current time = ", current_time )
 
 def now():
     today = datetime.datetime.today()
@@ -85,9 +83,3 @@ def add_hour(date, numOfHour):
     moddate=newdate+datetime.timedelta(hours=numOfHour)
     d=datetime.datetime.strftime(moddate, "%Y-%m-%d""T""%H:%M:%S")
     return d
-
-
-
-#getDateRangeFromWeek(23, 2019)
-
-#getDateRangeFromWeek(2019,44)

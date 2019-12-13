@@ -19,11 +19,13 @@ def weeklyWS(week,year,input_string):
 
     today=now()
 
+    #athuga hvaða flug er viðeigandi að skoða
     if today>dateRange[1]:
         flights = pastFlights
     else:
-        flights = pastFlights
+        flights = upcFlights
 
+    #skila ut þeim flugum sem passa inni daterangeið
     for i in range(len(flights)):
         day = str(flights[i].departure[0:2])
         month = str(flights[i].departure[3:5])

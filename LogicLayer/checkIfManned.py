@@ -9,9 +9,7 @@ def checkIfManned(voyage):
 
     today=now()
 
-
-    #path = '/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/'
-
+    #fer inni viðeigandi skra
     if today>voyage.departure:
         file='PastFlights copy.csv'
     else:
@@ -23,23 +21,18 @@ def checkIfManned(voyage):
     copilot_bool = 0
     fsm_bool = 0
 
+    #fer gegnum öll flug og og fyrir þau sem passa við flugnumer vinnuferðarinnar og timasetningu
     for i in range(len(allFlights)):
         if allFlights[i].flightNumber == flNo and allFlights[i].departure==voyage.departure:
-            #print(allFlights[i].flightNumber)
-            #if 'captain' in row:
+            #tekka hvort viðeigandi starfsmaður se skraður og skila ut bool breytum sem
+            #gefa til kynna hvort svo se
             if allFlights[i].captain:
-                #print(allFlights[i].captain) # is not None:
                 captain_bool = 1
 
-        #if 'copilot' in row:
             if allFlights[i].copilot:
-                #print(allFlights[i].copilot) # is not None:
                 copilot_bool = 1
-        #if 'fsm' in row:
-            if allFlights[i].fsm:
-                #print(allFlights[i].fsm)  # is not None:
-                fsm_bool = 1
 
-    #print(captain_bool, copilot_bool, fsm_bool)
+            if allFlights[i].fsm:
+                fsm_bool = 1
 
     return captain_bool, copilot_bool, fsm_bool
