@@ -54,18 +54,18 @@ class LL_API:
                 self.LLsaveCopiedVoyage(voyage,file)
                 date=add_day(date,1)
                 voyage.departureFlight.departure=date
-                voyage.departureFlight.arrival=add_hour(date,3)
-                voyage.returnFlight.departure=add_hour(date,4)
-                voyage.returnFlight.arrival=add_hour(date,6)
+                voyage.departureFlight.arrival=add_hour(date,2)
+                voyage.returnFlight.departure=add_hour(date,3)
+                voyage.returnFlight.arrival=add_hour(date,5)
         elif inp==3:
             iter=int(input("Number of iterations: "))
             for i in range(iter):
                 self.LLsaveCopiedVoyage(voyage,file)
                 date=add_day(date,7)
                 voyage.departureFlight.departure=date
-                voyage.departureFlight.arrival=add_hour(date,3)
-                voyage.returnFlight.departure=add_hour(date,4)
-                voyage.returnFlight.arrival=add_hour(date,6)
+                voyage.departureFlight.arrival=add_hour(date,2)
+                voyage.returnFlight.departure=add_hour(date,3)
+                voyage.returnFlight.arrival=add_hour(date,5)
 
 
 
