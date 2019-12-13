@@ -1,33 +1,42 @@
 import csv
 from LogicLayer.Date import*
 from ModelClasses.flightRoute import*
-from DataLayer.OpenFile import *
 from DataLayer.OpenFile import*
+from DataLayer.read_pastFlights import*
 
-def employeeOccupied(employee,retRoute):
-    date1=getDay(retRoute.departure)
-    file='UpcomingFlights copy.csv'
-    file_=OpenFile(file)
+def employeeOccupied(employee,voyage):
 
-    #path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy.csv"
-    with file_ as File1:
-        #print("HIII")
-        csv_reader = csv.DictReader(File1)
-        for row in csv_reader:
-            v = createFlightRoute(row['flightNumber'],row['departingFrom'],row['arrivingAt'],row['departure'],row['arrival'],"",row['captain'],row['copilot'],row['fsm'],row['fa1'],row['fa2'])
-            date2=getDay(v.departure)
-            #print(date1)
-            #print(date2)
-            #print(employee.SSN)
-            if date2==date1:
-                if employee.SSN==v.captain:
-                    return True
-                if employee.SSN==v.copilot:
-                    return True
-                if employee.SSN==v.fsm:
-                    return True
-                if employee.SSN==v.fa1:
-                    return True
-                if employee.SSN==v.fa2:
-                    return True
+    today=now()
+
+    if today>voyage.departureFlight.departure:
+        file='PastFlights copy.csv'
+    else:
+        file='UpcomingFlights copy3.csv'
+
+    flights = read_pastFlights(file)
+
+    voyYear = int(voyage.departureFlight.departure[0:4])
+    voyMonth = int(voyage.departureFlight.departure[5:7])
+    voyDay = int(voyage.departureFlight.departure[8:10])
+
+    voyDate = getDate(voyYear,voyMonth,voyDay,0,0)
+
+    for flight in flights:
+        flYear = int(flight.departure[0:4])
+        flMonth = int(flight.departure[5:7])
+        flDay = int(flight.departure[8:10])
+
+        flDate = getDate(flYear,flMonth,flDay,0,0)
+
+        if voyDate==flDate:
+            if employee.SSN==flight.captain:
+                return True
+            if employee.SSN==flight.copilot:
+                return True
+            if employee.SSN==flight.fsm:
+                return True
+            if employee.SSN==flight.fa1:
+                return True
+            if employee.SSN==flight.fa2:
+                return True
     return False

@@ -15,4 +15,3 @@ class createFlightRoute:
         self.fa1=fa1
         self.fa2=fa2
         self.soldTickets=soldTickets
-        self.cancel=0

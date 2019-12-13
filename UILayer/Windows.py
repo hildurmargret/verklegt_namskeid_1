@@ -42,6 +42,7 @@ from UILayer.chooseVoyageFromList import*
 from LogicLayer.mostPOPinfo import*
 from UILayer.checkFlightNumberInp import*
 from UILayer.assignAircraft import*
+from UILayer.UIappointEmployeetoVoyage import*
 
 
 UI=UI_Manager()
@@ -90,18 +91,22 @@ class Windows():
 
     def employeesToVoyage(self,print_):
         print_.window25()
-        input_string = input('Departing flight number: ')
-        voyage=leitaVoyage(input_string)
-        voyages=LL.LLleitaVoyage(input_string)
+        #input_string = input('Departing flight number: ')
+        flightNumber = checkFlightNumberInp()
+        voyages=LL.LLleitaVoyage(flightNumber)
         voyage=chooseVoyage(voyages)
-        print(voyage)
-        input_string=input("SSN: ")
-        employees=LL.LLgettingEmployees(input_string)
-        employee=emplFromList(employees)
-        add=Inp3()
-        print_.window28()
-    #    voyage=add.addRouteInp(voyage)
-        UI.UIemployeesToVoyage(voyage,employee)
+        voyage = UIappointEmptoVoy(voyage)
+        UI.UIsaveUpdVoyage(voyage)
+
+
+
+    #     input_string=input("SSN: ")
+    #     employees=LL.LLgettingEmployees(input_string)
+    #     employee=emplFromList(employees)
+    #     add=Inp3()
+    #     print_.window28()
+    # #    voyage=add.addRouteInp(voyage)
+    #     UI.UIemployeesToVoyage(voyage,employee)
 
 
     def updateInformation(self,print_):

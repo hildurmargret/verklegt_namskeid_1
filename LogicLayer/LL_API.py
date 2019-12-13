@@ -116,3 +116,6 @@ class LL_API:
 
     def LLemployeesToVoyage(self,voyage,employee):
         DL.DLemployeesToVoyage(voyage,employee)
+
+    def LLsaveUpdVoyage(self, voyage):
+        DL.DLsaveUpdVoyage(voyage)
