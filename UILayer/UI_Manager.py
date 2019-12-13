@@ -3,7 +3,11 @@ from UILayer.printAirplanes import*
 from UILayer.updateStaff_Input import*
 from UILayer.chooseEmplFromList import*
 from UILayer.updateDestination_input import*
-from UILayer.addInp import*
+from UILayer.addInp1 import*
+from UILayer.addInp2 import*
+from UILayer.addInp3 import*
+from UILayer.addInp4 import*
+from UILayer.addInp5 import*
 from UILayer.chooseDestinationFromList import*
 from LogicLayer.leitaVoyage import*
 
@@ -51,11 +55,11 @@ class UI_Manager:
         return voyage
 
     def UIupdateStaff(self):
-        update=Inp()
+        update=Inp1()
         input_string=input("SSN: ")
         employees=LL.LLupdateStaff(input_string)
         employee=pilotsFromList(employees)
-        employee=update.addStaffInp(employee)
+        employee=update.addStaffInp1(employee)
         LL.LLupdatingStaff(employee)
 
     def UIsaveUpdVoyage(self,voyage):
@@ -70,14 +74,14 @@ class UI_Manager:
         LL.LLupdatingDestination(destination)
 
     def UIupdateAircraft(self):
-        update=Inp()
+        update=Inp4()
         aircrafts=self.UIgettingAirplanes()
         aircraft=aircraftFromList(aircrafts)
         aircraft=update.addAirplaneInp(aircraft)
         LL.LLupdateAircraft(aircraft)
 
     def UIupdateVoyage(self):
-        update=Inp()
+        update=Inp5()
         input_string = input('Departing flight number: ')
         voyage=self.UIgettingVoyage(input_string)
         [voyage.departureFlight,tick]=update.addUpdRouteInp(voyage.departureFlight)
@@ -88,7 +92,7 @@ class UI_Manager:
 
     def createNewVoyage(self,print_):
         print_.window7()
-        add=Inp()
+        add=Inp3()
         departureFlight=createFlightRoute()
         [departureFlight,soldTick]=add.addRouteInp(departureFlight)
         if departureFlight == 0:

@@ -418,7 +418,7 @@ class Windows():
 
     def createAirplanes(self,print_):
         print_.window9()
-        add=Inp()
+        add=Inp4()
         airplane=createAirplane()
         airplane=add.addAirplaneInp(airplane)
         if airplane == 0:
@@ -428,7 +428,7 @@ class Windows():
 
     def createNewVoyage(self,print_):
         print_.window7()
-        add=Inp()
+        add=Inp3()
         departureFlight=createFlightRoute()
         [departureFlight,soldTick]=add.addRouteInp(departureFlight)
         if departureFlight == 0:
@@ -488,8 +488,8 @@ class Windows():
     def createNewStaff(self,print_):
         print_.window3()
         employee = createStaff()
-        add=Inp()
-        empl=add.addStaffInp(employee)
+        add=Inp1()
+        empl=add.addStaffInp1(employee)
         if empl == 0:
             self.create(print_)
         else:
@@ -508,7 +508,7 @@ class Windows():
 
     def createDestinations(self, print_):
         print_.window8()
-        add = Inp()
+        add = Inp2()
         dest = CreateDestination()
         newDest=add.addDestinationInp(dest)
         if newDest == 0:
