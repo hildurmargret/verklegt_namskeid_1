@@ -103,20 +103,22 @@ class Windows():
 
     def updateInformation(self,print_):
         print_.window21()
-        inp=int(input("number: "))
+        inp=int(input("Number: "))
         if inp==1:
             self.updateStaff(print_)
         elif inp==2:
             print_.window22()
             update=updateDestInput()
-            dest=UI.UIupdateDestination()
-            dest=DestinationFromList(dest)
-            dest=update.addDestInp(dest)
-
+            destination=UI.UIupdateDestination()
+            dest=DestinationFromList(destination)
             if dest == 0:
                 self.updateInformation(print_)
             else:
-                UI.UIsaveNewDestination(dest)
+                dest=update.addDestInp(dest)
+                if dest == 0:
+                    self.updateInformation(print_)
+                else:
+                    UI.UIsaveNewDestination(dest)
         elif inp==3:
             self.employeesToVoyage(print_)
         elif inp==4:
@@ -224,9 +226,15 @@ class Windows():
                 self.getStaffInfo(print_)
             else:
                 emp, noemp, dest = emplWorking(input_string)
-                print('AVAILABLE EMPLOYEES ' + input_string + ': ')
-                for i in range(len(noemp)):
-                    print(noemp[i].name + ', ' + noemp[i].SSN + ' - ' + noemp[i].role)
+
+                print('')
+                if len(noemp) == 0:
+                    print('THERE ARE NO AVAILABLE EMPLOYEES ' + input_string)
+                else:
+                    print('AVAILABLE EMPLOYEES ' + input_string)
+                    print('----------------------------------------------------------------------------------------------------')
+                    for emp in noemp:
+                        print(emp.name + ', ' + emp.SSN + ' - ' + emp.role + ', ' + emp.rank)
 
         elif inp==8:
             print_.window17()
@@ -235,9 +243,15 @@ class Windows():
                 self.getStaffInfo(print_)
             else:
                 emp, noemp, dest = emplWorking(input_string)
-                print('EMPLOYEES WORKING ' + input_string + ': ')
-                for i in range(len(dest)):
-                    print(dest[i])
+            
+                print('')
+                if len(emp) == 0:
+                    print('THERE ARE NO EMPLOYEES WORKING ' + input_string)
+                else:
+                    print('EMPLOYEES WORKING ' + input_string + ': ')
+                    print('----------------------------------------------------------------------------------------------------')
+                    for i in range(len(dest)):
+                        print(dest[i])
 
         else:
             linur=staffInfo(inp,'')
@@ -249,8 +263,6 @@ class Windows():
     def getAirplaneInfo(self,print_):
         print_.window14()
         inp=int(input("Number: "))
-        if inp == 'CANCEL':
-            self.
         if inp==1:
             planes = UI.UIgettingAirplanes()
             print('AIRPLANE INGSIGNIA       AIRPLANE TYPE')
@@ -325,19 +337,28 @@ class Windows():
             voyage = []
             print_.window16()
             input_string = input('Flight number: ')
-            voyage.extend(UI.UIgettingVoyage(input_string))
-            printSearchedVoyage(voyage)
+            if input_string == 'CANCEL':
+                self.getVoyageInfo(print_)
+            else:
+                voyage.append(UI.UIgettingVoyage(input_string))
+                printSearchedVoyage(voyage)
 
         elif inp==2:
             print_.window17()
             input_string = input('Date: ')
+            if input_string == 'CANCEL':
+                self.getVoyageInfo(print_)
             dep, ret = voyageByDate(input_string)
             printVoyagebyDates(dep,ret)
 
         elif inp==3:
             print_.window19()
             input_week = input('Week number: ')
+            if input_week == 'CANCEL':
+                self.getVoyageInfo(print_)
             input_year = input('Year: ')
+            if input_year == 'CANCEL':
+                self.getVoyageInfo(print_)
             voyages, daterange = voyageByWeek(input_week, input_year)
             printVoyageList(voyages, daterange)
             #printVoyagebyDates(dep,ret)
@@ -345,8 +366,12 @@ class Windows():
         elif inp==4:
             print_.window17()
             input_date=input('Date: ')
+            if input_date == 'CANCEL':
+                self.getVoyageInfo(print_)
             print_.window29()
             input_time=input('Time: ')
+            if input_time == 'CANCEL':
+                self.getVoyageInfo(print_)
             dep, ret =voyageByDate(input_date)
             status = voyageStatus(dep, ret, input_date, input_time)
             printVoyageStatus(dep, ret, status,input_date, input_time)
