@@ -167,17 +167,11 @@ class Windows():
                         employee = emplFromList(employees)
                         numOfpastDest, numOfupcDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
 
-                        if len(numOfpastDest) == 1:
-                            print('EMPLOYEE HAS NO PAST DESTINATIONS')
-                        else:
-                            print('EMPLOYEES PAST DESTINATIONS: ')
-                            printDestList(numOfpastDest, pastFlights, empl)
+                        print('EMPLOYEES PAST DESTINATIONS: ')
+                        printDestList(numOfpastDest, pastFlights, empl)
 
-                        if len(numOfupcDest) == 1:
-                            print('EMPLOYEE HAS NO UPCOMING DESTINATIONS')
-                        else:
-                            print('EMPLOYEES UPCOMING DESTINATIONS: ')
-                            printDestList(numOfupcDest, upcFlights, empl)
+                        print('EMPLOYEES UPCOMING DESTINATIONS: ')
+                        printDestList(numOfupcDest, upcFlights, empl)
                     else:
                         print('No employee matches this input')
 
@@ -502,17 +496,6 @@ class Windows():
         else:
             UI.UIsaveStaff(empl)
 
-    # def createNewCabin(self,print_):
-    #     print_.window4()
-    #     add=Inp()
-    #     [name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank]=add.addStaffInp()
-    #     cabin=createStaff(name,ssn,address,phoneNumber,mobileNumber,emailAddress,rank,"N/A")
-    #     UI.UIsaveCabin(cabin)
-
-
-    def createNewStaffmember(self,print_):
-        self.createNewStaff(print_)
-
     def createDestinations(self, print_):
         print_.window8()
         add = Inp2()
@@ -527,7 +510,7 @@ class Windows():
         print_.window1() #Staff,voyage,destination,airplane
         inp=int(input("number: "))
         if inp==1:  #Staff valinn
-            self.createNewStaffmember(print_)
+            self.createNewStaff(print_)
         elif inp==2:
             self.createVoyages(print_)
         elif inp==3:
