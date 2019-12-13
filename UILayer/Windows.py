@@ -70,7 +70,7 @@ class Windows():
 
 
     def updateVoyage(self,print_):
-        print_.window7()
+        print_.window30()
         UI.UIupdateVoyage()
 
     def updatePilot(self,print_):
@@ -180,55 +180,64 @@ class Windows():
             valid_input = 0
             while not valid_input:
                 input_string = input('Name or SSN: ')
-                employees = staffInfo(4, input_string)
-                if employees != 0:
-                    valid_input=1
-                    print('Choose number from list: ')
-                    employee = emplFromList(employees)
-                    print_.window26()
+                if input_string == 'CANCEL':
+                    self.getStaffInfo(print_)
                 else:
-                    print('No employee matches this input')
-            WC = input('Weekly or complete? ')
-            if WC == str(1):
-                print_.window19()
-                week = input('Week: ')
-                year = input('Year: ')
-                flights, empl = weeklyWS(week, year, employee.SSN)
-                print(flights)
+                    employees = staffInfo(4, input_string)
+                    if employees != 0:
+                        valid_input=1
+                        print('Choose number from list: ')
+                        employee = emplFromList(employees)
+                        print_.window26()
+                    else:
+                        print('No employee matches this input')
+                WC = input('Weekly or complete? ')
+                if WC == str(1):
+                    print_.window19()
+                    week = input('Week: ')
+                    year = input('Year: ')
+                    flights, empl = weeklyWS(week, year, employee.SSN)
+                    print(flights)
 
-            elif WC == str(2):
-                numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+                elif WC == str(2):
+                    numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
 
-            elif WC == str(0):
-                self.getStaffInfo(print_)
+                elif WC == str(0):
+                    self.getStaffInfo(print_)
 
-            print_.window13()
-            input_save = input('Save? ')
+                print_.window13()
+                input_save = input('Save? ')
 
-            if WC == str(2):
-                if input_save == str(1):
-                    saveCompleteWS(pastFlights, upcFlights, empl)
-                printCompleteWS(pastFlights, upcFlights, empl)
-            elif WC==str(1):
-                if input_save == str(1):
-                    saveWeeklyWS(flights, empl,week,year)
-                printWeeklyWS(flights,empl,week,year)
+                if WC == str(2):
+                    if input_save == str(1):
+                        saveCompleteWS(pastFlights, upcFlights, empl)
+                    printCompleteWS(pastFlights, upcFlights, empl)
+                elif WC==str(1):
+                    if input_save == str(1):
+                        saveWeeklyWS(flights, empl,week,year)
+                    printWeeklyWS(flights,empl,week,year)
 
         elif inp==7:
             print_.window17()
             input_string = input('Date: ')
-            emp, noemp, dest = emplWorking(input_string)
-            print('AVAILABLE EMPLOYEES ' + input_string + ': ')
-            for i in range(len(noemp)):
-                print(noemp[i].name + ', ' + noemp[i].SSN + ' - ' + noemp[i].role)
+            if input_string == 'CANCEL':
+                self.getStaffInfo(print_)
+            else:
+                emp, noemp, dest = emplWorking(input_string)
+                print('AVAILABLE EMPLOYEES ' + input_string + ': ')
+                for i in range(len(noemp)):
+                    print(noemp[i].name + ', ' + noemp[i].SSN + ' - ' + noemp[i].role)
 
         elif inp==8:
             print_.window17()
             input_string = input('Date: ')
-            emp, noemp, dest = emplWorking(input_string)
-            print('EMPLOYEES WORKING ' + input_string + ': ')
-            for i in range(len(dest)):
-                print(dest[i])
+            if input_string == 'CANCEL':
+                self.getStaffInfo(print_)
+            else:
+                emp, noemp, dest = emplWorking(input_string)
+                print('EMPLOYEES WORKING ' + input_string + ': ')
+                for i in range(len(dest)):
+                    print(dest[i])
 
         else:
             linur=staffInfo(inp,'')
@@ -240,6 +249,8 @@ class Windows():
     def getAirplaneInfo(self,print_):
         print_.window14()
         inp=int(input("Number: "))
+        if inp == 'CANCEL':
+            self.
         if inp==1:
             planes = UI.UIgettingAirplanes()
             print('AIRPLANE INGSIGNIA       AIRPLANE TYPE')
