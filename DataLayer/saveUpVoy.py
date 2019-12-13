@@ -1,19 +1,19 @@
 from LogicLayer.Date import*
 import csv
 from ModelClasses.flightRoute import*
+from LogicLayer.Date import*
 from DataLayer.read_pastFlights import*
 def saveUpVoy(voyage):
     voy=[]
-    #print('yello')
-    path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
+
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
-    #print('eool')
-    #print(departRoute.soldTickets)
-    #print('yeoel')
-    #print(retRoute.soldTickets)
 
-    #date=getDay(retRoute.departure)
+    today=now()
+    if today>departRoute.departure:
+        path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/PastFlights copy.csv"
+    else:
+        path="/Users/valdisbaerings/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
 
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
