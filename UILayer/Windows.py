@@ -84,18 +84,23 @@ class Windows():
             self.updatePilot(print_)
         elif inp==2:
             self.updateCabin(print_)
+        elif inp==0:
+            self.updateInformation(print_)
 
     def employeesToVoyage(self,print_):
         print_.window25()
         #input_string = input('Departing flight number: ')
         flightNumber = checkFlightNumberInp()
-        voyages=LL.LLleitaVoyage(flightNumber)
-        voyage=chooseVoyage(voyages)
-        voyage = UIappointEmptoVoy(voyage)
-        if voyage == 0:
+        if flightNumber==0:
             self.updateInformation(print_)
         else:
-            UI.UIsaveUpdVoyage(voyage)
+            voyages=LL.LLleitaVoyage(flightNumber)
+            voyage=chooseVoyage(voyages)
+            voyage = UIappointEmptoVoy(voyage)
+            if voyage == 0:
+                self.updateInformation(print_)
+            else:
+                UI.UIsaveUpdVoyage(voyage)
 
     def updateInformation(self,print_):
         print_.window21()
@@ -202,7 +207,7 @@ class Windows():
                 print(flights)
 
             elif WC == str(2):
-                numOfDest, pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
+                numOfPastDest,numOfUpcDest,pastFlights, upcFlights, empl = staffInfo2(employee.SSN)
 
             elif WC == str(0):
                 self.getStaffInfo(print_)
@@ -348,20 +353,22 @@ class Windows():
             input_string = input('Date: ')
             if input_string == 'CANCEL':
                 self.getVoyageInfo(print_)
-            dep, ret = voyageByDate(input_string)
-            printVoyagebyDates(dep,ret)
+            else:
+                dep, ret = voyageByDate(input_string)
+                printVoyagebyDates(dep,ret)
 
         elif inp==3:
             print_.window19()
             input_week = input('Week number: ')
             if input_week == 'CANCEL':
                 self.getVoyageInfo(print_)
-            input_year = input('Year: ')
-            if input_year == 'CANCEL':
-                self.getVoyageInfo(print_)
-            voyages, daterange = voyageByWeek(input_week, input_year)
-            printVoyageList(voyages, daterange)
-            #printVoyagebyDates(dep,ret)
+            else:
+                input_year = input('Year: ')
+                if input_year == 'CANCEL':
+                    self.getVoyageInfo(print_)
+                else:
+                    voyages, daterange = voyageByWeek(input_week, input_year)
+                    printVoyageList(voyages, daterange)
 
         elif inp==4:
             print_.window17()
@@ -380,9 +387,6 @@ class Windows():
 
         elif inp==0:
             self.getInformation(print_)
-
-    def getVoyageInfoWeek(self,print_):
-        print_.window19()
 
 
     def getDestinationsInfo(self,print_):
