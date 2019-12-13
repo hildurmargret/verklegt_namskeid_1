@@ -43,7 +43,7 @@ class DL_API:
         voyageDate=voyage.departureFlight.departure
         dateNow=now()
         if voyageDate>dateNow:
-            file="UpcomingFlights copy.csv"
+            file="UpcomingFlights copy3.csv"
         else:
             file="PastFlights copy.csv"
         updateFlights(flights,file)
@@ -52,7 +52,7 @@ class DL_API:
         employeesToVoyage(voyage,employee)
 
     def DLgetFlights(self):
-        flights = read_pastFlights('UpcomingFlights copy.csv')
+        flights = read_pastFlights('UpcomingFlights copy3.csv')
         flights.extend(read_pastFlights('PastFlights copy.csv'))
         return flights
     def DLsaveVoyagesInList(self,voyage):

@@ -4,13 +4,13 @@ from LogicLayer.Date import*
 from DataLayer.employeeOccupied import*
 def employeesToVoyage(voyage,Employee):
     voy=[]
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy.csv"
+    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
     date=getDay(retRoute.departure)
     emplOccupied=employeeOccupied(Employee,retRoute)
-    print("BLAAAAAAAAAAAAAA")
-    print(departRoute.aircraftId)
+
+    # print(departRoute.aircraftId)
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
         for row in csv_reader:
@@ -23,6 +23,11 @@ def employeesToVoyage(voyage,Employee):
     for i in range(len(voy)):
 
         if voy[i].flightNumber==departRoute.flightNumber:
+
+            captain_bool = 0
+            copilot_bool = 0
+            fsm_bool = 0
+
             if Employee.rank=="Captain":
                 if (departRoute.captain=="")&(emplOccupied==False)&(voy[i].aircraftId==Employee.licence):
                     departRoute.captain=Employee.SSN
@@ -33,11 +38,12 @@ def employeesToVoyage(voyage,Employee):
                     print("The employee is not available")
                 elif voy[i].aircraftId!=Employee.licence:
                     print("The captain does not have the required licence")
+
             elif (Employee.rank=="Copilot"):
                 if (departRoute.copilot=="")&(emplOccupied==False)&(voy[i].aircraftId==Employee.licence):
                     departRoute.copilot=Employee.SSN
                     retRoute.copilot=Employee.SSN
-                elif departRpute.captain!="":
+                elif departRoute.captain!="":
                     print("There is already a copilot")
                 elif emplOccupied==True:
                     print("The employee is not available")

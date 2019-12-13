@@ -41,6 +41,7 @@ from UILayer.printVoyageStatus import*
 from UILayer.chooseVoyageFromList import*
 from LogicLayer.mostPOPinfo import*
 from UILayer.checkFlightNumberInp import*
+from UILayer.assignAircraft import*
 
 
 UI=UI_Manager()
@@ -54,34 +55,15 @@ class Windows():
         else:
             voyages=LL.LLleitaVoyage(flightNumber)
             voyage=chooseVoyage(voyages)
-            aircraft = UI.UIgettingAirplanes()
+            planeID = assignAircraft(voyage)
 
-            IDExists_bool=0
-            validID_bool=0
-            while not validID_bool:
-                aircraftID=input("AircraftId: ")
+            if planeID == 0:
+                self.updateInformation(print_)
+            else:
+                voyage.departureFlight.aircraftId=planeID
+                voyage.returnFlight.aircraftId=planeID
 
-                if aircraftID == 'CANCEL':
-                    self.updateInformation(print_)
-                    validID_bool=1
-                else:
-
-                    for plane in aircraft:
-                        if plane.planeInsignia == aircraftID:
-                            IDExists_bool=1
-
-                    if not IDExists_bool:
-                        print('Invalid input. AircraftId must be one of the following:')
-                        for plane in aircraft:
-                            print(plane.planeInsignia)
-                    else:
-                        validID_bool=1
-
-            voyage.departureFlight.aircraftId=aircraftID
-            voyage.returnFlight.aircraftId=aircraftID
-
-            UI.UIaircraftToVoyage(voyage)
-
+                UI.UIaircraftToVoyage(voyage)
 
 
 

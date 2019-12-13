@@ -3,14 +3,9 @@ from ModelClasses.flightRoute import*
 
 def aircraftToVoyage(voyage):
     voy=[]
-    path="/Users/palinakroyer/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy.csv"
+    path="/Users/hildur/Documents/github/verklegt_namskeid_1/csvFiles/UpcomingFlights copy3.csv"
     departRoute=voyage.departureFlight
     retRoute=voyage.returnFlight
-    # print("HIII")
-    # print(departRoute.aircraftId)
-    # print(type(departRoute))
-    # print(retRoute)
-    # print(type(retRoute))
 
     with open(path,'r') as File1:
         csv_reader = csv.DictReader(File1)
