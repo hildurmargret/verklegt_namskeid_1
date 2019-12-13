@@ -243,7 +243,7 @@ class Windows():
                 self.getStaffInfo(print_)
             else:
                 emp, noemp, dest = emplWorking(input_string)
-            
+
                 print('')
                 if len(emp) == 0:
                     print('THERE ARE NO EMPLOYEES WORKING ' + input_string)
